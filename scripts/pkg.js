@@ -67,14 +67,6 @@ let buildCopy = [{src: files.cli.buildSrc, dest: files.cli.build}];
 let buildCmds = _.map(util.cliPkgTask(cliPkgName, pkgArch), cmd => (util.parseCommand(cmd, files.cli.build)));
 let distCopy = [files.cli.dist];
 
-// Add in extra stuff for the installer
-if (argv.installer) {
-  cleanDirs.push(files.installer.build);
-  buildCopy.push({src: files.installer.buildSrc, dest: files.installer.build, direct: true});
-  buildCmds.push(util.parseCommand(util.installerPkgTask(ddArch)));
-  distCopy.push(files.installer.dist);
-}
-
 // Declare things
 log.info('Going to clean %j', cleanDirs);
 log.info('Going to copy source from %j', _.map(buildCopy, 'src'));
