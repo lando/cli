@@ -1,4 +1,4 @@
-name: Pull Request Lint
+name: Pull Request Unt Tests
 
 on:
   pull_request:
