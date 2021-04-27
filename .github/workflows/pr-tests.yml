@@ -1,0 +1,41 @@
+name: Pull Request Tests
+
+on:
+  pull_request:
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - windows-2019
+          - ubuntu-20.04
+          - macos-10.15
+        node-version:
+          - 12.x
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn install
+  lint:
+    runs-on: ubuntu-20.04
+    needs:
+      - install
+    steps:
+      - run: yarn install
+      - run: yarn lint
+  unit:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - windows-2019
+          - ubuntu-20.04
+          - macos-10.15
+    needs:
+      - install
+    steps:
+      - run: yarn test:unit
