@@ -19,7 +19,6 @@ const arch = _.get(argv, 'arch', 'x64');
 
 // Docker destop uses amd64, vercel uses x64 so lets just handle both
 const pkgArch = (arch === 'amd64') ? 'x64' : arch;
-const ddArch = (arch === 'x64') ? 'amd64' : arch;
 
 // Lando info
 const version = require('./../package.json').version;
