@@ -1,4 +1,4 @@
-name: Pull Request Unt Tests
+name: Unit Tests
 
 on:
   pull_request:

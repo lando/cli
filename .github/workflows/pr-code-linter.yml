@@ -1,17 +1,13 @@
-name: Pull Request Lint
+name: Code Lintер
 
 on:
   pull_request:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        os:
-          - windows-2019
-          - ubuntu-20.04
-          - macos-10.15
         node-version:
           - 12.x
     steps:
