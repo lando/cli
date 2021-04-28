@@ -15,7 +15,9 @@ jobs:
         node-version:
           - 12.x
         drupal-version:
-          - 6
+          - 9
+          - 8
+          - 7
           - 9
     steps:
 

@@ -1,10 +1,10 @@
-name: PR Core Tests
+name: PR Node Tests
 
 on:
   pull_request:
 
 jobs:
-  core-tests:
+  drupal-tests:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
@@ -14,15 +14,9 @@ jobs:
           - ubuntu-20.04
         node-version:
           - 12.x
-        core-tests:
-          - basics
-          - badname
-          - custom-landofile-name
-          - events
-          - proxy
-          - scanner
-          - services
-          - tooling
+        node-test-version:
+          - 10
+          - 12
     steps:
 
       # Install deps and cache
@@ -69,6 +63,5 @@ jobs:
       #   run: echo "Disable usage and error reporting"
       - name: Generate tests
         run: yarn generate:tests
-
-      - name: Run ${{ matrix.core-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.core-tests }}-example.func.js
+      - name: Run Node ${{ matrix.node-test-version }} tests
+        run: yarn mocha --timeout 900000 ./test/node-${{ matrix.node-test-version }}-example.func.js
