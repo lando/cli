@@ -64,4 +64,4 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
       - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/node-${{ matrix.leia-tests }}-example.func.js
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}-example.func.js
