@@ -38,6 +38,10 @@ jobs:
         run: yarn install --prefer-offline --frozen-lockfile
 
       # Here is the main thing
+      - name: Verify Docker dependencies
+        run: |
+          docker --version
+          docker-compose --version
       - name: Take this thing into hyperspace
         run: ./scripts/github-actions-hyperdrive.sh
       - name: Disable usage and error reporting
