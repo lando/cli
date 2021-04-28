@@ -1,4 +1,4 @@
-name: PR Functional Tests
+name: PR Drupal Tests
 
 on:
   pull_request:
@@ -34,7 +34,7 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies
+      - name: Install Yarn dependencies
         run: yarn install --prefer-offline --frozen-lockfile
 
       # Here is the main thing
@@ -62,5 +62,7 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
 
-      - name: Run tests
-        run: yarn mocha --timeout 900000 ./test/drupal-7-example.func.js
+      - name: Run base test
+        run: yarn mocha --timeout 900000 ./test/basics-example.func.js
+      - name: Run badname test
+        run: yarn mocha --timeout 900000 ./test/badname-example.func.js
