@@ -66,4 +66,4 @@ jobs:
         run: yarn generate:tests
 
       - name: Run core ${{ matrix.core-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/drupal-${{ matrix.core-tests }}-example.func.js
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.core-tests }}-example.func.js
