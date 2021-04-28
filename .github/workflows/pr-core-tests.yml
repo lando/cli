@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  func-tests:
+  core-tests:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm

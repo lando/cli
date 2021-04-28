@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  func-tests:
+  drupal-tests:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
