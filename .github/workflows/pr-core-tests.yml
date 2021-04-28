@@ -14,6 +14,10 @@ jobs:
           - ubuntu-20.04
         node-version:
           - 12.x
+        core-tests:
+          - basics
+          - badname
+          - custom-landofile-name
     steps:
 
       # Install deps and cache
@@ -61,11 +65,5 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
 
-      - name: Run basics test
-        run: yarn mocha --timeout 900000 ./test/basics-example.func.js
-      - name: Run badname test
-        run: yarn mocha --timeout 900000 ./test/badname-example.func.js
-      - name: Run custom landofile name test
-        run: yarn mocha --timeout 900000 ./test/custom-landofile-name-example.func.js
-      - name: Run custom landofile name test
-        run: yarn mocha --timeout 900000 ./test/custom-landofile-name-example.func.js
+      - name: Run core ${{ matrix.core-tests }} tests
+        run: yarn mocha --timeout 900000 ./test/drupal-${{ matrix.core-tests }}-example.func.js
