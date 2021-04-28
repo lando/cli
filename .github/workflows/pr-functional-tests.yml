@@ -54,7 +54,7 @@ jobs:
       - name: Move CLI
         run: sudo mv ./dist/cli/* /usr/local/bin/lando
       - name: Verify CLI
-        run: lando --version
+        run: lando version
       - name: Disable usage and error reporting
         run: echo "Disable usage and error reporting"
       - name: Generate tests
