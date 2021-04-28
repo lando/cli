@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  node-tests:
+  leia-tests:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
@@ -14,9 +14,9 @@ jobs:
           - ubuntu-20.04
         node-version:
           - 12.x
-        node-test-version:
-          - 10
-          - 12
+        leia-tests:
+          - node-10
+          - node-12
     steps:
 
       # Install deps and cache
@@ -63,5 +63,5 @@ jobs:
       #   run: echo "Disable usage and error reporting"
       - name: Generate tests
         run: yarn generate:tests
-      - name: Run Node ${{ matrix.node-test-version }} tests
-        run: yarn mocha --timeout 900000 ./test/node-${{ matrix.node-test-version }}-example.func.js
+      - name: Run ${{ matrix.leia-tests }} tests
+        run: yarn mocha --timeout 900000 ./test/node-${{ matrix.leia-tests }}-example.func.js

@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  core-tests:
+  leia-tests:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
@@ -14,7 +14,7 @@ jobs:
           - ubuntu-20.04
         node-version:
           - 12.x
-        core-tests:
+        leia-tests:
           - basics
           - badname
           - custom-landofile-name
@@ -70,5 +70,5 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
 
-      - name: Run ${{ matrix.core-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.core-tests }}-example.func.js
+      - name: Run ${{ matrix.leia-tests }} tests
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}-example.func.js

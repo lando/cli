@@ -1,4 +1,4 @@
-name: PR Drupal Tests
+name: PR PHP Tests
 
 on:
   pull_request:
@@ -15,10 +15,8 @@ jobs:
         node-version:
           - 12.x
         leia-tests:
-          - drupal-9
-          - drupal-8
-          - drupal-7
-          - drupal-6
+          - php
+          - php-extensions
     steps:
 
       # Install deps and cache
