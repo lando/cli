@@ -1,4 +1,4 @@
-name: PR Drupal Tests
+name: PR Core Tests
 
 on:
   pull_request:
