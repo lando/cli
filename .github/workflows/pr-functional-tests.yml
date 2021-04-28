@@ -55,9 +55,12 @@ jobs:
         run: sudo mv ./dist/cli/* /usr/local/bin/lando
       - name: Verify CLI
         run: lando version
-      - name: Disable usage and error reporting
-        run: echo "Disable usage and error reporting"
+
+      # - name: Disable usage and error reporting
+      #   run: echo "Disable usage and error reporting"
+
       - name: Generate tests
-        run: echo "Generate tests"
+        run: yarn generate:tests
+
       - name: Run tests
-        run: echo "Run tests"
+        run: yarn mocha --timeout 900000 ./test/drupal-7-example.func.js
