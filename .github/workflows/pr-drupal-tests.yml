@@ -1,4 +1,4 @@
-name: PR Drupal 6 Tests
+name: PR Drupal Tests
 
 on:
   pull_request:
@@ -63,5 +63,5 @@ jobs:
       #   run: echo "Disable usage and error reporting"
       - name: Generate tests
         run: yarn generate:tests
-      - name: Run Drupal ${{ matrix.node-version }} Tests
-        run: yarn mocha --timeout 900000 ./test/drupal-${{ matrix.node-version }}-example.func.js
+      - name: Run Drupal ${{ matrix.drupal-version }} Tests
+        run: yarn mocha --timeout 900000 ./test/drupal-${{ matrix.drupal-version }}-example.func.js
