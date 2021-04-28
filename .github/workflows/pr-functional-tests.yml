@@ -6,6 +6,8 @@ on:
 jobs:
   func-tests:
     runs-on: ${{ matrix.os }}
+    env:
+      TERM: xterm
     strategy:
       matrix:
         os:
