@@ -183,7 +183,8 @@ lando config | grep "channel" | grep "stable"
 # Should not allow bogus relase channels
 lando --channel orange || echo $? | grep 1
 
-# Should load experimental plugins by default in CI
+# Should load experimental plugins if toggled on
+lando --experimental
 lando config | grep experimentalPluginLoadTest | grep true
 
 # Should load plugins from pluginDirs
