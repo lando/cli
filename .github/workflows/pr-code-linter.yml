@@ -1,4 +1,4 @@
-name: Code Lintеr
+name: PR Code Lintеr
 
 on:
   pull_request:
