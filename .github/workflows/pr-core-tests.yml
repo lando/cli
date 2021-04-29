@@ -1,4 +1,4 @@
-name: PR Core Tests
+name: Core Tests
 
 on:
   pull_request:
@@ -15,14 +15,17 @@ jobs:
         node-version:
           - 12.x
         leia-tests:
-          - basics
-          - badname
-          - custom-landofile-name
-          - events
-          - proxy
-          - scanner
-          - services
-          - tooling
+          - basics-example
+          - badname-example
+          - custom-landofile-name-example
+          - events-example
+          - keys-example
+          - networking-example
+          - proxy-example
+          - scanner-example
+          - services-example
+          - tooling-example
+          - lando-101
     steps:
 
       # Install deps and cache
@@ -70,4 +73,4 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
       - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}-example.func.js
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js

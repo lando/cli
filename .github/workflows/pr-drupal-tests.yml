@@ -1,4 +1,4 @@
-name: PR Drupal Tests
+name: Drupal Tests
 
 on:
   pull_request:
@@ -15,10 +15,10 @@ jobs:
         node-version:
           - 12.x
         leia-tests:
-          - drupal-9
-          - drupal-8
-          - drupal-7
-          - drupal-6
+          - drupal-9-example
+          - drupal-8-example
+          - drupal-7-example
+          - drupal-6-example
     steps:
 
       # Install deps and cache
@@ -66,4 +66,4 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
       - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}-example.func.js
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js

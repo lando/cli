@@ -1,4 +1,4 @@
-name: Node Tests
+name: Symfony Tests
 
 on:
   pull_request:
@@ -15,8 +15,7 @@ jobs:
         node-version:
           - 12.x
         leia-tests:
-          - node-10-example
-          - node-12-example
+          - symfony-example
     steps:
 
       # Install deps and cache
