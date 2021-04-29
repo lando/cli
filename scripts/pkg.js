@@ -14,13 +14,15 @@ const Shell = require('./../lib/shell');
 const shell = new Shell(log);
 const util = require('./util');
 
-// Get Target
-const target = _.get(argv, 'target', `node${util.NODE_VERSION}-${util.cliTargetOs()}-${os.arch()}`);
+// Start by splitting up args passed in via target
+const pieces = _.get(argv, 'target').split('-');
 
-// Split up into pieces
-const pkgNodeVersion = target.split('-')[0];
-const pkgOs = target.split('-')[1];
-const pkgArch = target.split('-')[2];
+// Split up into pieces but also be
+const pkgNodeVersion = pieces[0] || `node${util.NODE_VERSION}`;
+const pkgOs = pieces[1] || util.cliTargetOs();
+const pkgArch = pieces[2] || os.arch();
+// Assemble the target
+const target = [pkgNodeVersion, pkgOs, pkgArch].join('-');
 
 // Lando info
 const version = require('./../package.json').version;
@@ -58,11 +60,8 @@ const files = {
   },
 };
 
-// Clean the dist directory
-fs.emptyDirSync(files.dist);
-
 // Get things based on args
-let cleanDirs = [files.dist, files.cli.build];
+let cleanDirs = [files.cli.build];
 let buildCopy = [{src: files.cli.buildSrc, dest: files.cli.build}];
 let buildCmds = _.map(util.cliPkgTask(cliPkgName, target), cmd => (util.parseCommand(cmd, files.cli.build)));
 let distCopy = [files.cli.dist];

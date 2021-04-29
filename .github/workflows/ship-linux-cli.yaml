@@ -1,4 +1,4 @@
-name: Package CLI
+name: Ship CLI
 
 on:
   pull_request:
@@ -11,9 +11,7 @@ jobs:
     strategy:
       matrix:
         os:
-          - windows-2019
           - ubuntu-20.04
-          - macos-10.15
         node-version:
           - '14'
     steps:
@@ -43,11 +41,11 @@ jobs:
       - name: Package CLI
         run: |
           yarn pkg --target=node${{ matrix.node-version }}-macos-x64
-          # yarn pkg --target=node${{ matrix.node-version }}-macos-arm64
+          yarn pkg --target=node${{ matrix.node-version }}-macos-arm64
           yarn pkg --target=node${{ matrix.node-version }}-linux-x64
-          # yarn pkg --target=node${{ matrix.node-version }}-linux-arm64
+          yarn pkg --target=node${{ matrix.node-version }}-linux-arm64
           yarn pkg --target=node${{ matrix.node-version }}-win-x64
       # Do operating specific signing things
-      - name: Sign CLI
+      - name: Verify CLI
         run: |
           ls -lsa ./dist/*

@@ -4,8 +4,8 @@ const _ = require('lodash');
 const os = require('os');
 const path = require('path');
 
-// The version of node to build with
-exports.NODE_VERSION = 14;
+// Use the version
+exports.NODE_VERSION = _.trimStart(process.version, 'v').split('.')[0];
 
 /*
  * Returns the target OS
