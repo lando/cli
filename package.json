@@ -41,9 +41,7 @@
     "lint": "eslint --quiet --no-ignore bin experimental integrations lib plugins scripts test",
     "pkg": "node ./scripts/pkg.js",
     "release": "bump --prompt --tag --all --push",
-    "test:unit": "yarn test:unit:core && yarn test:unit:plugins",
-    "test:unit:core": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
-    "test:unit:plugins": "nyc --reporter=html --reporter=text mocha --timeout 5000 experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
     "test:functional": "mocha --timeout 900000 test/**/*.func.js",
     "test": "yarn lint && yarn test:unit"
   },
@@ -143,6 +141,7 @@
     "yargs": "^12.0.5"
   },
   "devDependencies": {
+    "@jesec/pkg": "^4.5.6",
     "@octokit/rest": "^17.1.0",
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
     "body-parser": "^1.14.2",
@@ -160,7 +159,6 @@
     "mocha": "^4.1.0",
     "mock-fs": "https://github.com/pirog/mock-fs.git#256-ctxBindingAccess",
     "nyc": "^12.0.1",
-    "pkg": "^4.5.1",
     "sinon": "^4.3.0",
     "sinon-chai": "^2.14.0",
     "version-bump-prompt": "^4.2.1"

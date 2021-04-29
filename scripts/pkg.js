@@ -7,24 +7,25 @@ const argv = require('yargs').argv;
 const fs = require('fs-extra');
 const Log = require('./../lib/logger');
 const log = new Log({logLevelConsole: 'debug', logName: 'pkg'});
+const os = require('os');
 const path = require('path');
 const Promise = require('bluebird');
 const Shell = require('./../lib/shell');
 const shell = new Shell(log);
 const util = require('./util');
 
-// Get arch
-// Assume x64 as the default
-const arch = _.get(argv, 'arch', 'x64');
+// Get Target
+const target = _.get(argv, 'target', `node${util.NODE_VERSION}-${util.cliTargetOs()}-${os.arch()}`);
 
-// Docker destop uses amd64, vercel uses x64 so lets just handle both
-const pkgArch = (arch === 'amd64') ? 'x64' : arch;
+// Split up into pieces
+const pkgNodeVersion = target.split('-')[0];
+const pkgOs = target.split('-')[1];
+const pkgArch = target.split('-')[2];
 
 // Lando info
 const version = require('./../package.json').version;
-const pkgOs = (process.platform !== 'darwin') ? process.platform : 'osx';
 const pkgType = [pkgOs, pkgArch, 'v' + version].join('-');
-const pkgExt = (pkgOs === 'win32') ? '.exe' : '';
+const pkgExt = (pkgOs === 'win') ? '.exe' : '';
 const cliPkgName = 'lando-' + pkgType + pkgExt;
 
 // Files
@@ -63,10 +64,11 @@ fs.emptyDirSync(files.dist);
 // Get things based on args
 let cleanDirs = [files.dist, files.cli.build];
 let buildCopy = [{src: files.cli.buildSrc, dest: files.cli.build}];
-let buildCmds = _.map(util.cliPkgTask(cliPkgName, pkgArch), cmd => (util.parseCommand(cmd, files.cli.build)));
+let buildCmds = _.map(util.cliPkgTask(cliPkgName, target), cmd => (util.parseCommand(cmd, files.cli.build)));
 let distCopy = [files.cli.dist];
 
 // Declare things
+log.info('Building with %s for %s on %s arch', pkgNodeVersion, pkgOs, pkgArch);
 log.info('Going to clean %j', cleanDirs);
 log.info('Going to copy source from %j', _.map(buildCopy, 'src'));
 log.info('Going to run %j', buildCmds);

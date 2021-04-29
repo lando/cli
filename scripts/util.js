@@ -1,7 +1,11 @@
 'use strict';
 
 const _ = require('lodash');
+const os = require('os');
 const path = require('path');
+
+// The version of node to build with
+exports.NODE_VERSION = 14;
 
 /*
  * Returns the target OS
@@ -22,12 +26,12 @@ exports.cliTargetOs = () => {
 /*
  * Constructs the CLI PKG task
  */
-exports.cliPkgTask = (output, arch = 'x64') => {
+exports.cliPkgTask = (output, target = `node${exports.NODE_VERSION}-${exports.cliTargetOs()}-${os.arch()}`) => {
   // Package command
   const pkgCmd = [
     'node',
-    path.resolve(__dirname, '..', 'node_modules', 'pkg', 'lib-es5', 'bin.js'),
-    '--targets ' + ['node12', exports.cliTargetOs(), arch].join('-'),
+    path.resolve(__dirname, '..', 'node_modules', '@jesec', 'pkg', 'lib-es5', 'bin.js'),
+    '--targets ' + target,
     '--config ' + path.join('package.json'),
     '--output ' + output,
     path.join('bin', 'lando.js'),
