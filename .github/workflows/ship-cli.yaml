@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  leia-tests:
+  ship:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
@@ -43,9 +43,9 @@ jobs:
       - name: Package CLI
         run: |
           yarn pkg --target=node${{ matrix.node-version }}-macos-x64
-          yarn pkg --target=node${{ matrix.node-version }}-macos-arm64
+          # yarn pkg --target=node${{ matrix.node-version }}-macos-arm64
           yarn pkg --target=node${{ matrix.node-version }}-linux-x64
-          yarn pkg --target=node${{ matrix.node-version }}-linux-arm64
+          # yarn pkg --target=node${{ matrix.node-version }}-linux-arm64
           yarn pkg --target=node${{ matrix.node-version }}-win-x64
       # Do operating specific signing things
       - name: Sign CLI
