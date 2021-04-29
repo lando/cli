@@ -39,27 +39,27 @@ jobs:
       - name: Install Yarn dependencies
         run: yarn install --prefer-offline --frozen-lockfile
 
-      # Ensure underlying lando deps are installed
-      # - name: Install and config via hyperdrive
-      #   run: STUFF
-      # @TODO: See above ^
+      # This block should eventually become use lando/actions-hyperdrive@v2
       - name: Verify Docker dependencies
         run: |
           docker --version | grep "20.10."
           docker-compose --version | grep "1.29."
-
-      # We should test against a packaged version of the CLI
-      # @TODO: cache the build asset?
-      # @TODO: hash the version node ./scripts/dev-version.js
-      - name: Build CLI
+      # - name: Install via hyperdrive if above is bad
+      - name: Disable usage and error reporting
+        run: |
+          mkdir -p ~/.lando/cache
+          echo false > ~/.lando/cache/report_errors
+          sed -i "s/report: true.*/report: false/" config.yml
+      - name: Package CLI
         run: yarn pkg
-      - name: Replace source CLI with built one
+      - name: Replace source CLI with packaged one
         run: sudo mv ./dist/cli/* /usr/local/bin/lando
-      - name: Verify we can run the built CLI
-        run: lando version
+      - name: Verify we can run the packaged CLI
+        run: |
+          lando version
+          lando config
 
-      # - name: Disable usage and error reporting
-      #   run: echo "Disable usage and error reporting"
+      # This block should eventually become use lando/actions-leia@v2
       - name: Generate tests
         run: yarn generate:tests
       - name: Run ${{ matrix.leia-tests }} tests
