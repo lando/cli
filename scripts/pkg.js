@@ -15,7 +15,7 @@ const shell = new Shell(log);
 const util = require('./util');
 
 // Start by splitting up args passed in via target
-const pieces = _.get(argv, 'target').split('-');
+const pieces = _.get(argv, 'target', '').split('-');
 
 // Split up into pieces but also be
 const pkgNodeVersion = pieces[0] || `node${util.NODE_VERSION}`;
