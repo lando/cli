@@ -1,4 +1,4 @@
-name: Memcached Tests
+name: Package CLI
 
 on:
   pull_request:
@@ -11,11 +11,11 @@ jobs:
     strategy:
       matrix:
         os:
+          - windows-2019
           - ubuntu-20.04
+          - macos-10.15
         node-version:
           - '14'
-        leia-tests:
-          - memcached-example
     steps:
 
       # Install deps and cache
@@ -39,28 +39,16 @@ jobs:
       - name: Install Yarn dependencies
         run: yarn install --prefer-offline --frozen-lockfile
 
-      # This block should eventually become use lando/actions-hyperdrive@v2
-      - name: Verify Docker dependencies
-        run: |
-          docker --version | grep "20.10."
-          docker-compose --version | grep "1.29."
-      # - name: Install via hyperdrive if above is bad
-      - name: Disable usage and error reporting
-        run: |
-          mkdir -p ~/.lando/cache
-          echo false > ~/.lando/cache/report_errors
-          sed -i "s/report: true.*/report: false/" config.yml
+      # Package up the cli
       - name: Package CLI
-        run: yarn pkg
-      - name: Replace source CLI with packaged one
-        run: sudo mv ./dist/cli/* /usr/local/bin/lando
-      - name: Verify we can run the packaged CLI
         run: |
-          lando version
-          lando config
-
-      # This block should eventually become use lando/actions-leia@v2
-      - name: Generate tests
-        run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+          yarn pkg --target=node${{ matrix.node-version }}-macos-x64
+          yarn pkg --target=node${{ matrix.node-version }}-macos-arm64
+          yarn pkg --target=node${{ matrix.node-version }}-linux-x64
+          yarn pkg --target=node${{ matrix.node-version }}-linux-arm64
+          yarn pkg --target=node${{ matrix.node-version }}-win-x64
+          yarn pkg --target=node${{ matrix.node-version }}-win-arm64
+      # Do operating specific signing things
+      - name: Sign CLI
+        run: |
+          ls -lsa ./dist/*
