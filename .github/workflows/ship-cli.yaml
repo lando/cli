@@ -49,7 +49,6 @@ jobs:
       # @NOTE: We cross-compile on Linux because _right now_ this seems to be
       # the only place we can reliably build all the variants. We use actions/upload
       # so move assets between jobs
-      - name:
       - name: Package ${{ matrix.variant }} CLI
         run: |
           node ./scripts/dev-version.js
