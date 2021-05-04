@@ -52,7 +52,7 @@ jobs:
       - name: Package ${{ matrix.variant }} CLI
         run: |
           node ./scripts/dev-version.js
-          node ./bin/lando.js --version
+          node ./bin/lando.js version
           yarn pkg --target=node${{ matrix.node-version }}-${{ matrix.variant }} --no-version
       - name: Upload lando-build-${{ matrix.variant }}-${{ github.sha }}
         uses: actions/upload-artifact@v2
