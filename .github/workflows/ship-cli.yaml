@@ -77,13 +77,13 @@ jobs:
           - windows-2019
         include:
           - os: macos-10.15
-            variant:
-              - macos-x64
-              - macos-arm64
+            variant: macos-x64
+          - os: macos-10.15
+            variant: macos-arm64
           - os: ubuntu-20.04
-            variant:
-              - linux-x64
-              - linux-arm64
+            variant: linux-x64
+          - os: ubuntu-20.04
+            variant: linux-arm64
           - os: windows-2019
             variant: win-x64
     steps:
