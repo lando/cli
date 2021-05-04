@@ -7,25 +7,27 @@ const argv = require('yargs').argv;
 const fs = require('fs-extra');
 const Log = require('./../lib/logger');
 const log = new Log({logLevelConsole: 'debug', logName: 'pkg'});
+const os = require('os');
 const path = require('path');
 const Promise = require('bluebird');
 const Shell = require('./../lib/shell');
 const shell = new Shell(log);
 const util = require('./util');
 
-// Get arch
-// Assume x64 as the default
-const arch = _.get(argv, 'arch', 'x64');
+// Start by splitting up args passed in via target
+const pieces = _.get(argv, 'target', '').split('-');
 
-// Docker destop uses amd64, vercel uses x64 so lets just handle both
-const pkgArch = (arch === 'amd64') ? 'x64' : arch;
-const ddArch = (arch === 'x64') ? 'amd64' : arch;
+// Split up into pieces but also be
+const pkgNodeVersion = pieces[0] || `node${util.NODE_VERSION}`;
+const pkgOs = pieces[1] || util.cliTargetOs();
+const pkgArch = pieces[2] || os.arch();
+// Assemble the target
+const target = [pkgNodeVersion, pkgOs, pkgArch].join('-');
 
 // Lando info
 const version = require('./../package.json').version;
-const pkgOs = (process.platform !== 'darwin') ? process.platform : 'osx';
 const pkgType = [pkgOs, pkgArch, 'v' + version].join('-');
-const pkgExt = (pkgOs === 'win32') ? '.exe' : '';
+const pkgExt = (pkgOs === 'win') ? '.exe' : '';
 const cliPkgName = 'lando-' + pkgType + pkgExt;
 
 // Files
@@ -58,24 +60,14 @@ const files = {
   },
 };
 
-// Clean the dist directory
-fs.emptyDirSync(files.dist);
-
 // Get things based on args
-let cleanDirs = [files.dist, files.cli.build];
+let cleanDirs = [files.cli.build];
 let buildCopy = [{src: files.cli.buildSrc, dest: files.cli.build}];
-let buildCmds = _.map(util.cliPkgTask(cliPkgName, pkgArch), cmd => (util.parseCommand(cmd, files.cli.build)));
+let buildCmds = _.map(util.cliPkgTask(cliPkgName, target), cmd => (util.parseCommand(cmd, files.cli.build)));
 let distCopy = [files.cli.dist];
 
-// Add in extra stuff for the installer
-if (argv.installer) {
-  cleanDirs.push(files.installer.build);
-  buildCopy.push({src: files.installer.buildSrc, dest: files.installer.build, direct: true});
-  buildCmds.push(util.parseCommand(util.installerPkgTask(ddArch)));
-  distCopy.push(files.installer.dist);
-}
-
 // Declare things
+log.info('Building with %s for %s on %s arch', pkgNodeVersion, pkgOs, pkgArch);
 log.info('Going to clean %j', cleanDirs);
 log.info('Going to copy source from %j', _.map(buildCopy, 'src'));
 log.info('Going to run %j', buildCmds);

@@ -1,54 +1,20 @@
-name: lando
+name: lando-cli
 env_file:
   - lando.env
 excludes:
   - node_modules
-proxy:
-  cli:
-    - docs.lndo.site:8021
-  metrics:
-    - metrics.lndo.site:8020
 services:
   cli:
-    type: node:14
+    type: node:12
     build:
       - yarn install
     scanner: false
-    ssl: true
+    ssl: false
     sslExpose: false
-    overrides:
-      environment:
-        LANDO_API: https://api.lando.dev
-      ports:
-        - '8021:8021'
-  metrics:
-    type: node:14
-    command: yarn run dev:metrics
-    overrides:
-      environment:
-        LANDO_METRICS_PORT: 8020
-    port: 8020
-    ssl: true
-    sslExpose: false
-  platform:
-    type: php:7.3
-    via: cli
-    build:
-      - mkdir -p /var/www/.platformsh/bin
-      - curl -fsSL -o /var/www/.platformsh/bin/platform https://github.com/platformsh/platformsh-cli/releases/download/v3.40.4/platform.phar
-      - chmod ug+x /var/www/.platformsh/bin/platform
 tooling:
-  docs:
-    service: cli
-    cmd: yarn dev:docs
-    description: Launch the documentation site
   node:
     service: cli
   vuepress:
     service: cli
   yarn:
     service: cli
-  platform:
-    service: platform
-    description: Run Platform CLI commands
-    cmd: /var/www/.platformsh/bin/platform

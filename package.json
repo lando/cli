@@ -1,15 +1,15 @@
 {
-  "name": "lando",
-  "description": "The best local development solution in the galaxy.",
+  "name": "lando-cli",
+  "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
   "version": "3.1.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lando/lando"
+    "url": "https://github.com/lando/cli"
   },
   "bugs": {
-    "email": "mike@thinktandem.io",
-    "url": "https://github.com/lando/lando/issues"
+    "email": "mike@lando.dev",
+    "url": "https://github.com/lando/cli/issues"
   },
   "main": "lib/lando.js",
   "bin": {
@@ -38,16 +38,10 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate:api": "node ./scripts/yaml2json.js ./sponsors.yml ./contributors.yml --output-dir docs/.vuepress/public/api",
     "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
-    "lint": "eslint --quiet --no-ignore bin experimental integrations lib plugins scripts test metrics",
-    "lint:sites": "eslint  --quiet --ext .js,.vue --config .eslintrc.vuepress.json docs/.vuepress",
-    "pkg:cli": "node ./scripts/pkg.js",
-    "pkg:full": "node ./scripts/pkg.js --installer",
+    "lint": "eslint --quiet --no-ignore bin experimental integrations lib plugins scripts test",
+    "pkg": "node ./scripts/pkg.js",
     "release": "bump --prompt --tag --all --push",
-    "dev:docs": "yarn generate:api && node ./scripts/docs.js && vuepress dev --temp /tmp/lando-docs --cache /tmp/lando-docs-cache --port 8021 docs",
-    "dev:metrics": "./node_modules/nodemon/bin/nodemon.js ./metrics/server.js",
-    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 experimental/**/test/*.spec.js integrations/**/test/*.spec.js test/**/*.spec.js plugins/**/test/**/*.spec.js",
-    "test:unit:core": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
-    "test:unit:plugins": "nyc --reporter=html --reporter=text mocha --timeout 5000 experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
     "test:functional": "mocha --timeout 900000 test/**/*.func.js",
     "test": "yarn lint && yarn test:unit"
   },
@@ -147,7 +141,7 @@
     "yargs": "^12.0.5"
   },
   "devDependencies": {
-    "@bugsnag/js": "^6.4.3",
+    "@jesec/pkg": "^4.5.6",
     "@octokit/rest": "^17.1.0",
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
     "body-parser": "^1.14.2",
@@ -158,27 +152,15 @@
     "compression": "^1.7.4",
     "coveralls": "^3.0.1",
     "dotenv": "^4.0.0",
-    "elasticsearch": "~10.1.2",
     "eslint": "^6.1.0",
     "eslint-config-google": "^0.9.1",
-    "eslint-plugin-vue": "^5.2.3",
-    "express": "^4.13.3",
     "jsdoc-to-markdown": "^4.0.1",
     "leia-parser": "^0.4.0",
     "mocha": "^4.1.0",
     "mock-fs": "https://github.com/pirog/mock-fs.git#256-ctxBindingAccess",
-    "nodemon": "^1.11.0",
     "nyc": "^12.0.1",
-    "pkg": "^4.5.1",
-    "platformsh": "^1.0.0",
     "sinon": "^4.3.0",
     "sinon-chai": "^2.14.0",
-    "version-bump-prompt": "^4.2.1",
-    "vuepress": "^1.0.4",
-    "vuepress-plugin-autometa": "^0.1.12",
-    "vuepress-plugin-canonical": "^1.0.0",
-    "vuepress-plugin-feed": "^0.1.8",
-    "vuepress-plugin-robots": "^1.0.1",
-    "vuepress-plugin-sitemap": "https://github.com/ekoeryanto/vuepress-plugin-sitemap#dd8b9763b2c7939668a67f2afa34de501dea45d4"
+    "version-bump-prompt": "^4.2.1"
   }
 }

@@ -54,7 +54,7 @@ describe('plugins', () => {
     it('should use the plugin from the last location it finds it', () => {
       const plugins = new Plugins();
       const find = plugins.find(searchDirs);
-      expect(_.includes(find[0].path, 'lando/plugins')).to.be.true;
+      expect(_.includes(find[0].path, 'cli/plugins')).to.be.true;
     });
 
     it('should push a plugin to the plugin registry after it is loaded', () => {
