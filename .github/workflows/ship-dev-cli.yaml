@@ -68,13 +68,13 @@ jobs:
           - windows-2019
           - ubuntu-20.04
           - macos-10.15
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - uses: actions/download-artifact@v2
-          with:
-            name: lando-build-${{ github.sha }}
-            path: dist
-        - name: Display structure of downloaded files
-          run: ls -R
-          working-directory: dist
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: lando-build-${{ github.sha }}
+          path: dist
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: dist
