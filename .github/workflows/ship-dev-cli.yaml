@@ -55,3 +55,26 @@ jobs:
           path: dist/
           if-no-files-found: error
           retention-days: 1
+
+  process:
+    runs-on: ${{ matrix.os }}
+    needs:
+      - package
+    env:
+      TERM: xterm
+    strategy:
+      matrix:
+        os:
+          - windows-2019
+          - ubuntu-20.04
+          - macos-10.15
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - uses: actions/download-artifact@v2
+          with:
+            name: lando-build-${{ github.sha }}
+            path: dist
+        - name: Display structure of downloaded files
+          run: ls -R
+          working-directory: dist
