@@ -37,8 +37,8 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Use Yarn cache
-        uses: actions/cache@v2
         id: yarn-cache
+        uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
@@ -85,6 +85,7 @@ jobs:
             arch: arm64
     steps:
       - name: Set OS variable
+        id: os
         run: |
           if [ "$RUNNER_OS" == "Linux" ]; then
             echo '::set-output name=OS::linux'
@@ -93,10 +94,10 @@ jobs:
           else
             echo '::set-output name=OS::macos'
           fi
-        id: os
+        shell: bash
       - name: Test OS variable
-        run: |
-          echo "The OS is ${{ steps.os.outputs.OS }}"
+        run: echo "The OS is ${{ steps.os.outputs.OS }}"
+        shell: bash
       - name: Download lando-build-${{ steps.os.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
         uses: actions/download-artifact@v2
         with:
@@ -112,9 +113,10 @@ jobs:
           APPLE_CERT_DATA: ${{ secrets.APPLE_CERT_DATA }}
           APPLE_CERT_PASSWORD: ${{ secrets.APPLE_CERT_PASSWORD }}
           APPLE_TEAM_ID: FY8GAUX282
-        if: ${{ matrix.os == 'macos-10.15' }}
+        if: ${{ steps.os.outputs.OS == 'macos' }}
         run: |
           echo "$APPLE_CERTS_DATA" | base64 --decode > /tmp/certs.p12
+          # echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 
 
