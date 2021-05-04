@@ -1,0 +1,111 @@
+name: Ship CLI
+
+on:
+  push:
+    branches:
+      - main
+      - 'preview/**'
+
+jobs:
+  package:
+    runs-on: ${{ matrix.os }}
+    env:
+      TERM: xterm
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+        node-version:
+          - '14'
+        variant:
+          - linux-x64
+          - linux-arm64
+          - macos-x64
+          - macos-arm64
+          - win-x64
+    steps:
+      # Install deps and cache
+      # Eventually it would be great if these steps could live in a separate YAML file
+      # that could be included in line to avoid code duplication
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Get Yarn cache directory
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Use Yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Yarn dependencies
+        run: yarn install --prefer-offline --frozen-lockfile
+
+      # Package and upload the cli
+      # @NOTE: We cross-compile on Linux because _right now_ this seems to be
+      # the only place we can reliably build all the variants. We use actions/upload
+      # so move assets between jobs
+      - name:
+      - name: Package ${{ matrix.variant }} CLI
+        run: |
+          node ./scripts/dev-version.js
+          yarn pkg --target=node${{ matrix.node-version }}-${{ matrix.variant }} --no-version
+      - name: Upload lando-build-${{ matrix.variant }}-${{ github.sha }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: lando-build-${{ matrix.variant }}-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 1
+          # GITHUB_SHA
+          # GITHUB_REF
+
+  ship:
+    runs-on: ${{ matrix.os }}
+    needs:
+      - package
+    env:
+      TERM: xterm
+    strategy:
+      matrix:
+        os:
+          - macos-10.15
+          - ubuntu-20.04
+          - windows-2019
+        include:
+          - os: macos-10.15
+            variant:
+              - macos-x64
+              - macos-arm64
+          - os: ubuntu-20.04
+            variant:
+              - linux-x64
+              - linux-arm64
+          - os: windows-2019
+            variant: win-x64
+    steps:
+      - name: Download lando-build-${{ matrix.variant }}-${{ github.sha }}
+        uses: actions/download-artifact@v2
+        with:
+          name: lando-build-${{ matrix.variant }}-${{ github.sha }}
+          path: dist
+
+      # Codesign binaries
+      # NOTE: We cannot currently do this on macOS because of below issue
+      # https://github.com/vercel/pkg/issues/128
+      # However, the logic is here and ready to go once that is resolved
+      - name: Codesign macOS binaries
+        env:
+          APPLE_CERT_DATA: ${{ secrets.APPLE_CERT_DATA }}
+          APPLE_CERT_PASSWORD: ${{ secrets.APPLE_CERT_PASSWORD }}
+          APPLE_TEAM_ID: FY8GAUX282
+        if: ${{ matrix.os == 'macos-10.15' }}
+        run: |
+          echo "$APPLE_CERTS_DATA" | base64 --decode > /tmp/certs.p12
+
+
+

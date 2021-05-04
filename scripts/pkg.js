@@ -16,6 +16,8 @@ const util = require('./util');
 
 // Start by splitting up args passed in via target
 const pieces = _.get(argv, 'target', '').split('-');
+// Assess the no version flag
+const useVersion = _.get(argv, 'version', true);
 
 // Split up into pieces but also be
 const pkgNodeVersion = pieces[0] || `node${util.NODE_VERSION}`;
@@ -24,11 +26,13 @@ const pkgArch = pieces[2] || os.arch();
 // Assemble the target
 const target = [pkgNodeVersion, pkgOs, pkgArch].join('-');
 
-// Lando info
-const version = require('./../package.json').version;
-const pkgType = [pkgOs, pkgArch, 'v' + version].join('-');
+// Start to name the package
+const pkgName = ['lando', pkgOs, pkgArch];
+// If we are using the version then append version
+if (useVersion) pkgName.push(`v${require('./../package.json').version}`);
+// Put it all together
 const pkgExt = (pkgOs === 'win') ? '.exe' : '';
-const cliPkgName = 'lando-' + pkgType + pkgExt;
+const cliPkgName = `${pkgName.join('-')}${pkgExt}`;
 
 // Files
 const files = {
@@ -44,10 +48,10 @@ const files = {
       path.resolve('package.json'),
       path.resolve('yarn.lock'),
     ],
-    build: path.resolve('build', 'cli'),
+    build: path.resolve('build'),
     dist: {
-      src: path.resolve('build', 'cli', cliPkgName),
-      dest: path.resolve('dist', 'cli', cliPkgName),
+      src: path.resolve('build', cliPkgName),
+      dest: path.resolve('dist', cliPkgName),
     },
   },
   installer: {
