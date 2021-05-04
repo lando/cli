@@ -52,6 +52,7 @@ jobs:
       - name: Package ${{ matrix.variant }} CLI
         run: |
           node ./scripts/dev-version.js
+          node ./bin/lando.js --version
           yarn pkg --target=node${{ matrix.node-version }}-${{ matrix.variant }} --no-version
       - name: Upload lando-build-${{ matrix.variant }}-${{ github.sha }}
         uses: actions/upload-artifact@v2
@@ -75,22 +76,31 @@ jobs:
           - macos-10.15
           - ubuntu-20.04
           - windows-2019
+        arch:
+          - x64
         include:
           - os: macos-10.15
-            variant: macos-x64
-          - os: macos-10.15
-            variant: macos-arm64
+            arch: arm64
           - os: ubuntu-20.04
-            variant: linux-x64
-          - os: ubuntu-20.04
-            variant: linux-arm64
-          - os: windows-2019
-            variant: win-x64
+            arch: arm64
     steps:
-      - name: Download lando-build-${{ matrix.variant }}-${{ github.sha }}
+      - name: Set OS variable
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            echo '::set-output name=OS::linux'
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+            echo '::set-output name=OS::win'
+          else
+            echo '::set-output name=OS::macos'
+          fi
+        id: os
+      - name: Test OS variable
+        run: |
+          echo "The OS is ${{ steps.os.outputs.OS }}"
+      - name: Download lando-build-${{ steps.os.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
         uses: actions/download-artifact@v2
         with:
-          name: lando-build-${{ matrix.variant }}-${{ github.sha }}
+          name: lando-build-${{ steps.os.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
           path: dist
 
       # Codesign binaries
