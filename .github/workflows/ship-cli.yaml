@@ -126,6 +126,6 @@ jobs:
           WINDOZE_CERT_PASSWORD: ${{ secrets.WINDOZE_CERT_PASSWORD }}
         if: ${{ steps.os.outputs.OS == 'win' }}
         shell: powershell
-        run: ./scripts/sign-macos.ps1 ./dist/lando-${{ steps.os.outputs.OS }}-${{ matrix.arch }}
+        run: ./scripts/sign-win.ps1 ./dist/lando-${{ steps.os.outputs.OS }}-${{ matrix.arch }}
 
 
