@@ -156,7 +156,7 @@ jobs:
         shell: bash
         run: |
           # Create a releases dir
-          mkdir -p ./../releases
+          mkdir -p ./releases
 
           # Build snapshot release
           cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-build-${{ github.sha }}$PKG_SUFFIX"
