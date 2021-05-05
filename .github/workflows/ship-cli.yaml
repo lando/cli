@@ -90,19 +90,24 @@ jobs:
         id: vars
         shell: bash
         run: |
-          # Set OS var
+          # Set os specific vars
           if [ "$RUNNER_OS" == "Linux" ]; then
             echo '::set-output name=OS::linux'
+            echo '::set-output name=PKG_ENDING::'
           elif [ "$RUNNER_OS" == "Windows" ]; then
             echo '::set-output name=OS::win'
+            echo '::set-output name=PKG_ENDING::.exe'
           else
             echo '::set-output name=OS::macos'
+            echo '::set-output name=PKG_ENDING::'
           fi
 
-          # Set source ref vars
-          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
-          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
-          echo ::set-output name=SOURCE_TAG::$(git describe --tags --abbrev=0)
+          # Set generic source ref vars
+          echo '::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}'
+          echo '::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}'
+          echo '::set-output name=SOURCE_TAG::$(git describe --tags --abbrev=0)'
+          echo '::set-output name=SOURCE_PKG::lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}${{ steps.vars.outputs.PKG_ENDING }}'
+
       - name: Test other variables
         shell: bash
         run: |
@@ -110,6 +115,7 @@ jobs:
           echo "The SOURCE_NAME is ${{ steps.vars.outputs.SOURCE_NAME }}"
           echo "The SOURCE_BRANCH is ${{ steps.vars.outputs.SOURCE_BRANCH }}"
           echo "The SOURCE_TAG is ${{ steps.vars.outputs.SOURCE_TAG }}"
+          echo "The SOURCE_PKG is ${{ steps.vars.outputs.SOURCE_PKG }}"
       - name: Download lando-build-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
         uses: actions/download-artifact@v2
         with:
@@ -128,7 +134,7 @@ jobs:
           APPLE_TEAM_ID: FY8GAUX282
         if: ${{ steps.vars.outputs.OS == 'macos' }}
         run: |
-          ./scripts/sign-macos.sh ./dist/lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}
+          ./scripts/sign-macos.sh ./dist/{{ steps.vars.outputs.SOURCE_PKG }}
           echo "::warning:: Codesign currently disabled because of https://github.com/vercel/pkg/issues/128"
       # Codesign WiNdOzE binaries
       - name: Codesign Windoze binaries
@@ -137,16 +143,13 @@ jobs:
           WINDOZE_CERT_PASSWORD: ${{ secrets.WINDOZE_CERT_PASSWORD }}
         if: ${{ steps.vars.outputs.OS == 'win' }}
         shell: powershell
-        run: ./scripts/sign-win.ps1 ./dist/lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}.exe
+        run: ./scripts/sign-win.ps1 ./dist/{{ steps.vars.outputs.SOURCE_PKG }}
 
       # Depending on the type of commit eg tagged, etc create the releases we need
       - name: Create releases
         shell: bash
         run: |
-
-
-
-          ./scripts/sign-win.ps1 ./dist/lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}.exe
+          mkdir -p ./releases
 
 
 
