@@ -54,7 +54,7 @@ jobs:
       - name: Package CLI
         run: yarn pkg
       - name: Replace source CLI with packaged one
-        run: sudo mv ./dist/cli/* /usr/local/bin/lando
+        run: sudo mv ./dist/* /usr/local/bin/lando
       - name: Verify we can run the packaged CLI
         run: |
           lando version
