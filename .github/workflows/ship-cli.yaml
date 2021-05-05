@@ -135,7 +135,7 @@ jobs:
           APPLE_TEAM_ID: FY8GAUX282
         if: ${{ steps.vars.outputs.OS == 'macos' }}
         run: |
-          ./scripts/sign-macos.sh ./dist/{{ steps.pkg.outputs.SOURCE_PKG }}
+          ./scripts/sign-macos.sh ./dist/${{ steps.pkg.outputs.SOURCE_PKG }}
           echo "::warning:: Codesign currently disabled because of https://github.com/vercel/pkg/issues/128"
       # Codesign WiNdOzE binaries
       - name: Codesign Windoze binaries
@@ -144,7 +144,7 @@ jobs:
           WINDOZE_CERT_PASSWORD: ${{ secrets.WINDOZE_CERT_PASSWORD }}
         if: ${{ steps.vars.outputs.OS == 'win' }}
         shell: powershell
-        run: ./scripts/sign-win.ps1 ./dist/{{ steps.pkg.outputs.SOURCE_PKG }}
+        run: ./scripts/sign-win.ps1 ./dist/${{ steps.pkg.outputs.SOURCE_PKG }}
 
       # Depending on the type of commit eg tagged, etc create the releases we need
       - name: Create releases
