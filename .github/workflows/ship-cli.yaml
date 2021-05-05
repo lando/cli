@@ -122,11 +122,10 @@ jobs:
       # Codesign WiNdOzE binaries
       - name: Codesign Windoze binaries
         env:
-          APPLE_CERT_DATA: ${{ secrets.APPLE_CERT_DATA }}
-          APPLE_CERT_PASSWORD: ${{ secrets.APPLE_CERT_PASSWORD }}
-          APPLE_TEAM_ID: FY8GAUX282
+          WINDOZE_CERT_DATA: ${{ secrets.WINDOZE_CERT_DATA }}
+          WINDOZE_CERT_PASSWORD: ${{ secrets.WINDOZE_CERT_PASSWORD }}
         if: ${{ steps.os.outputs.OS == 'win' }}
-        shell: bash
-        run: ls -lsa
+        shell: powershell
+        run: ./scripts/sign-macos.ps1 ./dist/lando-${{ steps.os.outputs.OS }}-${{ matrix.arch }}
 
 

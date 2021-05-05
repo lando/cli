@@ -43,3 +43,4 @@ security find-identity -v macos-build.keychain | grep "$APPLE_TEAM_ID" | grep "D
 # https://github.com/vercel/pkg/issues/128
 # However, the logic is here and ready to go once that is resolved
 # codesign --force --options runtime -s "$APPLE_TEAM_ID" "$FILE" || true
+# @TODO: verify the codesignature
