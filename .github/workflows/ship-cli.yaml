@@ -5,6 +5,9 @@ on:
     branches:
       - main
       - 'preview/**'
+    tags:
+      - test*
+      - v*
 
 jobs:
   package:
