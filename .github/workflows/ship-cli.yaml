@@ -148,9 +148,29 @@ jobs:
 
       # Depending on the type of commit eg tagged, etc create the releases we need
       - name: Create releases
+        env:
+          SOURCE_BRANCH: ${{ steps.vars.outputs.SOURCE_BRANCH }}
+          SOURCE_TAG: ${{ steps.vars.outputs.SOURCE_TAG }}
+          PKG_PREFIX: "lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}"
+          PKG_SUFFIX: ${{ steps.vars.outputs.PKG_ENDING }}
         shell: bash
         run: |
-          mkdir -p ./releases
+          # Create a releases dir
+          mkdir -p ./../releases
+
+          # Build snapshot release
+          cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-build-${{ github.sha }}$PKG_SUFFIX"
+          # Branch releases
+          if [ -z "$SOURCE_TAG" ]; then cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-$SOURCE_BRANCH-latest$PKG_SUFFIX"; fi
+          # Latest dev release
+          if [[ "$SOURCE_BRANCH" == "main" ]]; then cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-latest$PKG_SUFFIX"; fi
+          # Tag releases
+          if [ ! -z "$SOURCE_TAG" ]; then cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-$SOURCE_TAG$PKG_SUFFIX"; fi
+          # Latest stable release
+          if [ ! -z "$SOURCE_TAG" ]; then cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-stable$PKG_SUFFIX"; fi
+
+          # Print what we end up with
+          ls -lsa ./releases
 
 
 
