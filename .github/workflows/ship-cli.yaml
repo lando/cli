@@ -78,10 +78,9 @@ jobs:
           - windows-2019
         arch:
           - x64
-        include:
-          - os: macos-10.15
-            arch: arm64
-          - os: ubuntu-20.04
+          - arm64
+        exclude:
+          - os: windows-2019
             arch: arm64
     steps:
       - name: Set OS variable
@@ -115,8 +114,8 @@ jobs:
           APPLE_TEAM_ID: FY8GAUX282
         if: ${{ steps.os.outputs.OS == 'macos' }}
         run: |
-          echo "$APPLE_CERTS_DATA" | base64 --decode > /tmp/certs.p12
-          # echo "::warning file=app.js,line=1,col=5::Missing semicolon"
+          ./scripts/sign-macos.sh ./dist/lando-${{ steps.os.outputs.OS }}-${{ matrix.arch }}
+          echo "::warning:: Codesign currently disabled because of https://github.com/vercel/pkg/issues/128"
 
 
 
