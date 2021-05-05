@@ -64,8 +64,6 @@ jobs:
           path: dist/
           if-no-files-found: error
           retention-days: 1
-          # GITHUB_SHA
-          # GITHUB_REF
 
   ship:
     runs-on: ${{ matrix.os }}
@@ -158,11 +156,12 @@ jobs:
           PKG_SUFFIX: ${{ steps.vars.outputs.PKG_ENDING }}
         shell: bash
         run: |
-          # Create a releases dir
-          mkdir -p ./releases
+          # Create release directories
+          mkdir -p ./releases ./dev-builds
 
-          # Build snapshot release
-          cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-build-${{ github.sha }}$PKG_SUFFIX"
+          # Snapshot release
+          cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./dev-builds/$PKG_PREFIX-build-${{ github.sha }}$PKG_SUFFIX"
+
           # Branch releases
           if [ -z "$SOURCE_TAG" ]; then cp -f ./dist/${{ steps.pkg.outputs.SOURCE_PKG }} "./releases/$PKG_PREFIX-$SOURCE_BRANCH-latest$PKG_SUFFIX"; fi
           # Latest dev release
@@ -174,3 +173,29 @@ jobs:
 
           # Print what we end up with
           ls -lsa ./releases
+          ls -lsa ./dev-builds
+
+        # Replace previously posted unsigned raw artifacts with signed build snapshots
+        - name: Remove unsigned artifacts
+          uses: geekyeggo/delete-artifact@v1
+          with:
+            name: lando-build-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
+        - name: Upload build snapshot as Actions artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}${{ steps.vars.outputs.PKG_ENDING }}
+            path: dev-builds/
+            if-no-files-found: error
+            retention-days: 30
+        # Upload releases to S3
+        - name: Configure S3 Credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.S3_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+            aws-region: us-east-1
+        - name: Upload releases to S3
+          shell: bash
+          run: |
+            aws s3 sync ./releases s3://files.lando.dev
+
