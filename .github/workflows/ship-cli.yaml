@@ -105,15 +105,18 @@ jobs:
             echo '::set-output name=OS::macos'
             echo '::set-output name=PKG_ENDING::'
           fi
-      - name: Test other variables
+      - name: Set SOURCE_PKG
+        id: pkg
+        shell: bash
+        run: echo '::set-output name=SOURCE_PKG::lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}${{ steps.vars.outputs.PKG_ENDING }}'
+      - name: Test user defined variables
         shell: bash
         run: |
-          echo '::set-output name=SOURCE_PKG::lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}${{ steps.vars.outputs.PKG_ENDING }}'
           echo "The OS is ${{ steps.vars.outputs.OS }}"
           echo "The SOURCE_NAME is ${{ steps.vars.outputs.SOURCE_NAME }}"
           echo "The SOURCE_BRANCH is ${{ steps.vars.outputs.SOURCE_BRANCH }}"
           echo "The SOURCE_TAG is ${{ steps.vars.outputs.SOURCE_TAG }}"
-          echo "The SOURCE_PKG is ${{ steps.vars.outputs.SOURCE_PKG }}"
+          echo "The SOURCE_PKG is ${{ steps.pkg.outputs.SOURCE_PKG }}"
       - name: Download lando-build-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
         uses: actions/download-artifact@v2
         with:
@@ -132,7 +135,7 @@ jobs:
           APPLE_TEAM_ID: FY8GAUX282
         if: ${{ steps.vars.outputs.OS == 'macos' }}
         run: |
-          ./scripts/sign-macos.sh ./dist/{{ steps.vars.outputs.SOURCE_PKG }}
+          ./scripts/sign-macos.sh ./dist/{{ steps.pkg.outputs.SOURCE_PKG }}
           echo "::warning:: Codesign currently disabled because of https://github.com/vercel/pkg/issues/128"
       # Codesign WiNdOzE binaries
       - name: Codesign Windoze binaries
@@ -141,7 +144,7 @@ jobs:
           WINDOZE_CERT_PASSWORD: ${{ secrets.WINDOZE_CERT_PASSWORD }}
         if: ${{ steps.vars.outputs.OS == 'win' }}
         shell: powershell
-        run: ./scripts/sign-win.ps1 ./dist/{{ steps.vars.outputs.SOURCE_PKG }}
+        run: ./scripts/sign-win.ps1 ./dist/{{ steps.pkg.outputs.SOURCE_PKG }}
 
       # Depending on the type of commit eg tagged, etc create the releases we need
       - name: Create releases
