@@ -103,10 +103,11 @@ jobs:
           name: lando-build-${{ steps.os.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
           path: dist
 
-      # Codesign binaries
+      # Codesign macOS binaries
       # NOTE: We cannot currently do this on macOS because of below issue
       # https://github.com/vercel/pkg/issues/128
       # However, the logic is here and ready to go once that is resolved
+      # NOTE: We also should add notarization logic here?
       - name: Codesign macOS binaries
         env:
           APPLE_CERT_DATA: ${{ secrets.APPLE_CERT_DATA }}
@@ -116,6 +117,14 @@ jobs:
         run: |
           ./scripts/sign-macos.sh ./dist/lando-${{ steps.os.outputs.OS }}-${{ matrix.arch }}
           echo "::warning:: Codesign currently disabled because of https://github.com/vercel/pkg/issues/128"
-
+      # Codesign WiNdOzE binaries
+      - name: Codesign Windoze binaries
+        env:
+          APPLE_CERT_DATA: ${{ secrets.APPLE_CERT_DATA }}
+          APPLE_CERT_PASSWORD: ${{ secrets.APPLE_CERT_PASSWORD }}
+          APPLE_TEAM_ID: FY8GAUX282
+        if: ${{ steps.os.outputs.OS == 'win' }}
+        shell: bash
+        run: ls -lsa
 
 
