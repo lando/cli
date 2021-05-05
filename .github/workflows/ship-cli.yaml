@@ -94,8 +94,8 @@ jobs:
         shell: bash
         run: |
           # Set generic source ref vars
-          echo '::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}'
-          echo '::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}'
+          echo "::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}"=
+          echo "::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}"
           echo "::set-output name=SOURCE_TAG::$(git describe --tags --abbrev=0)"
           # Set os specific vars
           if [ "$RUNNER_OS" == "Linux" ]; then
