@@ -83,6 +83,8 @@ jobs:
           - os: windows-2019
             arch: arm64
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Set OS variable
         id: os
         run: |
