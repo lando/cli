@@ -10,14 +10,14 @@ if [ ! -f "$FILE" ]; then
 fi
 
 # Verify we have the envvars we need
-if [ ! -z "$APPLE_CERT_DATA" ]; then
+if [ -z "$APPLE_CERT_DATA" ]; then
   echo "APPLE_CERT_DATA needs to be set with a base64 encoded p12!"
   exit 2
 fi
-if [ ! -z "$APPLE_CERT_PASSWORD" ]; then
+if [ -z "$APPLE_CERT_PASSWORD" ]; then
   echo "APPLE_CERT_PASSWORD needs to be set with your p12 password!"
   exit 3
-if [ ! -z "$APPLE_TEAM_ID" ]; then
+if [ -z "$APPLE_TEAM_ID" ]; then
   echo "APPLE_TEAM_ID needs to be set with your cert user id!"
   exit 4
 fi
