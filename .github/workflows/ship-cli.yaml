@@ -90,6 +90,10 @@ jobs:
         id: vars
         shell: bash
         run: |
+          # Set generic source ref vars
+          echo '::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}'
+          echo '::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}'
+          echo '::set-output name=SOURCE_TAG::$(git describe --tags --abbrev=0)'
           # Set os specific vars
           if [ "$RUNNER_OS" == "Linux" ]; then
             echo '::set-output name=OS::linux'
@@ -101,16 +105,10 @@ jobs:
             echo '::set-output name=OS::macos'
             echo '::set-output name=PKG_ENDING::'
           fi
-
-          # Set generic source ref vars
-          echo '::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}'
-          echo '::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}'
-          echo '::set-output name=SOURCE_TAG::$(git describe --tags --abbrev=0)'
-          echo '::set-output name=SOURCE_PKG::lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}${{ steps.vars.outputs.PKG_ENDING }}'
-
       - name: Test other variables
         shell: bash
         run: |
+          echo '::set-output name=SOURCE_PKG::lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}${{ steps.vars.outputs.PKG_ENDING }}'
           echo "The OS is ${{ steps.vars.outputs.OS }}"
           echo "The SOURCE_NAME is ${{ steps.vars.outputs.SOURCE_NAME }}"
           echo "The SOURCE_BRANCH is ${{ steps.vars.outputs.SOURCE_BRANCH }}"
