@@ -83,10 +83,12 @@ jobs:
           - os: windows-2019
             arch: arm64
     steps:
+      # Set things up for signing, notarizing, uploading etc
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set other variables
         id: vars
+        shell: bash
         run: |
           # Set OS var
           if [ "$RUNNER_OS" == "Linux" ]; then
@@ -100,15 +102,14 @@ jobs:
           # Set source ref vars
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
           echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
-          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
-        shell: bash
+          echo ::set-output name=SOURCE_TAG::$(git describe --tags --abbrev=0)
       - name: Test other variables
+        shell: bash
         run: |
           echo "The OS is ${{ steps.vars.outputs.OS }}"
           echo "The SOURCE_NAME is ${{ steps.vars.outputs.SOURCE_NAME }}"
           echo "The SOURCE_BRANCH is ${{ steps.vars.outputs.SOURCE_BRANCH }}"
           echo "The SOURCE_TAG is ${{ steps.vars.outputs.SOURCE_TAG }}"
-        shell: bash
       - name: Download lando-build-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}-${{ github.sha }}
         uses: actions/download-artifact@v2
         with:
@@ -137,5 +138,15 @@ jobs:
         if: ${{ steps.vars.outputs.OS == 'win' }}
         shell: powershell
         run: ./scripts/sign-win.ps1 ./dist/lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}.exe
+
+      # Depending on the type of commit eg tagged, etc create the releases we need
+      - name: Create releases
+        shell: bash
+        run: |
+
+
+
+          ./scripts/sign-win.ps1 ./dist/lando-${{ steps.vars.outputs.OS }}-${{ matrix.arch }}.exe
+
 
 
