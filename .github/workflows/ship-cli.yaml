@@ -32,6 +32,8 @@ jobs:
       # that could be included in line to avoid code duplication
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Install node ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -54,7 +56,6 @@ jobs:
       # so move assets between jobs
       - name: Package ${{ matrix.variant }} CLI
         run: |
-          git fetch --all --tags
           node ./scripts/dev-version.js
           node ./bin/lando.js version
           yarn pkg --target=node${{ matrix.node-version }}-${{ matrix.variant }} --no-version
