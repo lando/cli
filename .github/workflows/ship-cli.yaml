@@ -54,6 +54,7 @@ jobs:
       # so move assets between jobs
       - name: Package ${{ matrix.variant }} CLI
         run: |
+          git fetch --all --tags
           node ./scripts/dev-version.js
           node ./bin/lando.js version
           yarn pkg --target=node${{ matrix.node-version }}-${{ matrix.variant }} --no-version
