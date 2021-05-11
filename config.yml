@@ -6,7 +6,7 @@ mode: cli
 dockerSupportedVersions:
   compose:
     min: "1.23.0"
-    max: "1.29.0"
+    max: "1.30.0"
     link:
       linux: https://docs.docker.com/compose/install/#install-compose-on-linux-systems
   desktop:
