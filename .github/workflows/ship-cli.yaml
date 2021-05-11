@@ -89,6 +89,8 @@ jobs:
       # Set things up for signing, notarizing, uploading etc
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set other variables
         id: vars
         shell: bash
