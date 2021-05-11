@@ -71,7 +71,7 @@ lando config --help | grep verbose
 lando config --lando | grep verbose
 
 # Should return the version
-lando version | grep "v3.1."
+lando version | grep "v3."
 
 # Should run with specified verbosity
 lando info -v | grep INFO
