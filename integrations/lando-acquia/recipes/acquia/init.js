@@ -86,7 +86,7 @@ module.exports = {
   name: 'acquia',
   options: lando => ({
     'acquia-key': {
-      describe: 'An Acquia API key',
+      describe: 'An Acquia API token key',
       string: true,
       interactive: {
         type: 'list',
@@ -101,7 +101,7 @@ module.exports = {
       interactive: {
         name: 'acquia-key',
         type: 'input',
-        message: 'Enter an Acquia API key',
+        message: 'Enter an Acquia API token key, visit https://cloud.acquia.com/a/profile/tokens to create one',
         when: answers => showKeyEntry(
           answers.recipe,
           answers['acquia-key'],
@@ -120,12 +120,12 @@ module.exports = {
       },
     },
     'acquia-secret': {
-      describe: 'An Acquia API secret',
+      describe: 'An Acquia API token secret',
       string: true,
       interactive: {
         name: 'acquia-secret',
         type: 'password',
-        message: 'Enter an Acquia API secret',
+        message: 'Enter corresponding Acquia API token secret',
         when: answers => showSecretEntry(answers),
         weight: 530,
       },
