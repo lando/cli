@@ -133,10 +133,7 @@ jobs:
           path: dist
 
       # Codesign macOS binaries
-      # NOTE: We cannot currently do this on macOS because of below issue
-      # https://github.com/vercel/pkg/issues/128
-      # However, the logic is here and ready to go once that is resolved
-      # NOTE: We also should add notarization logic here?
+      # NOTE: Should we add notarization logic here?
       - name: Codesign macOS binaries
         env:
           APPLE_CERT_DATA: ${{ secrets.APPLE_CERT_DATA }}
@@ -145,7 +142,6 @@ jobs:
         if: ${{ steps.vars.outputs.OS == 'macos' }}
         run: |
           ./scripts/sign-macos.sh ./dist/${{ steps.pkg.outputs.SOURCE_PKG }}
-          echo "::warning:: Codesign currently disabled because of https://github.com/vercel/pkg/issues/128"
       # Codesign WiNdOzE binaries
       - name: Codesign Windoze binaries
         env:
