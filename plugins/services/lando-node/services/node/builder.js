@@ -2,7 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../lib/utils');
+const utils = require('./../../../../core/lando-services/lib/utils');
 
 // Constants
 const supportedVersions = [

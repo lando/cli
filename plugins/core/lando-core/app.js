@@ -4,7 +4,7 @@
 const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
-const toObject = require('./../../lib/utils').toObject;
+const toObject = require('./../../../lib/utils').toObject;
 const utils = require('./lib/utils');
 const warnings = require('./lib/warnings');
 

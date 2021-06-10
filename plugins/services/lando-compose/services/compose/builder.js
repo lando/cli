@@ -2,7 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../../lando-core/lib/utils');
+const utils = require('./../../../../core/lando-core/lib/utils');
 
 // Builder
 module.exports = {

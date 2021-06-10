@@ -4,7 +4,7 @@
 const _ = require('lodash');
 const path = require('path');
 const semver = require('semver');
-const utils = require('./../../lib/utils');
+const utils = require('./../../../../core/lando-services/lib/utils');
 
 /*
  * Helper to get nginx config

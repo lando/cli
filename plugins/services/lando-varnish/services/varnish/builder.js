@@ -2,7 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../lib/utils');
+const utils = require('./../../../../core/lando-services/lib/utils');
 
 // Helper to get varnsh ssl nginx
 const varnishSsl = options => ({

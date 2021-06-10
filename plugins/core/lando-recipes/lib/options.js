@@ -4,7 +4,7 @@ const _ = require('lodash');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
-const utils = require('./../../../lib/utils');
+const utils = require('./../../../../lib/utils');
 
 // Helper to get core options
 const coreOpts = sources => ({

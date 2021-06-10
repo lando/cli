@@ -3,7 +3,7 @@
 // Modules
 const _ = require('lodash');
 const path = require('path');
-const utils = require('./../../../lib/utils');
+const utils = require('./../../../../lib/utils');
 
 // Helper to kill a run
 const killRun = config => ({
