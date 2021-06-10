@@ -35,7 +35,7 @@
     "build:docs": "yarn generate:api && node ./scripts/docs.js && vuepress build docs -d _docs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate:api": "node ./scripts/yaml2json.js ./sponsors.yml ./contributors.yml --output-dir docs/.vuepress/public/api",
-    "generate:tests": "leia \"examples/**/README.md\" test -p \"plugins/**/examples/**/README.md\" -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
+    "generate:tests": "leia \"examples/**/README.md\" test -p \"plugins/**/**/examples/**/README.md\" -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "lint": "eslint --quiet --no-ignore bin lib plugins scripts test",
     "pkg": "node ./scripts/pkg.js",
     "release": "bump --prompt --tag --all --push",
