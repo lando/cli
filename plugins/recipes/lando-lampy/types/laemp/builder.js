@@ -6,7 +6,7 @@ const fs = require('fs');
 const utils = require('./../../../../core/lando-recipes/lib/utils');
 
 // Funz
-const { getDbTooling } = require('./../../lib/utils');
+const {getDbTooling} = require('./../../lib/utils');
 
 // Tooling defaults
 const toolingDefaults = {

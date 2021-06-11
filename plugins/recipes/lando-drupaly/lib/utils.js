@@ -2,7 +2,6 @@
 
 // Modules
 const _ = require('lodash');
-const path = require('path');
 
 /*
  * Helper to get DRUSH phar url
