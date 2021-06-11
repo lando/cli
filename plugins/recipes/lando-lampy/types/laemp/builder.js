@@ -3,7 +3,10 @@
 // Modules
 const _ = require('lodash');
 const fs = require('fs');
-const utils = require('./../../lib/utils');
+const utils = require('./../../../../core/lando-recipes/lib/utils');
+
+// Funz
+const { getDbTooling } = require('./../../lib/utils');
 
 // Tooling defaults
 const toolingDefaults = {
@@ -113,7 +116,7 @@ const getServices = options => ({
 /*
  * Helper to get tooling
  */
-const getTooling = options => _.merge({}, toolingDefaults, utils.getDbTooling(options.database));
+const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.database));
 
 /*
  * Build L(E)AMP
