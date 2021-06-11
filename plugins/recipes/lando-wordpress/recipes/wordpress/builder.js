@@ -2,7 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../lib/utils');
+const {getPhar} = require('./../../../../recipes/lando-lampy/lib/utils');
 
 // WP status check
 const getWpStatusCheck = (version = '7.4') => {
@@ -40,7 +40,7 @@ module.exports = {
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
       // Add the wp cli install command
-      options.build.unshift(utils.getPhar(
+      options.build.unshift(getPhar(
         getWpCliUrl(options.version),
         '/tmp/wp-cli.phar',
         '/usr/local/bin/wp',
