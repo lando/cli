@@ -1,8 +1,5 @@
 'use strict';
 
-// Modules
-const _ = require('lodash');
-
 /*
  * Helper to get DRUSH phar url
  */
