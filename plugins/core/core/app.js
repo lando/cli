@@ -2,8 +2,6 @@
 
 // Modules
 const _ = require('lodash');
-const fs = require('fs');
-const path = require('path');
 const utils = require('./lib/utils');
 const warnings = require('./lib/warnings');
 
@@ -102,26 +100,6 @@ module.exports = (app, lando) => {
           app.addWarning(warnings.serviceNotRunningWarning(service), err);
         });
       }));
-    }
-  });
-
-  // Assess our key situation so we can warn users who may have too many
-  app.events.on('post-init', () => {
-    // Get keys on host
-    const sshDir = path.resolve(lando.config.home, '.ssh');
-    const keys = _(fs.readdirSync(sshDir))
-      .filter(file => !_.includes(['config', 'known_hosts'], file))
-      .filter(file => path.extname(file) !== '.pub')
-      .value();
-
-    // Determine the key size
-    const keySize = _.size(_.get(app, 'config.keys', keys));
-    app.log.verbose('analyzing user ssh keys... using %s of %s', keySize, _.size(keys));
-    app.log.debug('key config... ', _.get(app, 'config.keys', 'none'));
-    app.log.silly('users keys', keys);
-    // Add a warning if we have more keys than the warning level
-    if (keySize > lando.config.maxKeyWarning) {
-      app.addWarning(warnings.maxKeyWarning());
     }
   });
 
@@ -260,7 +238,6 @@ module.exports = (app, lando) => {
       LANDO_APP_NAME: app.name,
       LANDO_APP_ROOT: app.root,
       LANDO_APP_ROOT_BIND: app.root,
-      LANDO_LOAD_KEYS: getKeys(_.get(app, 'config.keys')),
       BITNAMI_DEBUG: 'true',
     },
     labels: {

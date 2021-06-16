@@ -2,6 +2,7 @@
 
 // Modules
 const mkdirp = require('mkdirp');
+const path = require('path');
 
 module.exports = lando => {
   // Ensure some dirs exist before we start
