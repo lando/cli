@@ -41,20 +41,35 @@ module.exports = (app, lando) => {
   // Init this early on but not before our recipes
   app.events.on('pre-init', () => {
     // @TODO sexier _() implementation?
-    const services = utils.parseConfig(_.get(app, 'config.services', {}), app);
-    _.forEach(services, service => {
-      // Throw a warning if service is not supported
-      if (_.isEmpty(_.find(lando.factory.get(), {name: service.type}))) {
-        app.log.warn('%s is not a supported service type.', service.type);
-      }
-      // Log da things
-      app.log.verbose('building %s service %s', service.type, service.name);
-      // Build da things
-      // @NOTE: this also gathers app.info and build steps
-      const Service = lando.factory.get(service.type);
-      const data = new Service(service.name, service, lando.factory, lando.utils);
-      app.add(data);
-      app.info.push(data.info);
+    const services = utils.parseConfig(_.get(app, 'config.services', []), app);
+    // Go through each service and instantiate
+    return lando.Promise.resolve(services)
+    // Load the service and add it
+    .each(service => {
+      // Generic and specific preload service events
+      return app.events.emit('pre-init-service', service)
+      .tap(() => app.events.emit(`pre-init-service-${service.name}`, service))
+      // Load the service
+      .then(() => {
+        // Throw a warning if service is not supported
+        if (_.isEmpty(_.find(lando.factory.get(), {name: service.type}))) {
+          app.log.warn('%s is not a supported service type.', service.type);
+        }
+        // Log da things
+        app.log.verbose('building %s service %s', service.type, service.name);
+        // Build da things
+        // @NOTE: this also gathers app.info and build steps
+        const Service = lando.factory.get(service.type);
+        return new Service(service.name, service, lando.factory, lando.utils);
+      })
+      // Generic and specific postload service events
+      .tap(data => app.events.emit('post-init-service', data))
+      .tap(data => app.events.emit(`post-init-service-${service.name}`, data))
+      // Actually add the data as needed
+      .then(data => {
+        app.add(data);
+        app.info.push(data.info);
+      });
     });
   });
 

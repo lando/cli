@@ -37,8 +37,6 @@ module.exports = {
           port: _.get(options, 'portforward', 'not forwarded'),
         },
       });
-      // Add in a our healthcheck if we have one
-      if (options.healthcheck) options.info.healthcheck = options.healthcheck;
       // Add in creds if we have them
       if (options.creds) options.info.creds = options.creds;
       super(id, options, ...sources);
