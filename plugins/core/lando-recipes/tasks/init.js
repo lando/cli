@@ -81,7 +81,7 @@ module.exports = lando => {
         if (options.full) {
           const Recipe = lando.factory.get(options.recipe);
           const recipeConfig = _.merge({}, landoFile, {app: landoFile.name, _app: {_config: lando.config}});
-          _.merge(landoFile, new Recipe(landoFile.name, recipeConfig).config);
+          _.merge(landoFile, new Recipe(landoFile.name, recipeConfig, lando.factory, lando.utils).config);
         }
 
         // Merge in any additional configuration options specified

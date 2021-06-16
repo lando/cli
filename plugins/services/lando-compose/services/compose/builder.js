@@ -20,7 +20,7 @@ module.exports = {
         services: _.set(
           {},
           options.name,
-          utils.normalizeOverrides(options.services, options._app.root, options.volumes)
+          utils.core.normalizeOverrides(options.services, options._app.root, options.volumes)
         ),
         networks: options.networks,
         volumes: options.volumes,

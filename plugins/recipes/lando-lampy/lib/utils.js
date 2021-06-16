@@ -83,8 +83,8 @@ exports.getLampDefaults = (name = 'lamp', via = 'apache') => ({
     xdebug: false,
   },
   builder: (parent, config) => class LandoLamp extends parent {
-    constructor(id, options = {}) {
-      super(id, _.merge({}, config, options));
+    constructor(id, options = {}, factory, utils) {
+      super(id, _.merge({}, config, options), factory, utils);
     };
   },
 });
