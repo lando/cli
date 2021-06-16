@@ -39,14 +39,14 @@ module.exports = {
     constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Add the wp cli install command
-      options.build.unshift(utils.getPhar(
+      options.build.unshift(utils.lampy.getPhar(
         getWpCliUrl(options.version),
         '/tmp/wp-cli.phar',
         '/usr/local/bin/wp',
         getWpStatusCheck(options.version)
       ));
       // Send downstream
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

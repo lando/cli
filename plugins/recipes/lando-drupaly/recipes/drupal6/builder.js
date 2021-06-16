@@ -18,8 +18,8 @@ module.exports = {
     drush: '8.4.5',
   },
   builder: (parent, config) => class LandoDrupal6 extends parent {
-    constructor(id, options = {}) {
-      super(id, _.merge({}, config, options));
+    constructor(id, options = {}, factory, utils) {
+      super(id, _.merge({}, config, options), factory, utils);
     };
   },
 };

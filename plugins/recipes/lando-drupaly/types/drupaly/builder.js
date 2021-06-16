@@ -4,8 +4,8 @@
 const _ = require('lodash');
 const LandoLaemp = require('./../../../../recipes/lando-lampy/types/laemp/builder.js');
 const semver = require('semver');
-const utils = require('./../../lib/utils');
 const warnings = require('./../../lib/warnings');
+const {getDrush} = require('./../../lib/utils');
 
 // "Constants"
 const DRUSH8 = '8.4.8';
@@ -35,7 +35,10 @@ module.exports = {
     xdebug: false,
   },
   builder: (parent, config) => class LandoDrupal extends LandoLaemp.builder(parent, config) {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
+      // Utils
+      const {getPhar} = utils.lampy;
+      // Merge
       options = _.merge({}, config, options);
       // Set the default drush version if we don't have it
       if (!_.has(options, 'drush')) options.drush = (options.php === '5.3') ? DRUSH7 : DRUSH8;
@@ -47,7 +50,7 @@ module.exports = {
         // Switch to phar based install if we can
         if (semver.valid(options.drush) && semver.major(options.drush) === 8) {
           delete options.composer['drush/drush'];
-          options.build.unshift(utils.getDrush(options.drush, ['drush', '--version']));
+          options.build.unshift(getDrush(options.drush, ['drush', '--version'], getPhar));
         }
         // Attempt to set a warning if possible
         const coercedDrushVersion = semver.valid(semver.coerce(options.drush));
@@ -66,7 +69,7 @@ module.exports = {
         },
       }}});
       // Send downstream
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

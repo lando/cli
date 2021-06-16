@@ -2,7 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../lib/utils');
+const {getDrush} = require('./../../lib/utils');
 
 /*
  * Helper to return backdrop settings
@@ -58,16 +58,19 @@ module.exports = {
     }}},
   },
   builder: (parent, config) => class LandoBackdrop extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
+      // Utils
+      const {getPhar} = utils.lampy;
+      // Merge
       options = _.merge({}, config, options);
-      // If this is an unsupported version lets add a CLI container as well
+       // If this is an unsupported version lets add a CLI container as well
       if (options.php === '5.3' || options.php === 5.3) {
         options.services.appserver_cli = _.merge({}, options.services.appserver, {
           type: 'php:5.5',
           via: 'cli',
           overrides: {image: 'devwithlando/php:5.5-fpm'},
           build_internal: [
-            utils.getDrush(options.drush, ['drush', '--version']),
+            getDrush(options.drush, ['drush', '--version'], getPhar),
             backdrushInstall(options.backdrush),
           ],
         });
@@ -79,7 +82,7 @@ module.exports = {
       } else {
         options.build.push(backdrushInstall(options.backdrush));
       }
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

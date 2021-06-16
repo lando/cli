@@ -24,12 +24,12 @@ module.exports = {
     xdebug: false,
   },
   builder: (parent, config) => class LandoJoomla extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Add the joomla cli install command
       options.composer['joomlatools/console'] = '*';
       // Send downstream
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

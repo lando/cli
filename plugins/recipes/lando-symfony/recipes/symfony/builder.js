@@ -47,7 +47,7 @@ module.exports = {
     xdebug: false,
   },
   builder: (parent, config) => class LandoSymfony extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Add in console tooling
       options.tooling.console = {
@@ -56,7 +56,7 @@ module.exports = {
       };
       if (_.has(options, 'cache')) options.services.cache = getCache(options.cache);
       // Send downstream
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

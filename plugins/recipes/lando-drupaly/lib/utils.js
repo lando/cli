@@ -8,7 +8,7 @@ const getDrushUrl = version => `https://github.com/drush-ops/drush/releases/down
 /*
  * Helper to get the phar build command
  */
-exports.getDrush = (version, status) => getPhar(
+exports.getDrush = (version, status, getPhar) => getPhar(
   getDrushUrl(version),
   '/tmp/drush.phar',
   '/usr/local/bin/drush',

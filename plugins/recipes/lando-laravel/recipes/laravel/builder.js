@@ -47,7 +47,7 @@ module.exports = {
     xdebug: false,
   },
   builder: (parent, config) => class LandoLaravel extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Add the laravel cli installer command
       options.composer['laravel/installer'] = '*';
@@ -61,7 +61,7 @@ module.exports = {
         options.services.cache = getCache(options.cache);
       }
       // Send downstream
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

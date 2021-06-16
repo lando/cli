@@ -15,8 +15,8 @@ module.exports = {
     php: '7.2',
   },
   builder: (parent, config) => class LandoDrupal7 extends parent {
-    constructor(id, options = {}, utils = {}) {
-      super(id, _.merge({}, config, options));
+    constructor(id, options = {}, factory, utils) {
+      super(id, _.merge({}, config, options), factory, utils);
     };
   },
 };

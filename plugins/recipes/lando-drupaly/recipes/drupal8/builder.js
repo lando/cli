@@ -30,7 +30,7 @@ module.exports = {
           description: 'Runs drupal console commands',
         }};
       }
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };

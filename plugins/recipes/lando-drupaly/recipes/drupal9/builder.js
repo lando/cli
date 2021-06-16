@@ -16,7 +16,7 @@ module.exports = {
     drush: '^10',
   },
   builder: (parent, config) => class LandoDrupal9 extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Set drush to false
       options.drush = false;
@@ -32,7 +32,7 @@ module.exports = {
       }
 
       // Send it downstream
-      super(id, options);
+      super(id, options, factory, utils);
     };
   },
 };
