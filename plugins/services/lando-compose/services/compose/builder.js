@@ -2,7 +2,6 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../../../core/lando-core/lib/utils');
 
 // Builder
 module.exports = {
@@ -15,7 +14,7 @@ module.exports = {
   },
   parent: '_lando',
   builder: (parent, config) => class LandoCompose extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       super(id, options, {
         services: _.set(

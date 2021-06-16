@@ -2,7 +2,6 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../../../core/lando-services/lib/utils');
 
 // Cmdz
 const dlUrl = 'https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64';
@@ -22,7 +21,7 @@ module.exports = {
   },
   parent: '_service',
   builder: (parent, config) => class LandoMailHog extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Build the default stuff here
       const hog = {

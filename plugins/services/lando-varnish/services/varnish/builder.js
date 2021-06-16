@@ -2,7 +2,6 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../../../core/lando-services/lib/utils');
 
 // Helper to get varnsh ssl nginx
 const varnishSsl = options => ({
@@ -44,7 +43,7 @@ module.exports = {
   },
   parent: '_lando',
   builder: (parent, config) => class LandoVarnish extends parent {
-    constructor(id, options = {}, factory) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Arrayify the backend
       if (!_.isArray(options.backends)) options.backends = [options.backends];
@@ -87,7 +86,7 @@ module.exports = {
           config: `${options.confDest}/${options.defaultFiles.ssl}`,
           info: {backend: 'edge', managed: true},
           meUser: 'www-data',
-          overrides: utils.cloneOverrides(options.overrides),
+          overrides: utils.services.cloneOverrides(options.overrides),
           ssl: true,
           sslExpose: true,
         });

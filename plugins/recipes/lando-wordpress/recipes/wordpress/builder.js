@@ -2,7 +2,6 @@
 
 // Modules
 const _ = require('lodash');
-const {getPhar} = require('./../../../../recipes/lando-lampy/lib/utils');
 
 // WP status check
 const getWpStatusCheck = (version = '7.4') => {
@@ -37,10 +36,10 @@ module.exports = {
     xdebug: false,
   },
   builder: (parent, config) => class LandoWordPress extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Add the wp cli install command
-      options.build.unshift(getPhar(
+      options.build.unshift(utils.getPhar(
         getWpCliUrl(options.version),
         '/tmp/wp-cli.phar',
         '/usr/local/bin/wp',

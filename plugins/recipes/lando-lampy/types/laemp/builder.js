@@ -3,7 +3,6 @@
 // Modules
 const _ = require('lodash');
 const fs = require('fs');
-const utils = require('./../../../../core/lando-recipes/lib/utils');
 
 // Funz
 const {getDbTooling} = require('./../../lib/utils');
@@ -86,13 +85,13 @@ const getConfigDefaults = options => {
 /*
  * Helper to get services
  */
-const getServices = options => ({
+const getServices = (options, getServiceConfig) => ({
   appserver: {
     build_as_root_internal: options.build_root,
     build_internal: options.build,
     composer: options.composer,
     composer_version: options.composer_version,
-    config: utils.getServiceConfig(options),
+    config: getServiceConfig(options),
     run_as_root_internal: options.run_root,
     ssl: true,
     type: `php:${options.php}`,
@@ -101,7 +100,7 @@ const getServices = options => ({
     webroot: options.webroot,
   },
   database: {
-    config: utils.getServiceConfig(options, ['database']),
+    config: getServiceConfig(options, ['database']),
     authentication: 'mysql_native_password',
     type: options.database,
     portforward: true,
@@ -135,11 +134,11 @@ module.exports = {
     proxy: {},
   },
   builder: (parent, config) => class LandoLaemp extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
       // Rebase on top of any default config we might already have
       options.defaultFiles = _.merge({}, getConfigDefaults(_.cloneDeep(options)), options.defaultFiles);
-      options.services = _.merge({}, getServices(options), options.services);
+      options.services = _.merge({}, getServices(options, utils.recipes.getServiceConfig), options.services);
       options.tooling = _.merge({}, getTooling(options), options.tooling);
       // Switch the proxy if needed
       if (!_.has(options, 'proxyService')) {

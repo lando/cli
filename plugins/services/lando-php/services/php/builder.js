@@ -4,7 +4,6 @@
 const _ = require('lodash');
 const path = require('path');
 const semver = require('semver');
-const utils = require('./../../../../core/lando-services/lib/utils');
 
 /*
  * Helper to get nginx config
@@ -18,7 +17,6 @@ const nginxConfig = options => ({
   info: {managed: true},
   home: options.home,
   name: `${options.name}_nginx`,
-  overrides: utils.cloneOverrides(options.overrides),
   project: options.project,
   root: options.root,
   ssl: options.nginxSsl,
@@ -133,7 +131,7 @@ module.exports = {
   },
   parent: '_appserver',
   builder: (parent, config) => class LandoPhp extends parent {
-    constructor(id, options = {}, factory) {
+    constructor(id, options = {}, factory, utils) {
       options = parseConfig(_.merge({}, config, options));
       // Mount our default php config
       options.volumes.push(`${options.confDest}/${options.defaultFiles._php}:${options.remoteFiles._php}`);
@@ -183,6 +181,7 @@ module.exports = {
       if (_.startsWith(options.via, 'nginx')) {
         // Set another lando service we can pass down the stream
         const nginxOpts = nginxConfig(options);
+        nginxOpts.overrides = utils.cloneOverrides(options.overrides);
         // Merge in any user specifified
         const LandoNginx = factory.get('nginx');
         const data = new LandoNginx(nginxOpts.name, nginxOpts);

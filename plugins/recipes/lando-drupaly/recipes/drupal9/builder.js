@@ -3,10 +3,6 @@
 // Modules
 const _ = require('lodash');
 
-// Get install DC command
-// const utils = require('./../../lib/utils');
-// const dcInstall = utils.getPhar('https://drupalconsole.com/installer', '/tmp/drupal.phar', '/usr/local/bin/drupal');
-
 /*
  * Build Drupal 9
  */

@@ -2,10 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const utils = require('./../../../../recipes/lando-lampy/lib/utils.js');
 
-// Get install DC command
-const dcInstall = utils.getPhar('https://drupalconsole.com/installer', '/tmp/drupal.phar', '/usr/local/bin/drupal');
 
 /*
  * Build Drupal 8
@@ -20,8 +17,11 @@ module.exports = {
     drupal: true,
   },
   builder: (parent, config) => class LandoDrupal8 extends parent {
-    constructor(id, options = {}) {
+    constructor(id, options = {}, factory, utils) {
       options = _.merge({}, config, options);
+      // Get install DC command
+      const getPhar = utils.lampy.getPhar;
+      const dcInstall = getPhar('https://drupalconsole.com/installer', '/tmp/drupal.phar', '/usr/local/bin/drupal');
       // Add in drupal console things
       if (options.drupal === true) {
         options.build = [dcInstall];

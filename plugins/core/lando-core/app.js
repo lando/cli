@@ -4,7 +4,6 @@
 const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
-const toObject = require('./../../../lib/utils').toObject;
 const utils = require('./lib/utils');
 const warnings = require('./lib/warnings');
 
@@ -137,7 +136,7 @@ module.exports = (app, lando) => {
   // @TODO: this is not currently the full lando info because a lot of it requires
   // the app to be on
   app.events.on('post-init', 10, () => {
-    const info = toObject(_.map(app.info, 'service'), {});
+    const info = lando.utils.toObject(_.map(app.info, 'service'), {});
     _.forEach(info, (value, key) => {
       info[key] = _.find(app.info, {service: key});
     });

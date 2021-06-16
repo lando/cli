@@ -25,7 +25,7 @@ module.exports = (app, lando) => {
       const Recipe = lando.factory.get(app.config.recipe);
       const config = utils.parseConfig(app.config.recipe, app);
       // Get recipe config
-      const recipe = new Recipe(config.name, config).config;
+      const recipe = new Recipe(config.name, config, lando.utils).config;
       // Cache dump our app tooling so we can use it in our entrypoint
       // @NOTE: we dump pre-merge so that tooling directly in the landofile is not mixed in
       lando.cache.set(toolingCache, JSON.stringify(recipe.tooling), {persist: true});

@@ -52,7 +52,7 @@ module.exports = (app, lando) => {
       // Build da things
       // @NOTE: this also gathers app.info and build steps
       const Service = lando.factory.get(service.type);
-      const data = new Service(service.name, service, lando.factory);
+      const data = new Service(service.name, service, lando.factory, lando.utils);
       app.add(data);
       app.info.push(data.info);
     });
