@@ -16,12 +16,6 @@ const getScannable = (app, scan = true) => _.filter(app.info, service => {
   return _.get(app, `config.services.${service.service}.scanner`, true) === scan;
 });
 
-// Helper to set the LANDO_LOAD_KEYS var
-const getKeys = (keys = true) => {
-  if (_.isArray(keys)) return keys.join(' ');
-  return keys.toString();
-};
-
 // Helper to bind exposed ports to the correct address
 const normalizeBind = (bind, address = '127.0.0.1') => {
   // If bind is not a string, return right away

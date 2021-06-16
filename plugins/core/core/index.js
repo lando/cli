@@ -61,9 +61,8 @@ module.exports = lando => {
   const caCert = path.join(caDir, `${caDomain}.pem`);
   const caKey = path.join(caDir, `${caDomain}.key`);
   const caProject = `landocasetupkenobi38ahsoka${lando.config.instance}`;
-  const sshDir = path.join(lando.config.home, '.ssh');
   // Ensure some dirs exist before we start
-  _.forEach([caDir, sshDir], dir => mkdirp.sync(dir));
+  _.forEach([caDir], dir => mkdirp.sync(dir));
 
   // Merge in utilities
   lando.events.on('post-bootstrap-engine', () => {

@@ -1,4 +1,4 @@
-name: Core Tests
+name: Key Tests
 
 on:
   pull_request:
@@ -15,15 +15,7 @@ jobs:
         node-version:
           - '14'
         leia-tests:
-          - basics-example
-          - badname-example
-          - custom-landofile-name-example
-          - events-example
-          - networking-example
-          - proxy-example
-          - scanner-example
-          - services-example
-          - tooling-example
+          - keys-example
     steps:
 
       # Install deps and cache
