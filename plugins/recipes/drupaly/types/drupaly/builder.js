@@ -2,7 +2,7 @@
 
 // Modules
 const _ = require('lodash');
-const LandoLaemp = require('./../../../../recipes/lando-lampy/types/laemp/builder.js');
+const LandoLaemp = require('./../../../../recipes/lampy/types/laemp/builder.js');
 const semver = require('semver');
 const warnings = require('./../../lib/warnings');
 const {getDrush} = require('./../../lib/utils');
