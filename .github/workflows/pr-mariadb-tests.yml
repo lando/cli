@@ -1,4 +1,4 @@
-name: SEQUELy Tests
+name: MariaDB Tests
 
 on:
   pull_request:
@@ -16,9 +16,6 @@ jobs:
           - '14'
         leia-tests:
           - maria-db-example
-          - my-sql-example
-          - mssql-example
-          - postgres-example
     steps:
 
       # Install deps and cache
