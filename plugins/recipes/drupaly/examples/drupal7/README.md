@@ -77,7 +77,7 @@ lando info |grep "lando-drupal7.lndo.site"
 
 # Should be able to pipe data directly into lando drush sql-cli
 cd drupal7
-lando db-export --stdout > dump.sql
+lando ssh -s database -c "mysqldump --opt --user=root --host=database --port=3306 drupal7" > dump.sql
 lando destroy -y
 lando start
 lando drush sql-cli < dump.sql
