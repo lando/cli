@@ -80,7 +80,11 @@ module.exports = {
   parent: '_appserver',
   builder: (parent, config) => class LandoNode extends parent {
     constructor(id, options = {}, factory, utils) {
+      // Get Utils
+      const {addBuildStep, getInstallCommands} = utils.services;
+      // Merge
       options = _.merge({}, config, options);
+
       // Make sure our command is an array
       if (!_.isArray(options.command)) options.command = [options.command];
       options.command = options.command.join(' && ');
@@ -106,8 +110,8 @@ module.exports = {
       options.moreHttpPorts.push(options.port);
       // Add our npm things to run step
       if (!_.isEmpty(options.globals)) {
-        const commands = utils.getInstallCommands(options.globals, pkger, ['npm', 'install', '-g']);
-        utils.addBuildStep(commands, options._app, options.name);
+        const commands = getInstallCommands(options.globals, pkger, ['npm', 'install', '-g']);
+        addBuildStep(commands, options._app, options.name);
       }
       // Set the sport and moreHttpPorts if ssl is numeric
       if (options.ssl) {

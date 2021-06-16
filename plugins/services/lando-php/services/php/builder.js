@@ -132,7 +132,11 @@ module.exports = {
   parent: '_appserver',
   builder: (parent, config) => class LandoPhp extends parent {
     constructor(id, options = {}, factory, utils) {
+      // Get Utils
+      const {addBuildStep, cloneOverrides, getInstallCommands} = utils.services;
+      // Merge
       options = parseConfig(_.merge({}, config, options));
+
       // Mount our default php config
       options.volumes.push(`${options.confDest}/${options.defaultFiles._php}:${options.remoteFiles._php}`);
 
@@ -162,26 +166,26 @@ module.exports = {
 
       // Add our composer things to run step
       if (!_.isEmpty(options.composer)) {
-        const commands = utils.getInstallCommands(options.composer, pkger, ['composer', 'global', 'require']);
-        utils.addBuildStep(commands, options._app, options.name, 'build_internal');
+        const commands = getInstallCommands(options.composer, pkger, ['composer', 'global', 'require']);
+        addBuildStep(commands, options._app, options.name, 'build_internal');
       }
 
       // Add activate steps for xdebug
       if (options.xdebug) {
-        utils.addBuildStep(['docker-php-ext-enable xdebug'], options._app, options.name, 'build_as_root_internal');
+        addBuildStep(['docker-php-ext-enable xdebug'], options._app, options.name, 'build_as_root_internal');
       }
 
       // Install the desired composer version
       if (options.composer_version) {
         const commands = [`/helpers/install-composer.sh ${options.composer_version}`];
-        utils.addBuildStep(commands, options._app, options.name, 'build_internal', true);
+        addBuildStep(commands, options._app, options.name, 'build_internal', true);
       }
 
       // Add in nginx if we need to
       if (_.startsWith(options.via, 'nginx')) {
         // Set another lando service we can pass down the stream
         const nginxOpts = nginxConfig(options);
-        nginxOpts.overrides = utils.cloneOverrides(options.overrides);
+        nginxOpts.overrides = cloneOverrides(options.overrides);
         // Merge in any user specifified
         const LandoNginx = factory.get('nginx');
         const data = new LandoNginx(nginxOpts.name, nginxOpts);

@@ -22,6 +22,9 @@ module.exports = {
   parent: '_service',
   builder: (parent, config) => class LandoMailHog extends parent {
     constructor(id, options = {}, factory, utils) {
+      // Get Utils
+      const {addBuildStep} = utils.services;
+      // Merge
       options = _.merge({}, config, options);
       // Build the default stuff here
       const hog = {
@@ -52,7 +55,7 @@ module.exports = {
       // Mailhog needs to do some crazy shit on other services to work
        _.forEach(options.hogfrom, hog => {
         // Add some build tazk
-        utils.addBuildStep([downloadCmd, chmodCmd], options._app, hog, 'build_as_root_internal');
+        addBuildStep([downloadCmd, chmodCmd], options._app, hog, 'build_as_root_internal');
         // Set the hogfrom with some extra things
         options.sources.push({services: _.set({}, hog, {
           environment: {MH_SENDMAIL_SMTP_ADDR: 'sendmailhog:1025'},
