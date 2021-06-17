@@ -5,12 +5,21 @@ const _ = require('lodash');
 const warnings = require('./lib/warnings');
 
 module.exports = (app, lando) => {
-  // Find all services with healthchecks and them to the app info
-  // @TODO make sure this is overrideable
+  // Set the default healthcheck
   app.events.on('post-init', () => {
     _.forEach(app.info, service => {
-      const hasHealthcheck = _.has(_.find(lando.factory.get(), {name: service.type}), 'config.healthcheck');
-      if (hasHealthcheck) service.healthcheck = _.find(lando.factory.get(), {name: service.type}).config.healthcheck;
+      if (_.has(_.find(lando.factory.get(), {name: service.type}), 'config.healthcheck')) {
+        service.healthcheck = _.find(lando.factory.get(), {name: service.type}).config.healthcheck;
+      }
+    });
+  });
+
+  // Override the default healthcheck with a custom one if it exists
+  app.events.on('post-init', 10, () => {
+    _.forEach(app.info, service => {
+      if (_.has(app, `config.services.${service.service}.healthcheck`)) {
+        service.healthcheck = app.config.services[service.service].healthcheck;
+      }
     });
   });
 

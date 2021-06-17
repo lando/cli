@@ -4,6 +4,7 @@ services:
     type: mariadb
   patch:
     type: mariadb:10.2.21
+    healthcheck: mysql -uroot --silent -e quit
   custom:
     type: mariadb:10.3
     portforward: true
