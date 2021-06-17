@@ -1,4 +1,4 @@
-name: Core Tests
+name: Scanner Tests
 
 on:
   pull_request:
@@ -15,14 +15,7 @@ jobs:
         node-version:
           - '14'
         leia-tests:
-          - basics-example
-          - badname-example
-          - custom-landofile-name-example
-          - events-example
-          - networking-example
-          - proxy-example
-          - services-example
-          - tooling-example
+          - scanner-example
     steps:
 
       # Install deps and cache
