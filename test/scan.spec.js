@@ -34,7 +34,7 @@ describe('scan', () => {
     });
 
     it('should return "good" status objects on status code 2xx', () => {
-      const scan = require('./../lib/scan')();
+      const scan = require('./../plugins/core/scanner/lib/scanner')();
       const urls = ['http://www.thecultofscottbakula.com', 'http://anumalak.com:'];
       return scan(urls)
         .each(result => {
@@ -46,7 +46,7 @@ describe('scan', () => {
 
     // @todo: should these return good?
     it('should return "good" status objects on non-wait codes', () => {
-      const scan = require('./../lib/scan')();
+      const scan = require('./../plugins/core/scanner/lib/scanner')();
       const urls = ['http://thecultofscottbakula.com:503', 'http://anumalak.com:503'];
       return scan(urls)
         .each(result => {
@@ -57,7 +57,7 @@ describe('scan', () => {
     });
 
     it('should return "ok" status objects on wildcard entries', () => {
-      const scan = require('./../lib/scan')();
+      const scan = require('./../plugins/core/scanner/lib/scanner')();
       const urls = ['http://*.thecultofscottbakula.com', 'http://*.anumalak.com:'];
       return scan(urls)
         .each(result => {
@@ -68,7 +68,7 @@ describe('scan', () => {
     });
 
     it('should return "bad" status objects on wait codes that don\'t change after max retries', () => {
-      const scan = require('./../lib/scan')();
+      const scan = require('./../plugins/core/scanner/lib/scanner')();
       const urls = ['http://thecultofscottbakula.com.666', 'http://anumalak.com.404'];
       return scan(urls, {max: 1, waitCodes: [666, 404]})
         .each(result => {
@@ -79,7 +79,7 @@ describe('scan', () => {
     });
 
     it('should return "good" status objects on wait codes that become non-wait codes after retry', () => {
-      const scan = require('./../lib/scan')();
+      const scan = require('./../plugins/core/scanner/lib/scanner')();
       const urls = ['http://thecultofscottbakula.com.666:2'];
       return scan(urls, {max: 2, waitCodes: [666]})
         .each(result => {
