@@ -9,11 +9,6 @@ const warnings = require('./lib/warnings');
 const getHttpPorts = data => _.get(data, 'Config.Labels["io.lando.http-ports"]', '80,443').split(',');
 const getHttpsPorts = data => _.get(data, 'Config.Labels["io.lando.https-ports"]', '443').split(',');
 
-// Helper to get scannable or not scannable services
-const getScannable = (app, scan = true) => _.filter(app.info, service => {
-  return _.get(app, `config.services.${service.service}.scanner`, true) === scan;
-});
-
 // Helper to bind exposed ports to the correct address
 const normalizeBind = (bind, address = '127.0.0.1') => {
   // If bind is not a string, return right away
@@ -158,25 +153,6 @@ module.exports = (app, lando) => {
   app.events.on('post-start', () => {
     _.forEach(_(lando.versions).filter(version => version.dockerVersion).value(), thing => {
       if (!thing.satisfied) app.addWarning(warnings.unsupportedVersionWarning(thing));
-    });
-  });
-
-  // Scan urls
-  app.events.on('post-start', 10, () => {
-    // Message to let the user know it could take a bit
-    console.log('Scanning to determine which services are ready... Please standby...');
-    // Filter out any services where the scanner might be disabled
-    return app.scanUrls(_.flatMap(getScannable(app), 'urls'), {max: 16}).then(urls => {
-      // Get data about our scanned urls
-      app.urls = urls;
-      // Add in unscannable ones if we have them
-      if (!_.isEmpty(getScannable(app, false))) {
-        app.urls = app.urls.concat(_.map(_.flatMap(getScannable(app, false), 'urls'), url => ({
-          url,
-          status: true,
-          color: 'yellow',
-        })));
-      }
     });
   });
 

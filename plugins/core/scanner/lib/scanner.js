@@ -3,8 +3,8 @@
 // Modules
 const _ = require('lodash');
 const https = require('https');
-const Log = require('./logger');
-const Promise = require('./promise');
+const Log = require('./../../../../lib/logger');
+const LandoPromise = require('./../../../../lib/promise');
 
 /*
  * Helper to load request library
@@ -19,7 +19,7 @@ const requestClient = () => {
 };
 
 // We make this module into a function so we can pass in a logger
-module.exports = (log = new Log()) => {
+module.exports = (log = new Log(), Promise = LandoPromise) => {
   // Helper to return a url status and log things
   const setStatus = (url, status = true, color = 'green', message = '%s is ready') => {
     log.debug(message, url);
