@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 set -e
 
@@ -97,8 +96,11 @@ done
 # Dynamically prefix alias if project name was not included
 if [[ "${LANDO_DB_ALIAS}" != "${LANDO_LAGOON_PROJECT}"* ]]; then
   LANDO_DB_ALIAS="${LANDO_LAGOON_PROJECT}-${LANDO_DB_ALIAS}"
+fi
+if [[ "${LANDO_FILES_ALIAS}" != "${LANDO_LAGOON_PROJECT}"* ]]; then
   LANDO_FILES_ALIAS="${LANDO_LAGOON_PROJECT}-${LANDO_FILES_ALIAS}"
 fi
+
 # Prefix aliases with lagoon.
 LANDO_DB_ALIAS="lagoon.${LANDO_DB_ALIAS}"
 LANDO_FILES_ALIAS="lagoon.${LANDO_FILES_ALIAS}"
@@ -120,15 +122,19 @@ drush la 1>/dev/null
 # Sync database
 if [ "${LANDO_DB_ALIAS}" != "lagoon.${LANDO_LAGOON_PROJECT}-none" ]; then
   # Validate environment exists
-  lando_pink "Validating ${LANDO_FILES_ALIAS} exists and you have access to it..."
-  if ! drush la | grep ${LANDO_FILES_ALIAS}; then
-    lando_red "$LANDO_FILES_ALIAS does not appear to be a valid environment!"
+  lando_pink "Validating database alias @${LANDO_DB_ALIAS} exists and you have access to it..."
+  if ! drush la | grep -q ${LANDO_DB_ALIAS}; then
+    lando_red "@${LANDO_DB_ALIAS} does not appear to be a valid environment!"
     exit 1
   fi
 
   # Validate we can ping the remote environment
-  drush "@${LANDO_FILES_ALIAS}" status -y
-  lando_green "Confirmed!"
+  if ! drush "@${LANDO_DB_ALIAS}" status -y >/dev/null; then
+    lando_red "Database alias @${LANDO_DB_ALIAS} access failed!"
+    exit 1
+  fi
+
+  lando_green "Database alias @${LANDO_DB_ALIAS} access confirmed!"
 
   # Drop and re-create database
   echo "Pushing database... this might take a bit..."
@@ -137,27 +143,35 @@ if [ "${LANDO_DB_ALIAS}" != "lagoon.${LANDO_LAGOON_PROJECT}-none" ]; then
   # Pipe output of drush sql:dump into mysql
   LANDO_SSH_KEY=${LANDO_SSH_KEY} drush sql:dump -y | drush "@${LANDO_DB_ALIAS}" sql:cli -y
 else
-  echo "Skipping database"
+  lando_green "Skipping database"
 fi
 
 # Sync files
 if [ "${LANDO_FILES_ALIAS}" != "lagoon.${LANDO_LAGOON_PROJECT}-none" ]; then
   # Validate environment exists
-  lando_pink "Validating ${LANDO_FILES_ALIAS} exists and you have access to it..."
-  if ! drush la | grep ${LANDO_FILES_ALIAS}; then
-    lando_red "$LANDO_FILES_ALIAS does not appear to be a valid environment!"
+  lando_pink "Validating file alias @${LANDO_FILES_ALIAS} exists and you have access to it..."
+  if ! drush la | grep -q ${LANDO_FILES_ALIAS}; then
+    lando_red "@${LANDO_FILES_ALIAS} does not appear to be a valid environment!"
     exit 1
   fi
 
   # Validate we can ping the remote environment
-  drush "@${LANDO_FILES_ALIAS}" status -y
-  lando_green "Confirmed!"
+  if ! drush "@${LANDO_FILES_ALIAS}" status -y >/dev/null; then
+    lando_red "Files alias @${LANDO_FILES_ALIAS} access failed!"
+    exit 1
+  fi
+  lando_green "Files alias @${LANDO_FILES_ALIAS} access confirmed!"
 
-  echo "Pushing files..."
-  # Suppress drush messaging by assigning output
-  LANDO_SSH_KEY=${LANDO_SSH_KEY} drush rsync web/sites/default/files @${LANDO_FILES_ALIAS}:web/sites/default -y -- --omit-dir-times --no-perms --no-group --no-owner --chmod=ugo=rwX
+  # Get the files path
+  # NOTE: It may not be safe to assume this "goes well" under all conditions eg does something
+  # helpful when it fails but lets wait until we know more before we do anything else
+  DRUPAL_FILES_PATH=$(drush @${LANDO_FILES_ALIAS} dd files | tr -d '\n' 2>/dev/null)
+  lando_pink "Attemping to sync files to/from directory: ${DRUPAL_FILES_PATH}"
+
+  # Export files with rsync
+  LANDO_SSH_KEY=${LANDO_SSH_KEY} drush rsync ${DRUPAL_FILES_PATH}/ "@${LANDO_FILES_ALIAS}":${DRUPAL_FILES_PATH}/ -y -- --omit-dir-times --no-perms --no-group --no-owner --chmod=ugo=rwX
 else
-  echo "Skipping files"
+  lando_green "Skipping files"
 fi
 
 # Finish up!
