@@ -26,12 +26,11 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-
 # Should have Java(OpenJDK) installed
-lando ssh -s custom -c "java -version" || echo $? | grep -i "openjdk"
+lando ssh -s custom -c "java -version" | grep -i "openjdk"
 
 # Should use 8.x as the default Tomcat version
-lando ssh -s custom -c "/usr/local/tomcat/bin/version.sh" || echo $? | grep Tomcat\/8.
+lando ssh -s custom -c "/usr/local/tomcat/bin/version.sh" | grep Tomcat\/8.
 
 # Should be serving our HELLO TOMCAT page
 lando ssh -s custom -c "curl http://localhost" || echo $? | grep "HELLO TOMCAT"
