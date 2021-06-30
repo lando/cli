@@ -22,8 +22,18 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# TODO
-true
+# Alas, we need curl for these tests (run this first)
+lando ssh -s custom -u root -c "apt update && apt install -y curl"
+
+# Should have Java(OpenJDK) installed
+lando ssh -s custom -c "java -version" | grep -i "openjdk"
+
+# Should use 8.x as the default Tomcat version
+lando ssh -s custom -c "/usr/local/tomcat/bin/version.sh" | grep Tomcat\/8.
+
+# Should be serving our HELLO TOMCAT page
+lando ssh -s custom -c "curl http://localhost" || echo $? | grep 'HELLO TOMCAT'
+
 ```
 
 Destroy tests
