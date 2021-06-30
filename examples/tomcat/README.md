@@ -15,8 +15,9 @@ Run the following commands to get up and running with this example.
 lando poweroff
 lando start
 
-# Should install Curl because we need it for testing
-lando ssh -s custom -u root -c "apt update && apt install -y curl"
+# Should install Curl because we need it for these tests
+lando ssh -s custom -u root -c "apt update"
+lando ssh -s custom -u root -c "apt install -y curl"
 ```
 
 Verification commands
