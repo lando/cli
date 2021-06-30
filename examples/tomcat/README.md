@@ -26,9 +26,6 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should have Java(OpenJDK) installed
-lando ssh -s custom -c "java -version" | grep -i "openjdk"
-
 # Should use 8.x as the default Tomcat version
 lando ssh -s custom -c "/usr/local/tomcat/bin/version.sh" | grep Tomcat\/8.
 
