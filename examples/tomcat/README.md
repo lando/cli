@@ -14,6 +14,9 @@ Run the following commands to get up and running with this example.
 # Should start up successfully
 lando poweroff
 lando start
+
+# Should install Curl because we need it for testing
+lando ssh -s custom -u root -c "apt update && apt install -y curl"
 ```
 
 Verification commands
@@ -22,8 +25,6 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Alas, we need curl for these tests (run this first)
-lando ssh -s custom -u root -c "apt update && apt install -y curl"
 
 # Should have Java(OpenJDK) installed
 lando ssh -s custom -c "java -version" || echo $? | grep -i "openjdk"
@@ -33,7 +34,6 @@ lando ssh -s custom -c "/usr/local/tomcat/bin/version.sh" || echo $? | grep Tomc
 
 # Should be serving our HELLO TOMCAT page
 lando ssh -s custom -c "curl http://localhost" || echo $? | grep "HELLO TOMCAT"
-
 ```
 
 Destroy tests
