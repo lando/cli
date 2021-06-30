@@ -32,7 +32,7 @@ lando ssh -s custom -c "java -version" | grep -i "openjdk"
 lando ssh -s custom -c "/usr/local/tomcat/bin/version.sh" | grep Tomcat\/8.
 
 # Should be serving our HELLO TOMCAT page
-lando ssh -s custom -c "curl http://localhost" || echo $? | grep 'HELLO TOMCAT'
+lando ssh -s custom -c "curl http://localhost" || echo $? | grep "HELLO TOMCAT"
 
 ```
 
