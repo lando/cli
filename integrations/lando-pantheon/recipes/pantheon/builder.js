@@ -107,8 +107,9 @@ module.exports = {
 
       // Enforce certain options for pantheon parity
       options.via = 'nginx:1.16';
-      options.database = (options.framework === 'drupal9') ? 'mariadb:10.4': 'mariadb:10.1';
-
+      // Pantheon has begun specifying the database version in the pantheon.yml via this key.
+      const dbVersion = _.get(options, 'database.version', '10.1');
+      options.database = `mariadb:${dbVersion}`;
       // Set correct things based on framework
       options.defaultFiles.vhosts = `${options.framework}.conf.tpl`;
       options = overrideAppserver(options);
