@@ -12,8 +12,6 @@ Lando is **free** and **open source** software that relies on contributions from
 * Forced usage of `docker-compose-v1` for now [#3075](https://github.com/lando/lando/issues/3075) [#3076](https://github.com/lando/lando/issues/3076) [#3098](https://github.com/lando/lando/issues/3098)
 * Introduced signed and notarized binaries as applicable for x64 and arm64 [#5](https://github.com/lando/cli/pull/5)
 
-[#2998](https://github.com/lando/lando/pull/2998)
-
 **NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
 
 ## v3.2.1 - [May 10, 2021](https://github.com/lando/cli/releases/tag/v3.2.1)
