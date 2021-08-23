@@ -23,14 +23,14 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should use 1.14 as the default version
-lando ssh -s defaults -c "go version | grep go1.14"
+lando ssh -s defaults -c "go version | grep go1.16"
 
 # Should run only on port 80 by default
 lando ssh -s defaults -c "curl http://localhost" | grep HEART
 lando ssh -s defaults -c "curl https://localhost" || echo $? | grep 1
 
 # Should use the version if specified by user
-lando ssh -s patch -c "go version | grep go1.13.9"
+lando ssh -s patch -c "go version | grep go1.16.5"
 
 # Should serve over http and https if ssl is set by user
 lando ssh -s custom -c "curl http://localhost" | grep HEART
