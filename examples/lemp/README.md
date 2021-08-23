@@ -16,7 +16,7 @@ lando poweroff
 
 # Should initialize the latest cakephp codebase
 rm -rf lemp && mkdir -p lemp && cd lemp
-lando init --source remote --remote-url git://github.com/cakephp/cakephp.git --remote-options="--branch 2.x --depth 1" --recipe lemp --webroot . --name lando-lemp
+lando init --source remote --remote-url git://github.com/cakephp/cakephp.git --remote-options="--branch 2.10.24 --depth 1" --recipe lemp --webroot . --name lando-lemp
 
 # Should move in our custom config and landofile
 cp -f .lando.local.yml lemp/.lando.local.yml
@@ -33,7 +33,7 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should return the drupal installation page by default
+# Should return the cakephp installation page by default
 cd lemp
 lando ssh -s appserver_nginx -c "curl -L localhost" | grep "CakePHP"
 
@@ -70,7 +70,7 @@ lando ssh -s appserver -c "which phpunit | grep /var/www/"
 # Should be able to require a composer dep
 cd lemp
 lando composer require phpunit/phpunit
-lando ssh -s appserver -c "/app/vendors/bin/phpunit --version"
+lando ssh -s appserver -c "/app/vendor/bin/phpunit --version"
 ```
 
 Destroy tests
