@@ -7,10 +7,9 @@ const _ = require('lodash');
 module.exports = {
   name: 'dotnet',
   config: {
-    version: '2',
-    supported: ['2', '2.0', '1', '1.1', '1.0'],
+    version: '2.1',
+    supported: ['3.1', '2.1'],
     patchesSupported: false,
-    legacy: ['1', '1.1', '1.0'],
     command: 'tail -f /dev/null',
     path: [
       '/usr/local/sbin',
@@ -35,9 +34,10 @@ module.exports = {
       // Make sure our command is an array
       if (!_.isArray(options.command)) options.command = [options.command];
       options.command = options.command.join(' && ');
-      // Build the nodez
+
+      // Build the dotnet
       const dotnet = {
-        image: `microsoft/dotnet:${options.version}-sdk`,
+        image: `mcr.microsoft.com/dotnet/sdk:${options.version}`,
         environment: {
           PATH: options.path.join(':'),
           ASPNETCORE_URLS: `http://+:${options.port}`,
