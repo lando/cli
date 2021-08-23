@@ -70,7 +70,7 @@ lando ssh -s appserver -c "which phpunit | grep /var/www/"
 # Should be able to require a composer dep
 cd lemp
 lando composer require phpunit/phpunit
-lando ssh -s appserver -c "/app/vendor/bin/phpunit --version"
+lando ssh -s appserver -c "/app/vendors/bin/phpunit --version"
 ```
 
 Destroy tests
