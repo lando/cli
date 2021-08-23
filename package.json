@@ -1,5 +1,5 @@
 {
-  "name": "lando-cli",
+  "name": "@lando/cli",
   "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
   "version": "3.2.1",
@@ -34,18 +34,20 @@
     "all": true
   },
   "scripts": {
+    "build:cli": "yarn clean && yarn pkg -c package.json -t node14 bin/lando.js",
     "build:docs": "yarn generate:api && node ./scripts/docs.js && vuepress build docs -d _docs",
+    "clean": "rimraf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate:api": "node ./scripts/yaml2json.js ./sponsors.yml ./contributors.yml --output-dir docs/.vuepress/public/api",
     "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "lint": "eslint --quiet --no-ignore bin experimental integrations lib plugins scripts test",
-    "pkg": "node ./scripts/pkg.js",
     "release": "bump --prompt --tag --all --push",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
     "test:functional": "mocha --timeout 900000 test/**/*.func.js",
     "test": "yarn lint && yarn test:unit"
   },
   "pkg": {
+    "outputPath": "dist",
     "scripts": [
       "bin/*.js",
       "experimental/**/*.js",
@@ -141,7 +143,6 @@
     "yargs": "^12.0.5"
   },
   "devDependencies": {
-    "@jesec/pkg": "^4.5.6",
     "@octokit/rest": "^17.1.0",
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
     "body-parser": "^1.14.2",
@@ -159,6 +160,8 @@
     "mocha": "^4.1.0",
     "mock-fs": "https://github.com/pirog/mock-fs.git#256-ctxBindingAccess",
     "nyc": "^12.0.1",
+    "pkg": "^5.3.1",
+    "rimraf": "^3.0.2",
     "sinon": "^4.3.0",
     "sinon-chai": "^2.14.0",
     "version-bump-prompt": "^4.2.1"
