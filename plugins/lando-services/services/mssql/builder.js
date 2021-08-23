@@ -7,7 +7,8 @@ const _ = require('lodash');
 module.exports = {
   name: 'mssql',
   config: {
-    version: 'custom',
+    version: '2017-latest',
+    supported: ['2017-latest', '2019-latest'],
     creds: {
       user: 'sa',
       password: 'he11oTHERE',
@@ -29,7 +30,7 @@ module.exports = {
       options = _.merge({}, config, options);
       // Build the default stuff here
       const mssql = {
-        image: 'microsoft/mssql-server-linux',
+        image: 'mcr.microsoft.com/mssql/server',
         command: '/opt/mssql/bin/sqlservr',
         environment: {
           ACCEPT_EULA: 'Y',
