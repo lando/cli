@@ -84,7 +84,7 @@ module.exports = (app, lando) => {
 
       // Load in other stuff keys tokens and other meta at the most opportune moment
       app.lagoonKeyCache = 'lagoon.keys';
-      app.lagoonKeys = lando.cache.get(app.lagoonKeyCache);
+      app.lagoonKeys = lando.cache.get(app.lagoonKeyCache) || [];
     });
 
     /*
