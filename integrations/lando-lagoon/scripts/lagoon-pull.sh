@@ -174,7 +174,7 @@ if [ "${LANDO_FILES_ALIAS}" != "lagoon.${LANDO_LAGOON_PROJECT}-none" ]; then
   lando_pink "Attemping to sync files to/from directory: ${DRUPAL_FILES_PATH}"
 
   # Import files with rsync
-  LANDO_SSH_KEY=${LANDO_SSH_KEY} drush rsync "@${LANDO_FILES_ALIAS}":${DRUPAL_FILES_PATH} ${DRUPAL_FILES_PATH} -y
+  LANDO_SSH_KEY=${LANDO_SSH_KEY} drush rsync "@${LANDO_FILES_ALIAS}":${DRUPAL_FILES_PATH}/ ${DRUPAL_FILES_PATH}/ -y
 else
   lando_green "Skipping files"
 fi
