@@ -2,6 +2,7 @@
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
 
+* Added support for `go` versions `1.15` and `1.16` [#14](https://github.com/lando/cli/pull/14)
 * Added support for `database.version` in `pantheon.yml` [#16](https://github.com/lando/cli/issues/16)
 * Fixed `mssql` not working due to upstream change in Microsoft registry [#2711](https://github.com/lando/lando/issues/2711)
 * Fixed `push` in `lagoon` recipe to respect configured Drupal public file path [#3060](https://github.com/lando/lando/issues/3060)
