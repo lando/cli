@@ -46,7 +46,8 @@ exports.runDefaults = (lando, options) => {
     lando.config.home,
     options.destination,
     _.cloneDeep(lando.config.appEnv),
-    _.cloneDeep(lando.config.appLabels)
+    _.cloneDeep(lando.config.appLabels),
+    _.get(options, 'initImage', 'devwithlando/util:3')
   );
   const initDir = path.join(lando.config.userConfRoot, 'init', options.name);
   const initFiles = lando.utils.dumpComposeData(initData, initDir);
