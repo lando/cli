@@ -15,13 +15,13 @@ module.exports = {
     name: 'init',
   },
   builder: (parent, config) => class LandoInit extends parent {
-    constructor(userConfRoot, home, app, env = {}, labels = {}) {
+    constructor(userConfRoot, home, app, env = {}, labels = {}, image = 'devwithlando/util:3') {
       // Basic Init service
       const initService = {
         services: {
           init: {
             command: '/bin/sh -c "/helpers/user-perms.sh --silent && tail -f /dev/null"',
-            image: 'devwithlando/util:3',
+            image,
             environment: env,
             labels: labels,
             volumes: [

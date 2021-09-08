@@ -1,10 +1,5 @@
-# Basic util container for lando
-#
-# docker build -t devwithlando/util:stable .
-
-FROM debian:jessie
-
-# Install dependencies we need
+# docker build -t devwithlando/util:4 .
+FROM debian:buster-slim
 RUN apt-get update && apt-get install -y \
     curl \
     wget \
