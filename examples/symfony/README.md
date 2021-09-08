@@ -20,8 +20,8 @@ lando init --source cwd --recipe symfony --webroot /app/public --name lando-symf
 
 # Should compose create-project a new symfony app
 cd symfony
-rm -rf tmp
-lando composer create-project symfony/website-skeleton tmp && cp -r tmp/. . && rm -rf tmp
+lando ssh -s appserver -u root -c "/helpers/install-composer.sh 2"
+rm -rf tmp && lando composer create-project symfony/website-skeleton tmp && cp -r tmp/. .
 
 # Should start up successfully
 cd symfony
