@@ -18,7 +18,7 @@ const LANDO_PATH = [
   '/app/vendor/bin',
   '/app/bin',
   '/app/.global/bin',
-  '/app/.global/vendor/bin'
+  '/app/.global/vendor/bin',
   '/usr/local/sbin',
   '/usr/local/bin',
   '/usr/sbin',
