@@ -17,6 +17,8 @@ const LANDO_PATH = [
   '/var/www/.composer/vendor/bin',
   '/app/vendor/bin',
   '/app/bin',
+  '/app/.global/bin',
+  '/app/.global/vendor/bin',
   '/usr/local/sbin',
   '/usr/local/bin',
   '/usr/sbin',
