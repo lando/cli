@@ -4,6 +4,7 @@ Lando is **free** and **open source** software that relies on contributions from
 
 * Added `devwithlando/util:4`
 * Added ability to specify utility container version as part of `lando init`
+* Added missing `$PATH` directories `/app/.global/bin`, `/app/.global/vendor/bin` to `platformsh` recipe [#30](https://github.com/lando/cli/pull/30)
 
 **NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
 
