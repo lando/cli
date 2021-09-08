@@ -16,11 +16,11 @@ lando poweroff
 
 # Initialize an empty Symfony recipe
 rm -rf symfony && mkdir -p symfony && cd symfony
-lando init --source cwd --recipe symfony --webroot /app/public --name lando-symfony --option cache=redis
+lando init --source cwd --recipe symfony --webroot /app/public --name lando-symfony --option cache=redis --option composer_version=2
 
 # Should compose create-project a new symfony app
 cd symfony
-lando composer create-project symfony/website-skeleton tmp && cp -r tmp/. . && rm -rf tmp
+lando composer create-project symfony/website-skeleton tmp/build && cp -r tmp/build/. . && rm -rf tmp/build
 
 # Should start up successfully
 cd symfony
