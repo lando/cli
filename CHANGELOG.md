@@ -1,3 +1,11 @@
+## v3.3.2 - [September 10, 2021](https://github.com/lando/cli/releases/tag/v3.3.2)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+* Fixed breaking upstream change in `axios@0.21.2` causing some hosting integration API calls eg posting a key to Pantheon to fail
+
+**NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
+
 ## v3.3.1 - [September 8, 2021](https://github.com/lando/cli/releases/tag/v3.3.1)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
