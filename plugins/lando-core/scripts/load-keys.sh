@@ -100,10 +100,10 @@ for SSH_CANDIDATE in "${SSH_CANDIDATES[@]}"; do
         SSH_KEYS+=("$SSH_CANDIDATE")
         SSH_IDENTITIES+=("  IdentityFile \"$SSH_CANDIDATE\"")
       fi
-    else
-      SSH_KEYS+=($SSH_CANDIDATE)
-      SSH_IDENTITIES+=("  IdentityFile \"$SSH_CANDIDATE\"")
     fi
+  else
+    SSH_KEYS+=($SSH_CANDIDATE)
+    SSH_IDENTITIES+=("  IdentityFile \"$SSH_CANDIDATE\"")
   fi
 done
 
