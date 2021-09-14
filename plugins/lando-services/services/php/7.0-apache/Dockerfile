@@ -7,9 +7,6 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   && apt -y update && apt-get install -y \
     gnupg2 \
     wget \
-  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' >> /etc/apt/sources.list.d/pgdg.list \
-  && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-  && apt-get update && apt-get install -y \
     bzip2 \
     exiftool \
     git-core \
@@ -28,7 +25,7 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     libxml2-dev \
     libicu-dev \
     mysql-client \
-    postgresql-client-10 \
+    postgresql-client \
     pv \
     ssh \
     unzip \
@@ -41,7 +38,7 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   && pecl install memcached \
   && pecl install oauth-2.0.2 \
   && pecl install redis-3.1.2 \
-  && pecl install xdebug-2.9.8 \
+  && pecl install xdebug-2.9.0 \
   && docker-php-ext-configure gd --with-freetype-dir=/usr --with-png-dir=/usr --with-jpeg-dir=/usr --with-webp-dir=/usr \
   && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
   && docker-php-ext-configure ldap --with-libdir=lib/$(uname -m)-linux-gnu/ \
