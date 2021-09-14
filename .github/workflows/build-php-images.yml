@@ -1,7 +1,8 @@
-name: Build Images
+name: Build PHP Images
 
 on:
-  pull_request:
+  # Uncomment below for testing purposes
+  # pull_request:
   push:
     branches:
       - main
@@ -14,12 +15,6 @@ jobs:
     strategy:
       matrix:
         include:
-          # Utility container
-          - image: util
-            tag: 4
-            context: plugins/lando-core/types/utility
-
-          # PHP images
           - image: php
             tag: 8.0-fpm-3
             context: plugins/lando-services/services/php/8.0-fpm
@@ -84,7 +79,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push ${{ matrix.image }} ${{ matrix.tag }}
+      - name: Build and push devwithlando/${{ matrix.image }}:${{ matrix.tag }}${{ steps.pr.outputs.TAG_SUFFIX }}
         uses: docker/build-push-action@v2
         with:
           context: ${{ matrix.context }}
