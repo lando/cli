@@ -1,6 +1,4 @@
-# Basic php-apache 8.0 appserver for Lando
-#
-# docker build -t devwithlando/php:8.0-apache .
+# docker build -t devwithlando/php:8.0-apache-2 .
 
 FROM php:8.0-apache-buster
 
