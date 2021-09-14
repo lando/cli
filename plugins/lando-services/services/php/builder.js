@@ -148,7 +148,7 @@ module.exports = {
 
       // Build the php
       const php = {
-        image: `devwithlando/php:${options.version}-${options.image}-2`,
+        image: `devwithlando/php:${options.version}-${options.image}-3`,
         environment: _.merge({}, options.environment, {
           PATH: options.path.join(':'),
           LANDO_WEBROOT: `/app/${options.webroot}`,

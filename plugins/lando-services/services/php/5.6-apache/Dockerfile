@@ -1,4 +1,4 @@
-# docker build -t devwithlando/php:5.6-apache-2 .
+# docker build -t devwithlando/php:5.6-apache-3 .
 
 FROM php:5.6-apache-stretch
 
