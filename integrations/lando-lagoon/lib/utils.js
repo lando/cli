@@ -1,7 +1,7 @@
 'use strict';
 const path = require('path');
 
-exports.run = (lando, cmd, key = null, silent = true, image='devwithlando/util') => {
+exports.run = (lando, cmd, key = null, silent = true, image='devwithlando/util:4') => {
   const scriptsDir = path.join(lando.config.userConfRoot, 'scripts');
 
   let command = [

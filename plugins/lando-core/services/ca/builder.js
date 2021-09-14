@@ -26,7 +26,7 @@ module.exports = {
         services: {
           ca: {
             command: ['tail', '-f', '/dev/null'],
-            image: 'devwithlando/util:3',
+            image: 'devwithlando/util:4',
             environment: {
               LANDO_SERVICE_TYPE: 'ca',
             },
