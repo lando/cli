@@ -15,7 +15,7 @@ module.exports = {
     name: 'init',
   },
   builder: (parent, config) => class LandoInit extends parent {
-    constructor(userConfRoot, home, app, env = {}, labels = {}, image = 'devwithlando/util:3') {
+    constructor(userConfRoot, home, app, env = {}, labels = {}, image = 'devwithlando/util:4') {
       // Basic Init service
       const initService = {
         services: {

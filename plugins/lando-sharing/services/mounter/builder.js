@@ -21,7 +21,7 @@ module.exports = {
         services: {
           mounter: {
             command: 'tail -f /dev/null',
-            image: 'devwithlando/util:3',
+            image: 'devwithlando/util:4',
             environment: {
               LANDO_HOST_UID: uid,
               LANDO_HOST_GID: gid,
