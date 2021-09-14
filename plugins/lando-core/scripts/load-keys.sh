@@ -90,7 +90,7 @@ for SSH_CANDIDATE in "${SSH_CANDIDATES[@]}"; do
   chown -R $LANDO_WEBROOT_USER:$GROUP "$SSH_CANDIDATE"
   chmod 600 "$SSH_CANDIDATE"
   lando_debug "Checking whether $SSH_CANDIDATE is a private key..."
-  if grep -L "PRIVATE KEY" "$SSH_CANDIDATE" &> /dev/null; then
+  if grep -l "PRIVATE KEY" "$SSH_CANDIDATE" &> /dev/null; then
     if command -v ssh-keygen >/dev/null 2>&1; then
       lando_debug "Checking whether $SSH_CANDIDATE is formatted correctly..."
       if ssh-keygen -l -f "$SSH_CANDIDATE" &> /dev/null; then
