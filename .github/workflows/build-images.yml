@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  docker:
+  buildx:
     runs-on: ubuntu-20.04
     env:
       TERM: xterm
@@ -56,12 +56,12 @@ jobs:
           - image: php
             tag: 7.0-apache-3
             context: plugins/lando-services/services/php/7.0-apache
-          # - image: php
-          #   tag: 5.6-fpm-3
-          #   context: plugins/lando-services/services/php/5.6-fpm
-          # - image: php
-          #   tag: 5.6-apache-3
-          #   context: plugins/lando-services/services/php/5.6-apache
+          - image: php
+            tag: 5.6-fpm-3
+            context: plugins/lando-services/services/php/5.6-fpm
+          - image: php
+            tag: 5.6-apache-3
+            context: plugins/lando-services/services/php/5.6-apache
 
           # Pantheon images
 
