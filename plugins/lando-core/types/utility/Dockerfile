@@ -1,4 +1,3 @@
-# docker build -t devwithlando/util:4 .
 FROM debian:buster-slim
 RUN apt-get update && apt-get install -y \
     curl \
