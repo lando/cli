@@ -24,46 +24,46 @@ jobs:
           # PHP images
           - context: plugins/lando-services/services/php/8.0-fpm
             image: php
-            tag: 8.0-fpm-2
+            tag: 8.0-fpm-3
           - context: plugins/lando-services/services/php/8.0-apache
             image: php
-            tag: 8.0-apache-2
+            tag: 8.0-apache-3
           - context: plugins/lando-services/services/php/7.4-fpm
             image: php
-            tag: 7.4-fpm-2
+            tag: 7.4-fpm-3
           - context: plugins/lando-services/services/php/7.4-apache
             image: php
-            tag: 7.4-apache-2
+            tag: 7.4-apache-3
           - context: plugins/lando-services/services/php/7.3-fpm
             image: php
-            tag: 7.3-fpm-2
+            tag: 7.3-fpm-3
           - context: plugins/lando-services/services/php/7.3-apache
             image: php
-            tag: 7.3-apache-2
+            tag: 7.3-apache-3
           - context: plugins/lando-services/services/php/7.2-fpm
             image: php
-            tag: 7.2-fpm-2
+            tag: 7.2-fpm-3
           - context: plugins/lando-services/services/php/7.2-apache
             image: php
-            tag: 7.2-apache-2
+            tag: 7.2-apache-3
           - context: plugins/lando-services/services/php/7.1-fpm
             image: php
-            tag: 7.1-fpm-2
+            tag: 7.1-fpm-3
           - context: plugins/lando-services/services/php/7.1-apache
             image: php
-            tag: 7.1-apache-2
+            tag: 7.1-apache-3
           - context: plugins/lando-services/services/php/7.0-fpm
             image: php
-            tag: 7.0-fpm-2
+            tag: 7.0-fpm-3
           - context: plugins/lando-services/services/php/7.0-apache
             image: php
-            tag: 7.0-apache-2
+            tag: 7.0-apache-3
           - context: plugins/lando-services/services/php/5.6-fpm
             image: php
-            tag: 5.6-fpm-2
+            tag: 5.6-fpm-3
           - context: plugins/lando-services/services/php/5.6-apache
             image: php
-            tag: 5.6-apache-2
+            tag: 5.6-apache-3
 
           # Pantheon images
 
