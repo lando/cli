@@ -1,16 +1,17 @@
 # docker build -t devwithlando/php:7.3-apache-2 .
 
-FROM php:7.3-apache-stretch
+FROM php:7.3-apache-buster
 
 # Install dependencies we need
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   && apt -y update && apt-get install -y \
     gnupg2 \
     wget \
-  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' >> /etc/apt/sources.list.d/pgdg.list \
+  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' >> /etc/apt/sources.list.d/pgdg.list \
   && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && apt-get update && apt-get install -y \
     bzip2 \
+    default-mysql-client \
     exiftool \
     git-core \
     imagemagick \
@@ -27,7 +28,6 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     libxml2-dev \
     libicu-dev \
     libzip-dev \
-    mysql-client \
     postgresql-client-10 \
     pv \
     ssh \
