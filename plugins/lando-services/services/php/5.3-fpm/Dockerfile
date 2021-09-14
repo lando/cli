@@ -45,7 +45,7 @@ RUN sed -i '/jessie-updates/d' /etc/apt/sources.list \
   && pecl install xdebug-2.2.7 \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr --with-jpeg-dir=/usr \
   && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
-  && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
+  && docker-php-ext-configure ldap --with-libdir=lib/$(uname -m)-linux-gnu/ \
   && docker-php-ext-enable apc \
   && docker-php-ext-enable imagick \
   && docker-php-ext-enable memcached \
