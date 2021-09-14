@@ -126,6 +126,7 @@ module.exports = {
       php: '/usr/local/etc/php/conf.d/zzz-lando-my-custom.ini',
     },
     sources: [],
+    suffix: '3',
     ssl: false,
     via: 'apache',
     volumes: ['/usr/local/bin'],
@@ -146,9 +147,12 @@ module.exports = {
       // If xdebug is set to "true" then map it to "debug"
       if (options.xdebug === true) options.xdebug = 'debug';
 
+      // If this is a legacy php version then switch the suffix
+      if (_.includes(options.legacy, options.version)) options.suffix = '2';
+
       // Build the php
       const php = {
-        image: `devwithlando/php:${options.version}-${options.image}-3`,
+        image: `devwithlando/php:${options.version}-${options.image}-${options.suffix}`,
         environment: _.merge({}, options.environment, {
           PATH: options.path.join(':'),
           LANDO_WEBROOT: `/app/${options.webroot}`,
