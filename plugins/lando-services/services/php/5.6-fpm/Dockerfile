@@ -1,6 +1,4 @@
-# Basic php-fpm 5.6 appserver for Lando
-#
-# docker build -t devwithlando/php:5.6-fpm .
+# docker build -t devwithlando/php:5.6-fpm-2 .
 
 FROM php:5.6-fpm-stretch
 

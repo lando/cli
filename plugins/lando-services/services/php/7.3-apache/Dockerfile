@@ -1,6 +1,4 @@
-# Basic apache php 7.3 appserver for Lando
-#
-# docker build -t devwithlando/php:7.3-apache .
+# docker build -t devwithlando/php:7.3-apache-2 .
 
 FROM php:7.3-apache-stretch
 

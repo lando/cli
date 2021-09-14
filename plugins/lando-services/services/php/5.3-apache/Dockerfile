@@ -1,7 +1,4 @@
-
-# Basic apache php 5.3 appserver for Lando
-#
-# docker build -t devwithlando/php:5.3-apache .
+# docker build -t devwithlando/php:5.3-apache-2 .
 
 FROM eugeneware/php-5.3:master
 

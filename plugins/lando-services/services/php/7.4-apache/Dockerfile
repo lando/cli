@@ -1,6 +1,4 @@
-# Basic php-apache 7.4 appserver for Lando
-#
-# docker build -t devwithlando/php:7.4-apache .
+# docker build -t devwithlando/php:7.4-apache-2 .
 
 FROM php:7.4-apache-buster
 

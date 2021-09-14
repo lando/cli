@@ -1,6 +1,4 @@
-# Basic php-fpm 7.1 appserver for Lando
-#
-# docker build -t devwithlando/php:7.1-fpm .
+# docker build -t devwithlando/php:7.1-fpm-2 .
 
 FROM php:7.1-fpm-stretch
 

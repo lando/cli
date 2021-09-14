@@ -1,6 +1,4 @@
-# Basic apache php 5.4 appserver for Lando
-#
-# docker build -t devwithlando/php:5.4-apache .
+# docker build -t devwithlando/php:5.4-apache-2 .
 
 FROM php:5.4-apache
 

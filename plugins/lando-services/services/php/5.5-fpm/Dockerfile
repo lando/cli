@@ -1,6 +1,4 @@
-# Basic php-fpm 5.5 appserver for Lando
-#
-# docker build -t devwithlando/php:5.5-fpm .
+# docker build -t devwithlando/php:5.5-fpm-2 .
 
 FROM php:5.5-fpm
 

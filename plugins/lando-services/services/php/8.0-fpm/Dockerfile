@@ -1,6 +1,4 @@
-# Basic php-fpm 8.0 appserver for Lando
-#
-# docker build -t devwithlando/php:8.0-fpm .
+# docker build -t devwithlando/php:8.0-fpm-2 .
 
 FROM php:8.0-fpm-buster
 
