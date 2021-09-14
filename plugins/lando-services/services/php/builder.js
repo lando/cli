@@ -126,7 +126,7 @@ module.exports = {
       php: '/usr/local/etc/php/conf.d/zzz-lando-my-custom.ini',
     },
     sources: [],
-    suffix: '2',
+    suffix: '3',
     ssl: false,
     via: 'apache',
     volumes: ['/usr/local/bin'],
