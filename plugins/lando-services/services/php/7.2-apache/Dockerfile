@@ -16,24 +16,29 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     git-core \
     imagemagick \
     libbz2-dev \
-    libc-client2007e-dev \
-    libjpeg-dev \
+    libc-client-dev \
+    libicu-dev \
+    libjpeg62-turbo-dev \
     libkrb5-dev \
     libldap2-dev \
     libmagickwand-dev \
     libmemcached-dev \
     libpng-dev \
     libpq-dev \
+    libssl-dev \
     libwebp-dev \
     libxml2-dev \
-    libicu-dev \
+    libzip-dev \
+    libonig-dev \
+    openssl \
     postgresql-client-10 \
     pv \
+    rsync \
     ssh \
     unzip \
     wget \
-    xfonts-base \
     xfonts-75dpi \
+    xfonts-base \
     zlib1g-dev \
   && pecl install apcu \
   && pecl install imagick \
