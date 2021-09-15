@@ -21,6 +21,7 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     libjpeg62-turbo-dev \
     libkrb5-dev \
     libldap2-dev \
+    libmcrypt-dev \
     libmagickwand-dev \
     libmemcached-dev \
     libpng-dev \
