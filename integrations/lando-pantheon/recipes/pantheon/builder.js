@@ -8,7 +8,6 @@ const pull = require('./../../lib/pull');
 const push = require('./../../lib/push');
 const change = require('./../../lib/switch');
 const utils = require('./../../lib/utils');
-const { showCompletionScript } = require('yargs');
 
 const overrideAppserver = options => {
   // Use our custom pantheon images
