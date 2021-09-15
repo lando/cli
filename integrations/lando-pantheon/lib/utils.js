@@ -237,12 +237,12 @@ exports.getPantheonEnvironment = options => ({
 /*
  * Helper to build index service
  */
-exports.getPantheonIndex = () => ({
+exports.getPantheonIndex = (tag = 'latest') => ({
   services: {
     index: {
       type: 'solr:custom',
       overrides: {
-        image: 'devwithlando/pantheon-index:3.6-3',
+        image: `devwithlando/pantheon-index:${tag}`,
         ports: ['449'],
         command: '/bin/bash -c "/helpers/add-cert.sh && /start.sh"',
         environment: {
