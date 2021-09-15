@@ -1,22 +1,19 @@
-# Pantheon php 7.3 fpm appserver for Lando
-#
-# docker build -t devwithlando/pantheon-appserver:7.3-2 .
+# docker build -t devwithlando/pantheon-appserver:7.3-3 .
 
-FROM devwithlando/php:7.3-fpm-2
+FROM devwithlando/php:7.3-fpm-3
 
 # Version information
-ENV WKHTMLTOPDF_VERSION 0.12.5
+ENV WKHTMLTOPDF_VERSION 0.12.6
 ENV PHANTOMJS_VERSION 2.1.1
 ENV PHANTOMJS_OLD_VERSION 1.7.0
 ENV LANDO_TERMINUS_VERSION 2.5.0
-ENV MAVEN_VERSION 3.5.4
-ENV TIKA_VERSION 1.18
+ENV TIKA_VERSION 1.1
 
 # Install the additional things that make the pantheon
 RUN mkdir -p /usr/share/man/man1 \
   && apt-get update && apt-get install -y \
-    openjdk-8-jre-headless \
-    openjdk-8-jdk \
+    openjdk-11-jre-headless \
+    openjdk-11-jdk \
   && rm -f /usr/local/etc/php/conf.d/*-memcached.ini \
   && mkdir -p /var/www/.drush \
   && mkdir -p /var/www/.backdrush \
@@ -26,29 +23,29 @@ RUN mkdir -p /usr/share/man/man1 \
   && chown -R www-data:www-data /var/www /srv/bin \
   && wget "https://github.com/pantheon-systems/terminus/releases/download/${LANDO_TERMINUS_VERSION}/terminus.phar" -O /usr/local/bin/terminus \
   && chmod +x /usr/local/bin/terminus \
-  && cd /tmp && wget "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${WKHTMLTOPDF_VERSION}/wkhtmltox_${WKHTMLTOPDF_VERSION}-1.stretch_amd64.deb" \
-  && dpkg -i "wkhtmltox_${WKHTMLTOPDF_VERSION}-1.stretch_amd64.deb" \
+  && uname -m \
+  && cd /tmp && wget "https://github.com/wkhtmltopdf/packaging/releases/download/${WKHTMLTOPDF_VERSION}-1/wkhtmltox_${WKHTMLTOPDF_VERSION}-1.buster_amd64.deb" \
+  && cd /tmp && wget "https://github.com/wkhtmltopdf/packaging/releases/download/${WKHTMLTOPDF_VERSION}-1/wkhtmltox_${WKHTMLTOPDF_VERSION}-1.buster_arm64.deb" \
+  && /bin/bash -c 'if [[ "$(uname -m)" == "x86_64" ]]; then dpkg -i "/tmp/wkhtmltox_${WKHTMLTOPDF_VERSION}-1.buster_amd64.deb"; fi' \
+  && /bin/bash -c 'if [[ "$(uname -m)" == "aarch64" ]]; then dpkg -i "/tmp/wkhtmltox_${WKHTMLTOPDF_VERSION}-1.buster_arm64.deb"; fi' \
   && apt-get install -yf \
-  && rm -rf "wkhtmltox_${WKHTMLTOPDF_VERSION}-1.stretch_amd64.deb" \
   && ln -sf /usr/local/bin/wkhtmltopdf /srv/bin/wkhtmltopdf \
-  && cd /srv/bin \
-  && curl -fsSL "https://github.com/Medium/phantomjs/releases/download/v${PHANTOMJS_VERSION}/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2" | tar -xjv \
-  && mv phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin/phantomjs /srv/bin/phantomjs-${PHANTOMJS_VERSION} \
-  && rm -rf phantomjs-${PHANTOMJS_VERSION}-linux-x86_64 && rm -f phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 \
-  && chmod +x /srv/bin/phantomjs-${PHANTOMJS_VERSION} \
-  && curl -fsSL "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/phantomjs/phantomjs-${PHANTOMJS_OLD_VERSION}-linux-x86_64.tar.bz2" | tar -xjv \
+  && cd /tmp && curl -fsSL "https://github.com/Medium/phantomjs/releases/download/v${PHANTOMJS_VERSION}/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2" | tar -xjv \
+  && mv phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-amd64 \
+  && chmod +x /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-amd64 \
+  && cd /tmp && wget "https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v${PHANTOMJS_VERSION}-jessie-stretch-arm64/phantomjs" \
+  && mv phantomjs /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-arm64 \
+  && chmod +x /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-arm64 \
+  && /bin/bash -c 'if [[ "$(uname -m)" == "x86_64" ]]; then ln -sf /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-amd64 /srv/bin/phantomjs-${PHANTOMJS_VERSION}; fi' \
+  && /bin/bash -c 'if [[ "$(uname -m)" == "aarch64" ]]; then ln -sf /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-arm64 /srv/bin/phantomjs-${PHANTOMJS_VERSION}; fi' \
+  && ls -lsa /usr/local/bin \
+  && cd /tmp && curl -fsSL "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/phantomjs/phantomjs-${PHANTOMJS_OLD_VERSION}-linux-x86_64.tar.bz2" | tar -xjv \
   && mv phantomjs-${PHANTOMJS_OLD_VERSION}-linux-x86_64/bin/phantomjs /srv/bin/phantomjs \
-  && rm -rf phantomjs-${PHANTOMJS_OLD_VERSION}-linux-x86_64 && rm -f phantomjs-${PHANTOMJS_OLD_VERSION}-linux-x86_64.tar.bz2 \
   && chmod +x /srv/bin/phantomjs \
-  && curl -fsSL "http://www-us.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" | tar -xz -C /tmp \
-  && cd /tmp && curl -OL "http://archive.apache.org/dist/tika/apache-tika-1.1-src.zip" \
-  && unzip /tmp/apache-tika-1.1-src.zip \
-  && rm /tmp/apache-tika-1.1-src.zip \
-  && cd /tmp/apache-tika-1.1 && /tmp/apache-maven-${MAVEN_VERSION}/bin/mvn install \
-  && cp -rf /tmp/apache-tika-1.1/tika-app/target/tika-app-1.1.jar /srv/bin/tika-app-1.1.jar \
+  && /bin/bash -c 'if [[ "$(uname -m)" == "aarch64" ]]; then ln -sf /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-arm64 /srv/bin/phantomjs; fi' \
   && wget "http://archive.apache.org/dist/tika/tika-app-${TIKA_VERSION}.jar" -O /srv/bin/tika-app-${TIKA_VERSION}.jar \
   && chmod +x /srv/bin/tika-app-${TIKA_VERSION}.jar \
-  && apt-get -y remove openjdk-8-jdk \
+  && apt-get -y remove openjdk-11-jdk \
   && apt-get -y clean \
   && apt-get -y autoclean \
   && apt-get -y autoremove \

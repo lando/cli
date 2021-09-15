@@ -17,6 +17,19 @@ jobs:
           - image: pantheon-index
             tag: 3.6-3
             context: integrations/lando-pantheon/recipes/pantheon/3.6-solr
+          - image: pantheon-appserver
+            tag: 7.4-3
+            context: integrations/lando-pantheon/recipes/pantheon/7.4-php
+          - image: pantheon-appserver
+            tag: 7.3-3
+            context: integrations/lando-pantheon/recipes/pantheon/7.3-php
+          - image: pantheon-appserver
+            tag: 7.2-3
+            context: integrations/lando-pantheon/recipes/pantheon/7.2-php
+          - image: pantheon-appserver
+            tag: 7.1-3
+            context: integrations/lando-pantheon/recipes/pantheon/7.1-php
+
 
     steps:
       - name: Checkout code
