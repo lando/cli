@@ -5,16 +5,17 @@ const _ = require('lodash');
 const utils = require('./../../lib/utils');
 
 // Cmdz
-const dlUrl = 'https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64';
-const downloadCmd = `curl -fsSL -o /usr/local/bin/mhsendmail ${dlUrl}`;
+const amd64dlUrl = 'https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64';
+const arm64dlUrl = 'github.com/evertiro/mhsendmail/releases/download/v0.2.0-M1/mhsendmail_linux_arm64';
+const downloadCmd = (url = amd64dlUrl) => `curl -fsSL -o /usr/local/bin/mhsendmail ${url}`;
 const chmodCmd = 'chmod +x /usr/local/bin/mhsendmail';
 
 // Builder
 module.exports = {
   name: 'mailhog',
   config: {
-    version: 'v1.0.0',
-    supported: ['v1.0.0'],
+    version: 'v1.0.1',
+    supported: ['v1.0.0', 'v1.0.1'],
     confSrc: __dirname,
     hogfrom: [],
     port: '1025',
@@ -23,6 +24,9 @@ module.exports = {
   parent: '_service',
   builder: (parent, config) => class LandoMailHog extends parent {
     constructor(id, options = {}) {
+      // Are we strapped?
+      const isArmed = _.get(options, '_app._config.isArmed', false);
+      // Merge user opts on top of defaults
       options = _.merge({}, config, options);
       // Build the default stuff here
       const hog = {
@@ -52,8 +56,10 @@ module.exports = {
       options.info = {hogfrom: options.hogfrom};
       // Mailhog needs to do some crazy shit on other services to work
        _.forEach(options.hogfrom, hog => {
+        // Get download URL based on ARCH
+        const mhsendmailURL = (isArmed) ? arm64dlUrl : amd64dlUrl;
         // Add some build tazk
-        utils.addBuildStep([downloadCmd, chmodCmd], options._app, hog, 'build_as_root_internal');
+        utils.addBuildStep([downloadCmd(mhsendmailURL), chmodCmd], options._app, hog, 'build_as_root_internal');
         // Set the hogfrom with some extra things
         options.sources.push({services: _.set({}, hog, {
           environment: {MH_SENDMAIL_SMTP_ADDR: 'sendmailhog:1025'},
