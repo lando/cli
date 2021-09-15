@@ -25,8 +25,8 @@ RUN \
   && ln -s /usr/share/solr/web/index /usr/share/solr/conf/schema.xml \
   && echo "root" >> /etc/incron.allow \
   && echo "/usr/share/solr/web/index IN_MODIFY curl -k https://localhost:449/sites/self/environments/lando/admin/cores?action=RELOAD&core=index" > /etc/incron.d/schema_reload \
-  && echo "/usr/share/solr/web IN_CREATE curl -k https://localhost:449/sites/self/environments/lando/admin/cores?action=RELOAD&core=index" > /etc/incron.d/schema_reload
-  && echo "/usr/share/solr/web IN_DELETE curl -k https://localhost:449/sites/self/environments/lando/admin/cores?action=RELOAD&core=index" > /etc/incron.d/schema_reload
+  && echo "/usr/share/solr/web IN_CREATE curl -k https://localhost:449/sites/self/environments/lando/admin/cores?action=RELOAD&core=index" > /etc/incron.d/schema_reload \
+  && echo "/usr/share/solr/web IN_DELETE curl -k https://localhost:449/sites/self/environments/lando/admin/cores?action=RELOAD&core=index" > /etc/incron.d/schema_reload \
   && apt-get -y clean \
   && apt-get -y autoclean \
   && apt-get -y autoremove \
