@@ -29,6 +29,12 @@ jobs:
           - image: pantheon-appserver
             tag: 7.1-3
             context: integrations/lando-pantheon/recipes/pantheon/7.1-fpm
+          - image: pantheon-appserver
+            tag: 7.0-3
+            context: integrations/lando-pantheon/recipes/pantheon/7.0-fpm
+          - image: pantheon-appserver
+            tag: 5.6-3
+            context: integrations/lando-pantheon/recipes/pantheon/5.6-fpm
 
 
     steps:
