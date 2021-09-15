@@ -7,12 +7,11 @@ ENV WKHTMLTOPDF_VERSION 0.12.6
 ENV PHANTOMJS_VERSION 2.1.1
 ENV PHANTOMJS_OLD_VERSION 1.7.0
 ENV LANDO_TERMINUS_VERSION 2.5.0
-ENV TIKA_VERSION 1.1
+ENV TIKA_VERSION 1.18
 
 # Install the additional things that make the pantheon
 RUN mkdir -p /usr/share/man/man1 \
   && apt-get update && apt-get install -y \
-    openjdk-11-jre-headless \
     openjdk-11-jdk \
   && rm -f /usr/local/etc/php/conf.d/*-memcached.ini \
   && mkdir -p /var/www/.drush \
@@ -45,7 +44,8 @@ RUN mkdir -p /usr/share/man/man1 \
   && /bin/bash -c 'if [[ "$(uname -m)" == "aarch64" ]]; then ln -sf /usr/local/bin/phantomjs-${PHANTOMJS_VERSION}-arm64 /srv/bin/phantomjs; fi' \
   && wget "http://archive.apache.org/dist/tika/tika-app-${TIKA_VERSION}.jar" -O /srv/bin/tika-app-${TIKA_VERSION}.jar \
   && chmod +x /srv/bin/tika-app-${TIKA_VERSION}.jar \
-  && apt-get -y remove openjdk-11-jdk \
+  && wget "http://archive.apache.org/dist/tika/tika-app-1.1.jar" -O /srv/bin/tika-app-1.1.jar \
+  && chmod +x /srv/bin/tika-app-1.1.jar \
   && apt-get -y clean \
   && apt-get -y autoclean \
   && apt-get -y autoremove \
