@@ -1,3 +1,12 @@
+## v3.3.3 - In development
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+* Added `arm64` variants for still-supported Lando provided images eg `php`, `util`, `pantheon-index` and `pantheon-appserver` [#2688](https://github.com/lando/lando/issues/2688)
+* Fixed bug in `load-keys.sh` which caused keys to not load in some situations eg `alpine:3.14` `grep` [#34](https://github.com/lando/cli/issues/34)
+
+**NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
+
 ## v3.3.2 - [September 10, 2021](https://github.com/lando/cli/releases/tag/v3.3.2)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
