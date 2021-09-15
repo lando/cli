@@ -8,10 +8,11 @@ const semver = require('semver');
 module.exports = {
   name: 'phpmyadmin',
   config: {
-    version: '5.0',
-    supported: ['5.0', '4.9', '4.8', '4.7', '4.6'],
+    version: '5.1',
+    supported: ['5.1', '5.0', '4.9', '4.8', '4.7', '4.6'],
     legacy: ['4.9', '4.8', '4.7', '4.6'],
     pinPairs: {
+      '5.1': 'phpmyadmin/phpmyadmin:5.1.1',
       '5.0': 'phpmyadmin/phpmyadmin:5.0.2',
     },
     command: '/docker-entrypoint.sh apache2-foreground',
