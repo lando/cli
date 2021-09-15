@@ -8,10 +8,11 @@ const pull = require('./../../lib/pull');
 const push = require('./../../lib/push');
 const change = require('./../../lib/switch');
 const utils = require('./../../lib/utils');
+const { showCompletionScript } = require('yargs');
 
 const overrideAppserver = options => {
   // Use our custom pantheon images
-  options.services.appserver.overrides.image = `devwithlando/pantheon-appserver:${options.php}-2`;
+  options.services.appserver.overrides.image = `devwithlando/pantheon-appserver:${options.php}-${options.tag}`;
   // Add in the prepend.php
   // @TODO: this throws a weird DeprecationWarning: 'root' is deprecated, use 'global' for reasons not immediately clear
   // So we are doing this a little weirdly to avoid hat until we can track things down better
@@ -78,12 +79,15 @@ module.exports = {
     env: 'dev',
     framework: 'drupal',
     index: true,
+    solrTag: 'latest',
     services: {appserver: {overrides: {
       volumes: [],
     }}},
+    tag: '2',
     tooling: {terminus: {
       service: 'appserver',
     }},
+    unarmedVersions: ['5.3', '5.5'],
     xdebug: false,
     webroot: '.',
   },
@@ -95,8 +99,15 @@ module.exports = {
         path.join(options.root, 'pantheon.yml'),
       ]));
 
+      // Get the armed status
+      const isArmed = _.get(options, '_app._config.isArmed', false);
+
       // Normalize because 7.0 right away gets handled strangely by js-yaml
       if (options.php === '7' || options.php === 7) options.php = '7.0';
+
+      // Bump the tags if we are ARMed and on an approved version
+      if (isArmed) options.solrTag = '3.6-3';
+      if (isArmed && !_.includes(options.unarmedVersions, options.php)) options.tag = '3';
 
       // Reset the drush version if we have a composer.json entry
       const composerFile = path.join(options.root, 'composer.json');
@@ -118,7 +129,7 @@ module.exports = {
       // Add in edge if applicable
       if (options.edge) options = _.merge({}, options, utils.getPantheonEdge(options));
       // Add in index if applicable
-      if (options.index) options = _.merge({}, options, utils.getPantheonIndex());
+      if (options.index) options = _.merge({}, options, utils.getPantheonIndex(options.solrTag));
 
       // Handle other stuff
       const tokens = utils.sortTokens(options._app.pantheonTokens, options._app.terminusTokens);

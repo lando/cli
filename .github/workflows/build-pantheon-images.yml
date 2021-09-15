@@ -1,7 +1,8 @@
 name: Build Pantheon Images
 
 on:
-  pull_request:
+  # Uncomment below for testing purposes
+  # pull_request:
   push:
     branches:
       - main
