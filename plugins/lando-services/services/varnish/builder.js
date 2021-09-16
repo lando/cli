@@ -31,7 +31,6 @@ module.exports = {
     backends: ['appserver'],
     confSrc: __dirname,
     backend_port: '80',
-    moreHttpPorts: ['6081'],
     ssl: false,
     sslExpose: false,
     sources: [],
@@ -63,9 +62,10 @@ module.exports = {
           LANDO_WEBROOT_GID: '101',
         },
         networks: {default: {aliases: [`${options.name}_varnish`]}},
-        ports: ['6081'],
+        ports: ['80'],
         volumes: [
           `${options.confDest}/lando.default.vcl.tmpl:/etc/gotpl/default.vcl.tmpl`,
+          `${options.confDest}/lando.varnishd.init.d.tmpl:/etc/gotpl/varnishd.init.d.tmpl`,
         ],
       };
       // Set LANDO_CUSTOM_VCL
