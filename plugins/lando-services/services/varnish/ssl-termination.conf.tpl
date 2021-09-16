@@ -13,7 +13,7 @@ server {
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
   location / {
-    proxy_pass            "http://{{LANDO_VARNISH_ALIAS}}";
+    proxy_pass            "http://{{LANDO_VARNISH_ALIAS}}:6081";
     proxy_read_timeout    90;
     proxy_connect_timeout 90;
     proxy_redirect        off;

@@ -27,19 +27,19 @@ module.exports = {
   name: 'varnish',
   config: {
     version: '4.1',
-    supported: ['4.1'],
+    supported: ['6', '6.0', '4', '4.1'],
     backends: ['appserver'],
     confSrc: __dirname,
     backend_port: '80',
+    moreHttpPorts: ['6081'],
     ssl: false,
     sslExpose: false,
     sources: [],
     defaultFiles: {
       ssl: 'ssl-termination.conf.tpl',
-      chaperone: 'chaperone.conf',
     },
     remoteFiles: {
-      vcl: '/etc/varnish/conf.d/lando.vcl',
+      vcl: '/etc/varnish/lando.vcl',
     },
   },
   parent: '_lando',
@@ -48,27 +48,25 @@ module.exports = {
       options = _.merge({}, config, options);
       // Arrayify the backend
       if (!_.isArray(options.backends)) options.backends = [options.backends];
+      // Determine the VCL script to use
+      const vcl = _.has(options, 'config.vcl') ? options.remoteFiles.vcl : '/etc/varnish/default.vcl';
       // Build the default stuff here
       const varnish = {
-        image: `eeacms/varnish:${options.version}-3.0`,
-        command: '/usr/local/bin/chaperone --user root --force --debug',
+        image: `wodby/varnish:${options.version}`,
+        command: '/docker-entrypoint.sh /etc/init.d/varnishd',
         depends_on: options.backends,
         environment: {
-          BACKENDS: options.backends.join(' '),
-          BACKENDS_PORT: options.backend_port,
-          ADDRESS_PORT: ':80',
-          BACKENDS_PROBE_ENABLED: 'false',
+          VARNISH_BACKEND_HOST: options.backends.join(' '),
+          VARNISH_BACKEND_PORT: options.backend_port,
+          VARNISHD_VCL_SCRIPT: vcl,
           LANDO_NO_USER_PERMS: 'NOTGONNADOIT',
           LANDO_WEBROOT_USER: 'varnish',
           LANDO_WEBROOT_GROUP: 'varnish',
-          LANDO_WEBROOT_UID: '104',
-          LANDO_WEBROOT_GID: '107',
+          LANDO_WEBROOT_UID: '100',
+          LANDO_WEBROOT_GID: '101',
         },
         networks: {default: {aliases: [`${options.name}_varnish`]}},
-        ports: ['80'],
-        volumes: [
-          `${options.confDest}/${options.defaultFiles.chaperone}:/etc/chaperone.d/chaperone.conf`,
-        ],
+        ports: ['6081'],
       };
       // Change the me user
       options.meUser = 'varnish';
@@ -102,6 +100,11 @@ module.exports = {
         // Indicate the relationship on the primary service
         options.info.ssl_served_by = sslOpts.name;
       }
+
+      // Finally force ssl to be false because varnish itself will never need certs
+      // We just use this upstream to set up SSL termination with nginx
+      options.ssl = false;
+      options.sslExpose = false;
 
       // Send it downstream
       super(id, options, ..._.flatten(options.sources));
