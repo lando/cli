@@ -48,8 +48,6 @@ module.exports = {
       options = _.merge({}, config, options);
       // Arrayify the backend
       if (!_.isArray(options.backends)) options.backends = [options.backends];
-      // Determine the VCL script to use
-      const vcl = _.has(options, 'config.vcl') ? options.remoteFiles.vcl : '/etc/varnish/default.vcl';
       // Build the default stuff here
       const varnish = {
         image: `wodby/varnish:${options.version}`,
@@ -58,7 +56,6 @@ module.exports = {
         environment: {
           VARNISH_BACKEND_HOST: options.backends.join(' '),
           VARNISH_BACKEND_PORT: options.backend_port,
-          VARNISHD_VCL_SCRIPT: vcl,
           LANDO_NO_USER_PERMS: 'NOTGONNADOIT',
           LANDO_WEBROOT_USER: 'varnish',
           LANDO_WEBROOT_GROUP: 'varnish',
@@ -67,7 +64,12 @@ module.exports = {
         },
         networks: {default: {aliases: [`${options.name}_varnish`]}},
         ports: ['6081'],
+        volumes: [
+          `${options.confDest}/lando.default.vcl.tmpl:/etc/gotpl/default.vcl.tmpl`,
+        ],
       };
+      // Set LANDO_CUSTOM_VCL
+      if (_.has(options, 'config.vcl')) varnish.environment.LANDO_CUSTOM_VCL = 'YOUBETCHA!';
       // Change the me user
       options.meUser = 'varnish';
       // Set some info about our backends
