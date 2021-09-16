@@ -6,6 +6,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Added version `1.0.1` to `mailhog` service
 * Added version `5.1` to `phpmyadmin` service
 * Improved `mailhog` so it is now a fully ARMed and operational service [#2688](https://github.com/lando/lando/issues/2688)
+* Improved `varnish` so it is now a fully ARMed and operational service [#2688](https://github.com/lando/lando/issues/2688)
 * Fixed bug in `load-keys.sh` which caused keys to not load in some situations eg `alpine:3.14` `grep` [#34](https://github.com/lando/cli/issues/34)
 
 **NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
