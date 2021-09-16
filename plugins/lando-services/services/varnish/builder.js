@@ -103,11 +103,6 @@ module.exports = {
         options.info.ssl_served_by = sslOpts.name;
       }
 
-      // Finally force ssl to be false because varnish itself will never need certs
-      // We just use this upstream to set up SSL termination with nginx
-      options.ssl = false;
-      options.sslExpose = false;
-
       // Send it downstream
       super(id, options, ..._.flatten(options.sources));
     };
