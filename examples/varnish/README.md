@@ -33,7 +33,7 @@ lando ssh -s custom_ssl -c "curl https://localhost | grep sophisticated"
 
 # Shoule use a custom vcl file if specified
 lando ssh -s custom -c "cat /etc/varnish/lando.vcl | grep LANDOVARNISH"
-lando ssh -s custom -c "env | grep VARNISHD_VCL_SCRIPT | grep /etc/varnish/lando.vcl"
+lando ssh -s custom -c "env | grep LANDO_CUSTOM_VCL | grep YOUBETCHA"
 lando ssh -s custom -c "curl -I localhost:6081" | grep X-Lando-Varnish | grep capes
 
 # Should inherit overrides from its generator
