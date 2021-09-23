@@ -198,3 +198,27 @@
   title: Contributor
   pic: 'https://www.gravatar.com/avatar/c335f31e62b453f747f39a84240b3bbd'
   id: 443e9ca6ae16555ec9d336447aaac3a944eebf5b
+- name: Alec Reynolds
+  role:
+    - Administration
+    - Code
+    - Content
+    - DevOps
+    - Documentation
+    - Evangelism
+    - Events
+    - Guides and Tutorials
+    - Issues
+    - Meetups
+    - Outreach
+    - Support
+    - Training
+  bio: >-
+    Co-founder at Lando, reformed digital agency junky, runner, gardner, and
+    maker of melody.
+  location: 'The Forest, CA'
+  github: reynoldsalec
+  twitter: reynoldsalec
+  title: Contributor
+  pic: 'https://www.gravatar.com/avatar/c70f27e330869d76c8eb3800c921c50f'
+  id: c69e1c0f0d2d4f0a307da56262d55583cec1d4b4
