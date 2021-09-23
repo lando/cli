@@ -10,7 +10,7 @@ module.exports = lando => {
   // Get the API
   const api = new LandoApiClient(lando.log);
   // Get some path data
-  const docsPath = path.resolve(__dirname, '..', '..', '..', 'docs');
+  const docsPath = path.resolve(__dirname, '..', '..', '..', '..', 'lando', 'docs');
   const templateFile = path.resolve(__dirname, '..', 'templates', 'guide.template');
   const guidesFile = path.join(docsPath, '.vuepress', 'guides.json');
   const guidesData = require(guidesFile);
