@@ -2,13 +2,14 @@
 
 FROM debian:buster-slim
 RUN apt-get update && apt-get install -y \
+    bzip2 \
     curl \
+    git-core \
+    jq \
+    rsync \
+    ssh \
     wget \
     unzip \
-    ssh \
-    git-core \
-    bzip2 \
-    jq \
   && apt-get -y clean \
   && apt-get -y autoclean \
   && apt-get -y autoremove \
