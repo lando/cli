@@ -106,7 +106,7 @@ module.exports = {
 
       // Bump the tags if we are ARMed and on an approved version
       if (isArmed) options.solrTag = '3.6-3';
-      if (isArmed && !_.includes(options.unarmedVersions, options.php)) options.tag = '3';
+      if (!_.includes(options.unarmedVersions, options.php)) options.tag = '3';
 
       // Reset the drush version if we have a composer.json entry
       const composerFile = path.join(options.root, 'composer.json');

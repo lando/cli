@@ -1,3 +1,11 @@
+## v3.4.1 - [October 1, 2021](https://github.com/lando/cli/releases/tag/v3.4.1)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+* HOTFIX release to address expired root certs and `libssl` security update [#3162](https://github.com/lando/lando/issues/3162)
+
+**NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
+
 ## v3.4.0 - [September 15, 2021](https://github.com/lando/cli/releases/tag/v3.4.0)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
