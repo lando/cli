@@ -39,12 +39,12 @@ jobs:
           - image: php
             tag: 7.2-apache-3
             context: plugins/lando-services/services/php/7.2-apache
-          - image: php
-            tag: 7.1-fpm-3
-            context: plugins/lando-services/services/php/7.1-fpm
-          - image: php
-            tag: 7.1-apache-3
-            context: plugins/lando-services/services/php/7.1-apache
+          # - image: php
+          #   tag: 7.1-fpm-3
+          #   context: plugins/lando-services/services/php/7.1-fpm
+          # - image: php
+          #   tag: 7.1-apache-3
+          #   context: plugins/lando-services/services/php/7.1-apache
           - image: php
             tag: 7.0-fpm-3
             context: plugins/lando-services/services/php/7.0-fpm
