@@ -42,10 +42,6 @@ module.exports = {
       });
       const bootScript = path.join(options.userConfRoot, 'scripts', 'psh-boot.sh');
 
-      // @NOTE This is a hack for https://github.com/lando/lando/issues/3164
-      // @TODO When p.sh updates thier images with this fix, we should remove this.
-      _.set(options._app, `config.services.${options.name}.run_as_root_internal`, ['/helpers/psh-hackalicious.sh']);
-
       // A appserver uses the "web" user
       options.meUser = 'web';
       // Find the envvars we need to set

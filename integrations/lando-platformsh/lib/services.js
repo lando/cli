@@ -55,6 +55,9 @@ const getLandoService = platform => {
     // We need to reeload our keys because in some situations they cannot be
     // set until now
     lando.build_as_root_internal.push('/helpers/load-keys.sh --silent');
+    // @NOTE This is a hack for https://github.com/lando/lando/issues/3164
+    // @TODO When p.sh updates thier images with this fix, we should remove this.
+    lando.build_as_root_internal.unshift('/helpers/psh-hackalicious.sh');
     // Add in the build wrapper
     lando.build_internal = ['/helpers/psh-build.sh'];
     // Generate certs for proxy purposes but dont expose things

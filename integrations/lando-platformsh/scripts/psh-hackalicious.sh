@@ -37,3 +37,6 @@ dpkg -i debconf_1.5.61_all.deb
 lando_pink "Manually Installing libssl1..."
 wget http://security.debian.org/debian-security/pool/updates/main/o/openssl1.0/libssl1.0.2_1.0.2u-1~deb9u6_amd64.deb
 dpkg -i libssl1.0.2_1.0.2u-1~deb9u6_amd64.deb
+
+lando_pink "Resetting /tmp..."
+chmod 777 /tmp
