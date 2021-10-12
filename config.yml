@@ -1,7 +1,7 @@
 product: lando
 channel: stable
 domain: lndo.site
-mode: cli
+mode: cli2
 
 dockerSupportedVersions:
   compose:
@@ -25,3 +25,9 @@ landoFile: .lando.yml
 stats:
   - report: true
     url: https://metrics.lando.dev
+
+plugins:
+  "@lando/platformsh": ./node_modules/@lando/platformsh
+# pluginDirs:
+#  - path: ./node_modules/@lando
+#    subdir: "."

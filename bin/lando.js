@@ -41,9 +41,6 @@ process.lando = 'node';
 process.landoTaskCacheName = '_.tasks.cache';
 process.landoTaskCacheFile = path.join(cli.defaultConfig().userConfRoot, 'cache', process.landoTaskCacheName);
 process.landoAppTaskCacheFile = !_.isEmpty(config) ? config.toolingCache : undefined;
-process.landoAppPluginDirs = _(_.get(config, 'pluginDirs', []))
-  .map(dir => ({path: path.join(config.root, dir), subdir: '.'}))
-  .value();
 
 // Check for sudo usage
 cli.checkPerms();
@@ -60,7 +57,7 @@ if (fs.existsSync(process.landoTaskCacheFile)) {
 } else {
   // NOTE: we require lando down here because it adds .5 seconds if we do it above
   const Lando = require('./../lib/lando');
-  const lando = new Lando(cli.defaultConfig());
+  const lando = new Lando(cli.defaultConfig(config));
   // Bootstrap lando at the correct level
   lando.bootstrap(bsLevel).then(lando => {
     // If bootstrap level is APP then we need to get and init our app to generate the app task cache
