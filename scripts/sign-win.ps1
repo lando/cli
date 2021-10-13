@@ -31,6 +31,6 @@ If (!(Test-Path $cert_path))
 
 # Sign and verify
 Write-Output "Trying to sign the $file binary with $signtool..."
-& $signtool sign -f "$cert_path" -p "$cert_password" -fd sha256 -tr "http://timestamp.comodoca.com/?td=sha256" -td sha256 -as -v "$file"
+& $signtool sign -f "$cert_path" -p "$cert_password" -fd sha256 -tr "http://timestamp.digicert.com" -td sha256 -as -v "$file"
 Write-Output "Verifying Lando binary has been signed with the signtool..."
 & $signtool verify -pa -v "$file"
