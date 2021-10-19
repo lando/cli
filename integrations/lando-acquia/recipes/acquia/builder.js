@@ -29,7 +29,6 @@ module.exports = {
       // Load .env file.
       options.env_file = ['.env'];
       options.webroot = 'docroot';
-      options.xdebug = false;
 
       // Get and discover our keys
       const keys = utils.sortKeys(options._app.acquiaKeys, options._app.hostKeys);
