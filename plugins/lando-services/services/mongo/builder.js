@@ -8,9 +8,11 @@ module.exports = {
   name: 'mongo',
   config: {
     version: '4.2',
-    supported: ['4.2', '4.1', '4.0', '3.6'],
+    supported: ['5.0', '4.4', '4.2', '4.1', '4.0', '3.6'],
     legacy: ['4.1'],
     pinPairs: {
+      '5.0': 'bitnami/mongodb:5.0.3-debian-10-r8',
+      '4.4': 'bitnami/mongodb:4.4.9-debian-10-r10',
       '4.2': 'bitnami/mongodb:4.2.6-debian-10-r33',
       '4.1': 'bitnami/mongodb:4.1.13-debian-9-r96',
       '4.0': 'bitnami/mongodb:4.0.13-debian-9-r45',
