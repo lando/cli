@@ -127,9 +127,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@lando/platformsh@lando/platformsh#main":
-  version "0.4.0"
-  resolved "https://codeload.github.com/lando/platformsh/tar.gz/0ebadb61f6680b561fbc4907b3da8df835fe1c12"
+"@lando/platformsh@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/platformsh/-/platformsh-0.5.0.tgz#73a47a7e1046faed3c4197b82a6ad4a67da5c832"
+  integrity sha512-LxTcwud/9RHhQ1IHebkxuZZ1rAOlu+Tcf3wPyo0N1uHCFUEKg9ZFMSHRzhJUaeTY4o/l6K/sejVp0X0fBkh+9w==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"

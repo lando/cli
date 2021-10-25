@@ -26,7 +26,3 @@ stats:
   - report: true
     url: https://metrics.lando.dev
 
-pluginDirs:
- - path: ./node_modules/@lando
-   subdir: "."
-   namespace: "@lando"
