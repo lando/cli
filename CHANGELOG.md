@@ -1,3 +1,13 @@
+## v3.5.0 - [October 25, 2021](https://github.com/lando/cli/releases/tag/v3.5.0)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+* Added support for `mongodb` `4.4` and `5.0` [#45]
+* Externalized `platformsh` recipe into its own [plugin](https://github.com/lando/platformsh)
+* Improved external plugin loading [#2989](https://github.com/lando/lando/issues/2989)
+
+**NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
+
 ## v3.4.3 - [October 6, 2021](https://github.com/lando/cli/releases/tag/v3.4.3)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
