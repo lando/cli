@@ -34,7 +34,7 @@ fi
 : ${CA_CERT_CONTAINER:="$CA_DIR/$CA_CERT_FILENAME"}
 
 # Common name
-COMMON_NAME="${LANDO_SERVICE_NAME}.${LANDO_APP_PROJECT}.internal"
+COMMON_NAME="${LANDO_APP_PROJECT}"
 
 # Make sure our cert directories exists
 mkdir -p /certs $CA_DIR
