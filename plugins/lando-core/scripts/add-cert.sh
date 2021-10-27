@@ -36,6 +36,9 @@ fi
 # Common name
 COMMON_NAME="${LANDO_APP_PROJECT}"
 
+# Alternative Subject Name
+ALT_NAME="${LANDO_SERVICE_NAME}.${LANDO_APP_PROJECT}.internal"
+
 # Make sure our cert directories exists
 mkdir -p /certs $CA_DIR
 
@@ -48,8 +51,9 @@ extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 [alt_names]
 DNS.1 = ${COMMON_NAME}
-DNS.2 = ${LANDO_SERVICE_NAME}
-DNS.3 = localhost
+DNS.2 = ${ALT_NAME}
+DNS.3 = ${LANDO_SERVICE_NAME}
+DNS.4 = localhost
 ${LANDO_PROXY_NAMES}
 ${LANDO_EXTRA_NAMES}
 EOF
