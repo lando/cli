@@ -222,3 +222,13 @@
   title: Contributor
   pic: 'https://www.gravatar.com/avatar/c70f27e330869d76c8eb3800c921c50f'
   id: c69e1c0f0d2d4f0a307da56262d55583cec1d4b4
+- name: badrange
+  role:
+    - Code
+  bio: Software developer at Inderes
+  location: 'Helsinki, Finland'
+  github: badrange
+  twitter: badrange
+  title: Contributor
+  pic: 'https://www.gravatar.com/avatar/cf9ce2a3ad36ef33c96d17602ca69901'
+  id: bf7c167b7942a6aab1680c772f6d6fd1bd389932
