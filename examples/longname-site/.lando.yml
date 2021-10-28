@@ -1,2 +1,6 @@
 name: lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends
 recipe: lemp
+config:
+  webroot: .
+  config:
+    vhosts: config/default.conf.tpl

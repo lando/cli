@@ -12,9 +12,6 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Should initialize basic LEMP
-lando init --source remote --remote-url git://github.com/cakephp/cakephp.git --remote-options="--branch 2.10.24 --depth 1" --recipe lemp --webroot . --name lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends
-
 # Should start up successfully
 lando start
 ```
@@ -31,11 +28,11 @@ lando ssh -s appserver_nginx -c "ps -u root" | grep nginx
 # Should be able to access http
 curl http://lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends.lndo.site | grep HELLO
 
-# Should confirm self-signed cert error.
+# Should be able to access https 
 curl --insecure https://lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends.lndo.site | grep HELLO
 
 # Should be able to retrieve cert
-echo quit | openssl s_client -showcerts -servername lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends -connect lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends.lndo.site:443 > cacert.pem
+echo quit | openssl s_client -showcerts -servername lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends -connect lando-the-sitename-that-never-ends-it-goes-on-and-on-my-friends.lndo.site:443 | grep "Lando Local CA for lndo\.site" 
 
 ```
 
