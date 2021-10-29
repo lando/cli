@@ -27,6 +27,10 @@ module.exports = {
       if (_.get(options, '_app._config.uid', '1000') !== '1001') options._app.nonRoot.push(options.name);
 
       const solr = {
+        environment: _.merge({}, options.environment, {
+          LANDO_HOST_UID: 8983,
+          LANDO_HOST_GID: 8983,
+        }),
         command: options.command,
         ports: [options.port],
         volumes: [
