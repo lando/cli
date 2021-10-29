@@ -127,10 +127,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@lando/platformsh@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/platformsh/-/platformsh-0.5.0.tgz#73a47a7e1046faed3c4197b82a6ad4a67da5c832"
-  integrity sha512-LxTcwud/9RHhQ1IHebkxuZZ1rAOlu+Tcf3wPyo0N1uHCFUEKg9ZFMSHRzhJUaeTY4o/l6K/sejVp0X0fBkh+9w==
+"@lando/platformsh@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@lando/platformsh/-/platformsh-0.6.0.tgz#7e0dd7e70b5a39d7f1fc318c016c7ef8c1b6a9db"
+  integrity sha512-TQGpVZn0qVHDbtAX+3Y14Iq91wyQgWo6/zA3cREGR7p8kH2nD2Yd3ZrfLfPO2ikN+9iZPYxtKO1rPNeZAQxVpQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
