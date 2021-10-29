@@ -267,6 +267,7 @@ module.exports = (app, lando) => {
       LANDO_APP_NAME: app.name,
       LANDO_APP_ROOT: app.root,
       LANDO_APP_ROOT_BIND: app.root,
+      LANDO_APP_COMMON_NAME: _.truncate(app.project, {length: 64}),
       LANDO_LOAD_KEYS: getKeys(_.get(app, 'config.keys')),
       BITNAMI_DEBUG: 'true',
     },
