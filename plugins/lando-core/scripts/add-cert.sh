@@ -25,6 +25,7 @@ fi
 
 # Vars and defaults
 : ${LANDO_DOMAIN:="lndo.site"}
+: ${COMMON_NAME:="${LANDO_APP_COMMON_NAME}"}
 : ${LANDO_CA_CERT:="/lando/certs/lndo.site.pem"}
 : ${LANDO_CA_KEY:="/lando/certs/lndo.site.key"}
 : ${LANDO_EXTRA_NAMES}:=""}
@@ -32,9 +33,6 @@ fi
 : ${CA_DIR:="/usr/share/ca-certificates"}
 : ${CA_CERT_FILENAME:="${LANDO_DOMAIN}.pem"}
 : ${CA_CERT_CONTAINER:="$CA_DIR/$CA_CERT_FILENAME"}
-
-# Common name
-COMMON_NAME="${LANDO_SERVICE_NAME}.${LANDO_APP_PROJECT}.internal"
 
 # Make sure our cert directories exists
 mkdir -p /certs $CA_DIR
@@ -47,7 +45,7 @@ keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 [alt_names]
-DNS.1 = ${COMMON_NAME}
+DNS.1 = ${LANDO_SERVICE_NAME}.${LANDO_APP_PROJECT}.internal
 DNS.2 = ${LANDO_SERVICE_NAME}
 DNS.3 = localhost
 ${LANDO_PROXY_NAMES}
