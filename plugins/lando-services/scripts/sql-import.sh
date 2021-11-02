@@ -109,20 +109,14 @@ if [ "$WIPE" == "true" ]; then
     psql postgresql://$USER@$HOST:$PORT/postgres -c "create database $DATABASE"
   else
     # Build the SQL prefix
-    SQLSTART="mysql -h $HOST -P $PORT -u $USER ${LANDO_EXTRA_DB_IMPORT_ARGS} $DATABASE"
+    SQLSTART="mysql -h $HOST -P $PORT -u $USER ${LANDO_EXTRA_DB_IMPORT_ARGS}"
 
-    # Gather and destroy tables
-    TABLES=$($SQLSTART -e 'SHOW TABLES' | awk '{ print $1}' | grep -v '^Tables' || true)
+    # Drop and recreate database
+    lando_yellow "Dropping database ...\n"
+    $SQLSTART -e "DROP DATABASE IF EXISTS ${DATABASE}"
 
-    # PURGE IT ALL! Drop views and tables as needed
-    for t in $TABLES; do
-      echo "Dropping $t from $DATABASE database..."
-      $SQLSTART <<-EOF
-        SET FOREIGN_KEY_CHECKS=0;
-        DROP VIEW IF EXISTS \`$t\`;
-        DROP TABLE IF EXISTS \`$t\`;
-EOF
-    done
+    lando_green "Creating database ...\n"
+    $SQLSTART -e "CREATE DATABASE ${DATABASE}"
   fi
 fi
 
