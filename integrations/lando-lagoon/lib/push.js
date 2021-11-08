@@ -22,7 +22,7 @@ const getEnvironmentChoices = (key, lando, projectName) => {
 // The non dynamic base of the task
 const task = {
   service: 'cli',
-  description: 'Pull db and files from Lagoon',
+  description: 'Push db and files to Lagoon',
   cmd: '/helpers/lagoon-push.sh',
   level: 'app',
   stdio: ['inherit', 'pipe', 'pipe'],
