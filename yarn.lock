@@ -127,6 +127,17 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@lando/lagoon@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.0.tgz#c1b37bbaac6ea458af303fcce150b25643e027f2"
+  integrity sha512-9yBu6kDKbi4Ydp3eUuPNvfF29PK3LuARpYI3tuYkQV/0sPDl1LCOtUM+YFKCXIo9+HFmBQLbpSElxzIejj8h9Q==
+  dependencies:
+    axios "0.21.4"
+    bluebird "^3.4.1"
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/platformsh@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@lando/platformsh/-/platformsh-0.6.0.tgz#7e0dd7e70b5a39d7f1fc318c016c7ef8c1b6a9db"
