@@ -37,7 +37,7 @@ const postgresCli = {
 const getDrushUrl = version => `https://github.com/drush-ops/drush/releases/download/${version}/drush.phar`;
 
 /*
- * Helper to get the phar build command
+ * Helper to get the correct DB tool.
  */
 exports.getDbTooling = database => {
   // Make sure we strip out any version number
