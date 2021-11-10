@@ -11,8 +11,9 @@ jobs:
     strategy:
       matrix:
         plugins:
-          - platformsh
+          - acquia
           - lagoon
+          - platformsh
 
     steps:
       # Install deps and cache
