@@ -148,6 +148,19 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/pantheon@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.0.tgz#d7481564d438a6b946e2b307618722a0712b469e"
+  integrity sha512-8Am6E1OXlwEAlolOJJf9dJtLRh34v71vm6B7ja7uHeYMHYgxQ3QFB9xpY6UfHuc3GUYJqQiVfY9SnJLvYxecAA==
+  dependencies:
+    axios "^0.24.0"
+    bluebird "^3.7.2"
+    dayjs "^1.10.7"
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+    winston "2.4.5"
+
 "@lando/platformsh@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@lando/platformsh/-/platformsh-0.6.0.tgz#7e0dd7e70b5a39d7f1fc318c016c7ef8c1b6a9db"
@@ -683,6 +696,11 @@ bluebird@^3.4.1, bluebird@~3.5.0:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
   integrity sha512-/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==
+
+bluebird@^3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
+  integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
 body-parser@^1.14.2:
   version "1.19.0"
@@ -1265,6 +1283,11 @@ dashdash@^1.12.0:
   integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
   dependencies:
     assert-plus "^1.0.0"
+
+dayjs@^1.10.7:
+  version "1.10.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
+  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
 dayjs@^1.8.25:
   version "1.8.25"
