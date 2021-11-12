@@ -13,6 +13,7 @@ jobs:
         plugins:
           - acquia
           - lagoon
+          - pantheon
           - platformsh
 
     steps:
