@@ -35,10 +35,9 @@ const setTooling = (options, tokens) => {
   options.tooling.pull = pull.getPantheonPull(options, tokens);
   options.tooling.push = push.getPantheonPush(options, tokens);
   options.tooling.switch = change.getPantheonSwitch(options, tokens);
+  options.tooling.sql = sql.getPantheonSql(options.database);
   // Add in the framework-correct tooling
   options.tooling = _.merge({}, options.tooling, utils.getPantheonTooling(options.framework));
-  // Add in msyql tooling.
-  options.tooling.sql = sql.getPantheonSql(options.database);
   // Inject token into the environment for all relevant tooling defined by recipe.
   ['push', 'pull', 'switch'].forEach(command => {
     options.tooling[command].env = _.merge({}, tokenEnv, options.tooling[command].env);

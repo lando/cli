@@ -7,11 +7,12 @@ const _ = require('lodash');
 module.exports = {
   name: 'pantheon-mariadb',
   config: {
-    version: '10.4',
-    supported: ['10.4', '10.3'],
+    version: '10.3', // @todo: this will probably be 10.3, check D6 support.
+    supported: ['10.4', '10.3', '10.1'],
     pinPairs: {
       '10.4': 'mariadb:10.4.21',
       '10.3': 'mariadb:10.3.31',
+      '10.1': 'mariadb:10.1.48',
     },
     patchesSupported: true,
     confSrc: __dirname,
@@ -30,25 +31,29 @@ module.exports = {
     },
   },
   parent: '_service',
-  builder: (parent, config) => class LandoMariaDb extends parent {
+  builder: (parent, config) => class PantheonMariaDb extends parent {
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
-      // @TODO: Delete?
-      // Ensure the non-root backup perm sweep runs
-      // NOTE: we guard against cases where the UID is the same as the non-root user
-      // because this messes things up on circle ci and presumably elsewhere and _should_ be unncessary
-      if (_.get(options, '_app._config.uid', '1000') !== '1001') options._app.nonRoot.push(options.name);
+
+      // Change the me user
+      options.meUser = 'mysql';
 
       const mariadb = {
         image: `mariadb:${options.version}`,
-        //command: '/launch.sh', @TODO: do we need something here?
+        command: 'docker-entrypoint.sh mysqld',
         environment: {
           MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes',
           // MARIADB_EXTRA_FLAGS for things like coallation?
           MARIADB_DATABASE: options.creds.database,
+          // Duplicated to help sql-export.sh know which DB to pull.
+          MYSQL_DATABASE: options.creds.database,
           MARIADB_PASSWORD: options.creds.password,
           MARIADB_USER: options.creds.user,
           LANDO_NEEDS_EXEC: 'DOEEET',
+          LANDO_WEBROOT_USER: 'mysql',
+          LANDO_WEBROOT_GROUP: 'mysql',
+          LANDO_WEBROOT_UID: '999',
+          LANDO_WEBROOT_GID: '999',
         },
         volumes: [
           `${options.confDest}/launch.sh:/launch.sh`,

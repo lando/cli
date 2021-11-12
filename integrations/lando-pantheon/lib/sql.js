@@ -7,7 +7,7 @@ const path = require('path');
 // Default DB cli commands
 const mysqlCli = {
   service: ':host',
-  description: 'Drops into a MySQL shell on a database service',
+  description: 'Drops into a MySQL shell on a Pantheon database service',
   cmd: 'mysql -uroot',
   options: {
     host: {
