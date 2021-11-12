@@ -7,7 +7,7 @@ const path = require('path');
 const pull = require('./../../lib/pull');
 const push = require('./../../lib/push');
 const change = require('./../../lib/switch');
-const sql = require('./../../lib/sql');
+const mysql = require('./../../lib/mysql');
 const utils = require('./../../lib/utils');
 
 const overrideAppserver = options => {
@@ -35,7 +35,7 @@ const setTooling = (options, tokens) => {
   options.tooling.pull = pull.getPantheonPull(options, tokens);
   options.tooling.push = push.getPantheonPush(options, tokens);
   options.tooling.switch = change.getPantheonSwitch(options, tokens);
-  options.tooling.sql = sql.getPantheonSql(options.database);
+  options.tooling.mysql = mysql.getPantheonMySql;
   // Add in the framework-correct tooling
   options.tooling = _.merge({}, options.tooling, utils.getPantheonTooling(options.framework));
   // Inject token into the environment for all relevant tooling defined by recipe.
