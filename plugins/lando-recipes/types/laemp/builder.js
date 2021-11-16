@@ -20,7 +20,7 @@ const toolingDefaults = {
       'host': {
         description: 'The database service to use',
         default: 'database',
-        alias: ['h'],
+        alias: ['h', 's', 'service'],
       },
       'no-wipe': {
         description: 'Do not destroy the existing database before an import',
@@ -37,7 +37,7 @@ const toolingDefaults = {
       host: {
         description: 'The database service to use',
         default: 'database',
-        alias: ['h'],
+        alias: ['h', 's', 'service'],
       },
       stdout: {
         description: 'Dump database to stdout',

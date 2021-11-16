@@ -13,7 +13,7 @@ const mysqlCli = {
     host: {
       description: 'The database service to use',
       default: 'database',
-      alias: ['h'],
+      alias: ['h', 's', 'service'],
     },
   },
 };
