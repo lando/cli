@@ -60,7 +60,7 @@ const pkger = (pkg, version = 'latest') => `${pkg}@${version}`;
 module.exports = {
   name: 'node',
   config: {
-    version: '16',
+    version: '14',
     supported: supportedVersions,
     patchesSupported: true,
     legacy: ['12', '10', '8', '6'],
