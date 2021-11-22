@@ -63,7 +63,7 @@ module.exports = {
     version: '16',
     supported: supportedVersions,
     patchesSupported: true,
-    legacy: ['10', '8', '6'],
+    legacy: ['12', '10', '8', '6'],
     command: 'tail -f /dev/null',
     moreHttpPorts: [],
     path: [
