@@ -6,7 +6,7 @@ events:
     - node: whoami | grep node
 services:
   node:
-    type: node:12
+    type: node:14
 tooling:
   php:
     service: php
