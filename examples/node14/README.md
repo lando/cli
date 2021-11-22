@@ -30,7 +30,7 @@ lando ssh -s defaults -c "env | grep NODE_VERSION=14."
 lando ssh -s custom -c "env | grep NODE_VERSION=16."
 
 # Should use a user specified patch version if given
-lando ssh -s patch -c "env | grep NODE_VERSION=14.18.3"
+lando ssh -s patch -c "env | grep NODE_VERSION=14.18.1"
 
 # Should serve over port 80 by default
 lando ssh -s defaults -c "curl http://localhost | grep tune"

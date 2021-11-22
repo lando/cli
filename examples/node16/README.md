@@ -23,14 +23,14 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use 14.x as the default version
-lando ssh -s defaults -c "env | grep NODE_VERSION=14."
+# Should use 16.x as the default version
+lando ssh -s defaults -c "env | grep NODE_VERSION=16."
 
 # Should use a user specified version if given
-lando ssh -s custom -c "env | grep NODE_VERSION=16."
+lando ssh -s custom -c "env | grep NODE_VERSION=17."
 
 # Should use a user specified patch version if given
-lando ssh -s patch -c "env | grep NODE_VERSION=14.18.3"
+lando ssh -s patch -c "env | grep NODE_VERSION=16.13.0"
 
 # Should serve over port 80 by default
 lando ssh -s defaults -c "curl http://localhost | grep tune"
