@@ -6,6 +6,10 @@ const utils = require('./../../lib/utils');
 
 // Constants
 const supportedVersions = [
+  '17',
+  '16',
+  '16.13',
+  '14.18',
   '14',
   '13',
   '12',
@@ -58,10 +62,10 @@ const pkger = (pkg, version = 'latest') => `${pkg}@${version}`;
 module.exports = {
   name: 'node',
   config: {
-    version: '10',
+    version: '14',
     supported: supportedVersions,
     patchesSupported: true,
-    legacy: ['8', '6'],
+    legacy: ['12', '10', '8', '6'],
     command: 'tail -f /dev/null',
     moreHttpPorts: [],
     path: [

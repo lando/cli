@@ -53,7 +53,7 @@ module.exports = {
     command: 'npm start',
     database: 'mongo',
     globals: {},
-    node: '10',
+    node: '14',
     port: '80',
     ssl: false,
   },
