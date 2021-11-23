@@ -1,7 +1,7 @@
 name: lando-node-10
 services:
   defaults:
-    type: node
+    type: node:10
     build:
       - yarn
     command: /app/node_modules/.bin/nodemon src/app-http.js --watch src --ignore *.test.js
