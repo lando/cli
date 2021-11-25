@@ -35,7 +35,7 @@ lando ssh -s custom11 -c "psql -V | grep 11."
 lando ssh -s custom12 -c "psql -V | grep 12."
 
 # Should use postgres 13 when set by the user
-lando ssh -s custom12 -c "psql -V | grep 13."
+lando ssh -s custom13 -c "psql -V | grep 13."
 
 # Should use patch version when set by the user
 lando ssh -s patch -c "psql -V | grep 9.6.14"
