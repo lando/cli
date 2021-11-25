@@ -22,16 +22,22 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use 10.12 as the default version
-lando ssh -s defaults -c "psql -V | grep 10.12"
+# Should use 14 as the default version
+lando ssh -s defaults -c "psql -V | grep 14"
 
 # Should use the specfied version when set by the user
-lando ssh -s custom -c "psql -V | grep 11."
+lando ssh -s custom -c "psql -V | grep 10."
 
-# Should use the specfied version when set by the user part 2
+# Should use postgres 11 when set by the user
+lando ssh -s custom11 -c "psql -V | grep 11."
+
+# Should use postgres 12 when set by the user
 lando ssh -s custom12 -c "psql -V | grep 12."
 
-# Should use the patch version when set by the user
+# Should use postgres 13 when set by the user
+lando ssh -s custom12 -c "psql -V | grep 13."
+
+# Should use patch version when set by the user
 lando ssh -s patch -c "psql -V | grep 9.6.14"
 
 # Should use the correct default user pass db
