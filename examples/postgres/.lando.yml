@@ -1,18 +1,24 @@
 name: lando-postgres
 services:
   defaults:
-    type: postgres:10
+    type: postgres:14
   patch:
     type: postgres:9.6.14
   custom:
-    type: postgres:11
+    type: postgres:10
     portforward: true
     creds:
       database: trouble
     config:
       database: config/mythings.conf
+  custom13:
+    type: postgres:13
+    portforward: true
   custom12:
     type: postgres:12
+    portforward: true
+  custom11:
+    type: postgres:11
     portforward: true
   mimicarecipe:
     type: postgres
