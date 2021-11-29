@@ -9,7 +9,7 @@ const _ = require('lodash');
 module.exports = {
   name: 'postgres',
   config: {
-    version: '14',
+    version: '10',
     supported: ['14', '13', '12', '11', '11.1', '11.0', '10', '10.6.0', '9.6'],
     pinPairs: {
       '14': 'bitnami/postgresql:14.1.0-debian-10-r9',
