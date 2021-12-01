@@ -11,8 +11,17 @@ services:
       database: trouble
     config:
       database: config/mythings.conf
+  custom14:
+    type: postgres:14
+    portforward: true
+  custom13:
+    type: postgres:13
+    portforward: true
   custom12:
     type: postgres:12
+    portforward: true
+  custom11:
+    type: postgres:11
     portforward: true
   mimicarecipe:
     type: postgres
