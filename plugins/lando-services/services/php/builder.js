@@ -92,7 +92,7 @@ module.exports = {
   name: 'php',
   config: {
     version: '7.4',
-    supported: ['8.0', '7.4', '7.3', '7.2', '7.1', '7.0', '5.6', '5.5', '5.4', '5.3'],
+    supported: ['8.1', '8.0', '7.4', '7.3', '7.2', '7.1', '7.0', '5.6', '5.5', '5.4', '5.3'],
     legacy: ['5.5', '5.4', '5.3'],
     path: [
       '/app/vendor/bin',
@@ -152,7 +152,7 @@ module.exports = {
 
       // Build the php
       const php = {
-        image: `devwithlando/php:${options.version}-${options.image}-${options.suffix}`,
+        image: `devwithlando/php:${options.version}-${options.image}-${options.suffix}-edge`,
         environment: _.merge({}, options.environment, {
           PATH: options.path.join(':'),
           LANDO_WEBROOT: `/app/${options.webroot}`,
