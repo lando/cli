@@ -232,3 +232,11 @@
   title: Contributor
   pic: 'https://www.gravatar.com/avatar/cf9ce2a3ad36ef33c96d17602ca69901'
   id: bf7c167b7942a6aab1680c772f6d6fd1bd389932
+- name: Tommaso Bailetti
+  role:
+    - Code
+  location: 'Pesaro, IT'
+  github: tbaile
+  title: Contributor
+  pic: 'https://www.gravatar.com/avatar/e2f3d419730643e48fec964057becc94'
+  id: a7c114573595583d15b378cf0ad58817b634075f
