@@ -43,8 +43,8 @@ services:
       environment:
         MORE: things
         OTHER: stuff
-  custom80:
-    type: php:8.0
+  custom81:
+    type: php:8.1
     composer_version: false
     xdebug: "develop,debug"
   composer:

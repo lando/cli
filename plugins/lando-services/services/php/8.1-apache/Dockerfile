@@ -1,6 +1,6 @@
-# docker build -t devwithlando/php:8.0-apache-3 .
+# docker build -t devwithlando/php:8.1-apache-3 .
 
-FROM php:8.0-apache-bullseye
+FROM php:8.1-apache-bullseye
 
 # Install dependencies we need
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
@@ -45,7 +45,7 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   #&& pecl install imagick \
   #&& pecl install memcached \
   #&& pecl install oauth-2.0.4 \
-  && pecl install redis-5.3.2 \
+  && pecl install redis-5.3.4 \
   && pecl install xdebug \
   && docker-php-ext-configure ldap --with-libdir=lib/$(uname -m)-linux-gnu/ \
   #&& docker-php-ext-enable apcu \
@@ -82,3 +82,5 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   && docker-php-ext-install imap \
   && docker-php-ext-configure gd --enable-gd --with-jpeg --with-webp --with-freetype \
   && docker-php-ext-install gd
+
+RUN curl https://dl.yarnpkg.com

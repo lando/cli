@@ -1,6 +1,6 @@
 # docker build -t devwithlando/php:8.0-fpm-3 .
 
-FROM php:8.0-fpm-buster
+FROM php:8.0-fpm-bullseye
 
 # Install dependencies we need
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
