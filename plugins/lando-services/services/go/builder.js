@@ -7,8 +7,8 @@ const _ = require('lodash');
 module.exports = {
   name: 'go',
   config: {
-    version: '1.16',
-    supported: ['1.16', '1.15', '1.14', '1.13'],
+    version: '1.17',
+    supported: ['1.17', '1.16', '1.15', '1.14', '1.13'],
     patchesSupported: true,
     legacy: ['1.12', '1.11', '1.10', '1.9', '1.8'],
     command: 'tail -f /dev/null',
