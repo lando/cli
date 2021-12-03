@@ -1,13 +1,13 @@
 # docker build -t devwithlando/php:7.3-fpm-3 .
 
-FROM php:7.3-fpm-buster
+FROM php:7.3-fpm-bullseye
 
 # Install dependencies we need
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   && apt -y update && apt-get install -y \
     gnupg2 \
     wget \
-  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' >> /etc/apt/sources.list.d/pgdg.list \
+  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main' >> /etc/apt/sources.list.d/pgdg.list \
   && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && apt-get update && apt-get install -y \
     bzip2 \
