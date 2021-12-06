@@ -84,7 +84,8 @@ module.exports = {
       options.services.appserver.overrides.environment = {
         AH_SITE_UUID: appUuid,
         AH_SITE_GROUP: group,
-        AH_SITE_ENVIRONMENT: 'LANDO',
+        // Setting AH_SITE_ENVIRONMENT breakes blt loading of local.settings.php
+        // AH_SITE_ENVIRONMENT: 'LANDO',
       };
 
       // Mount the acquia settings.php file for auto service "discovery"
