@@ -126,7 +126,7 @@ module.exports = {
       php: '/usr/local/etc/php/conf.d/zzz-lando-my-custom.ini',
     },
     sources: [],
-    suffix: '3',
+    suffix: '4',
     ssl: false,
     via: 'apache',
     volumes: ['/usr/local/bin'],
@@ -148,6 +148,7 @@ module.exports = {
       if (options.xdebug === true) options.xdebug = 'debug';
 
       // If this is a legacy php version then switch the suffix
+      if (_.includes(['7.2', '7.1', '7.0', '5.6'], options.version)) options.suffix = '3';
       if (_.includes(options.legacy, options.version)) options.suffix = '2';
 
       // Build the php
