@@ -128,9 +128,9 @@
     to-fast-properties "^2.0.0"
 
 "@lando/acquia@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/acquia/-/acquia-0.5.0.tgz#aff26c20b08dc4b1adcd3c78f01851dbc99f48c3"
-  integrity sha512-kLVtBmb2WfDxAhC1BLTzDR0Mrny2IcKm1OWkzetZ1sr8vkKVYQhBEXR0UyY8pfigAV6OGn9P5LSZv/r+bocWrQ==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/acquia/-/acquia-0.5.1.tgz#0abc502ee78e8080bc2d8b55d1d9dbbf8b13e19e"
+  integrity sha512-V3PYgKFnRf8RVY/0KT0amxnm6lKKsP/c8fVjDxnsaq1UBcZQq3cD6u2dd4jqu1K9d/1uqGnv5tDXwo6ajdCrhQ==
   dependencies:
     axios "^0.24.0"
     js-yaml "^3.4.6"
@@ -149,9 +149,9 @@
     tar "^6.1.11"
 
 "@lando/pantheon@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.0.tgz#d7481564d438a6b946e2b307618722a0712b469e"
-  integrity sha512-8Am6E1OXlwEAlolOJJf9dJtLRh34v71vm6B7ja7uHeYMHYgxQ3QFB9xpY6UfHuc3GUYJqQiVfY9SnJLvYxecAA==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.1.tgz#4ee8b3abd4da79499d5441ea8eda37ef0cd2c7dd"
+  integrity sha512-LbgwkCEdNo7kJsAnONhdppLoBjfANsf0+W+S8MQuXyD4wEEQr0kxzSDFYxhiMSV9k6KaEYrvvZJLH639x8+2qw==
   dependencies:
     axios "^0.24.0"
     bluebird "^3.7.2"
