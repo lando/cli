@@ -101,16 +101,16 @@ lando ssh -s cliold -c "php --re xdebug | head -1" | grep "xdebug version 2."
 lando ssh -s composer -c "php -v" | grep "PHP 7.0"
 
 # Should use specified php version if given
-lando ssh -s custom80 -c "php -v" | grep "PHP 8.0"
+lando ssh -s custom81 -c "php -v" | grep "PHP 8.1"
 
-# Should have rsync in php 8.0
-lando ssh -s custom80 -c "rsync --version"
+# Should have rsync in php 8.1
+lando ssh -s custom81 -c "rsync --version"
 
-# Should enable xdebug 3 for php 8.0
-lando ssh -s custom80 -c "php --re xdebug | head -1" | grep "xdebug version 3."
+# Should enable xdebug 3 for php 8.1
+lando ssh -s custom81 -c "php --re xdebug | head -1" | grep "xdebug version 3."
 
 # Should set the xdebug mode if specified
-lando ssh -s custom80 -c "php -i" | grep xdebug.mode | grep develop,debug
+lando ssh -s custom81 -c "php -i" | grep xdebug.mode | grep develop,debug
 
 # Should install the specified composer version
 lando ssh -s composer -c "composer --version --no-ansi" | grep "Composer version 2.0.2"
@@ -133,7 +133,7 @@ lando ssh -s cli -c "php -i" | grep WebP | grep enabled
 lando ssh -s composer -c "php -i" | grep WebP | grep enabled
 
 # Should have webp installed in php 8
-lando ssh -s custom80 -c "php -i" | grep WebP | grep enabled
+lando ssh -s custom81 -c "php -i" | grep WebP | grep enabled
 
 # Should have node12 installed in withnode service
 lando node -v -h withnode | grep v12.

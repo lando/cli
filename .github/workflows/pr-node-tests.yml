@@ -15,8 +15,10 @@ jobs:
         node-version:
           - '14'
         leia-tests:
-          - node-10-example
+          - node-16-example
+          - node-14-example
           - node-12-example
+          - node-10-example
     steps:
 
       # Install deps and cache

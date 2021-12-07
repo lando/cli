@@ -6,7 +6,7 @@ excludes:
   - node_modules
 services:
   cli:
-    type: node:12
+    type: node:14
     build:
       - yarn install
     scanner: false
