@@ -5,8 +5,13 @@ Lando is **free** and **open source** software that relies on contributions from
 ### Core
 
 * Added support for `php:8.1` [#3225]
-* Switched `php:8.0` and `php:8.1` to Debian 11 base image to fix M1 seg fault when curling specific domains [#3200] 
+* Switched `php:8.0` and `php:8.1` to Debian 11 base image to fix M1 seg fault when curling specific domains [#3200]
 
+### Plugins
+
+* Updated to `@lando/pantheon` version [`0.5.5`](https://github.com/lando/pantheon/releases/tag/v0.5.5)
+* Updated to `@lando/lagoon` version [`0.5.2`](https://github.com/lando/lagoon/releases/tag/v0.5.2)
+* Updated to `@lando/acquia` version [`0.5.2`](https://github.com/lando/acquia/releases/tag/v0.5.1)
 
 
 ## v3.5.1 - [October 29, 2021](https://github.com/lando/cli/releases/tag/v3.5.1)
