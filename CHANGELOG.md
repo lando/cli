@@ -1,3 +1,57 @@
+## v3.6.0 - [December 10, 2021](https://github.com/lando/cli/releases/tag/v3.6.0)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+### Core
+
+* Added support for `php:8.1` [#3225](https://github.com/lando/lando/issues/3225)
+* Switched `php:7.3`, `php:7.4`, `php:8.0`, `php:8.1` to Debian 11 base image to fix M1 seg fault when curling specific domains [#3200](https://github.com/lando/lando/issues/3200)
+* Released generation 4 tags for php 7.3, 7.4, 8.0, 8.1
+* Moved php 7.2 and below versions into legacy
+* Spun out acquia plugin [#3215](https://github.com/lando/lando/issues/3215)
+* Spun out amazee/lagoon plugin [#3209](https://github.com/lando/lando/issues/3209)
+* Spun out pantheon plugin [#3196](https://github.com/lando/lando/issues/3196)
+* Added Golang v1.17 Support [PR #60](https://github.com/lando/cli/pull/60)
+* Added support for postgres 14, test 14, 13, 12, 11 and 10 [PR #60](https://github.com/lando/cli/pull/68)
+* Added support for node 14 and 16, mark older versions legacy [PR #66](https://github.com/lando/cli/pull/66)
+
+### Plugins
+
+* Updated to `@lando/pantheon` version [`0.5.5`](https://github.com/lando/pantheon/releases/tag/v0.5.5)
+* Updated to `@lando/lagoon` version [`0.5.2`](https://github.com/lando/lagoon/releases/tag/v0.5.2)
+* Updated to `@lando/acquia` version [`0.5.2`](https://github.com/lando/acquia/releases/tag/v0.5.1)
+
+
+## v3.5.1 - [October 29, 2021](https://github.com/lando/cli/releases/tag/v3.5.1)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+### Core
+
+* Fixed bug causing long site names to prevent certificate creation causing site spin up failure [#3179](https://github.com/lando/lando/issues/3179)
+
+### Plugins
+
+* Updated to `@lando/platformsh` version [`0.6.0`](https://github.com/lando/platformsh/releases/tag/v0.6.0)
+
+## v3.5.0 - [October 25, 2021](https://github.com/lando/cli/releases/tag/v3.5.0)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+### Core
+
+* Added support for `mongodb` `4.4` and `5.0` [#45]
+* Externalized `platformsh` recipe into its own [plugin](https://github.com/lando/platformsh)
+* Improved external plugin loading [#2989](https://github.com/lando/lando/issues/2989)
+
+### Plugins
+
+#### Platform.sh
+
+* Updated to `@lando/platformsh` version `0.5.0`
+
+**NOTE:** These release notes may be incomplete, inconsistent, unreliable and generally weird until we complete the [THE GREAT BREAKUP](https://github.com/lando/lando/issues/2989).
+
 ## v3.4.3 - [October 6, 2021](https://github.com/lando/cli/releases/tag/v3.4.3)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).

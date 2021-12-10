@@ -4,7 +4,7 @@ services:
     type: go
     command: go run /app/http.go
   patch:
-    type: go:1.16.5
+    type: go:1.17.3
   custom:
     type: go
     ssl: true

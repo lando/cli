@@ -92,8 +92,10 @@ module.exports = {
   name: 'php',
   config: {
     version: '7.4',
-    supported: ['8.0', '7.4', '7.3', '7.2', '7.1', '7.0', '5.6', '5.5', '5.4', '5.3'],
-    legacy: ['5.5', '5.4', '5.3'],
+    supported: ['8.1', '8.0', '7.4', '7.3', '7.2', '7.1', '7.0', '5.6', '5.5', '5.4', '5.3'],
+    legacy: ['7.2', '7.1', '7.0', '5.6', '5.5', '5.4', '5.3'],
+    gen2: ['5.5', '5.4', '5.3'],
+    gen3: ['7.2', '7.1', '7.0', '5.6'],
     path: [
       '/app/vendor/bin',
       '/app/bin',
@@ -126,7 +128,7 @@ module.exports = {
       php: '/usr/local/etc/php/conf.d/zzz-lando-my-custom.ini',
     },
     sources: [],
-    suffix: '3',
+    suffix: '4',
     ssl: false,
     via: 'apache',
     volumes: ['/usr/local/bin'],
@@ -148,7 +150,8 @@ module.exports = {
       if (options.xdebug === true) options.xdebug = 'debug';
 
       // If this is a legacy php version then switch the suffix
-      if (_.includes(options.legacy, options.version)) options.suffix = '2';
+      if (_.includes(options.gen3, options.version)) options.suffix = '3';
+      if (_.includes(options.gen2, options.version)) options.suffix = '2';
 
       // Build the php
       const php = {

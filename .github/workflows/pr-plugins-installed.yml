@@ -1,26 +1,22 @@
-name: Node Tests
+name: Check Plugins Installed
 
 on:
   pull_request:
 
 jobs:
-  leia-tests:
-    runs-on: ${{ matrix.os }}
+  buildx:
+    runs-on: ubuntu-20.04
     env:
       TERM: xterm
     strategy:
       matrix:
-        os:
-          - ubuntu-20.04
-        node-version:
-          - '14'
-        leia-tests:
-          - node-16-example
-          - node-14-example
-          - node-12-example
-          - node-10-example
-    steps:
+        plugins:
+          - acquia
+          - lagoon
+          - pantheon
+          - platformsh
 
+    steps:
       # Install deps and cache
       # Eventually it would be great if these steps could live in a separate YAML file
       # that could be included in line to avoid code duplication
@@ -62,8 +58,7 @@ jobs:
           lando version
           lando config
 
-      # This block should eventually become use lando/actions-leia@v2
-      - name: Generate tests
-        run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+      # Checks to make sure the plugins listed in the matrix have the right path
+      - name: Check if @lando/${{ matrix.plugins }} is installed correctly
+        run: |
+          lando config --path plugins | grep node_modules/@lando/${{ matrix.plugins }}

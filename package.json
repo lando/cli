@@ -2,7 +2,7 @@
   "name": "@lando/cli",
   "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
-  "version": "3.4.3",
+  "version": "3.6.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/lando/cli"
@@ -22,7 +22,6 @@
     "include": [
       "lib/**/*.js",
       "experimental/**/lib/*.js",
-      "integrations/**/lib/*.js",
       "plugins/**/lib/*.js",
       "scripts/util.js"
     ],
@@ -40,9 +39,9 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate:api": "node ./scripts/yaml2json.js ./sponsors.yml ./contributors.yml --output-dir docs/.vuepress/public/api",
     "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
-    "lint": "eslint --quiet --no-ignore bin experimental integrations lib plugins scripts test",
+    "lint": "eslint --quiet --no-ignore bin experimental lib plugins scripts test",
     "release": "bump --prompt --tag --all --push",
-    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js plugins/**/test/**/*.spec.js",
     "test:functional": "mocha --timeout 900000 test/**/*.func.js",
     "test": "yarn lint && yarn test:unit"
   },
@@ -51,7 +50,6 @@
     "scripts": [
       "bin/*.js",
       "experimental/**/*.js",
-      "integrations/**/*.js",
       "lib/**/*.js",
       "node_modules/@lando/**/*.js",
       "plugins/**/*.js"
@@ -75,22 +73,6 @@
       "experimental/**/*.xml",
       "experimental/**/*.yaml",
       "experimental/**/*.yml",
-      "integrations/**/fastcgi_params",
-      "integrations/**/*.cnf",
-      "integrations/**/*.conf",
-      "integrations/**/*.ini",
-      "integrations/**/*.inc",
-      "integrations/**/*.json",
-      "integrations/**/*.php",
-      "integrations/**/*.py",
-      "integrations/**/*.sh",
-      "integrations/**/*.toml",
-      "integrations/**/*.tpl",
-      "integrations/**/*.tmpl",
-      "integrations/**/*.vcl",
-      "integrations/**/*.xml",
-      "integrations/**/*.yaml",
-      "integrations/**/*.yml",
       "node_modules/@lando/**/fastcgi_params",
       "node_modules/@lando/**/*.cnf",
       "node_modules/@lando/**/*.conf",
@@ -128,7 +110,10 @@
     ]
   },
   "dependencies": {
-    "@lando/platformsh": "lando/platformsh#main",
+    "@lando/acquia": "^0.5.0",
+    "@lando/lagoon": "^0.5.0",
+    "@lando/pantheon": "^0.5.0",
+    "@lando/platformsh": "^0.6.0",
     "axios": "0.21.4",
     "bluebird": "^3.4.1",
     "clean-stacktrace": "^1.1.0",
