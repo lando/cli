@@ -138,9 +138,9 @@
     tar "^6.1.11"
 
 "@lando/lagoon@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.1.tgz#eb6fea236470bec8595dff33300dff211d67d196"
-  integrity sha512-jhz4ZM3b/X+yINQzv185xn7GQDqV9z7ARDH3mkbQ50b39IiDRe+XdpZiQQBGKoOUeEWVDZFV9qYavESeUZSL3A==
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.2.tgz#0930e10f5ff27e32db28345dacb062c65dacf8d6"
+  integrity sha512-z2icgaiwb1FU+XH/NHTIVQWTnTrsJ6b5TqN41xEjS6gLS1OFcS2h2KkA4nKhbn8lEDf7XftLOAgckBwepV+ctw==
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
