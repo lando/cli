@@ -1,4 +1,4 @@
-## v3.5.2 - [](https://github.com/lando/cli/releases/tag/v3.5.2)
+## v3.6.0 - [December 10, 2021](https://github.com/lando/cli/releases/tag/v3.6.0)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
 
