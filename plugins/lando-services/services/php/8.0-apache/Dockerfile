@@ -14,7 +14,7 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     default-mysql-client \
     exiftool \
     git-core \
-    #imagemagick \
+    imagemagick \
     libbz2-dev \
     libc-client-dev \
     libfreetype6-dev \
@@ -22,8 +22,8 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     libjpeg62-turbo-dev \
     libkrb5-dev \
     libldap2-dev \
-    #libmagickwand-dev \
-    #libmemcached-dev \
+    libmagickwand-dev \
+    libmemcached-dev \
     libpng-dev \
     libpq-dev \
     libssl-dev \
@@ -41,17 +41,17 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
     xfonts-75dpi \
     xfonts-base \
     zlib1g-dev \
-  #&& pecl install apcu \
-  #&& pecl install imagick \
-  #&& pecl install memcached \
-  #&& pecl install oauth-2.0.4 \
+  && pecl install apcu \
+  && pecl install imagick \
+  && pecl install memcached \
+  && pecl install oauth \
   && pecl install redis-5.3.2 \
   && pecl install xdebug \
   && docker-php-ext-configure ldap --with-libdir=lib/$(uname -m)-linux-gnu/ \
-  #&& docker-php-ext-enable apcu \
-  #&& docker-php-ext-enable imagick \
-  #&& docker-php-ext-enable memcached \
-  #&& docker-php-ext-enable oauth \
+  && docker-php-ext-enable apcu \
+  && docker-php-ext-enable imagick \
+  && docker-php-ext-enable memcached \
+  && docker-php-ext-enable oauth \
   && docker-php-ext-enable redis \
   && docker-php-ext-install bcmath \
   && docker-php-ext-install bz2 \
