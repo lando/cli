@@ -1,4 +1,4 @@
-# docker build -t devwithlando/php:8.1-fpm-3 .
+# docker build -t devwithlando/php:8.1-fpm-4 .
 
 FROM php:8.1-fpm-bullseye
 
@@ -44,7 +44,7 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
   && pecl install apcu \
   && pecl install imagick \
   && pecl install memcached \
-  && pecl install oauth-2.0.4 \
+  && pecl install oauth \
   && pecl install redis-5.3.4 \
   && pecl install xdebug \
   && docker-php-ext-configure ldap --with-libdir=lib/$(uname -m)-linux-gnu/ \
