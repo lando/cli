@@ -1,4 +1,4 @@
-# docker build -t devwithlando/php:8.0-fpm-3 .
+# docker build -t devwithlando/php:8.0-fpm-4 .
 
 FROM php:8.0-fpm-bullseye
 

@@ -1,4 +1,4 @@
-# docker build -t devwithlando/php:7.4-apache-3 .
+# docker build -t devwithlando/php:7.4-apache-4 .
 
 FROM php:7.4-apache-bullseye
 
