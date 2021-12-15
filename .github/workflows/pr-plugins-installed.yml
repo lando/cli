@@ -15,6 +15,7 @@ jobs:
           - lagoon
           - pantheon
           - platformsh
+          - php
 
     steps:
       # Install deps and cache
