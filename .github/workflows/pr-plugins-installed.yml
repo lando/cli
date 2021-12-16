@@ -17,6 +17,7 @@ jobs:
           - platformsh
           - php
           - mysql
+          - mariadb
 
     steps:
       # Install deps and cache

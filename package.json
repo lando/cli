@@ -112,6 +112,7 @@
   "dependencies": {
     "@lando/acquia": "^0.5.0",
     "@lando/lagoon": "^0.5.0",
+    "@lando/mariadb": "^0.5.0",
     "@lando/mysql": "^0.5.0",
     "@lando/pantheon": "^0.5.0",
     "@lando/php": "^0.5.0",

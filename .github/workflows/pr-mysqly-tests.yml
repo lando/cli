@@ -15,7 +15,6 @@ jobs:
         node-version:
           - '14'
         leia-tests:
-          - maria-db-example
           - mssql-example
           - postgres-example
     steps:
