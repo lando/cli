@@ -16,6 +16,7 @@ jobs:
           - pantheon
           - platformsh
           - php
+          - mysql
 
     steps:
       # Install deps and cache

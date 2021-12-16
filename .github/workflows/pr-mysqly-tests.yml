@@ -16,7 +16,6 @@ jobs:
           - '14'
         leia-tests:
           - maria-db-example
-          - my-sql-example
           - mssql-example
           - postgres-example
     steps:

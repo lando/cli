@@ -148,6 +148,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/mysql@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/mysql/-/mysql-0.5.0.tgz#1998c4c61e42aaa895ec66325ce8039c79fec6b1"
+  integrity sha512-iTBkunBmBHgomCWEarOtlDVA08sNsdYSQ59s3nB4a2aXyjKBRlIELzbEuyoiYTY7/JmIdZ9U/9xFAUbspw3/Ig==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/pantheon@^0.5.0":
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.5.tgz#472ac81ad31a04089d46cbb51cf87af6b3506c68"
