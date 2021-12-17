@@ -19,6 +19,7 @@ jobs:
           - mysql
           - mariadb
           - postgres
+          - nginx
 
     steps:
       # Install deps and cache
