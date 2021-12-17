@@ -50,7 +50,7 @@ module.exports = {
     confSrc: __dirname,
     defaultFiles: {},
     drush: '8.3.5',
-    php: '7.2',
+    php: '7.4',
     services: {appserver: {overrides: {
       environment: {
         BACKDROP_SETTINGS: backdropSettings(),
