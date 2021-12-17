@@ -33,9 +33,9 @@ Run the following commands to validate things are rolling as they should.
 cd drupal9
 lando ssh -s appserver -c "curl -L localhost" | grep "Drupal 9"
 
-# Should use 7.4 as the default php version
+# Should use 8.0 as the default php version
 cd drupal9
-lando php -v | grep "PHP 7.4"
+lando php -v | grep "PHP 8.0"
 
 # Should be running apache 2.4 by default
 cd drupal9
