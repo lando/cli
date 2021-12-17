@@ -16,7 +16,6 @@ jobs:
           - '14'
         leia-tests:
           - mssql-example
-          - postgres-example
     steps:
 
       # Install deps and cache
