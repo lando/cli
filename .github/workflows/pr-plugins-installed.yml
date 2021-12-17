@@ -18,6 +18,7 @@ jobs:
           - php
           - mysql
           - mariadb
+          - postgres
 
     steps:
       # Install deps and cache
