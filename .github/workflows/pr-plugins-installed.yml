@@ -20,6 +20,7 @@ jobs:
           - mariadb
           - postgres
           - nginx
+          - apache
 
     steps:
       # Install deps and cache
