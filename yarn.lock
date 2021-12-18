@@ -137,6 +137,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/apache@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/apache/-/apache-0.5.0.tgz#649192b32b4ffb44876bc72be46e0258376bc021"
+  integrity sha512-taATm1T/ZbbEPsQcj5A3BihpRrxcymGO49OxMPhy6aY1stmq9/m+np8lXywUJpMrICpYsX/L7R4vt9z8zb704g==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/lagoon@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.2.tgz#0930e10f5ff27e32db28345dacb062c65dacf8d6"
