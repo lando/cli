@@ -84,28 +84,6 @@ exports.getPhar = (url, src, dest, check = 'true') => {
 };
 
 /*
- * Helper to get simple lamp/lemp config defaultz
- * NOTE: is it problem that this and lemp has the same class name?
- */
-exports.getLampDefaults = (name = 'lamp', via = 'apache') => ({
-  name,
-  parent: '_lamp',
-  config: {
-    confSrc: __dirname,
-    database: 'mysql',
-    php: '7.3',
-    via,
-    webroot: '.',
-    xdebug: false,
-  },
-  builder: (parent, config) => class LandoLamp extends parent {
-    constructor(id, options = {}) {
-      super(id, _.merge({}, config, options));
-    };
-  },
-});
-
-/*
  * Helper to get service config
  */
 exports.getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
