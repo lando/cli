@@ -176,9 +176,9 @@
     tar "^6.1.11"
 
 "@lando/mariadb@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/mariadb/-/mariadb-0.5.0.tgz#2bf7da837ca2de6da942be96149e6d36921fc2af"
-  integrity sha512-rrWWg6ZQhoNzTtuAVZIjRh1GtMoYL1qjD2Vb9LGQhvNmELAc6edXi4POZom0iEmyXtVO51JB0vmHlE+fZaZVdQ==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/mariadb/-/mariadb-0.5.1.tgz#064bdd04c11eaa709519afed98852293ce66d953"
+  integrity sha512-RGaiVGWUB2SQOo0KhFJSMoae93n+wSYW8wHJZsyBnVwvRdSNdaYe4xDSC5W3hHEvkjSxxt9WLFn35GQnYLouiQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
