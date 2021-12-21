@@ -21,6 +21,8 @@ jobs:
           - postgres
           - nginx
           - apache
+          - lamp
+          - lemp
 
     steps:
       # Install deps and cache
