@@ -157,6 +157,24 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/lamp@^0.5.0":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/lamp/-/lamp-0.5.1.tgz#5fed0a2022ffbb61df5c8a7aa07fc938c3fba3e2"
+  integrity sha512-+5qwn3KPTyF/rXbMsWriVtrsGNloPu+J1s5qXMH95qz3NIG0PoJd89NgHmjf77i+TviZOTmVURac/LD6njM8wA==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
+"@lando/lemp@^0.5.0":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/lemp/-/lemp-0.5.1.tgz#38b9de17f96d035fa16ddaa624d99862ac68fbfc"
+  integrity sha512-ENoPzyv23vgJXxlJ7Du6DRfxgmzp6HFNydKqzuJlKRH92+dgL6AixMf46BnVmq6Bu+pkCU2oMivBrk9uW0CjpQ==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/mariadb@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/mariadb/-/mariadb-0.5.0.tgz#2bf7da837ca2de6da942be96149e6d36921fc2af"
