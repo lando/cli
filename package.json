@@ -122,6 +122,7 @@
     "@lando/php": "^0.5.0",
     "@lando/platformsh": "^0.6.0",
     "@lando/postgres": "^0.5.0",
+    "@lando/solr": "^0.5.0",
     "axios": "0.21.4",
     "bluebird": "^3.4.1",
     "clean-stacktrace": "^1.1.0",
