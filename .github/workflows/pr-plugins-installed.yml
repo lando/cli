@@ -23,6 +23,7 @@ jobs:
           - apache
           - lamp
           - lemp
+          - elasticsearch
 
     steps:
       # Install deps and cache
