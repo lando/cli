@@ -147,9 +147,9 @@
     tar "^6.1.11"
 
 "@lando/elasticsearch@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/elasticsearch/-/elasticsearch-0.5.0.tgz#e88273ac0c35b139aa9eb69d24a41b75b900dcd5"
-  integrity sha512-wdRtC3LPKRvVQUKhOk1ituuX2Z3zs4MreJeAwv+nbtkTA0G6KvtnMFAFtjstafRsqvi/YMlM5lVkKbni5sudxw==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/elasticsearch/-/elasticsearch-0.5.1.tgz#b05ce20b1af5682bb0a3cf59d4ed0b3cd203c920"
+  integrity sha512-5aF+4uYzwceMMIvAd7fyskHD2tLOolQtp5NpwPV9vlCTjmlxr67RXaOj6efN8U5VPSqwPPrQeg21TRnM85YjZQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
