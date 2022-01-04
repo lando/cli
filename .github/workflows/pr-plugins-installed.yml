@@ -24,6 +24,7 @@ jobs:
           - lamp
           - lemp
           - elasticsearch
+          - python
 
     steps:
       # Install deps and cache
