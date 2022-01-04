@@ -1,3 +1,36 @@
+## v3.6.1 - [TBA](https://github.com/lando/cli/releases/tag/v3.6.1)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+### Core
+
+* Add in imagemagick, apcu, and oauth support for `php:8.0` and `php:8.1` [PR #53](https://github.com/lando/cli/pull/53)
+* Update Drupal 9 recipe to PHP 8.0 [PR #84](https://github.com/lando/cli/pull/84)
+* Update backdrop default php to 7.4 [PR #86](https://github.com/lando/cli/pull/86)
+* Spun out PHP service plugin [#3249](https://github.com/lando/lando/issues/3249)
+* Spun out MySQL service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out MariaDB service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Postgres service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out NGINX service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Apache service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Solr service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Elasticsearch service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out LAMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out LEMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
+
+### Plugins
+
+* Added `@lando/php` version [`0.5.0`](https://github.com/lando/php/releases/tag/v0.5.0)
+* Added `@lando/mysql` version [`0.5.0`](https://github.com/lando/mysql/releases/tag/v0.5.0)
+* Added `@lando/mariadb` version [`0.5.1`](https://github.com/lando/mariadb/releases/tag/v0.5.1)
+* Added `@lando/postgres` version [`0.5.0`](https://github.com/lando/postgres/releases/tag/v0.5.0)
+* Added `@lando/nginx` version [`0.5.0`](https://github.com/lando/nginx/releases/tag/v0.5.0)
+* Added `@lando/apache` version [`0.5.0`](https://github.com/lando/apache/releases/tag/v0.5.0)
+* Added `@lando/solr` version [`0.5.0`](https://github.com/lando/solr/releases/tag/v0.5.0)
+* Added `@lando/elasticsearch` version [`0.5.1`](https://github.com/lando/elasticsearch/releases/tag/v0.5.1)
+* Added `@lando/lamp` version [`0.5.1`](https://github.com/lando/lamp/releases/tag/v0.5.1)
+* Added `@lando/lemp` version [`0.5.1`](https://github.com/lando/lemp/releases/tag/v0.5.1)
+
 ## v3.6.0 - [December 10, 2021](https://github.com/lando/cli/releases/tag/v3.6.0)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
