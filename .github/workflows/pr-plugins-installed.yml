@@ -26,6 +26,7 @@ jobs:
           - elasticsearch
           - python
           - dotnet
+          - go
 
     steps:
       # Install deps and cache
