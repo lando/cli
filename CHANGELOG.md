@@ -20,6 +20,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Spun out Go service plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out Compose service plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out MailHog service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Memcached service plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LAMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LEMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 
@@ -38,6 +39,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Added `@lando/go` version [`0.5.0`](https://github.com/lando/go/releases/tag/v0.5.0)
 * Added `@lando/compose` version [`0.5.0`](https://github.com/lando/compose/releases/tag/v0.5.0)
 * Added `@lando/mailhog` version [`0.5.0`](https://github.com/lando/mailhog/releases/tag/v0.5.0)
+* Added `@lando/memcached` version [`0.5.0`](https://github.com/lando/memcached/releases/tag/v0.5.0)
 * Added `@lando/lamp` version [`0.5.1`](https://github.com/lando/lamp/releases/tag/v0.5.1)
 * Added `@lando/lemp` version [`0.5.1`](https://github.com/lando/lemp/releases/tag/v0.5.1)
 
