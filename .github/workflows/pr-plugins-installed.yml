@@ -30,6 +30,7 @@ jobs:
           - compose
           - mailhog
           - memcached
+          - mongo
 
     steps:
       # Install deps and cache

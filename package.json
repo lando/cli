@@ -122,6 +122,7 @@
     "@lando/mailhog": "^0.5.0",
     "@lando/mariadb": "^0.5.0",
     "@lando/memcached": "^0.5.0",
+    "@lando/mongo": "^0.5.0",
     "@lando/mysql": "^0.5.0",
     "@lando/nginx": "^0.5.0",
     "@lando/pantheon": "^0.5.0",

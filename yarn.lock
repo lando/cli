@@ -238,6 +238,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/mongo@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/mongo/-/mongo-0.5.0.tgz#48f4237f113b79cc872bab648f945311f795a8ce"
+  integrity sha512-OacZDayaZbqY1BX3i7v2q6miIFCAh1N8cloB++LMUFdw/30i6r93CUHrUfpE5kVOmeJJar0GuxpIjTqEtrukXg==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/mysql@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/mysql/-/mysql-0.5.0.tgz#1998c4c61e42aaa895ec66325ce8039c79fec6b1"
