@@ -28,6 +28,7 @@ jobs:
           - dotnet
           - go
           - compose
+          - mailhog
 
     steps:
       # Install deps and cache

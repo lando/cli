@@ -211,6 +211,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/mailhog@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/mailhog/-/mailhog-0.5.0.tgz#7880fe4ed32cda93d0235f461fe985c36742913b"
+  integrity sha512-Zaw6EG/Jbgm3NMc5Gpe8Wm2r43MpV0jEsjSxaS4mb+v9r1VQubyazpTDyCc2PCu0HLDoANEsbzFidrQPjNcEww==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/mariadb@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@lando/mariadb/-/mariadb-0.5.1.tgz#064bdd04c11eaa709519afed98852293ce66d953"
