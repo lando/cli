@@ -119,6 +119,7 @@
     "@lando/lagoon": "^0.5.0",
     "@lando/lamp": "^0.5.0",
     "@lando/lemp": "^0.5.0",
+    "@lando/mailhog": "^0.5.0",
     "@lando/mariadb": "^0.5.0",
     "@lando/mysql": "^0.5.0",
     "@lando/nginx": "^0.5.0",
