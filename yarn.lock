@@ -146,6 +146,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/compose@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/compose/-/compose-0.5.0.tgz#e60bc25e0f55c685c1e7e6aca09c801c3bd244ed"
+  integrity sha512-Ws6YbyZMp6iFg9Xxkau37+SRE7fJIJX1Lh6CT3LiP6kkIpK1FtLi83KwUSBo03kEMiKGiai0GLAlSEa0BpOQuw==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/dotnet@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.5.0.tgz#c06ee89b65959e1780271bfb6f74d0ab33ad9aea"

@@ -27,6 +27,7 @@ jobs:
           - python
           - dotnet
           - go
+          - compose
 
     steps:
       # Install deps and cache
