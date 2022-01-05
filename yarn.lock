@@ -164,6 +164,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/go@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/go/-/go-0.5.0.tgz#cecc9255367f7c5a9d98385732f4dc093d1fe2ce"
+  integrity sha512-i8uvpHKGoZRdqAKPjO3p79YoL4bvNJYJYCl4sP+VQgUe/Si2Oitp4f6C7MgdmIu+frN5m1UQdznEDgXO5QX70Q==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/lagoon@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.2.tgz#0930e10f5ff27e32db28345dacb062c65dacf8d6"
