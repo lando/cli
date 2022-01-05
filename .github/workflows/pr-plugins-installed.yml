@@ -25,6 +25,7 @@ jobs:
           - lemp
           - elasticsearch
           - python
+          - dotnet
 
     steps:
       # Install deps and cache

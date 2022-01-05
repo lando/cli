@@ -146,6 +146,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/dotnet@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.5.0.tgz#c06ee89b65959e1780271bfb6f74d0ab33ad9aea"
+  integrity sha512-jBgSQ8UPHn9v1c18ln5UFrfz1xEQkrqCLnzocV4MnC7sOCqd4vLJbJOM5dYOB1VQPsSYDuKR2U7eUcxTCC7USg==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/elasticsearch@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@lando/elasticsearch/-/elasticsearch-0.5.1.tgz#b05ce20b1af5682bb0a3cf59d4ed0b3cd203c920"
