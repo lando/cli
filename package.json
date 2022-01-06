@@ -136,6 +136,7 @@
     "@lando/redis": "^0.5.0",
     "@lando/ruby": "^0.5.0",
     "@lando/solr": "^0.5.0",
+    "@lando/tomcat": "^0.5.0",
     "axios": "0.21.4",
     "bluebird": "^3.4.1",
     "clean-stacktrace": "^1.1.0",
