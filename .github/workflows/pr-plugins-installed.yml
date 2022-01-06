@@ -35,6 +35,7 @@ jobs:
           - postgres
           - python
           - redis
+          - ruby
 
     steps:
       # Install deps and cache
