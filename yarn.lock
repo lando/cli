@@ -352,6 +352,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/ruby@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/ruby/-/ruby-0.5.0.tgz#58e03836737701af508b7008a8ab1d5dea04e139"
+  integrity sha512-blQWagaHDezl4tqorkaaF4kq8ZDHZX1Bp07aIRtzURanTI5v4ZQG8tMlaJKRawbsL+YC7K3S7AyvacwIKJBJww==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/solr@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/solr/-/solr-0.5.0.tgz#26de673a7acfc3218e9b0cd923ea99ae4e242a65"
