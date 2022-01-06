@@ -30,6 +30,7 @@ jobs:
           - node
           - pantheon
           - php
+          - phpmyadmin
           - platformsh
           - postgres
           - python

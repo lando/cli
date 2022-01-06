@@ -305,6 +305,16 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/phpmyadmin@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/phpmyadmin/-/phpmyadmin-0.5.0.tgz#2102d1c26c5c317f2b681683dd6ba0b330fbee5e"
+  integrity sha512-u9Yz1HacMR6Hfxf6MAk5FGfvCDtY2coHaVgQ9h/JW8dbJd4Y+Evumi8FKwUlMRpkH1MB+dxaVkl/VJoozgM33g==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    semver "^7.3.2"
+    tar "^6.1.11"
+
 "@lando/platformsh@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@lando/platformsh/-/platformsh-0.6.0.tgz#7e0dd7e70b5a39d7f1fc318c016c7ef8c1b6a9db"
