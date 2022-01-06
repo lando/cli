@@ -12,26 +12,27 @@ jobs:
       matrix:
         plugins:
           - acquia
-          - lagoon
-          - pantheon
-          - platformsh
-          - php
-          - mysql
-          - mariadb
-          - postgres
-          - nginx
           - apache
+          - compose
+          - dotnet
+          - elasticsearch
+          - go
+          - lagoon
           - lamp
           - lemp
-          - elasticsearch
-          - python
-          - dotnet
-          - go
-          - compose
           - mailhog
+          - mariadb
           - memcached
           - mongo
           - mssql
+          - mysql
+          - nginx
+          - node
+          - pantheon
+          - php
+          - platformsh
+          - postgres
+          - python
 
     steps:
       # Install deps and cache
