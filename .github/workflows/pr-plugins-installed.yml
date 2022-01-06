@@ -38,6 +38,7 @@ jobs:
           - ruby
           - solr
           - tomcat
+          - varnish
 
     steps:
       # Install deps and cache

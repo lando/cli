@@ -28,6 +28,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Spun out Ruby service plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out Solr service plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out Tomcat service plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Varnish service plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LAMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LEMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 
@@ -54,6 +55,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Added `@lando/ruby` version [`0.5.0`](https://github.com/lando/ruby/releases/tag/v0.5.0)
 * Added `@lando/solr` version [`0.5.0`](https://github.com/lando/solr/releases/tag/v0.5.0)
 * Added `@lando/tomcat` version [`0.5.0`](https://github.com/lando/tomcat/releases/tag/v0.5.0)
+* Added `@lando/varnish` version [`0.5.0`](https://github.com/lando/varnish/releases/tag/v0.5.0)
 * Added `@lando/lamp` version [`0.5.1`](https://github.com/lando/lamp/releases/tag/v0.5.1)
 * Added `@lando/lemp` version [`0.5.1`](https://github.com/lando/lemp/releases/tag/v0.5.1)
 
