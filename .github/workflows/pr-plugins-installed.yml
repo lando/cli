@@ -36,6 +36,8 @@ jobs:
           - python
           - redis
           - ruby
+          - solr
+          - tomcat
 
     steps:
       # Install deps and cache
