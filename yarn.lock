@@ -274,6 +274,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/node@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/node/-/node-0.5.0.tgz#d910af48dfa41662ba7e130b859c9beda292894a"
+  integrity sha512-MNrnI34UAd2Civ2NjYLbkR96olPXQ9Dx2bNdz0e54wYmblEMbc5aGV8jqa7qv1KNBTKd9Dk0bAffQXYMJbhL7w==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/pantheon@^0.5.0":
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.5.tgz#472ac81ad31a04089d46cbb51cf87af6b3506c68"
