@@ -343,6 +343,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/redis@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/redis/-/redis-0.5.0.tgz#0f46eb84df00d1f927d28f41624b680cad9c93a8"
+  integrity sha512-gUoYvKQu6SftJ6GgBDpzXmATEuhHf5F8PhLpRpReYxJHJaHLaJnHsY3CcIHXGjYo+MUgjNq4qsfuMAtZpSNORQ==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/solr@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/solr/-/solr-0.5.0.tgz#26de673a7acfc3218e9b0cd923ea99ae4e242a65"
