@@ -34,6 +34,7 @@ jobs:
           - platformsh
           - postgres
           - python
+          - redis
 
     steps:
       # Install deps and cache
