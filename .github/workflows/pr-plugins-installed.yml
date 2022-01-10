@@ -25,6 +25,7 @@ jobs:
           - lemp
           - mailhog
           - mariadb
+          - mean
           - memcached
           - mongo
           - mssql
