@@ -117,6 +117,7 @@
     "@lando/dotnet": "^0.5.0",
     "@lando/elasticsearch": "^0.5.0",
     "@lando/go": "^0.5.0",
+    "@lando/joomla": "^0.5.0",
     "@lando/lagoon": "^0.5.0",
     "@lando/lamp": "^0.5.0",
     "@lando/lemp": "^0.5.0",
