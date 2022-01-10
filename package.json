@@ -112,6 +112,7 @@
   "dependencies": {
     "@lando/acquia": "^0.5.0",
     "@lando/apache": "^0.5.0",
+    "@lando/backdrop": "^0.5.0",
     "@lando/compose": "^0.5.0",
     "@lando/dotnet": "^0.5.0",
     "@lando/elasticsearch": "^0.5.0",

@@ -146,6 +146,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/backdrop@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/backdrop/-/backdrop-0.5.0.tgz#0435bccc1008334ecfe69d484a9a704b572d7690"
+  integrity sha512-Xh0bfxDfUGxKlMmpv+d3r7g1SMw1+oBCrbv+lZlqsgKREXUqARX6aBnjQ18q9LbINuKiRfPGW6ei1NE3l03CZw==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/compose@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/compose/-/compose-0.5.0.tgz#e60bc25e0f55c685c1e7e6aca09c801c3bd244ed"

@@ -13,6 +13,7 @@ jobs:
         plugins:
           - acquia
           - apache
+          - backdrop
           - compose
           - dotnet
           - elasticsearch
