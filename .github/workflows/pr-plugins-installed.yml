@@ -41,6 +41,7 @@ jobs:
           - redis
           - ruby
           - solr
+          - symfony
           - tomcat
           - varnish
 

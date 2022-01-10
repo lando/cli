@@ -35,6 +35,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Spun out Laravel recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LEMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out MEAN recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Symfony recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 
 ### Plugins
 
@@ -66,6 +67,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Added `@lando/laravel` version [`0.5.1`](https://github.com/lando/laravel/releases/tag/v0.5.1)
 * Added `@lando/lemp` version [`0.5.1`](https://github.com/lando/lemp/releases/tag/v0.5.1)
 * Added `@lando/mean` version [`0.5.0`](https://github.com/lando/mean/releases/tag/v0.5.0)
+* Added `@lando/symfony` version [`0.5.0`](https://github.com/lando/symfony/releases/tag/v0.5.0)
 
 ## v3.6.0 - [December 10, 2021](https://github.com/lando/cli/releases/tag/v3.6.0)
 
