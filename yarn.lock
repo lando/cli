@@ -191,6 +191,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/joomla@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/joomla/-/joomla-0.5.0.tgz#38f1deef7f6d7c4fdca6d15bd7d713bf2b3acea6"
+  integrity sha512-xZ4LP1I7ojbYJdjJkO6+aYPCXmPJydP4mK7xR/4j0KXogndm+r/g3Hud8uBXlldN0qcp8Llk12eXAedWpmAbMQ==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/lagoon@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.2.tgz#0930e10f5ff27e32db28345dacb062c65dacf8d6"
