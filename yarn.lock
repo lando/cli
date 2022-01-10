@@ -220,6 +220,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/laravel@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/laravel/-/laravel-0.5.0.tgz#04cfb4a506d15f627ff0420ec7ecb0df175e6d56"
+  integrity sha512-low7p4zG4KI2D1cJAL38vXHWYmObhLmqoeCaGpvlH3kbaeryt5YnHfwQVLq//xfIeU6rtnSXPgQgBlfyUSYvpA==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/lemp@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@lando/lemp/-/lemp-0.5.1.tgz#38b9de17f96d035fa16ddaa624d99862ac68fbfc"

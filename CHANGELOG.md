@@ -32,6 +32,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Spun out Backdrop recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out Joomla recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LAMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
+* Spun out Laravel recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 * Spun out LEMP recipe plugin [#3259](https://github.com/lando/lando/issues/3259)
 
 ### Plugins
@@ -61,6 +62,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Added `@lando/backdrop` version [`0.5.0`](https://github.com/lando/backdrop/releases/tag/v0.5.0)
 * Added `@lando/joomla` version [`0.5.0`](https://github.com/lando/joomla/releases/tag/v0.5.0)
 * Added `@lando/lamp` version [`0.5.1`](https://github.com/lando/lamp/releases/tag/v0.5.1)
+* Added `@lando/laravel` version [`0.5.0`](https://github.com/lando/laravel/releases/tag/v0.5.0)
 * Added `@lando/lemp` version [`0.5.1`](https://github.com/lando/lemp/releases/tag/v0.5.1)
 
 ## v3.6.0 - [December 10, 2021](https://github.com/lando/cli/releases/tag/v3.6.0)
