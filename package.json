@@ -124,6 +124,7 @@
     "@lando/lemp": "^0.5.0",
     "@lando/mailhog": "^0.5.0",
     "@lando/mariadb": "^0.5.0",
+    "@lando/mean": "^0.5.0",
     "@lando/memcached": "^0.5.0",
     "@lando/mongo": "^0.5.0",
     "@lando/mssql": "^0.5.0",

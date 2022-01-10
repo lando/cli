@@ -256,6 +256,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/mean@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/mean/-/mean-0.5.0.tgz#839a7c4838faefe77e251cd3e4a8a6d24d78610f"
+  integrity sha512-IpM+50h8DGGTNfi68Jo5tCYpbGCE16kbjCxSpFxIBtYv0J7IQiQIV8vdmNEdIlQuVXJha5nsyBVP57Pr0MV8xQ==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/memcached@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/memcached/-/memcached-0.5.0.tgz#e18382ebe2f21e8bea286cf4f09b9a83d22d37b5"
