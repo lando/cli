@@ -221,9 +221,9 @@
     tar "^6.1.11"
 
 "@lando/laravel@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/laravel/-/laravel-0.5.0.tgz#04cfb4a506d15f627ff0420ec7ecb0df175e6d56"
-  integrity sha512-low7p4zG4KI2D1cJAL38vXHWYmObhLmqoeCaGpvlH3kbaeryt5YnHfwQVLq//xfIeU6rtnSXPgQgBlfyUSYvpA==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/laravel/-/laravel-0.5.1.tgz#9eefb2ef2cb19d4e133a0e9bfe00114d7ba86f07"
+  integrity sha512-YbcKTNdcIFp3OynvNSbOrORNl4NBORDZFD6CgobmnaImBZsY6jPYPnIamvl0lBTtlrWZtZaQBEPpmKaFlt6Dtg==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
