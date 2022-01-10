@@ -406,6 +406,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/symfony@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/symfony/-/symfony-0.5.0.tgz#a70dc88c4570509fa24a97efa23a08edbdcc159a"
+  integrity sha512-jo79bLdPXECyz7aqKDY/u7gXYu/CUyK4t8jcC9C7uxa/bbbq74WQvOOC/XzHZdfrpVriUO/8nLBQkvSoNC7ZkA==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/tomcat@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@lando/tomcat/-/tomcat-0.5.0.tgz#438eb04fdbcbe7076165b4cc14796d03e3b85783"
