@@ -433,6 +433,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/wordpress@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/wordpress/-/wordpress-0.5.0.tgz#491fb61fc8f10b9f949f217f94a708fdc5f44961"
+  integrity sha512-0v3aZqIpUaw5q7YI7LuygnFXhjqt1jXUekUI95J3FK9iYW3IkKMLYl+4S/lvS0lX5sESvba7+lzjbk00kcz1uA==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
