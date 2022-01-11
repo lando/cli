@@ -115,6 +115,7 @@
     "@lando/backdrop": "^0.5.0",
     "@lando/compose": "^0.5.0",
     "@lando/dotnet": "^0.5.0",
+    "@lando/drupal": "^0.5.0",
     "@lando/elasticsearch": "^0.5.0",
     "@lando/go": "^0.5.0",
     "@lando/joomla": "^0.5.0",
