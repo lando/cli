@@ -43,6 +43,7 @@ jobs:
           - solr
           - symfony
           - tomcat
+          - wordpress
           - varnish
 
     steps:
