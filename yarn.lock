@@ -173,6 +173,15 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/drupal@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.5.0.tgz#2e2f2c0cbbf38a76249e36cb190f62972add62a6"
+  integrity sha512-zhKwknzbag7NhXpfrjpaSdofxWkFLXw7WBnvl32wnIUns/8ONUxWFWp8XItC1zN59lt4HCr4MCQnHxrooUODqg==
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+    tar "^6.1.11"
+
 "@lando/elasticsearch@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@lando/elasticsearch/-/elasticsearch-0.5.1.tgz#b05ce20b1af5682bb0a3cf59d4ed0b3cd203c920"

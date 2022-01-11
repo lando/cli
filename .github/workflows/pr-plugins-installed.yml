@@ -16,6 +16,7 @@ jobs:
           - backdrop
           - compose
           - dotnet
+          - drupal
           - elasticsearch
           - go
           - joomla
