@@ -2,7 +2,7 @@
   "name": "@lando/cli",
   "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/lando/cli"
