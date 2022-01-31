@@ -5,6 +5,7 @@ Lando is **free** and **open source** software that relies on contributions from
 ### Plugins
 
 * Updated to `@lando/mean` version [`0.5.1`](https://github.com/lando/mean/releases/tag/v0.5.1)
+* Updated to `@lando/drupal` version [`0.5.1`](https://github.com/lando/drupal/releases/tag/v0.5.1)
 
 ### Plugins with changes that need release rolled
 

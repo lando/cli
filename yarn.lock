@@ -174,9 +174,9 @@
     tar "^6.1.11"
 
 "@lando/drupal@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.5.0.tgz#2e2f2c0cbbf38a76249e36cb190f62972add62a6"
-  integrity sha512-zhKwknzbag7NhXpfrjpaSdofxWkFLXw7WBnvl32wnIUns/8ONUxWFWp8XItC1zN59lt4HCr4MCQnHxrooUODqg==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.5.1.tgz#2f901a2b5211b571be0186767ebb054ae23840b5"
+  integrity sha512-iJkmCfsliwmVEtMjppJIJs5+/11aACXzOuoLdCbKSaMzw7fgjkOhX2HlKTduRS+eLqDkSHC+oEDIFAdc5uqdPw==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
