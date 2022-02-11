@@ -1,3 +1,15 @@
+## v3.6.3 - [TBD](https://github.com/lando/cli/releases/tag/v3.6.3)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+### Core
+
+* Add/more logging [PR #69](https://github.com/lando/cli/pull/69)
+
+### Plugins
+
+* Updated to `@lando/pantheon` version [`0.5.7`](https://github.com/lando/pantheon/releases/tag/v0.5.7)
+
 ## v3.6.2 - [February 2, 2022](https://github.com/lando/cli/releases/tag/v3.6.2)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).

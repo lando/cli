@@ -329,9 +329,9 @@
     tar "^6.1.11"
 
 "@lando/pantheon@^0.5.0":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.6.tgz#8bb5bad2a65cd6d2fe2a6d4b24a5da3a3437fa96"
-  integrity sha512-tkgv19eo5t987NXCJ8T9B/mUEK/9SfaVAhTU9plNXpAt3FNzA9Bs1uZKzVdZAG8KW6gbywwCIzWRI3H+ucyu9w==
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.7.tgz#133fc57a37a27bf7f1f98a895e1f9cfde22118cf"
+  integrity sha512-IsBmU12Nstd1I3ejhZNRRdOmc7u/iA8ZaNljFRSkyJNQlrPpnEBkcQaet6jb5KzrZKTYTeMyN9XN6KVNsy+XBg==
   dependencies:
     axios "^0.24.0"
     bluebird "^3.7.2"
@@ -2287,9 +2287,9 @@ follow-redirects@^1.14.0:
   integrity sha512-3MkHxknWMUtb23apkgz/83fDoe+y+qr0TdgacGIA7bew+QLBo3vdgEN2xEsuXNivpFy4CyDhBBZnNZOtalmenw==
 
 follow-redirects@^1.14.4:
-  version "1.14.7"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
-  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
+  version "1.14.8"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.8.tgz#016996fb9a11a100566398b1c6839337d7bfa8fc"
+  integrity sha512-1x0S9UVJHsQprFcEC/qnNzBLcIxsjAV905f/UkQxbclCsoTWlacCNOpQa/anodLl2uaEKFhfWOvM2Qg77+15zA==
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
