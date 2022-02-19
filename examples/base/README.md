@@ -180,7 +180,7 @@ lando config | grep "channel" | grep "edge"
 lando --channel stable
 lando config | grep "channel" | grep "stable"
 
-# Should not allow bogus relase channels
+# Should not allow bogus release channels
 lando --channel orange || echo $? | grep 1
 
 # Should load experimental plugins if toggled on

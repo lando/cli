@@ -27,7 +27,7 @@ Run the following commands to verify things work as expected
 # Should have mounted overridden nginx volume
 lando ssh -s nginx -c "cat /var/www/test.txt | grep MOUNTED"
 
-# Should have injected overriden envvar into nginx
+# Should have injected overridden envvar into nginx
 lando ssh -s nginx -c "env | grep THING=STUFF"
 
 # Should have built appserver from a custom docker image

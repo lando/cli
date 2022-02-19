@@ -37,12 +37,12 @@ lando ssh -s appserver -c "cat /certs/cert.ext | grep landolamp.internal"
 lando ssh -s appserver -c "cat /certs/cert.ext | grep appserver"
 lando ssh -s appserver -c "cat /certs/cert.ext | grep localhost"
 
-# Should be able to curl lemp from lamp at proxy addreses and internal hostname
+# Should be able to curl lemp from lamp at proxy addresses and internal hostname
 cd lamp
 lando ssh -s appserver -c "curl https://lando-lemp.lndo.site"
 lando ssh -s appserver -c "curl https://appserver_nginx.landolemp.internal"
 
-# Should be able to curl lamp from lemp at proxy addreses and internal hostname
+# Should be able to curl lamp from lemp at proxy addresses and internal hostname
 cd lemp
 lando ssh -s appserver -c "curl https://lando-lamp.lndo.site"
 lando ssh -s appserver -c "curl https://appserver.landolamp.internal"
