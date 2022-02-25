@@ -28,7 +28,7 @@ module.exports = {
         children: [
           {
             text: 'CLI Usage',
-            link: '/cli-usage.md',
+            link: '/index.md',
           },
         ],
       },
