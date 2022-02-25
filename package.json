@@ -184,7 +184,6 @@
     "@babel/eslint-parser": "^7.16.0",
     "@lando/vuepress-theme-default-plus": "^1.0.0-beta.14",
     "@octokit/rest": "^17.1.0",
-    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
     "body-parser": "^1.14.2",
     "chai": "^3.5.0",
     "chai-as-promised": "^7.1.1",
