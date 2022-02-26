@@ -185,7 +185,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/eslint-parser": "^7.16.0",
-    "@lando/vuepress-theme-default-plus": "^1.0.0-beta.14",
+    "@lando/vuepress-theme-default-plus": "^1.0.0-beta.16",
     "@octokit/rest": "^17.1.0",
     "body-parser": "^1.14.2",
     "chai": "^3.5.0",

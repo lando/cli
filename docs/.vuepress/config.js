@@ -24,13 +24,7 @@ module.exports = {
     sidebar: [
       {
         text: 'Usage',
-        collapsible: false,
-        children: [
-          {
-            text: 'CLI Usage',
-            link: '/index.md',
-          },
-        ],
+        link: '/index.md',
       },
       {
         text: 'Commands',
