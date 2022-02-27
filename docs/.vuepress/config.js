@@ -24,7 +24,7 @@ module.exports = {
     sidebar: [
       {
         text: 'Usage',
-        link: '/index.md',
+        link: '/index.html',
       },
       {
         text: 'Commands',
@@ -32,63 +32,63 @@ module.exports = {
         children: [
           {
             text: 'lando config',
-            link: '/config.md',
+            link: '/config.html',
           },
           {
             text: 'lando destroy',
-            link: '/destroy.md',
+            link: '/destroy.html',
           },
           {
             text: 'lando init',
-            link: '/init.md',
+            link: '/init.html',
           },
           {
             text: 'lando info',
-            link: '/info.md',
+            link: '/info.html',
           },
           {
             text: 'lando list',
-            link: '/list.md',
+            link: '/list.html',
           },
           {
             text: 'lando logs',
-            link: '/logs.md',
+            link: '/logs.html',
           },
           {
             text: 'lando poweroff',
-            link: '/poweroff.md',
+            link: '/poweroff.html',
           },
           {
             text: 'lando rebuild',
-            link: '/rebuild.md',
+            link: '/rebuild.html',
           },
           {
             text: 'lando restart',
-            link: '/restart.md',
+            link: '/restart.html',
           },
           {
             text: 'lando share',
-            link: '/share.md',
+            link: '/share.html',
           },
           {
             text: 'lando ssh',
-            link: '/ssh.md',
+            link: '/ssh.html',
           },
           {
             text: 'lando start',
-            link: '/start.md',
+            link: '/start.html',
           },
           {
             text: 'lando stop',
-            link: '/stop.md',
+            link: '/stop.html',
           },
           {
             text: 'lando version',
-            link: '/version.md',
+            link: '/version.html',
           },
         ],
       },
-      '/support.md',
+      '/support.html',
       {text: 'Release Notes', link: 'https://github.com/lando/cli/releases'},
     ],
   },
