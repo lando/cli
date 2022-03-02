@@ -9,6 +9,7 @@ Lando is **free** and **open source** software that relies on contributions from
 
 ### Plugins
 
+* Updated to `@lando/drupal` version [`0.5.2`](https://github.com/lando/drupal/releases/tag/v0.5.3)
 * Updated to `@lando/pantheon` version [`0.5.7`](https://github.com/lando/pantheon/releases/tag/v0.5.7)
 * Updated to `@lando/php` version [`0.5.2`](https://github.com/lando/php/releases/tag/v0.5.2)
 
