@@ -27,6 +27,7 @@ const searchDirs = [
 const fsConfig = {};
 _.forEach(searchDirs, dir => {
   fsConfig[path.join(dir, 'plugins', 'lando-test', 'index.js')] = testPlugin;
+  fsConfig[path.join(dir, 'plugins', 'lando-test', 'plugin.yml')] = 'DONT MATTER';
 });
 
 // This is the file we are testing
