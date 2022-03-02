@@ -551,13 +551,11 @@
     tar "^6.1.11"
 
 "@lando/drupal@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.5.1.tgz#2f901a2b5211b571be0186767ebb054ae23840b5"
-  integrity sha512-iJkmCfsliwmVEtMjppJIJs5+/11aACXzOuoLdCbKSaMzw7fgjkOhX2HlKTduRS+eLqDkSHC+oEDIFAdc5uqdPw==
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.5.3.tgz#8ed23867bf010f924c2771b072a2603f3c00e5a9"
+  integrity sha512-Kza/v28tGvgPrTOJvHniNQeLFiBNIveKp1LfOsmrcy7OteJxxBlglZgs50s1S4Awe5dDYGythutzI71wxaFfuw==
   dependencies:
-    js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/elasticsearch@^0.5.0":
   version "0.5.1"
