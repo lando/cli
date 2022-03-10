@@ -18,9 +18,9 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'main',
     repo: 'lando/cli',
-    sidebarHeader: {
-      enabled: false,
-    },
+    sidebarHeader: false,
+    versionsPage: false,
+    contributorsPage: false,
     sidebar: [
       {
         text: 'Usage',
