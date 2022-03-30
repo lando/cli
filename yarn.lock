@@ -605,13 +605,12 @@
     tar "^6.1.11"
 
 "@lando/laravel@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@lando/laravel/-/laravel-0.5.1.tgz#9eefb2ef2cb19d4e133a0e9bfe00114d7ba86f07"
-  integrity sha512-YbcKTNdcIFp3OynvNSbOrORNl4NBORDZFD6CgobmnaImBZsY6jPYPnIamvl0lBTtlrWZtZaQBEPpmKaFlt6Dtg==
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@lando/laravel/-/laravel-0.5.2.tgz#9a6d57f97b9837dd34f90302da0fd362308b929d"
+  integrity sha512-usFYHNmPewzegkpnwHRuQzOIZQBEfjcf7jRgxi/z4AyV/j0y73RVHb+bfZNhcDpXwm2ngk5a9/bYx3L3PbpS8A==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/lemp@^0.5.0":
   version "0.5.1"
