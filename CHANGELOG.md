@@ -13,7 +13,7 @@ Lando is **free** and **open source** software that relies on contributions from
 
 * Updated to `@lando/drupal` version [`0.5.3`](https://github.com/lando/drupal/releases/tag/v0.5.3)
 * Updated to `@lando/laravel` version [`0.5.2`](https://github.com/lando/laravel/releases/tag/v0.5.2)
-* Updated to `@lando/pantheon` version [`0.5.7`](https://github.com/lando/pantheon/releases/tag/v0.5.7)
+* Updated to `@lando/pantheon` version [`0.5.8`](https://github.com/lando/pantheon/releases/tag/v0.5.8)
 * Updated to `@lando/php` version [`0.5.2`](https://github.com/lando/php/releases/tag/v0.5.2)
 
 ## v3.6.2 - [February 2, 2022](https://github.com/lando/cli/releases/tag/v3.6.2)
