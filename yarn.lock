@@ -716,9 +716,9 @@
     winston "2.4.5"
 
 "@lando/php@^0.5.0":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.5.2.tgz#d2e1779150e88fab09cd0406d924e58c9ace076d"
-  integrity sha512-F0TKtKUt3ogHb49oysiYwI+K3l1AI3dSiD1LTVKQwUpxB7dpjCKmOyF4w9GdSX6HZMfSu++qF9BEcyXCNY3Y+Q==
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.5.3.tgz#a2872a0dd524d700bb3c478a1d817cbabd588b50"
+  integrity sha512-iYM74GgD2tbprGWBm/jvRYDVQhtzqKcRDAEjkIQLEjXFHrqotNTqoctiexXV2JcTV1TkE4a6PBLtGpq5gHMJTQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"

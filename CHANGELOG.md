@@ -1,8 +1,12 @@
-## v3.6.4 - [TBD](https://github.com/lando/cli/releases/tag/v3.6.3)
+## v3.6.4 - [April 19, 2022](https://github.com/lando/cli/releases/tag/v3.6.4)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
 
-## v3.6.3 - [April 22, 2022](https://github.com/lando/cli/releases/tag/v3.6.3)
+### Plugins
+
+* Updated to `@lando/php` version [`0.5.3`](https://github.com/lando/php/releases/tag/v0.5.3)
+
+## v3.6.3 - [April 13, 2022](https://github.com/lando/cli/releases/tag/v3.6.3)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
 
