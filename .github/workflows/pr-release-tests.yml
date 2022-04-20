@@ -43,10 +43,6 @@ jobs:
           arch: ${{ matrix.arch }}
           node-version: node${{ matrix.node-version }}
           os: ${{ matrix.os }}
-      - name: File Output
-        shell: bash
-        run: |
-          echo "${{ steps.pkg-action.outputs.file }}"
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}
