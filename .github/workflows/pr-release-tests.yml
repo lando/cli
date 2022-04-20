@@ -91,14 +91,14 @@ jobs:
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-arm64-snapshot-${{ github.sha }}
-          - os: ubuntu-20.04
-            key: cli-node14-linux-x64-${{ github.sha }}
-            file: dist/@lando/cli
-            result: lando-linux-x64-snapshot-${{ github.sha }}
-          - os: ubuntu-20.04
-            key: cli-node14-linux-arm64-${{ github.sha }}
-            file: dist/@lando/cli
-            result: lando-linux-arm64-snapshot-${{ github.sha }}
+          # - os: ubuntu-20.04
+          #   key: cli-node14-linux-x64-${{ github.sha }}
+          #   file: dist/@lando/cli
+          #   result: lando-linux-x64-snapshot-${{ github.sha }}
+          # - os: ubuntu-20.04
+          #   key: cli-node14-linux-arm64-${{ github.sha }}
+          #   file: dist/@lando/cli
+          #   result: lando-linux-arm64-snapshot-${{ github.sha }}
 
     steps:
       - name: Checkout code
