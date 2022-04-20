@@ -53,19 +53,19 @@ jobs:
       matrix:
         include:
           - os: windows-2022
-            key: lando-node14-win-x64-${{ github.sha }}
+            key: cli-node14-win-x64-${{ github.sha }}
             file: lando/lando.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-win-x64-snapshot-${{ github.sha }}.exe
           - os: windows-2022
-            key: lando-node14-win-arm64-${{ github.sha }}
+            key: cli-node14-win-arm64-${{ github.sha }}
             file: lando/lando.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-win-arm64-snapshot-${{ github.sha }}.exe
           - os: macos-11
-            key: lando-node14-macos-x64-${{ github.sha }}
+            key: cli-node14-macos-x64-${{ github.sha }}
             file: lando/lando
             certificate-data: APPLE_CERT_DATA
             certificate-password: APPLE_CERT_PASSWORD
@@ -76,7 +76,7 @@ jobs:
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-x64-snapshot-${{ github.sha }}
           - os: macos-11
-            key: lando-node14-macos-arm64-${{ github.sha }}
+            key: cli-node14-macos-arm64-${{ github.sha }}
             file: lando/lando
             certificate-data: APPLE_CERT_DATA
             certificate-password: APPLE_CERT_PASSWORD
@@ -87,11 +87,11 @@ jobs:
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-arm64-snapshot-${{ github.sha }}
           - os: ubuntu-20.04
-            key: lando-node14-linux-x64-${{ github.sha }}
+            key: cli-node14-linux-x64-${{ github.sha }}
             file: lando/lando
             result: lando-linux-x64-snapshot-${{ github.sha }}
           - os: ubuntu-20.04
-            key: lando-node14-linux-arm64-${{ github.sha }}
+            key: cli-node14-linux-arm64-${{ github.sha }}
             file: lando/lando
             result: lando-linux-arm64-snapshot-${{ github.sha }}
 
