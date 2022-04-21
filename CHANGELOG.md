@@ -5,6 +5,7 @@ Lando is **free** and **open source** software that relies on contributions from
 ### Plugins
 
 * Updated to `@lando/acquia` version [`0.5.2`](https://github.com/lando/acquia/releases/tag/v0.5.2)
+* Updated to `@lando/lagoon` version [`0.5.3`](https://github.com/lando/lagoon/releases/tag/v0.5.3)
 
 ## v3.6.4 - [April 19, 2022](https://github.com/lando/cli/releases/tag/v3.6.4)
 
