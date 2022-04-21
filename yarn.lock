@@ -505,14 +505,13 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
 "@lando/acquia@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@lando/acquia/-/acquia-0.5.1.tgz#0abc502ee78e8080bc2d8b55d1d9dbbf8b13e19e"
-  integrity sha512-V3PYgKFnRf8RVY/0KT0amxnm6lKKsP/c8fVjDxnsaq1UBcZQq3cD6u2dd4jqu1K9d/1uqGnv5tDXwo6ajdCrhQ==
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@lando/acquia/-/acquia-0.5.2.tgz#d8c303a704afe0f2f8f6390472a0d2b7f23a242b"
+  integrity sha512-fiQ0+n7hm0XcuBilAH4W9WU7AKfO4e/flN31aA/FfBQPk860Tvz/Qyxiy6rF+LUqlM50zDneyCHvVBBAVMuxJQ==
   dependencies:
     axios "^0.24.0"
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/apache@^0.5.0":
   version "0.5.0"
