@@ -2,6 +2,13 @@
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
 
+### Core
+
+* Redid the package and release flow.  Note that the "tag" at the end of each package means the followng now:
+  * `-stable` is the latest stable release
+  * `-edge` is the latest pre-release 
+  * `-latest` & `-dev` are the latest commit push to the `main` branch in the cli repo
+
 ### Plugins
 
 * Updated to `@lando/acquia` version [`0.5.2`](https://github.com/lando/acquia/releases/tag/v0.5.2)
