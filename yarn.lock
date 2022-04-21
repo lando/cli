@@ -747,13 +747,12 @@
     tar "^6.1.11"
 
 "@lando/python@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/python/-/python-0.5.0.tgz#95a6f992478fbde7676a9f8516dec7a577234703"
-  integrity sha512-M2Ur6D8QD2QrSm1fx0b3B+wfKww0pvNZEpHWt2jCPP62SyzYH60MnW75tzVbe1Nf2mW2zdg+pbwKBSEB2bxUmA==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/python/-/python-0.5.1.tgz#2e9931b493dfbdd52eb7b2d5dbb874e010c87975"
+  integrity sha512-1ztjhgNZnvotTjnLs9VuXtFcYwDZo8yfhHji/gSS6mP0pH6YqjItk4G3Hd8nsgZ//FvC5E05aO0ixyq4m0soIw==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/redis@^0.5.0":
   version "0.5.0"
