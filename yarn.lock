@@ -662,13 +662,12 @@
     tar "^6.1.11"
 
 "@lando/mssql@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/mssql/-/mssql-0.5.0.tgz#9431193473ecdb13eb0ef3f4eef3af1ed4bc4dd2"
-  integrity sha512-mJdhaC9Eqwepnl1qk0GRhH3SFgPgVGWCMVj5P83IIwiV6lXLYPMuUGCh2JoNii+DU0onzC1I9F5Co8g16JXu+A==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/mssql/-/mssql-0.5.1.tgz#055176e50b75ed4d34a50e2ad1485257fcb9fdbc"
+  integrity sha512-rfIledqSpGSEB3iVMyj8RWw7ZwVguzBddvLbuo4Hs3vcBprmJF6BTyLMyOlBtaV0NopVFmjfoxBRR3o4Mh0W4g==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/mysql@^0.5.0":
   version "0.5.0"

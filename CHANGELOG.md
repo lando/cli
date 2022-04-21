@@ -9,6 +9,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Updated to `@lando/dotnet` version [`0.5.1`](https://github.com/lando/dotnet/releases/tag/v0.5.1)
 * Updated to `@lando/go` version [`0.5.1`](https://github.com/lando/go/releases/tag/v0.5.1)
 * Updated to `@lando/lagoon` version [`0.5.3`](https://github.com/lando/lagoon/releases/tag/v0.5.3)
+* Updated to `@lando/mssql` version [`0.5.1`](https://github.com/lando/mssql/releases/tag/v0.5.1)
 * Updated to `@lando/node` version [`0.5.1`](https://github.com/lando/node/releases/tag/v0.5.1)
 * Updated to `@lando/pantheon` version [`0.5.9`](https://github.com/lando/pantheon/releases/tag/v0.5.9)
 * Updated to `@lando/php` version [`0.5.4`](https://github.com/lando/php/releases/tag/v0.5.4)
