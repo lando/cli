@@ -710,13 +710,12 @@
     winston "2.4.5"
 
 "@lando/php@^0.5.0":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.5.3.tgz#a2872a0dd524d700bb3c478a1d817cbabd588b50"
-  integrity sha512-iYM74GgD2tbprGWBm/jvRYDVQhtzqKcRDAEjkIQLEjXFHrqotNTqoctiexXV2JcTV1TkE4a6PBLtGpq5gHMJTQ==
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.5.4.tgz#a9cb8b3f7abd0b38be859668a32a547984b57054"
+  integrity sha512-1cEpIZjGPsHywNZsmV7auC/LT5aNHfUGLaPIXpUlnItCAiWH0rcJmbPaPDjoVvlfyDMnNlzlxjuhpNWRMAYShQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/phpmyadmin@^0.5.0":
   version "0.5.0"
