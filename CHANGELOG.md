@@ -7,6 +7,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Updated to `@lando/acquia` version [`0.5.2`](https://github.com/lando/acquia/releases/tag/v0.5.2)
 * Updated to `@lando/backdrop` version [`0.5.1`](https://github.com/lando/backdrop/releases/tag/v0.5.1)
 * Updated to `@lando/dotnet` version [`0.5.1`](https://github.com/lando/dotnet/releases/tag/v0.5.1)
+* Updated to `@lando/go` version [`0.5.1`](https://github.com/lando/go/releases/tag/v0.5.1)
 * Updated to `@lando/lagoon` version [`0.5.3`](https://github.com/lando/lagoon/releases/tag/v0.5.3)
 
 ## v3.6.4 - [April 19, 2022](https://github.com/lando/cli/releases/tag/v3.6.4)

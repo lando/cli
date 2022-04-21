@@ -564,13 +564,12 @@
     tar "^6.1.11"
 
 "@lando/go@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/go/-/go-0.5.0.tgz#cecc9255367f7c5a9d98385732f4dc093d1fe2ce"
-  integrity sha512-i8uvpHKGoZRdqAKPjO3p79YoL4bvNJYJYCl4sP+VQgUe/Si2Oitp4f6C7MgdmIu+frN5m1UQdznEDgXO5QX70Q==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/go/-/go-0.5.1.tgz#2eb2716d3a4b2fb8e55da456900a6ffd1c9c9d1f"
+  integrity sha512-FL1eewiETzDeMIWILuLPTzmF+bMMXb3qg3b1kBlOHjdpR7Jn3Q6tTsVde0+TwqQ08CYYDV0fbwnJ4G3Oc1BYfA==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/joomla@^0.5.0":
   version "0.5.0"
