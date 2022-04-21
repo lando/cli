@@ -4,10 +4,7 @@ Lando is **free** and **open source** software that relies on contributions from
 
 ### Core
 
-* Redid the package and release flow.  Note that the "tag" at the end of each package means the followng now:
-  * `-stable` is the latest stable release
-  * `-edge` is the latest pre-release 
-  * `-latest` & `-dev` are the latest commit push to the `main` branch in the cli repo
+* Redid the package and release flow.
 
 ### Plugins
 
