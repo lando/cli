@@ -523,13 +523,12 @@
     tar "^6.1.11"
 
 "@lando/backdrop@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/backdrop/-/backdrop-0.5.0.tgz#0435bccc1008334ecfe69d484a9a704b572d7690"
-  integrity sha512-Xh0bfxDfUGxKlMmpv+d3r7g1SMw1+oBCrbv+lZlqsgKREXUqARX6aBnjQ18q9LbINuKiRfPGW6ei1NE3l03CZw==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/backdrop/-/backdrop-0.5.1.tgz#c050f6a5f2d18f5f2daf2e504489382f6dc02c26"
+  integrity sha512-0QU36ZHAuwsgnLNGnSnMg3+IPRqqJkO8iYjDtppRkQLXHfcAC4U8Ag7WFvGkEDUoouA0AlfoM7hUcpQBSuzmIw==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/compose@^0.5.0":
   version "0.5.0"
@@ -541,13 +540,12 @@
     tar "^6.1.11"
 
 "@lando/dotnet@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.5.0.tgz#c06ee89b65959e1780271bfb6f74d0ab33ad9aea"
-  integrity sha512-jBgSQ8UPHn9v1c18ln5UFrfz1xEQkrqCLnzocV4MnC7sOCqd4vLJbJOM5dYOB1VQPsSYDuKR2U7eUcxTCC7USg==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.5.1.tgz#4b8e1e7b14389a47d9d71ce806901bb7d7ba40b5"
+  integrity sha512-ur6ObCaimBXLPUoSXgpMPgLmPKy1fLsRLm1qOh4f0wxTSYez60s4rsLfBxTv9hJWtQN7/996uiqTmDbiyJQozQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/drupal@^0.5.0":
   version "0.5.3"
