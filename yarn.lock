@@ -697,9 +697,9 @@
     lodash "^4.17.21"
 
 "@lando/pantheon@^0.5.0":
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.8.tgz#80f219ce157676c851a8225716f9c4ad10be1524"
-  integrity sha512-qTza+6xwrW8l3dQ4OVR2XFHNXvbSUjQuj5KodP6D0K+vLn6wPhsEqhDswLNwH3Vh3asgtKu7NOC9RoguxGmQqQ==
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.9.tgz#55b5af2b07091090021941d5432a76de1addf8e5"
+  integrity sha512-f8qN/dbU7nK11LlJCWHCGgxvSnxmOuqkrDwIWwnXvFn2pSfUfDwDUJz6qCpyXSZIPUfJwmLSGTXsjhM1isXDmQ==
   dependencies:
     axios "^0.24.0"
     bluebird "^3.7.2"
@@ -2660,9 +2660,9 @@ dashdash@^1.12.0:
     assert-plus "^1.0.0"
 
 dayjs@^1.10.7:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.0.tgz#009bf7ef2e2ea2d5db2e6583d2d39a4b5061e805"
-  integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.1.tgz#90b33a3dda3417258d48ad2771b415def6545eb0"
+  integrity sha512-ER7EjqVAMkRRsxNCC5YqJ9d9VQYuWdGt7aiH2qA5R5wt8ZmWaP2dLUSIK6y/kVzLMlmh1Tvu5xUf4M/wdGJ5KA==
 
 dayjs@^1.8.25:
   version "1.10.7"
