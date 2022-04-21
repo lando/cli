@@ -1,3 +1,22 @@
+## v3.6.5 - [April 21, 2022](https://github.com/lando/cli/releases/tag/v3.6.5)
+
+Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).
+
+### Plugins
+
+* Updated to `@lando/acquia` version [`0.5.2`](https://github.com/lando/acquia/releases/tag/v0.5.2)
+* Updated to `@lando/backdrop` version [`0.5.1`](https://github.com/lando/backdrop/releases/tag/v0.5.1)
+* Updated to `@lando/dotnet` version [`0.5.1`](https://github.com/lando/dotnet/releases/tag/v0.5.1)
+* Updated to `@lando/go` version [`0.5.1`](https://github.com/lando/go/releases/tag/v0.5.1)
+* Updated to `@lando/lagoon` version [`0.5.3`](https://github.com/lando/lagoon/releases/tag/v0.5.3)
+* Updated to `@lando/mssql` version [`0.5.1`](https://github.com/lando/mssql/releases/tag/v0.5.1)
+* Updated to `@lando/mysql` version [`0.5.1`](https://github.com/lando/mysql/releases/tag/v0.5.1)
+* Updated to `@lando/node` version [`0.5.1`](https://github.com/lando/node/releases/tag/v0.5.1)
+* Updated to `@lando/pantheon` version [`0.5.9`](https://github.com/lando/pantheon/releases/tag/v0.5.9)
+* Updated to `@lando/php` version [`0.5.4`](https://github.com/lando/php/releases/tag/v0.5.4)
+* Updated to `@lando/python` version [`0.5.1`](https://github.com/lando/python/releases/tag/v0.5.1)
+* Updated to `@lando/ruby` version [`0.5.1`](https://github.com/lando/ruby/releases/tag/v0.5.1)
+
 ## v3.6.4 - [April 19, 2022](https://github.com/lando/cli/releases/tag/v3.6.4)
 
 Lando is **free** and **open source** software that relies on contributions from developers like you! If you like Lando then help us spend more time making, updating and supporting it by [contributing](https://github.com/sponsors/lando).

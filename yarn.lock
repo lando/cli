@@ -505,14 +505,13 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
 "@lando/acquia@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@lando/acquia/-/acquia-0.5.1.tgz#0abc502ee78e8080bc2d8b55d1d9dbbf8b13e19e"
-  integrity sha512-V3PYgKFnRf8RVY/0KT0amxnm6lKKsP/c8fVjDxnsaq1UBcZQq3cD6u2dd4jqu1K9d/1uqGnv5tDXwo6ajdCrhQ==
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@lando/acquia/-/acquia-0.5.2.tgz#d8c303a704afe0f2f8f6390472a0d2b7f23a242b"
+  integrity sha512-fiQ0+n7hm0XcuBilAH4W9WU7AKfO4e/flN31aA/FfBQPk860Tvz/Qyxiy6rF+LUqlM50zDneyCHvVBBAVMuxJQ==
   dependencies:
     axios "^0.24.0"
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/apache@^0.5.0":
   version "0.5.0"
@@ -524,13 +523,12 @@
     tar "^6.1.11"
 
 "@lando/backdrop@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/backdrop/-/backdrop-0.5.0.tgz#0435bccc1008334ecfe69d484a9a704b572d7690"
-  integrity sha512-Xh0bfxDfUGxKlMmpv+d3r7g1SMw1+oBCrbv+lZlqsgKREXUqARX6aBnjQ18q9LbINuKiRfPGW6ei1NE3l03CZw==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/backdrop/-/backdrop-0.5.1.tgz#c050f6a5f2d18f5f2daf2e504489382f6dc02c26"
+  integrity sha512-0QU36ZHAuwsgnLNGnSnMg3+IPRqqJkO8iYjDtppRkQLXHfcAC4U8Ag7WFvGkEDUoouA0AlfoM7hUcpQBSuzmIw==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/compose@^0.5.0":
   version "0.5.0"
@@ -542,13 +540,12 @@
     tar "^6.1.11"
 
 "@lando/dotnet@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.5.0.tgz#c06ee89b65959e1780271bfb6f74d0ab33ad9aea"
-  integrity sha512-jBgSQ8UPHn9v1c18ln5UFrfz1xEQkrqCLnzocV4MnC7sOCqd4vLJbJOM5dYOB1VQPsSYDuKR2U7eUcxTCC7USg==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.5.1.tgz#4b8e1e7b14389a47d9d71ce806901bb7d7ba40b5"
+  integrity sha512-ur6ObCaimBXLPUoSXgpMPgLmPKy1fLsRLm1qOh4f0wxTSYez60s4rsLfBxTv9hJWtQN7/996uiqTmDbiyJQozQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/drupal@^0.5.0":
   version "0.5.3"
@@ -567,13 +564,12 @@
     tar "^6.1.11"
 
 "@lando/go@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/go/-/go-0.5.0.tgz#cecc9255367f7c5a9d98385732f4dc093d1fe2ce"
-  integrity sha512-i8uvpHKGoZRdqAKPjO3p79YoL4bvNJYJYCl4sP+VQgUe/Si2Oitp4f6C7MgdmIu+frN5m1UQdznEDgXO5QX70Q==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/go/-/go-0.5.1.tgz#2eb2716d3a4b2fb8e55da456900a6ffd1c9c9d1f"
+  integrity sha512-FL1eewiETzDeMIWILuLPTzmF+bMMXb3qg3b1kBlOHjdpR7Jn3Q6tTsVde0+TwqQ08CYYDV0fbwnJ4G3Oc1BYfA==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/joomla@^0.5.0":
   version "0.5.0"
@@ -585,15 +581,14 @@
     tar "^6.1.11"
 
 "@lando/lagoon@^0.5.0":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.2.tgz#0930e10f5ff27e32db28345dacb062c65dacf8d6"
-  integrity sha512-z2icgaiwb1FU+XH/NHTIVQWTnTrsJ6b5TqN41xEjS6gLS1OFcS2h2KkA4nKhbn8lEDf7XftLOAgckBwepV+ctw==
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@lando/lagoon/-/lagoon-0.5.3.tgz#4a864e6a1056de5201db81e94a2541f9f31b6d41"
+  integrity sha512-/qCmQPTiiVq7CWTAtlyoPp1WEW/ms27EpYUo5WEV3Gj1yYGobqkKZhSV+SiSXzhTXkz7APl6JRxyG2DxituCqw==
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/lamp@^0.5.0":
   version "0.5.1"
@@ -667,22 +662,20 @@
     tar "^6.1.11"
 
 "@lando/mssql@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/mssql/-/mssql-0.5.0.tgz#9431193473ecdb13eb0ef3f4eef3af1ed4bc4dd2"
-  integrity sha512-mJdhaC9Eqwepnl1qk0GRhH3SFgPgVGWCMVj5P83IIwiV6lXLYPMuUGCh2JoNii+DU0onzC1I9F5Co8g16JXu+A==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/mssql/-/mssql-0.5.1.tgz#055176e50b75ed4d34a50e2ad1485257fcb9fdbc"
+  integrity sha512-rfIledqSpGSEB3iVMyj8RWw7ZwVguzBddvLbuo4Hs3vcBprmJF6BTyLMyOlBtaV0NopVFmjfoxBRR3o4Mh0W4g==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/mysql@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/mysql/-/mysql-0.5.0.tgz#1998c4c61e42aaa895ec66325ce8039c79fec6b1"
-  integrity sha512-iTBkunBmBHgomCWEarOtlDVA08sNsdYSQ59s3nB4a2aXyjKBRlIELzbEuyoiYTY7/JmIdZ9U/9xFAUbspw3/Ig==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/mysql/-/mysql-0.5.1.tgz#94a58d8ac68f4d272c9b56a3a6fbb2c906ccaa1a"
+  integrity sha512-uYdZrVdGBDkFXbcxTYrupJt1Rot1TZTf38hl7ORBTwBIN1MJK8KfkpYsZvDjJ5bm7bIP3d1uS/tqEQZB7sjs6A==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/nginx@^0.5.0":
   version "0.5.0"
@@ -694,18 +687,17 @@
     tar "^6.1.11"
 
 "@lando/node@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/node/-/node-0.5.0.tgz#d910af48dfa41662ba7e130b859c9beda292894a"
-  integrity sha512-MNrnI34UAd2Civ2NjYLbkR96olPXQ9Dx2bNdz0e54wYmblEMbc5aGV8jqa7qv1KNBTKd9Dk0bAffQXYMJbhL7w==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/node/-/node-0.5.1.tgz#94a4cffa5e6cfc7c6d11d6f430d4834c88410916"
+  integrity sha512-H0wnuqOV1mpcxt8o4KpGfpHQ6HG32EvsYRcMsTmh2h0Eo+2UA8UlGh5VGza7OAmyi10V4xRVgg5mjNzKH9JA3Q==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/pantheon@^0.5.0":
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.8.tgz#80f219ce157676c851a8225716f9c4ad10be1524"
-  integrity sha512-qTza+6xwrW8l3dQ4OVR2XFHNXvbSUjQuj5KodP6D0K+vLn6wPhsEqhDswLNwH3Vh3asgtKu7NOC9RoguxGmQqQ==
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.5.9.tgz#55b5af2b07091090021941d5432a76de1addf8e5"
+  integrity sha512-f8qN/dbU7nK11LlJCWHCGgxvSnxmOuqkrDwIWwnXvFn2pSfUfDwDUJz6qCpyXSZIPUfJwmLSGTXsjhM1isXDmQ==
   dependencies:
     axios "^0.24.0"
     bluebird "^3.7.2"
@@ -716,13 +708,12 @@
     winston "2.4.5"
 
 "@lando/php@^0.5.0":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.5.3.tgz#a2872a0dd524d700bb3c478a1d817cbabd588b50"
-  integrity sha512-iYM74GgD2tbprGWBm/jvRYDVQhtzqKcRDAEjkIQLEjXFHrqotNTqoctiexXV2JcTV1TkE4a6PBLtGpq5gHMJTQ==
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.5.4.tgz#a9cb8b3f7abd0b38be859668a32a547984b57054"
+  integrity sha512-1cEpIZjGPsHywNZsmV7auC/LT5aNHfUGLaPIXpUlnItCAiWH0rcJmbPaPDjoVvlfyDMnNlzlxjuhpNWRMAYShQ==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/phpmyadmin@^0.5.0":
   version "0.5.0"
@@ -754,13 +745,12 @@
     tar "^6.1.11"
 
 "@lando/python@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/python/-/python-0.5.0.tgz#95a6f992478fbde7676a9f8516dec7a577234703"
-  integrity sha512-M2Ur6D8QD2QrSm1fx0b3B+wfKww0pvNZEpHWt2jCPP62SyzYH60MnW75tzVbe1Nf2mW2zdg+pbwKBSEB2bxUmA==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/python/-/python-0.5.1.tgz#2e9931b493dfbdd52eb7b2d5dbb874e010c87975"
+  integrity sha512-1ztjhgNZnvotTjnLs9VuXtFcYwDZo8yfhHji/gSS6mP0pH6YqjItk4G3Hd8nsgZ//FvC5E05aO0ixyq4m0soIw==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/redis@^0.5.0":
   version "0.5.0"
@@ -772,13 +762,12 @@
     tar "^6.1.11"
 
 "@lando/ruby@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lando/ruby/-/ruby-0.5.0.tgz#58e03836737701af508b7008a8ab1d5dea04e139"
-  integrity sha512-blQWagaHDezl4tqorkaaF4kq8ZDHZX1Bp07aIRtzURanTI5v4ZQG8tMlaJKRawbsL+YC7K3S7AyvacwIKJBJww==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@lando/ruby/-/ruby-0.5.1.tgz#4b61b5a98519c3ba717a308d85ac732b73af957b"
+  integrity sha512-GQRRA5yuiSgZcZ2wsCn/WL6BEyZ3NsuPi4Wg9M0PCU/GycmblTFUDNd8yId/clmffNp8f9H4a1pyXPgLERKW3g==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"
-    tar "^6.1.11"
 
 "@lando/solr@^0.5.0":
   version "0.5.0"
@@ -2666,9 +2655,9 @@ dashdash@^1.12.0:
     assert-plus "^1.0.0"
 
 dayjs@^1.10.7:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.0.tgz#009bf7ef2e2ea2d5db2e6583d2d39a4b5061e805"
-  integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.1.tgz#90b33a3dda3417258d48ad2771b415def6545eb0"
+  integrity sha512-ER7EjqVAMkRRsxNCC5YqJ9d9VQYuWdGt7aiH2qA5R5wt8ZmWaP2dLUSIK6y/kVzLMlmh1Tvu5xUf4M/wdGJ5KA==
 
 dayjs@^1.8.25:
   version "1.10.7"
