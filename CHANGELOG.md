@@ -13,6 +13,7 @@ Lando is **free** and **open source** software that relies on contributions from
 * Updated to `@lando/pantheon` version [`0.5.9`](https://github.com/lando/pantheon/releases/tag/v0.5.9)
 * Updated to `@lando/php` version [`0.5.4`](https://github.com/lando/php/releases/tag/v0.5.4)
 * Updated to `@lando/python` version [`0.5.1`](https://github.com/lando/python/releases/tag/v0.5.1)
+* Updated to `@lando/ruby` version [`0.5.1`](https://github.com/lando/ruby/releases/tag/v0.5.1)
 
 ## v3.6.4 - [April 19, 2022](https://github.com/lando/cli/releases/tag/v3.6.4)
 
