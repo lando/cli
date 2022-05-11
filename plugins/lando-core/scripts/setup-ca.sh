@@ -28,7 +28,7 @@ lando_info "LANDO_CA_KEY: $LANDO_CA_KEY"
 
 # Set get the key ready
 if [ ! -f "$LANDO_CA_KEY" ]; then
-  lando_info "$LANDO_CA_CERT not found... generating one"
+  lando_info "$LANDO_CA_KEY not found... generating one"
   openssl genrsa -out $LANDO_CA_KEY 2048
 fi
 
