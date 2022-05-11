@@ -92,9 +92,6 @@ module.exports = {
         if (sslExpose) ports.push(sport);
       }
 
-      // Add in some more dirz if it makes sense
-      if (home) volumes.push(`${home}:/user:cached`);
-
       // Handle cert refresh
       // @TODO: this might only be relevant to the proxy, if so let's move it there
       if (refreshCerts) volumes.push(`${refreshCertsScript}:/scripts/999-refresh-certs`);
