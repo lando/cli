@@ -99,7 +99,6 @@ module.exports = lando => {
     const isComposeV1 = semver.lt(versions.compose, '2.0.0')
 
     lando.config.composeSeperator = isComposeV1 ? composeV1Seperator : composeV2Seperator;
-    console.log('changing config', lando.config.composeSeperator)
   });
 
   // Return some default things
