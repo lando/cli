@@ -32,8 +32,6 @@ const defaultConfig = {
   proxyPassThru: true,
 };
 
-const composeV1Seperator = '_';
-const composeV2Seperator = '-';
 
 module.exports = lando => {
   // Add in some computed config eg things after our config has been settled
@@ -54,15 +52,8 @@ module.exports = lando => {
   });
 
   lando.events.on('post-bootstrap-engine', async () => {
-    const semver = require('semver');
-    const versions = await lando.engine.daemon.getVersions();
-    const isComposeV1 = semver.lt(versions.compose, '2.0.0')
-
-    if (!isComposeV1) {
-      const matcher = new RegExp(composeV1Seperator, 'g');
-      lando.config.proxyContainer = lando.config.proxyContainer.replace(matcher, composeV2Seperator);
-    }
-    console.log('proxy', lando.config.proxyContainer)
+    const sep = lando.config.composeSeperator;
+    lando.config.proxyContainer = `${lando.config.proxyName}${sep}proxy${sep}1`;
   });
 
   // Return config defaults to rebase

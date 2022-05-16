@@ -49,7 +49,8 @@ exports.filterBuildSteps = (services, app, rootSteps = [], buildSteps= [], prest
       if (!_.isEmpty(_.get(app, `config.services.${service}.${section}`, []))) {
         // Run each command
         _.forEach(app.config.services[service][section], cmd => {
-          const container = `${app.project}_${service}_1`;
+          const sep = app._lando.config.composeSeperator;
+          const container = `${app.project}${sep}${service}${sep}1`;
           build.push({
             id: container,
             cmd: ['/bin/sh', '-c', _.isArray(cmd) ? cmd.join(' ') : cmd],

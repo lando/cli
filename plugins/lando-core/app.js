@@ -8,6 +8,7 @@ const toObject = require('./../../lib/utils').toObject;
 const utils = require('./lib/utils');
 const warnings = require('./lib/warnings');
 
+
 // Helper to get http ports
 const getHttpPorts = data => _.get(data, 'Config.Labels["io.lando.http-ports"]', '80,443').split(',');
 const getHttpsPorts = data => _.get(data, 'Config.Labels["io.lando.https-ports"]', '443').split(',');
@@ -70,8 +71,9 @@ module.exports = (app, lando) => {
     const buildServices = _.get(app, 'opts.services', app.services);
     app.log.verbose('refreshing certificates...', buildServices);
     app.events.on('post-start', 9999, () => lando.Promise.each(buildServices, service => {
+      const sep = lando.config.composeSeperator;
       return app.engine.run({
-        id: `${app.project}_${service}_1`,
+        id: `${app.project}${sep}${service}${sep}1`,
         cmd: 'mkdir -p /certs && /helpers/refresh-certs.sh > /certs/refresh.log',
         compose: app.compose,
         project: app.project,
@@ -93,8 +95,9 @@ module.exports = (app, lando) => {
     if (!_.isEmpty(app.nonRoot)) {
       app.log.verbose('perm sweeping flagged non-root containers ...', app.nonRoot);
       app.events.on('post-start', 1, () => lando.Promise.each(app.nonRoot, service => {
+        const sep = lando.config.composeSeperator;
         return app.engine.run({
-          id: `${app.project}_${service}_1`,
+          id: `${app.project}${sep}${service}${sep}1`,
           cmd: '/helpers/user-perms.sh --silent',
           compose: app.compose,
           project: app.project,
@@ -170,8 +173,9 @@ module.exports = (app, lando) => {
     .map(container => _.find(app.info, {service: container.service}))
     // Map to a retry of the healthcheck command
     .map(info => lando.Promise.retry(() => {
+      const sep = lando.config.composeSeperator;
       return app.engine.run({
-        id: `${app.project}_${info.service}_1`,
+        id: `${app.project}${sep}${info.service}${sep}1`,
         cmd: info.healthcheck,
         compose: app.compose,
         project: app.project,

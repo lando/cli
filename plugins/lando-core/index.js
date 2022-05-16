@@ -23,6 +23,9 @@ const defaults = {
   },
 };
 
+
+const composeV1Seperator = '_';
+const composeV2Seperator = '-';
 /*
  * Helper to get user conf
  */
@@ -87,6 +90,16 @@ module.exports = lando => {
       // @NOTE: we need to use pre node 8.x-isms because pld roles with node 7.9 currently
       fs.writeFileSync(caNormalizedCert, fs.readFileSync(caCert));
     }
+  });
+
+
+  lando.events.on('post-bootstrap-engine', 1, async () => {
+    const semver = require('semver');
+    const versions = await lando.engine.daemon.getVersions();
+    const isComposeV1 = semver.lt(versions.compose, '2.0.0')
+
+    lando.config.composeSeperator = isComposeV1 ? composeV1Seperator : composeV2Seperator;
+    console.log('changing config', lando.config.composeSeperator)
   });
 
   // Return some default things
