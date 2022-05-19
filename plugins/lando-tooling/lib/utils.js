@@ -7,6 +7,8 @@ const getUser = require('./../../../lib/utils').getUser;
 const getCliEnvironment = require('./../../../lib/utils').getCliEnvironment;
 const path = require('path');
 
+const defaultComposeSeperator = '_';
+
 /*
  * Helper to map the cwd on the host to the one in the container
  */
@@ -110,7 +112,7 @@ const parseCommand = (cmd, service) => ({
  * Helper to build commands
  */
 exports.buildCommand = (app, command, service, user, env = {}, dir = undefined) => {
-  const sep = app._lando && app._lando.config.composeSeperator;
+  const sep = app._lando && app._lando.config.composeSeperator || defaultComposeSeperator;
   return {
     id: `${app.project}${sep}${service}${sep}1`,
     compose: app.compose,

@@ -7,6 +7,9 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
+const composeV1Seperator = '_';
+const composeV2Seperator = '-';
+
 // Default env values
 const defaults = {
   config: {
@@ -23,9 +26,6 @@ const defaults = {
   },
 };
 
-
-const composeV1Seperator = '_';
-const composeV2Seperator = '-';
 /*
  * Helper to get user conf
  */

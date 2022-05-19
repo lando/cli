@@ -5,6 +5,8 @@ const _ = require('lodash');
 const getUser = require('./../../../lib/utils').getUser;
 const path = require('path');
 
+const defaultComposeSeperator = '_';
+
 /*
  * Helper to get global deps
  * @TODO: this looks pretty testable? should services have libs?
@@ -49,7 +51,7 @@ exports.filterBuildSteps = (services, app, rootSteps = [], buildSteps= [], prest
       if (!_.isEmpty(_.get(app, `config.services.${service}.${section}`, []))) {
         // Run each command
         _.forEach(app.config.services[service][section], cmd => {
-          const sep = app._lando && app._lando.config.composeSeperator || '';
+          const sep = app._lando && app._lando.config.composeSeperator || defaultComposeSeperator;
           const container = `${app.project}${sep}${service}${sep}1`;
           build.push({
             id: container,
