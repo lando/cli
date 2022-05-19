@@ -93,12 +93,16 @@ module.exports = lando => {
   });
 
 
-  lando.events.on('post-bootstrap-engine', 1, async () => {
-    const semver = require('semver');
-    const versions = await lando.engine.daemon.getVersions();
-    const isComposeV1 = semver.lt(versions.compose, '2.0.0')
+  lando.events.on('post-bootstrap-engine', 1, () => {
+    return new Promise(resolve => {
+      const semver = require('semver');
+      lando.engine.daemon.getVersions().then(versions => {
+        const isComposeV1 = semver.lt(versions.compose, '2.0.0');
 
-    lando.config.composeSeperator = isComposeV1 ? composeV1Seperator : composeV2Seperator;
+        lando.config.composeSeperator = isComposeV1 ? composeV1Seperator : composeV2Seperator;
+        resolve();
+      });
+    });
   });
 
   // Return some default things

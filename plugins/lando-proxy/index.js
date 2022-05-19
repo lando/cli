@@ -51,7 +51,7 @@ module.exports = lando => {
     config.proxyConfigDir = path.join(config.proxyDir, 'config');
   });
 
-  lando.events.on('post-bootstrap-engine', async () => {
+  lando.events.on('post-bootstrap-engine', () => {
     const sep = lando.config.composeSeperator;
     lando.config.proxyContainer = `${lando.config.proxyName}${sep}proxy${sep}1`;
   });
