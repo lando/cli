@@ -71,9 +71,8 @@ module.exports = (app, lando) => {
     const buildServices = _.get(app, 'opts.services', app.services);
     app.log.verbose('refreshing certificates...', buildServices);
     app.events.on('post-start', 9999, () => lando.Promise.each(buildServices, service => {
-      const sep = lando.config.composeSeperator;
       return app.engine.run({
-        id: `${app.project}${sep}${service}${sep}1`,
+        id: app.getServiceContainerId(service),
         cmd: 'mkdir -p /certs && /helpers/refresh-certs.sh > /certs/refresh.log',
         compose: app.compose,
         project: app.project,
@@ -95,9 +94,8 @@ module.exports = (app, lando) => {
     if (!_.isEmpty(app.nonRoot)) {
       app.log.verbose('perm sweeping flagged non-root containers ...', app.nonRoot);
       app.events.on('post-start', 1, () => lando.Promise.each(app.nonRoot, service => {
-        const sep = lando.config.composeSeperator;
         return app.engine.run({
-          id: `${app.project}${sep}${service}${sep}1`,
+          id: app.getServiceContainerId(service),
           cmd: '/helpers/user-perms.sh --silent',
           compose: app.compose,
           project: app.project,
@@ -173,9 +171,8 @@ module.exports = (app, lando) => {
     .map(container => _.find(app.info, {service: container.service}))
     // Map to a retry of the healthcheck command
     .map(info => lando.Promise.retry(() => {
-      const sep = lando.config.composeSeperator;
       return app.engine.run({
-        id: `${app.project}${sep}${info.service}${sep}1`,
+        id: app.getServiceContainerId(info.service),
         cmd: info.healthcheck,
         compose: app.compose,
         project: app.project,

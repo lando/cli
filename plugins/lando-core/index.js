@@ -7,9 +7,6 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
-const composeV1Seperator = '_';
-const composeV2Seperator = '-';
-
 // Default env values
 const defaults = {
   config: {
@@ -90,19 +87,6 @@ module.exports = lando => {
       // @NOTE: we need to use pre node 8.x-isms because pld roles with node 7.9 currently
       fs.writeFileSync(caNormalizedCert, fs.readFileSync(caCert));
     }
-  });
-
-
-  lando.events.on('post-bootstrap-engine', 1, () => {
-    return new Promise(resolve => {
-      const semver = require('semver');
-      lando.engine.daemon.getVersions().then(versions => {
-        const isComposeV1 = semver.lt(versions.compose, '2.0.0');
-
-        lando.config.composeSeperator = isComposeV1 ? composeV1Seperator : composeV2Seperator;
-        resolve();
-      });
-    });
   });
 
   // Return some default things
