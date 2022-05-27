@@ -49,7 +49,7 @@ exports.filterBuildSteps = (services, app, rootSteps = [], buildSteps= [], prest
       if (!_.isEmpty(_.get(app, `config.services.${service}.${section}`, []))) {
         // Run each command
         _.forEach(app.config.services[service][section], cmd => {
-          const container = `${app.project}_${service}_1`;
+          const container = app.getServiceContainerId(service);
           build.push({
             id: container,
             cmd: ['/bin/sh', '-c', _.isArray(cmd) ? cmd.join(' ') : cmd],
