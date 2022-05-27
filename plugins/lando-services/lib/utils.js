@@ -79,7 +79,7 @@ exports.filterBuildSteps = (services, app, rootSteps = [], buildSteps= [], prest
           mode: 'attach',
           prestart,
           user: 'root',
-          services: [container.split(/[_-]/)[1]],
+          services: [app.getServiceFromContainerId(container)],
         },
       });
     });
