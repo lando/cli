@@ -110,7 +110,7 @@ const parseCommand = (cmd, service) => ({
  * Helper to build commands
  */
 exports.buildCommand = (app, command, service, user, env = {}, dir = undefined) => ({
-  id: `${app.project}_${service}_1`,
+  id: app.getServiceContainerId(service),
   compose: app.compose,
   project: app.project,
   cmd: command,

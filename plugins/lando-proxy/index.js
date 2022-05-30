@@ -32,12 +32,12 @@ const defaultConfig = {
   proxyPassThru: true,
 };
 
+
 module.exports = lando => {
   // Add in some computed config eg things after our config has been settled
   lando.events.on('post-bootstrap-config', ({config}) => {
     lando.log.verbose('building proxy config...');
     // Set some non dependent things
-    config.proxyContainer = `${lando.config.proxyName}_proxy_1`;
     config.proxyCurrentPorts = {http: config.proxyHttpPort, https: config.proxyHttpsPort};
     config.proxyDir = path.join(lando.config.userConfRoot, 'proxy');
     config.proxyHttpPorts = _.flatten([config.proxyHttpPort, config.proxyHttpFallbacks]);
@@ -48,6 +48,11 @@ module.exports = lando => {
     config.proxyScanHttps = utils.ports2Urls(config.proxyHttpsPorts, true, config.proxyBindAddress);
     // And dependent things
     config.proxyConfigDir = path.join(config.proxyDir, 'config');
+  });
+
+  lando.events.on('post-bootstrap-engine', () => {
+    const sep = lando.config.composeSeparator;
+    lando.config.proxyContainer = `${lando.config.proxyName}${sep}proxy${sep}1`;
   });
 
   // Return config defaults to rebase

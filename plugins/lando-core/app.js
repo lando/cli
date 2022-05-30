@@ -8,6 +8,7 @@ const toObject = require('./../../lib/utils').toObject;
 const utils = require('./lib/utils');
 const warnings = require('./lib/warnings');
 
+
 // Helper to get http ports
 const getHttpPorts = data => _.get(data, 'Config.Labels["io.lando.http-ports"]', '80,443').split(',');
 const getHttpsPorts = data => _.get(data, 'Config.Labels["io.lando.https-ports"]', '443').split(',');
@@ -71,7 +72,7 @@ module.exports = (app, lando) => {
     app.log.verbose('refreshing certificates...', buildServices);
     app.events.on('post-start', 9999, () => lando.Promise.each(buildServices, service => {
       return app.engine.run({
-        id: `${app.project}_${service}_1`,
+        id: app.getServiceContainerId(service),
         cmd: 'mkdir -p /certs && /helpers/refresh-certs.sh > /certs/refresh.log',
         compose: app.compose,
         project: app.project,
@@ -94,7 +95,7 @@ module.exports = (app, lando) => {
       app.log.verbose('perm sweeping flagged non-root containers ...', app.nonRoot);
       app.events.on('post-start', 1, () => lando.Promise.each(app.nonRoot, service => {
         return app.engine.run({
-          id: `${app.project}_${service}_1`,
+          id: app.getServiceContainerId(service),
           cmd: '/helpers/user-perms.sh --silent',
           compose: app.compose,
           project: app.project,
@@ -171,7 +172,7 @@ module.exports = (app, lando) => {
     // Map to a retry of the healthcheck command
     .map(info => lando.Promise.retry(() => {
       return app.engine.run({
-        id: `${app.project}_${info.service}_1`,
+        id: app.getServiceContainerId(info.service),
         cmd: info.healthcheck,
         compose: app.compose,
         project: app.project,
