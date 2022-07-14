@@ -1,4 +1,5 @@
 product: lando
+hyperdrive: hyperdrive
 channel: stable
 domain: lndo.site
 mode: cli
@@ -25,4 +26,3 @@ landoFile: .lando.yml
 stats:
   - report: true
     url: https://metrics.lando.dev
-
