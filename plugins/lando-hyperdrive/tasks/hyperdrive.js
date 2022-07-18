@@ -60,6 +60,11 @@ module.exports = lando => ({
       .sortBy('name')
       .value();
 
-    console.log(JSON.stringify({landofile: namespace, landofiles: files, pluginDirs, plugins, version}));
+    // we need to make process.stdout and process.stderr blocking so that process.stdout drains completely before
+    // process.exit is called
+    // see: https://github.com/nodejs/node/issues/6379
+    process.stdout._handle.setBlocking(true);
+    process.stderr._handle.setBlocking(true);
+    process.stdout.write(JSON.stringify({landofile: namespace, landofiles: files, pluginDirs, plugins, version}));
   },
 });
