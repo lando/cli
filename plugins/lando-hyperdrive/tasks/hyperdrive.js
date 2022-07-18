@@ -27,7 +27,7 @@ module.exports = lando => ({
     const pluginDirs = [
       {type: 'core', dir: 'plugins', depth: 1},
       {type: 'core', dir: path.join('node_modules', '@lando'), depth: 1},
-      {type: 'global', dir: path.join(userConfRoot, 'plugins'), depth: 2, group: 'global'},
+      {type: 'global', dir: path.join(userConfRoot, 'plugins'), depth: 2},
     ];
 
     // @TODO: we need to make this into an object at the end so its overrideable
@@ -48,11 +48,14 @@ module.exports = lando => ({
       }))
       .map(plugin => ({
         name: plugin.manifest.name || plugin.pjson.name,
+        package: plugin.manifest.name || plugin.pjson.name,
         deprecated: plugin.deprecated === true,
         hidden: plugin.hidden === true,
         location: plugin.location,
         type: 'core',
         version: plugin.manifest.version || plugin.pjson.version || version,
+        isValid: true,
+        isInstalled: true,
       }))
       .sortBy('name')
       .value();
