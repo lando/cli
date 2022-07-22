@@ -12,7 +12,7 @@
 
 'use strict';
 // Minimal modules we need to get the cli rolling
-const _ = require('lodash');
+const argv = require('@lando/argv');
 const fs = require('fs');
 const bootstrap = require('./../lib/bootstrap');
 const path = require('path');
@@ -29,6 +29,78 @@ const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT);
 // Assemble the lando config here so we have correct knowledge of things
 // like the landofile names
 const landoConfig = bootstrap.buildConfig(cli.defaultConfig());
+// Start by grabbing the hyperdrive config if we can
+const hconf = fs.existsSync(landoConfig.hconf) ? require(landoConfig.hconf) : {};
+const binPath = landoConfig.env['_'];
+
+// if we have a version mismatch then regenerate it
+if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
+  const yaml = require('js-yaml');
+  // get config things we need
+  const {landoFile, preLandoFiles, postLandoFiles, version} = landoConfig;
+  // get lando config
+  // @NOTE: right now we just hardcode these in there, in L4 we will actually use the users config
+  const pluginDirs = [
+    {type: 'core', dir: 'plugins', depth: 1},
+    {type: 'core', dir: path.join('node_modules', '@lando'), depth: 1},
+    {type: 'global', dir: path.join(landoConfig.userConfRoot, 'plugins'), depth: 2},
+  ];
+
+  const plugins = pluginDirs
+    .filter(dir => dir.type === 'core')
+    .map(dir => ([dir.dir, fs.readdirSync(path.resolve(__dirname, '..', dir.dir))]))
+    .map(dir => dir[1].map(plugin => path.join(dir[0], plugin)))
+    .flat(Number.POSITIVE_INFINITY)
+    .map(dir => ({
+      location: `lando://${dir}`,
+      manifest: path.join(__dirname, '..', dir, 'plugin.yml'),
+      pjson: path.join(__dirname, '..', dir, 'package.json'),
+    }))
+    .filter(plugin => fs.existsSync(plugin.manifest))
+    .map(plugin => Object.assign(plugin, { // eslint-disable-line
+      manifest: yaml.safeLoad(fs.readFileSync(plugin.manifest)),
+      pjson: fs.existsSync(plugin.pjson) ? require(plugin.pjson) : {},
+    }))
+    .map(plugin => ({
+      name: plugin.manifest.name || plugin.pjson.name,
+      package: plugin.manifest.name || plugin.pjson.name,
+      deprecated: plugin.deprecated === true,
+      hidden: plugin.hidden === true,
+      location: plugin.location,
+      type: 'core',
+      version: plugin.manifest.version || plugin.pjson.version || version,
+      isValid: true,
+      isInstalled: true,
+    }));
+
+  // get app config
+  const extension = `.${landoFile.split('.')[landoFile.split('.').length -1]}`;
+  const namespace = path.basename(landoFile, extension);
+  const landofiles = preLandoFiles.concat([namespace]).concat(postLandoFiles)
+    .map(file => file.replace(namespace, ''))
+    .map(file => file.replace(extension, ''))
+    .map(file => file.replace('.', ''));
+
+  // assemble
+  hconf[binPath] = {lando: {plugins, pluginDirs, version}, app: {landofile: namespace, landofiles}};
+  // dump
+  fs.mkdirSync(path.dirname(landoConfig.hconf), {recursive: true});
+  fs.writeFileSync(landoConfig.hconf, JSON.stringify(hconf, null, 2));
+}
+
+// If --hyperdrive is passed in then print out the hyperdrive config and exit
+// @NOTE: we do this to minimize the time taken to fully bootstrap lando
+if (argv.hasOption(`--${landoConfig.hyperdrive}`)) {
+  // we need to make process.stdout and process.stderr blocking so that process.stdout drains completely before
+  // process.exit is called
+  // see: https://github.com/nodejs/node/issues/6379
+  process.stdout._handle.setBlocking(true);
+  process.stderr._handle.setBlocking(true);
+  process.stdout.write(JSON.stringify(hconf));
+  process.exit(0);
+}
+
+const _ = require('lodash');
 const landoFile = landoConfig.landoFile;
 const preLandoFiles = landoConfig.preLandoFiles;
 const postLandoFiles = landoConfig.postLandoFiles;

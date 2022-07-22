@@ -528,6 +528,11 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/argv@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@lando/argv/-/argv-1.1.0.tgz#96ba39e6a0498995c7abbbaff1794d71f827cd78"
+  integrity sha512-nBM6Rk1XorQdxad0CJTxDaNKrj+ITUg3u9rZYrOiF1KI5oImBJRBKjwf1EhnktJ63HmLGTq+sZQsR8veJmf1GQ==
+
 "@lando/backdrop@^0.5.0":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@lando/backdrop/-/backdrop-0.5.1.tgz#c050f6a5f2d18f5f2daf2e504489382f6dc02c26"
