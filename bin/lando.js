@@ -84,6 +84,7 @@ if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
   // assemble
   hconf[binPath] = {lando: {plugins, pluginDirs, version}, app: {landofile: namespace, landofiles}};
   // dump
+  fs.mkdirSync(path.dirname(landoConfig.hconf), {recursive: true});
   fs.writeFileSync(landoConfig.hconf, JSON.stringify(hconf, null, 2));
 }
 
