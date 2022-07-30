@@ -37,7 +37,7 @@ const binPath = landoConfig.env['_'];
 if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
   const yaml = require('js-yaml');
   // get config things we need
-  const {landoFile, preLandoFiles, postLandoFiles, version} = landoConfig;
+  const {landoFile, preLandoFiles, postLandoFiles, version, envPrefix, product} = landoConfig;
   // get lando config
   // @NOTE: right now we just hardcode these in there, in L4 we will actually use the users config
   const pluginDirs = [
@@ -82,7 +82,10 @@ if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
     .map(file => file.replace('.', ''));
 
   // assemble
-  hconf[binPath] = {lando: {plugins, pluginDirs, version}, app: {landofile: namespace, landofiles}};
+  hconf[binPath] = {
+    lando: {plugins, pluginDirs, version, envPrefix, product},
+    app: {landofile: namespace, landofiles,
+  }};
   // dump
   fs.mkdirSync(path.dirname(landoConfig.hconf), {recursive: true});
   fs.writeFileSync(landoConfig.hconf, JSON.stringify(hconf, null, 2));
