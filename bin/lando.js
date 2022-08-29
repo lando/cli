@@ -40,13 +40,11 @@ if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
   const {landoFile, preLandoFiles, postLandoFiles, version, envPrefix, product} = landoConfig;
   // get lando config
   // @NOTE: right now we just hardcode these in there, in L4 we will actually use the users config
-  const globalDir = path.join(landoConfig.userConfRoot, 'global-plugins');
-  const userDir = path.join(landoConfig.userConfRoot, 'plugins');
+  const globalDir = path.join(landoConfig.userConfRoot, 'plugins');
   const pluginDirs = [
     {type: 'core', dir: 'plugins', depth: 1},
     {type: 'core', dir: path.join('node_modules', '@lando'), depth: 1},
     {type: 'global', dir: globalDir, depth: 2},
-    {type: 'user', dir: userDir, depth: 2},
   ];
 
   const plugins = pluginDirs
@@ -86,7 +84,7 @@ if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
 
   // assemble
   hconf[binPath] = {
-    lando: {globalDir, plugins, pluginDirs, version, envPrefix, product, userDir},
+    lando: {globalDir, plugins, pluginDirs, version, envPrefix, product},
     app: {landofile: namespace, landofiles,
   }};
   // dump
