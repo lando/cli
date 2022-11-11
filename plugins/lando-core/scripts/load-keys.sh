@@ -68,7 +68,10 @@ fi
 # Scan the following directories for keys and filter out non-private keys
 for SSH_DIR in "${SSH_DIRS[@]}"; do
   lando_info "Scanning $SSH_DIR for keys..."
-  readarray -t RAW_LIST < <(find "$SSH_DIR" -maxdepth 1 -not -name '*.pub' -not -name 'known_hosts' -user $LANDO_WEBROOT_USER -type f)
+  # NOTE: -u $LANDO_WEBROOT_USER *used* to work but probably shouldnt have? since a lot of the time the keys
+  # are actually owned by root. -u has been in the code for a long time and its not clear why it was initially
+  # added in the first place. we have removed it because that *seems* to make more sense given ^
+  readarray -t RAW_LIST < <(find "$SSH_DIR" -maxdepth 1 -not -name '*.pub' -not -name 'known_hosts' -type f)
   for RAW_KEY in "${RAW_LIST[@]}"; do
     SSH_CANDIDATES+=("$RAW_KEY")
   done
