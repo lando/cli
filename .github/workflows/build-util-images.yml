@@ -34,7 +34,7 @@ jobs:
       - name: Set tag suffix
         id: pr
         if: ${{ github.event_name == 'pull_request' }}
-        run: echo "::set-output name=TAG_SUFFIX::-edge"
+        run: echo "TAG_SUFFIX=-edge" >> $GITHUB_OUTPUT
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
