@@ -7809,32 +7809,14 @@ vue-eslint-parser@^8.0.1:
     lodash "^4.17.21"
     semver "^7.3.5"
 
-vue-router@^4.0.12:
-  version "4.0.15"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.15.tgz#b4a0661efe197f8c724e0f233308f8776e2c3667"
-  integrity sha512-xa+pIN9ZqORdIW1MkN2+d9Ui2pCM1b/UMgwYUCZOiFYHAvz/slKKBDha8DLrh5aCG/RibtrpyhKjKOZ85tYyWg==
-  dependencies:
-    "@vue/devtools-api" "^6.0.0"
-
-vue-router@^4.1.2:
+vue-router@^4.0.12, vue-router@^4.1.2:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.6.tgz#b70303737e12b4814578d21d68d21618469375a1"
   integrity sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
-vue@^3.2.20:
-  version "3.2.33"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.33.tgz#7867eb16a3293a28c4d190a837bc447878bd64c2"
-  integrity sha512-si1ExAlDUrLSIg/V7D/GgA4twJwfsfgG+t9w10z38HhL/HA07132pUQ2KuwAo8qbCyMJ9e6OqrmWrOCr+jW7ZQ==
-  dependencies:
-    "@vue/compiler-dom" "3.2.33"
-    "@vue/compiler-sfc" "3.2.33"
-    "@vue/runtime-dom" "3.2.33"
-    "@vue/server-renderer" "3.2.33"
-    "@vue/shared" "3.2.33"
-
-vue@^3.2.37:
+vue@^3.2.20, vue@^3.2.37:
   version "3.2.45"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.45.tgz#94a116784447eb7dbd892167784619fef379b3c8"
   integrity sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA==
