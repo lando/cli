@@ -20,9 +20,11 @@ export default defineUserConfig({
     docsDir: 'docs',
     docsBranch: 'main',
     repo: 'lando/cli',
-    sidebarHeader: false,
-    versionsPage: false,
-    contributorsPage: false,
+    sidebarHeader: {
+      enabled: true,
+      title: 'Lando CLI',
+      icon: '/images/icon.png',
+    },
     sidebar: [
       {
         text: 'Usage',
