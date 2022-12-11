@@ -16,17 +16,18 @@ jobs:
         node-version:
           - '16'
         leia-tests:
-          - examples/basics
           - examples/badname
-          - examples/custom-landofile-name
+          - examples/base
           - examples/events
           - examples/keys
+          - examples/lando-101
+          - examples/landofile-custom
+          - examples/long-name
           - examples/networking
           - examples/proxy
           - examples/scanner
           - examples/services
           - examples/tooling
-          - examples/lando-101
     steps:
 
       # Install deps and cache
