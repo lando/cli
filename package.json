@@ -14,7 +14,7 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "main": "lib/lando.js",
+  "main": "lib/cli.js",
   "bin": {
     "lando": "./bin/lando.js"
   },
@@ -120,7 +120,7 @@
     "@lando/argv": "^1.1.0",
     "@lando/backdrop": "^0.5.0",
     "@lando/compose": "^0.5.0",
-    "@lando/core": "3.8.1",
+    "@lando/core": "lando/core#main",
     "@lando/dotnet": "0.7.0",
     "@lando/drupal": "^0.5.0",
     "@lando/elasticsearch": "^0.5.0",

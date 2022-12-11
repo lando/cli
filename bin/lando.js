@@ -42,7 +42,7 @@ if (!hconf[binPath] || (landoConfig.version !== hconf[binPath].version)) {
   // @NOTE: right now we just hardcode these in there, in L4 we will actually use the users config
   const globalDir = path.join(landoConfig.userConfRoot, 'plugins');
   const pluginDirs = [
-    {type: 'core', dir: 'plugins', depth: 1},
+    {type: 'core', dir: path.join('node_modules', '@lando', 'core'), depth: 1},
     {type: 'core', dir: path.join('node_modules', '@lando'), depth: 1},
     {type: 'global', dir: globalDir, depth: 2},
   ];
@@ -132,8 +132,10 @@ if (fs.existsSync(process.landoTaskCacheFile)) {
 // Otherwise min bootstrap lando so we can generate the task cache first
 } else {
   // NOTE: we require lando down here because it adds .5 seconds if we do it above
-  const Lando = require('./../lib/lando');
+  const Lando = require('@lando/core');
   const lando = new Lando(cli.defaultConfig(config));
+  // add the CLI to lando
+  lando.cli = cli;
   // Bootstrap lando at the correct level
   lando.bootstrap(bsLevel).then(lando => {
     // If bootstrap level is APP then we need to get and init our app to generate the app task cache
