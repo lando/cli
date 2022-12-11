@@ -14,7 +14,7 @@
 // Minimal modules we need to get the cli rolling
 const argv = require('@lando/argv');
 const fs = require('fs');
-const bootstrap = require('./../lib/bootstrap');
+const bootstrap = require('@lando/core/lib/bootstrap');
 const path = require('path');
 
 // Allow envvars to override a few core things
