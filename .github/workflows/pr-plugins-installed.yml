@@ -5,7 +5,7 @@ on:
 
 jobs:
   buildx:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env:
       TERM: xterm
     strategy:
@@ -15,6 +15,7 @@ jobs:
           - apache
           - backdrop
           - compose
+          - core
           - dotnet
           - drupal
           - elasticsearch
