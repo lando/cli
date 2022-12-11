@@ -15,16 +15,16 @@ jobs:
         node-version:
           - '16'
         leia-tests:
-          - examples/basics-example
-          - examples/badname-example
-          - examples/custom-landofile-name-example
-          - examples/events-example
-          - examples/keys-example
-          - examples/networking-example
-          - examples/proxy-example
-          - examples/scanner-example
-          - examples/services-example
-          - examples/tooling-example
+          - examples/basics
+          - examples/badname
+          - examples/custom-landofile-name
+          - examples/events
+          - examples/keys
+          - examples/networking
+          - examples/proxy
+          - examples/scanner
+          - examples/services
+          - examples/tooling
           - examples/lando-101
     steps:
 

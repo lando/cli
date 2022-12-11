@@ -15,7 +15,7 @@ jobs:
         node-version:
           - '16'
         leia-tests:
-          - examples/django-example
+          - examples/django
     steps:
 
       # Install deps and cache
