@@ -152,6 +152,7 @@
     "@lando/wordpress": "^0.5.0",
     "cli-table": "^0.3.1",
     "cli-table3": "^0.5.1",
+    "figlet": "^1.1.1",
     "inquirer": "^6.2.1",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "js-yaml": "^3.4.6",
