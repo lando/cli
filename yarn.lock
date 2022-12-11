@@ -581,9 +581,10 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
-"@lando/core@lando/core#main":
-  version "3.8.1"
-  resolved "https://codeload.github.com/lando/core/tar.gz/454c50df326280e038b257899861111456145683"
+"@lando/core@3.8.2":
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.8.2.tgz#46e4c16a93d49f86d2e16e7d6e5d56ea73ce6ed9"
+  integrity sha512-5yhqdKxSCP9dmbA0iXIZeZLPiDzg4p1+LHRvYttgAVc26dZqaqOyg6N8ECOtnV9dvHHJp8fg+B+C8w5MpbZ/Gg==
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"

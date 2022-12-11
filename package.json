@@ -118,7 +118,7 @@
     "@lando/argv": "^1.1.0",
     "@lando/backdrop": "^0.5.0",
     "@lando/compose": "^0.5.0",
-    "@lando/core": "lando/core#main",
+    "@lando/core": "3.8.2",
     "@lando/dotnet": "0.7.0",
     "@lando/drupal": "^0.5.0",
     "@lando/elasticsearch": "^0.5.0",
