@@ -9,14 +9,15 @@ jobs:
     env:
       TERM: xterm
     strategy:
+      fail-fast: false
       matrix:
         os:
-          - ubuntu-20.04
+          - ubuntu-22.04
         node-version:
-          - '14'
+          - '16'
         leia-tests:
-          - sql-export-example
-          - sql-import-example
+          - examples/sql-export
+          - examples/sql-import
     steps:
 
       # Install deps and cache
@@ -61,7 +62,6 @@ jobs:
           lando config
 
       # This block should eventually become use lando/actions-leia@v2
-      - name: Generate tests
-        run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+      - name: Run leia tests
+        shell: bash
+        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash

@@ -49,7 +49,7 @@ lando ssh -s appserver -c "curl https://appserver.landolamp.internal"
 
 # Should even be able to connect to a database in a different app
 cd lamp
-lando ssh -s database -c "mysql -uroot -h database.landolemp.internal -e \'quit\'"
+lando ssh -s database -c "mysql -uroot -h database.landolemp.internal -e 'quit'"
 ```
 
 Destroy tests

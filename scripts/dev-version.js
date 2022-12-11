@@ -10,13 +10,13 @@
 // Grab needed modules
 const _ = require('lodash');
 const fs = require('fs');
-const Log = require('./../lib/logger');
+const Log = require('@lando/core/lib/logger');
 const log = new Log({logLevelConsole: 'debug', logName: 'dev-version'});
-const Shell = require('./../lib/shell');
+const Shell = require('@lando/core/lib/shell');
 const shell = new Shell(log);
 
 // Start our sacred promise
-return shell.sh(['git', 'describe', '--tags', '--always', '--abbrev=1'], {mode: 'collect'})
+shell.sh(['git', 'describe', '--tags', '--always', '--abbrev=1'], {mode: 'collect'}) // eslint-ignore-line
 
 // Trim the tag
 .then(data => _.trim(data.slice(1)))
