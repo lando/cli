@@ -30,7 +30,7 @@ We try to log all changes big and small in both [THE CHANGELOG](https://github.c
 ## Contributors
 
 <a href="https://github.com/lando/cli/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=lando/php" />
+  <img src="https://contrib.rocks/image?repo=lando/cli" />
 </a>
 
 Made with [contributors-img](https://contrib.rocks).
