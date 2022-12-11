@@ -9,6 +9,7 @@ jobs:
     env:
       TERM: xterm
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu-20.04
@@ -72,4 +73,4 @@ jobs:
       # This block should eventually become use lando/actions-leia@v2
       - name: Run leia tests
         shell: bash
-        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin
+        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
