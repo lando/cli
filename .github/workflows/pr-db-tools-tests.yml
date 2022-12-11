@@ -15,8 +15,8 @@ jobs:
         node-version:
           - '16'
         leia-tests:
-          - sql-export-example
-          - sql-import-example
+          - examples/sql-export-example
+          - examples/sql-import-example
     steps:
 
       # Install deps and cache
