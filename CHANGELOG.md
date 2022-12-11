@@ -1,6 +1,7 @@
 
 ## v3.7.0 - [December 12, 2022](https://github.com/lando/cli/releases/tag/v3.7.0)
 
+* Bumped `@vercel/pkg` `node` version to `16`
 * Removed `core` Lando libraries which now exist in [@lando/core](https://github.com/lando/core)
 
 ## v3.6.5 - [April 21, 2022](https://github.com/lando/cli/releases/tag/v3.6.5)

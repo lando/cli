@@ -17,7 +17,7 @@ jobs:
           - x64
           - arm64
         node-version:
-          - 14
+          - '16'
         os:
           - linux
           - macos
@@ -56,19 +56,19 @@ jobs:
       matrix:
         include:
           - os: windows-2022
-            key: cli-node14-win-x64-${{ github.sha }}
+            key: cli-node16-win-x64-${{ github.sha }}
             file: lando/cli.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-win-x64-${{ github.ref_name }}.exe
           - os: windows-2022
-            key: cli-node14-win-arm64-${{ github.sha }}
+            key: cli-node16-win-arm64-${{ github.sha }}
             file: lando/cli.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-win-arm64-${{ github.ref_name }}.exe
           - os: macos-12
-            key: cli-node14-macos-x64-${{ github.sha }}
+            key: cli-node16-macos-x64-${{ github.sha }}
             file: lando/cli
             certificate-data: APPLE_CERT_DATA
             certificate-password: APPLE_CERT_PASSWORD
@@ -79,7 +79,7 @@ jobs:
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-x64-${{ github.ref_name }}
           - os: macos-12
-            key: cli-node14-macos-arm64-${{ github.sha }}
+            key: cli-node16-macos-arm64-${{ github.sha }}
             file: lando/cli
             certificate-data: APPLE_CERT_DATA
             certificate-password: APPLE_CERT_PASSWORD
@@ -90,11 +90,11 @@ jobs:
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-arm64-${{ github.ref_name }}
           - os: ubuntu-22.04
-            key: cli-node14-linux-x64-${{ github.sha }}
+            key: cli-node16-linux-x64-${{ github.sha }}
             file: lando/cli
             result: lando-linux-x64-${{ github.ref_name }}
           - os: ubuntu-22.04
-            key: cli-node14-linux-arm64-${{ github.sha }}
+            key: cli-node16-linux-arm64-${{ github.sha }}
             file: lando/cli
             result: lando-linux-arm64-${{ github.ref_name }}
     steps:

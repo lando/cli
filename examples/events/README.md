@@ -23,15 +23,15 @@ Run the following commands to verify things work as expected
 
 ```bash
 # Should run events on the appserver container by default
-lando ssh -s appserver -c "cat /app/test/appserver-pre-start.txt | grep \\\$(hostname -s)"
+lando ssh -s appserver -c "cat /app/test/appserver-pre-start.txt | grep \$(hostname -s)"
 
 # Should run events on the specified service
-lando ssh -s web -c "cat /app/test/web-pre-start.txt | grep \\\$(hostname -s)"
+lando ssh -s web -c "cat /app/test/web-pre-start.txt | grep \$(hostname -s)"
 lando ssh -s web -c "cat /app/test/web-post-start.txt | grep \\\$(hostname -s)"
 
 # Should run on tooling commands as well
 lando thing
-lando ssh -s web -c "cat /app/test/web-post-thing.txt | grep \\\$(hostname -s)"
+lando ssh -s web -c "cat /app/test/web-post-thing.txt | grep \$(hostname -s)"
 
 # Should run on rebuild without failin and trigger pre-rebuild event
 lando rebuild -y | grep "ET TU, BRUT"

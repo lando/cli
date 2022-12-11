@@ -583,7 +583,7 @@
 
 "@lando/core@lando/core#main":
   version "3.8.1"
-  resolved "https://codeload.github.com/lando/core/tar.gz/af84c4301cc036249173631dcb3a62dc939ba36f"
+  resolved "https://codeload.github.com/lando/core/tar.gz/454c50df326280e038b257899861111456145683"
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
