@@ -16,7 +16,7 @@ const Shell = require('./../lib/shell');
 const shell = new Shell(log);
 
 // Start our sacred promise
-return shell.sh(['git', 'describe', '--tags', '--always', '--abbrev=1'], {mode: 'collect'})
+shell.sh(['git', 'describe', '--tags', '--always', '--abbrev=1'], {mode: 'collect'}) // eslint-ignore-line
 
 // Trim the tag
 .then(data => _.trim(data.slice(1)))
