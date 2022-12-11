@@ -177,10 +177,6 @@ lando config | grep "channel" | grep "stable"
 # Should not allow bogus release channels
 lando --channel orange || echo $? | grep 1
 
-# Should load experimental plugins if toggled on
-lando --experimental
-lando config | grep experimentalPluginLoadTest | grep true
-
 # Should load plugins from pluginDirs
 lando stuff | grep "I WORKED"
 ```

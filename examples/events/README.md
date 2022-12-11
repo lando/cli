@@ -27,7 +27,7 @@ lando ssh -s appserver -c "cat /app/test/appserver-pre-start.txt | grep \$(hostn
 
 # Should run events on the specified service
 lando ssh -s web -c "cat /app/test/web-pre-start.txt | grep \$(hostname -s)"
-lando ssh -s web -c "cat /app/test/web-post-start.txt | grep \\\$(hostname -s)"
+lando ssh -s web -c "cat /app/test/web-post-start.txt | grep \$(hostname -s)"
 
 # Should run on tooling commands as well
 lando thing
