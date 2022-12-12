@@ -6,6 +6,12 @@
 
 * Updated to `@lando/dotnet` version [`0.7.1`](https://github.com/lando/dotnet/releases/tag/v0.7.1)
 
+## v3.7.1 - [December 12, 2022](https://github.com/lando/cli/releases/tag/v3.7.1)
+
+**SECDOND FULLY DECOUPLED RELEASE. ALSO DO NOT USE!!!**
+
+*  Added routing to isolate `@lando/core-next` usage
+
 ## v3.7.0 - [December 12, 2022](https://github.com/lando/cli/releases/tag/v3.7.0)
 
 **FIRST FULLY DECOUPLED RELEASE. DO NOT USE!!!**
