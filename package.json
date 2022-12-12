@@ -36,7 +36,7 @@
     "all": true
   },
   "scripts": {
-    "build:cli": "yarn clean && yarn pkg -c package.json -t node14 bin/lando.js",
+    "cli:build": "yarn clean && yarn pkg -c package.json -t node16 bin/lando.js",
     "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs",
     "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
@@ -153,6 +153,7 @@
     "@lando/wordpress": "^0.5.0",
     "cli-table": "^0.3.1",
     "cli-table3": "^0.5.1",
+    "debug": "^4.3.4",
     "figlet": "^1.1.1",
     "inquirer": "^6.2.1",
     "inquirer-autocomplete-prompt": "^1.0.1",
