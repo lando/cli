@@ -1,3 +1,10 @@
+## v3.8.0 - [TBD](https://github.com/lando/cli/releases/tag/v3.8.0)
+
+**SECOND FULLY DECOUPLED RELEASE. DO NOT USE THIS YET!!!**
+
+### Plugins
+
+* Updated to `@lando/dotnet` version [`0.7.1`](https://github.com/lando/dotnet/releases/tag/v0.7.1)
 
 ## v3.7.0 - [December 12, 2022](https://github.com/lando/cli/releases/tag/v3.7.0)
 

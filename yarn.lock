@@ -610,10 +610,10 @@
     valid-url "^1.0.9"
     winston "2.4.5"
 
-"@lando/dotnet@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.7.0.tgz#d2e486b4a07b920c3bad1c25af0933516983f55c"
-  integrity sha512-ZvOhIO+v2JY8agVTFPDqNQZMREdeDypj2KSX3y8viKdlDMQH9EjaPMhL8odqaa39kq2dM/43BHzP2jyWLJOPew==
+"@lando/dotnet@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.7.1.tgz#2411876df8752b9e4e1ebb277cae17e8f9c48b29"
+  integrity sha512-AyAuym7gv3juTC5N5M8LqXXh9FTWCeJHVgUr5wPh3uplT9JJdvzu/9j4n3fUoJWfS5UvV5bQ22Hmu92XU7AnTg==
   dependencies:
     lodash "^4.17.21"
 
