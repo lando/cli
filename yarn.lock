@@ -581,6 +581,13 @@
     lodash "^4.17.21"
     tar "^6.1.11"
 
+"@lando/core-next@github:lando/core-next#main":
+  version "4.0.0-unstable.3"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/7db39aff0ae8e12595c30db5c29bcdcc1ba06c95"
+  dependencies:
+    js-yaml "^3.4.6"
+    lodash "^4.17.21"
+
 "@lando/core@3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.8.2.tgz#46e4c16a93d49f86d2e16e7d6e5d56ea73ce6ed9"
