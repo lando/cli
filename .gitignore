@@ -31,7 +31,7 @@ dist
 
 # coverage reporting
 .nyc_output
-coverage/
+coverage
 
 # CCI test splitting
 test/split-file.txt
