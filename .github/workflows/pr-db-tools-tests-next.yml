@@ -1,4 +1,4 @@
-name: Database Tools Tests
+name: Database Tools Tests V4
 
 on:
   pull_request:
@@ -8,6 +8,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
+      LANDO_CORE_RUNTIME: v4
+      DEBUG: "@lando/*"
     strategy:
       fail-fast: false
       matrix:

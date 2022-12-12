@@ -27,6 +27,8 @@ if ((process.env.LANDO_CORE_RUNTIME === 4)
   // || (argv.getOption('--runtime', {defaultValue: '3'}) === '4')
   // || (argv.getOption('--runtime', {defaultValue: 'v3'}) === 'v4')) {
 
+  process.exit(777);
+
   // @NOTE: with the exception of hyperdrive config generation v4 and v3 *should* be identical for now
   // its just our starting place before we go HAXOR
   const debug = require('debug')('@lando/core-next:cli');

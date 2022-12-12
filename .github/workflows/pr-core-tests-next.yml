@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
-      LANDO_CORE_RUNTIME: ${{ matrix.lando-runtime }}
+      LANDO_CORE_RUNTIME: v4
       DEBUG: "@lando/*"
     strategy:
       fail-fast: false
