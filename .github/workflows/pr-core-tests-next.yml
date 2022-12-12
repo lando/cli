@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-20.04
+          - ubuntu-22.04
         node-version:
           - '16'
         leia-tests:
@@ -64,10 +64,10 @@ jobs:
           mkdir -p ~/.lando/cache
           echo false > ~/.lando/cache/report_errors
           sed -i "s/report: true.*/report: false/" config.yml
-      - name: Package CLI
-        run: yarn cli:build
-      - name: Replace source CLI with packaged one
-        run: sudo mv ./dist/@lando/cli /usr/local/bin/lando
+      # - name: Package CLI
+      #   run: yarn cli:build
+      # - name: Replace source CLI with packaged one
+      #   run: sudo mv ./dist/@lando/cli /usr/local/bin/lando
       - name: Verify we can run the packaged CLI
         run: |
           lando version
