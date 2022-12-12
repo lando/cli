@@ -21,14 +21,17 @@ if ((process.env.LANDO_CORE_RUNTIME === 4)
   || (process.env.LANDO_CORE_RUNTIME === 'v4')
   || (argv.hasOption(`--v4`))
   || (argv.hasOption(`--4`))
-  || (argv.hasOption(`-4`))
-  || (argv.getOption('--runtime') === 4)
-  || (argv.getOption('--runtime') === '4')
-  || (argv.getOption('--runtime') === 'v4')) {
-  process.exit(0);
+  || (argv.hasOption(`-4`))) {
+  // @TODO: we need to modify @lando/argv to fail silently if getOption is not set
+  // || (argv.getOption('--runtime', {defaultValue: 3}) === 4)
+  // || (argv.getOption('--runtime', {defaultValue: '3'}) === '4')
+  // || (argv.getOption('--runtime', {defaultValue: 'v3'}) === 'v4')) {
 
-// use core
-} else {
+  // @NOTE: with the exception of hyperdrive config generation v4 and v3 *should* be identical for now
+  // its just our starting place before we go HAXOR
+  const debug = require('debug')('@lando/core-next:cli');
+  debug('bootstrapping lando with %o', '@lando/core-next');
+
   const fs = require('fs');
   const bootstrap = require('@lando/core/lib/bootstrap');
   const path = require('path');
@@ -120,6 +123,68 @@ if ((process.env.LANDO_CORE_RUNTIME === 4)
     process.exit(0);
   }
 
+  const _ = require('lodash');
+  const landoFile = landoConfig.landoFile;
+  const preLandoFiles = landoConfig.preLandoFiles;
+  const postLandoFiles = landoConfig.postLandoFiles;
+  const landoFiles = bootstrap.getLandoFiles(_.flatten([preLandoFiles, [landoFile], postLandoFiles], process.cwd()));
+  const config = (!_.isEmpty(landoFiles)) ? bootstrap.getApp(landoFiles, cli.defaultConfig().userConfRoot) : {};
+  const bsLevel = (_.has(config, 'recipe')) ? 'APP' : 'TASKS';
+
+  // Lando cache stuffs
+  process.lando = 'node';
+  process.landoTaskCacheName = '_.tasks.cache';
+  process.landoTaskCacheFile = path.join(cli.defaultConfig().userConfRoot, 'cache', process.landoTaskCacheName);
+  process.landoAppTaskCacheFile = !_.isEmpty(config) ? config.toolingCache : undefined;
+
+  // Check for sudo usage
+  cli.checkPerms();
+
+  // Check to see if we have a recipe and if it doesn't have a tooling cache lets enforce a manual cache clear
+  if (bsLevel === 'APP' && !fs.existsSync(config.toolingCache)) {
+    if (fs.existsSync(process.landoTaskCacheFile)) fs.unlinkSync(process.landoTaskCacheFile);
+  }
+
+  // Print the cli if we've got tasks cached
+  if (fs.existsSync(process.landoTaskCacheFile)) {
+    cli.run(bootstrap.getTasks(config, cli.argv()), config);
+  // Otherwise min bootstrap lando so we can generate the task cache first
+  } else {
+    // NOTE: we require lando down here because it adds .5 seconds if we do it above
+    const Lando = require('@lando/core');
+    const lando = new Lando(cli.defaultConfig(config));
+    // add the CLI to lando
+    lando.cli = cli;
+    // Bootstrap lando at the correct level
+    lando.bootstrap(bsLevel).then(lando => {
+      // If bootstrap level is APP then we need to get and init our app to generate the app task cache
+      if (bsLevel === 'APP') {
+        lando.getApp().init().then(() => cli.run(bootstrap.getTasks(config, cli.argv()), config));
+      // Otherwise run as yooz
+      } else {
+        cli.run(bootstrap.getTasks(config, cli.argv()), config);
+      }
+    });
+  }
+
+// use core
+} else {
+  const fs = require('fs');
+  const bootstrap = require('@lando/core/lib/bootstrap');
+  const path = require('path');
+
+  // Allow envvars to override a few core things
+  const LOGLEVELCONSOLE = process.env.LANDO_CORE_LOGLEVELCONSOLE;
+  const ENVPREFIX = process.env.LANDO_CORE_ENVPREFIX;
+  const USERCONFROOT = process.env.LANDO_CORE_USERCONFROOT;
+
+  // Summon the CLI
+  const Cli = require('./../lib/cli');
+  const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT);
+
+  // Assemble the lando config here so we have correct knowledge of things
+  // like the landofile names
+  const landoConfig = bootstrap.buildConfig(cli.defaultConfig());
   const _ = require('lodash');
   const landoFile = landoConfig.landoFile;
   const preLandoFiles = landoConfig.preLandoFiles;

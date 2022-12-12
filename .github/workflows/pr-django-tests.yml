@@ -15,6 +15,9 @@ jobs:
           - ubuntu-22.04
         node-version:
           - '16'
+        lando-runtime:
+          - 'v3'
+          - 'v4'
         leia-tests:
           - examples/django
     steps:
@@ -62,5 +65,8 @@ jobs:
 
       # This block should eventually become use lando/actions-leia@v2
       - name: Run leia tests
+        env:
+          LANDO_CORE_RUNTIME: ${{ matrix.lando-runtime }}
+          DEBUG: "@lando/*"
         shell: bash
         run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
