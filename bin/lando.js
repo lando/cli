@@ -33,7 +33,7 @@ if ((process.env.LANDO_CORE_RUNTIME === 4)
   debug('bootstrapping lando with %o', '@lando/core-next');
 
   const fs = require('fs');
-  const bootstrap = require('@lando/core/lib/bootstrap');
+  const bootstrap = require('@lando/core-next/legacy/bootstrap');
   const path = require('path');
 
   // Allow envvars to override a few core things
@@ -42,7 +42,7 @@ if ((process.env.LANDO_CORE_RUNTIME === 4)
   const USERCONFROOT = process.env.LANDO_CORE_USERCONFROOT;
 
   // Summon the CLI
-  const Cli = require('./../lib/cli');
+  const Cli = require('./../lib/cli-next');
   const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT);
 
   // Assemble the lando config here so we have correct knowledge of things
@@ -151,7 +151,7 @@ if ((process.env.LANDO_CORE_RUNTIME === 4)
   // Otherwise min bootstrap lando so we can generate the task cache first
   } else {
     // NOTE: we require lando down here because it adds .5 seconds if we do it above
-    const Lando = require('@lando/core');
+    const Lando = require('@lando/core-next');
     const lando = new Lando(cli.defaultConfig(config));
     // add the CLI to lando
     lando.cli = cli;
