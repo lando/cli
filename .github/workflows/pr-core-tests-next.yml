@@ -1,4 +1,4 @@
-name: Core Tests
+name: Core Tests V4
 
 on:
   pull_request:
@@ -8,6 +8,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
+      LANDO_CORE_RUNTIME: ${{ matrix.lando-runtime }}
+      DEBUG: "@lando/*"
     strategy:
       fail-fast: false
       matrix:
@@ -73,5 +75,8 @@ jobs:
 
       # This block should eventually become use lando/actions-leia@v2
       - name: Run leia tests
+        env:
+          LANDO_CORE_RUNTIME: ${{ matrix.lando-runtime }}
+          DEBUG: "@lando/*"
         shell: bash
         run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
