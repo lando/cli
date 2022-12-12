@@ -36,7 +36,7 @@
     "all": true
   },
   "scripts": {
-    "build:cli": "yarn clean && yarn pkg -c package.json -t node14 bin/lando.js",
+    "build:cli": "yarn clean && yarn pkg -c package.json -t node16 bin/lando.js",
     "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs",
     "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
