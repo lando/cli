@@ -638,10 +638,10 @@
     valid-url "^1.0.9"
     winston "2.4.5"
 
-"@lando/dotnet@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.7.1.tgz#2411876df8752b9e4e1ebb277cae17e8f9c48b29"
-  integrity sha512-AyAuym7gv3juTC5N5M8LqXXh9FTWCeJHVgUr5wPh3uplT9JJdvzu/9j4n3fUoJWfS5UvV5bQ22Hmu92XU7AnTg==
+"@lando/dotnet@0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@lando/dotnet/-/dotnet-0.7.2.tgz#5d8ecf05f162af5eb6b05a3a3789dc2999c09028"
+  integrity sha512-K2W9194TEM2t0zlTT8Vzo5+qbX4s3RK3cq42szzabPllbh3/kC+7x9czSJsl9doYoQSAIX+hGPChQYdUtLaVKw==
   dependencies:
     lodash "^4.17.21"
 
