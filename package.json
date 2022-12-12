@@ -119,6 +119,7 @@
     "@lando/backdrop": "^0.5.0",
     "@lando/compose": "^0.5.0",
     "@lando/core": "3.8.2",
+    "@lando/core-next": "github:lando/core-next#main",
     "@lando/dotnet": "0.7.1",
     "@lando/drupal": "^0.5.0",
     "@lando/elasticsearch": "^0.5.0",
