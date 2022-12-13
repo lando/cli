@@ -1,4 +1,15 @@
-## v3.7.2 - [December 13, 2022](https://github.com/lando/cli/releases/tag/v3.7.2)
+## v3.8.0 - [December 13, 2022](https://github.com/lando/cli/releases/tag/v3.8.0)
+
+### CLI
+
+* Decoupled CLI from V3 runtime
+
+### Core
+
+* Added preliminary _doesn't-do-anything-yet_ routing for V4 runtime [`@lando/core-next`](https://github.com/lando/core-next)
+* Decoupled V3 runtime into [`@lando/core`](https://github.com/lando/core)
+
+### Plugins
 
 * Updated to `@lando/acquia` version [`0.7.0`](https://github.com/lando/acquia/releases/tag/v0.7.0)
 * Updated to `@lando/apache` version [`0.7.0`](https://github.com/lando/apache/releases/tag/v0.7.0)
