@@ -1,3 +1,7 @@
+## v3.8.1 - [December 14, 2022](https://github.com/lando/cli/releases/tag/v3.8.1)
+
+* Bumped supported Docker Desktop version to prep for release
+
 ## v3.8.0 - [December 13, 2022](https://github.com/lando/cli/releases/tag/v3.8.0)
 
 ### CLI
