@@ -9,7 +9,7 @@ jobs:
     env:
       TERM: xterm
       LANDO_CORE_RUNTIME: v4
-      DEBUG: "@lando/*"
+      DEBUG: "lando*"
     strategy:
       fail-fast: false
       matrix:
