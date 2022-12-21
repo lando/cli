@@ -1,3 +1,8 @@
+## v3.9.0 - Release TBD
+
+* Added a `--debug` flag
+* Improved `bin/lando.js` entrypoint to properly "minstrap" before it hands off to the correct runtime
+
 ## v3.8.1 - [December 14, 2022](https://github.com/lando/cli/releases/tag/v3.8.1)
 
 * Bumped supported Docker Desktop version to prep for release
