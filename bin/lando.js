@@ -143,7 +143,7 @@ if (runtime === 3) {
   debug('starting lando with %o runtime', '@lando/core@4');
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
   const _ = require('lodash');
-  const bootstrap = require('@lando/core-next/legacy/lib/bootstrap');
+  const bootstrap = require('@lando/core-next/lib/bootstrap');
   const fs = require('fs');
   const Cli = require('./../lib/cli-next');
 
