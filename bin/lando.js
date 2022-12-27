@@ -19,10 +19,7 @@
 const argv = require('@lando/argv');
 
 // check for --debug and internally set DEBUG=* if its set
-if ((process.env.DEBUG === undefined
-  || process.env.DEBUG === null
-  || process.env.DEBUG === '')
-  && argv.hasOption('--debug')) {
+if ((process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') && argv.hasOption('--debug')) {
   require('debug').enable(argv.getOption('--debug', {defaultValue: '*'}));
   process.env.NODE_ENV = 'development';
 }
@@ -95,13 +92,8 @@ if (runtime === 4) {
   const cli = new Cli({prefix: ENVPREFIX, userConfRoot: USERCONFROOT});
 
   // Set the OCLIF debug flag
-  if ((process.env.DEBUG === undefined
-    || process.env.DEBUG === null
-    || process.env.DEBUG === '')
-    && argv.hasOption('--debug')) {
-    oclif.settings.debug = true;
-  }
-
+  // we do a different check here because process.env.DEBUG should be set above
+  if (process.env.DEBUG) oclif.settings.debug = true;
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));
 

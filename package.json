@@ -60,22 +60,22 @@
     "dirname": "lando",
     "hooks": {
       "init": [
-        "./hooks/bootstrap.js"
+        "./hooks/init.js"
       ],
-      "bootstrap-preflight": [
+      "init-preflight": [
         "./hooks/checks.js"
       ],
-      "bootstrap-config-pre": [
+      "init-config": [
         "./hooks/nanoid.js"
       ],
-      "bootstrap-app-pre": [
+      "init-app": [
         "./hooks/app.js"
       ],
       "prerun": [
         "./hooks/prerun.js"
       ],
-      "prerun-start": [
-        "./hooks/context.js"
+      "postrun": [
+        "./hooks/postrun.js"
       ]
     },
     "plugins": [],

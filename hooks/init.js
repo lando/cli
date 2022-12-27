@@ -5,8 +5,8 @@ const path = require('path');
 const {Flags, Parser} = require('@oclif/core');
 
 module.exports = async ({id, argv, config}) => {
-  // run the preflight checks
-  await config.runHook('bootstrap-preflight', config);
+  // before we begin lets check some requirements out
+  await config.runHook('init-preflight', config);
 
   // preemptively do a basic check for the config flag
   const {flags} = await Parser.parse(argv, {strict: false, flags: {config: Flags.string({
@@ -23,7 +23,7 @@ module.exports = async ({id, argv, config}) => {
     debug('tried to load %s into config but it doesnt exist', flags.config);
   }
 
-  // start the hyperdrive config by setting the default bootstrapper and its config
+  // start the lando config by setting the default bootstrapper and its config
   const systemTemplate = path.join(__dirname, '..', 'config', 'system.js');
   const userTemplate = path.join(__dirname, '..', 'config', 'user.yaml');
   const minstrapper = {
@@ -63,8 +63,8 @@ module.exports = async ({id, argv, config}) => {
   // to that end you will want to add an OCLIF plugin and hook into the "minstrapper" event. you can replace the
   // minstrapper there. note that your even twill have access to both config and hyperdrive
   //
-  await config.runHook('bootstrap-setup', {minstrapper, config});
-  debug('bootstrap-setup complete, using %o as bootstrapper', minstrapper.loader);
+  await config.runHook('init-setup', {minstrapper, config});
+  debug('init-setup complete, using %o as bootstrapper', minstrapper.loader);
 
   // get the boostrapper and run it
   const Bootstrapper = require(minstrapper.loader);
@@ -73,36 +73,16 @@ module.exports = async ({id, argv, config}) => {
   // Initialize
   try {
     await bootstrap.run(config);
-    debug('bootstrap-setup completed successfully!');
+    debug('init-setup completed successfully!');
   } catch (error) {
     console.error('Bootstrap failed!'); // eslint-disable-line no-console
-    hookHandler(error);
+    config.hookError(error);
   }
 
-  // final hooks to modify the config, all representing different bootstrap considerations
-  // @TODO: better define what pre-post mean?
-  // @TODO: do we need to assess the failure status of these events like we do with bootstrap-preflight?
-  // @NOTE: seems like at the very least we could print the debug output?
-  // @NOTE: could we wrap events in some other function that handles this the way we want?
-  await config.runHook('bootstrap-config-pre', config);
-  await config.runHook('bootstrap-config', config);
-  await config.runHook('bootstrap-config-post', config);
-
-  // intended to discover/load/init plugins
-  await config.runHook('bootstrap-plugins-pre', config);
-  await config.runHook('bootstrap-plugins', config);
-  await config.runHook('bootstrap-plugins-post', config);
-
-  // intended to discover/load/init the app
-  await config.runHook('bootstrap-app-pre', config);
-  await config.runHook('bootstrap-app', config);
-  await config.runHook('bootstrap-app-post', config);
-
-  // intended to discover/load/init additional commands
-  await config.runHook('bootstrap-commmands-pre', config);
-  await config.runHook('bootstrap-commmands', config);
-  await config.runHook('bootstrap-commmands-post', config);
-
-  // intended for any final config considerations
-  await config.runHook('bootstrap-final', config);
+  // final hooks to modify the init, all representing different but to be defined more clearly considerations
+  await config.runHook('init-config', config);
+  await config.runHook('init-plugins', config);
+  await config.runHook('init-tasks', config);
+  await config.runHook('init-app', config);
+  await config.runHook('init-final', config);
 };

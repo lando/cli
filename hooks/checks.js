@@ -1,4 +1,4 @@
-const debug = require('debug')('lando:@lando/cli@3:hooks:bootstrap-preflight');
+const debug = require('debug')('lando:@lando/cli@3:hooks:init-preflight');
 const fs = require('fs');
 const path = require('path');
 
