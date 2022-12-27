@@ -14,7 +14,14 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "files": [
+    "/bin",
+    "/hooks",
+    "/lib",
+    "/utils"
+  ],
   "main": "lib/cli.js",
+  "babel": {},
   "bin": {
     "lando": "./bin/lando.js"
   },
@@ -48,6 +55,32 @@
     "test:leia": "yarn leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "test": "yarn lint && yarn test:unit"
   },
+  "oclif": {
+    "bin": "lando",
+    "dirname": "lando",
+    "hooks": {
+      "init": [
+        "./hooks/bootstrap.js"
+      ],
+      "bootstrap-preflight": [
+        "./hooks/checks.js"
+      ],
+      "bootstrap-config-pre": [
+        "./hooks/nanoid.js"
+      ],
+      "bootstrap-app-pre": [
+        "./hooks/app.js"
+      ],
+      "prerun": [
+        "./hooks/prerun.js"
+      ],
+      "prerun-start": [
+        "./hooks/context.js"
+      ]
+    },
+    "plugins": [],
+    "topicSeparator": " "
+  },
   "pkg": {
     "outputPath": "dist",
     "scripts": [
@@ -60,22 +93,6 @@
     "assets": [
       "config.yml",
       "package.json",
-      "experimental/**/fastcgi_params",
-      "experimental/**/*.cnf",
-      "experimental/**/*.conf",
-      "experimental/**/*.ini",
-      "experimental/**/*.inc",
-      "experimental/**/*.json",
-      "experimental/**/*.php",
-      "experimental/**/*.py",
-      "experimental/**/*.sh",
-      "experimental/**/*.toml",
-      "experimental/**/*.tpl",
-      "experimental/**/*.tmpl",
-      "experimental/**/*.vcl",
-      "experimental/**/*.xml",
-      "experimental/**/*.yaml",
-      "experimental/**/*.yml",
       "node_modules/@lando/**/fastcgi_params",
       "node_modules/@lando/**/*.cnf",
       "node_modules/@lando/**/*.conf",
@@ -92,22 +109,6 @@
       "node_modules/@lando/**/*.xml",
       "node_modules/@lando/**/*.yaml",
       "node_modules/@lando/**/*.yml",
-      "plugins/**/fastcgi_params",
-      "plugins/**/*.cnf",
-      "plugins/**/*.conf",
-      "plugins/**/*.ini",
-      "plugins/**/*.inc",
-      "plugins/**/*.json",
-      "plugins/**/*.php",
-      "plugins/**/*.py",
-      "plugins/**/*.sh",
-      "plugins/**/*.toml",
-      "plugins/**/*.tpl",
-      "plugins/**/*.tmpl",
-      "plugins/**/*.vcl",
-      "plugins/**/*.xml",
-      "plugins/**/*.yaml",
-      "plugins/**/*.yml",
       "node_modules/figlet/fonts/Small Slant.flf",
       "node_modules/figlet/fonts/ANSI Shadow.flf"
     ]
@@ -151,12 +152,15 @@
     "@lando/tomcat": "0.7.0",
     "@lando/varnish": "0.7.0",
     "@lando/wordpress": "0.7.0",
+    "@oclif/core": "^1.22.0",
     "cli-table": "^0.3.1",
     "cli-table3": "^0.5.1",
     "debug": "^4.3.4",
     "figlet": "^1.1.1",
     "inquirer": "^6.2.1",
     "inquirer-autocomplete-prompt": "^1.0.1",
+    "is-docker": "^2",
+    "is-root": "^2",
     "js-yaml": "^3.4.6",
     "lodash": "^4.17.21",
     "mkdirp": "^0.5.1",
