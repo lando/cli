@@ -7,25 +7,21 @@
  * @name lando
  */
 
-/*
-  1. replace landoConfig/CLI require with a minimal lives in CLI default config loader? summon CLI after runtime is determined
-  2. replace bootstrap require with lives in CLI libs to replicate config building/landofile searching/get loading
-  3. reduce deps and unit test?
-*/
-
 'use strict';
 
 // do the intial debugging check with argv
 const argv = require('@lando/argv');
 
+// helper to determine whether DEBUG is set
+const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
+
 // check for --debug and internally set DEBUG=* if its set
-if ((process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') && argv.hasOption('--debug')) {
+if (!isDebugging && argv.hasOption('--debug')) {
   require('debug').enable(argv.getOption('--debug', {defaultValue: '*'}));
-  process.env.NODE_ENV = 'development';
 }
 
 // now load in the minimal mod set to determine the runtime version
-const debug = require('debug')('lando:@lando/cli@3:preflight');
+const debug = require('debug')('lando:@lando/cli:preflight');
 const minstrapper = require('./../lib/minstrapper.js');
 const path = require('path');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
@@ -91,9 +87,23 @@ if (runtime === 4) {
   const Cli = require('./../lib/cli-next');
   const cli = new Cli();
 
+  // handle legacy --verbose flags
+  if (!isDebugging &&
+    (argv.hasOption('--verbose')
+    || argv.hasOption('-vv')
+    || argv.hasOption('-vv')
+    || argv.hasOption('-vvv')
+    || argv.hasOption('-vvvv'))) {
+    require('debug').enable('*');
+  }
+
   // Set the OCLIF debug flag
   // we do a different check here because process.env.DEBUG should be set above
   if (process.env.DEBUG) oclif.settings.debug = true;
+
+  // just a helpful check
+  debug('starting lando with %o runtime', '@lando/core@4');
+
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));
 

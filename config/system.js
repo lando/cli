@@ -44,11 +44,11 @@ module.exports = ({options}) => {
       // matter what
       dirs: {
         // @TODO: uncomment this once we are done with "core"
-        // external: {
-        //   type: 'core',
-        //   dir: path.join(__dirname, '..', 'node_modules', '@lando'),
-        //   depth: 2,
-        // },
+        external: {
+          type: 'core',
+          dir: path.join(__dirname, '..', 'node_modules', '@lando'),
+          depth: 2,
+        },
         system: {
           type: 'global',
           dir: path.join(getSysDataPath(id), 'system', 'plugins'),
