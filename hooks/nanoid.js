@@ -1,4 +1,4 @@
-const debug = require('debug')('lando:@lando/cli@3:hooks:bootstrap-config-pre');
+const debug = require('debug')('lando:@lando/cli:hooks:init-config');
 
 module.exports = async ({config}) => {
   // get some stuff we need

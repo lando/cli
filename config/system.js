@@ -3,10 +3,11 @@ const os = require('os');
 const path = require('path');
 const which = require('which');
 const getContext = require('@lando/core-next/utils/get-context');
+const getSysDataPath= require('@lando/core-next/utils/get-system-data-dir');
 
 module.exports = ({options}) => {
   // get oclicf things we need
-  const {id, oclif} = options;
+  const {id, env, oclif} = options;
   const {arch, bin, cacheDir, configDir, dataDir, errlog, home, platform, root, shell, version, windows, userAgent} = oclif;
 
   // get other stuff
@@ -17,6 +18,8 @@ module.exports = ({options}) => {
 
   // create dirs
   fs.mkdirSync(path.dirname(logsDir), {recursive: true});
+
+  // @TODO: getSystemPluginPath?
 
   // return the system config
   return {
@@ -29,10 +32,40 @@ module.exports = ({options}) => {
       landofiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
       pluginInstaller: 'docker-plugin-installer',
       releaseChannel: 'stable',
+      storage: 'file-storage',
       telemetry: true,
     },
+    // pirog: {
+    //   setting: 2,
+    // },
     plugin: {
       showCore: true,
+      // these are "additional" directories to scan for plugins on top of the "core/internal" that are loaded no
+      // matter what
+      dirs: {
+        // @TODO: uncomment this once we are done with "core"
+        // external: {
+        //   type: 'core',
+        //   dir: path.join(__dirname, '..', 'node_modules', '@lando'),
+        //   depth: 2,
+        // },
+        system: {
+          type: 'global',
+          dir: path.join(getSysDataPath(id), 'system', 'plugins'),
+          depth: 2,
+        },
+        global: {
+          type: 'global',
+          dir: path.join(getSysDataPath(id), 'global', 'plugins'),
+          depth: 2,
+        },
+        // @TODO: we need a place for @lando/core/plugins?
+        user: {
+          type: 'user',
+          dir: path.join(dataDir, 'plugins'),
+          depth: 2,
+        },
+      },
     },
     registry: {
       app: {
@@ -44,11 +77,11 @@ module.exports = ({options}) => {
         dockerDesktop: path.resolve(coreDir, 'components/docker-desktop'),
         dockerEngine: path.resolve(coreDir, 'components/docker-engine'),
       },
-      lando: {
-        landoCli: path.resolve(coreDir, 'components/lando-cli'),
-      },
       pluginInstaller: {
         dockerPluginInstaller: path.resolve(coreDir, 'components/docker-plugin-installer'),
+      },
+      storage: {
+        fileStorage: path.resolve(coreDir, 'components/file-storage'),
       },
     },
     system: {
@@ -58,7 +91,8 @@ module.exports = ({options}) => {
       configDir,
       context: context,
       dataDir,
-      env: Object.hasOwn(process, 'pkg') ? 'prod' : 'dev',
+      dev: !Object.hasOwn(process, 'pkg'),
+      env,
       errlog,
       freemem: os.freemem() / 1_073_741_824,
       gid: user.gid,
@@ -67,6 +101,7 @@ module.exports = ({options}) => {
       interface: 'cli',
       leia: Object.hasOwn(process.env, 'LEIA_PARSER_RUNNING'),
       logsDir,
+      mode: 'cli',
       packaged: Object.hasOwn(process, 'pkg'),
       platform,
       product: id || 'lando',

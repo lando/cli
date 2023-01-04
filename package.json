@@ -58,6 +58,7 @@
   "oclif": {
     "bin": "lando",
     "dirname": "lando",
+    "name": "@lando/cli-next",
     "hooks": {
       "init": [
         "./hooks/init.js"
@@ -67,9 +68,6 @@
       ],
       "init-config": [
         "./hooks/nanoid.js"
-      ],
-      "init-app": [
-        "./hooks/app.js"
       ],
       "prerun": [
         "./hooks/prerun.js"

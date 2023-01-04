@@ -89,7 +89,7 @@ debug('using %o runtime version %o', '@lando/core', runtime);
 if (runtime === 4) {
   const oclif = require('@oclif/core');
   const Cli = require('./../lib/cli-next');
-  const cli = new Cli({prefix: ENVPREFIX, userConfRoot: USERCONFROOT});
+  const cli = new Cli();
 
   // Set the OCLIF debug flag
   // we do a different check here because process.env.DEBUG should be set above
