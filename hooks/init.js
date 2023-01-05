@@ -23,12 +23,17 @@ module.exports = async ({id, argv, config}) => {
     debug('tried to load %s into config but it doesnt exist', flags.config);
   }
 
+  // determine which loader to use
+  // @NOTE: this assumes the user has not changed the user global plugin dir
+  const pkgLoader = path.join(__dirname, '..', 'node_modules', '@lando', 'core-next', 'core', 'bootstrap.js');
+  const extLoader = path.join(config.dataDir, 'plugins', '@lando', 'core-next', 'core', 'bootstrap.js');
+  const loader = fs.existsSync(extLoader) ? extLoader : pkgLoader;
+
   // start the lando config by setting the default bootstrapper and its config
   const systemTemplate = path.join(__dirname, '..', 'config', 'system.js');
   const userTemplate = path.join(__dirname, '..', 'config', 'user.yaml');
   const minstrapper = {
-    // config: {},
-    loader: path.join(__dirname, '..', 'node_modules', '@lando', 'core-next', 'core', 'bootstrap.js'),
+    loader,
     config: {
       cached: path.join(config.cacheDir, 'config.json'),
       env: 'LANDO',

@@ -12,14 +12,11 @@ module.exports = ({options}) => {
 
   // get other stuff
   const context = getContext();
-  const coreDir = path.join(root, 'node_modules', '@lando', 'core-next');
   const logsDir = path.join(dataDir, 'logs');
   const user = os.userInfo();
 
   // create dirs
   fs.mkdirSync(path.dirname(logsDir), {recursive: true});
-
-  // @TODO: getSystemPluginPath?
 
   // return the system config
   return {
@@ -35,20 +32,11 @@ module.exports = ({options}) => {
       storage: 'file-storage',
       telemetry: true,
     },
-    // pirog: {
-    //   setting: 2,
-    // },
     plugin: {
       showCore: true,
       // these are "additional" directories to scan for plugins on top of the "core/internal" that are loaded no
       // matter what
       dirs: {
-        // @TODO: uncomment this once we are done with "core"
-        external: {
-          type: 'core',
-          dir: path.join(__dirname, '..', 'node_modules', '@lando'),
-          depth: 2,
-        },
         system: {
           type: 'global',
           dir: path.join(getSysDataPath(id), 'system', 'plugins'),
@@ -59,7 +47,16 @@ module.exports = ({options}) => {
           dir: path.join(getSysDataPath(id), 'global', 'plugins'),
           depth: 2,
         },
-        // @TODO: we need a place for @lando/core/plugins?
+        userCore: {
+          type: 'user',
+          dir: path.join(dataDir, 'plugins', '@lando', 'core-next'),
+          depth: 0,
+        },
+        userCorePlugins: {
+          type: 'user',
+          dir: path.join(dataDir, 'plugins', '@lando', 'core-next', 'plugins'),
+          depth: 2,
+        },
         user: {
           type: 'user',
           dir: path.join(dataDir, 'plugins'),
@@ -67,23 +64,7 @@ module.exports = ({options}) => {
         },
       },
     },
-    registry: {
-      app: {
-        app: path.resolve(coreDir, 'components/app'),
-        minapp: path.resolve(coreDir, 'components/minapp'),
-      },
-      engine: {
-        dockerColima: path.resolve(coreDir, 'components/docker-colima'),
-        dockerDesktop: path.resolve(coreDir, 'components/docker-desktop'),
-        dockerEngine: path.resolve(coreDir, 'components/docker-engine'),
-      },
-      pluginInstaller: {
-        dockerPluginInstaller: path.resolve(coreDir, 'components/docker-plugin-installer'),
-      },
-      storage: {
-        fileStorage: path.resolve(coreDir, 'components/file-storage'),
-      },
-    },
+    registry: {},
     system: {
       arch,
       bin,
