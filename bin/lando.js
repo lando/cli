@@ -7,28 +7,21 @@
  * @name lando
  */
 
-/*
-  1. replace landoConfig/CLI require with a minimal lives in CLI default config loader? summon CLI after runtime is determined
-  2. replace bootstrap require with lives in CLI libs to replicate config building/landofile searching/get loading
-  3. reduce deps and unit test?
-*/
-
 'use strict';
 
 // do the intial debugging check with argv
 const argv = require('@lando/argv');
 
+// helper to determine whether DEBUG is set
+const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
+
 // check for --debug and internally set DEBUG=* if its set
-if ((process.env.DEBUG === undefined
-  || process.env.DEBUG === null
-  || process.env.DEBUG === '')
-  && argv.hasOption('--debug')) {
+if (!isDebugging && argv.hasOption('--debug')) {
   require('debug').enable(argv.getOption('--debug', {defaultValue: '*'}));
-  process.env.NODE_ENV = 'development';
 }
 
 // now load in the minimal mod set to determine the runtime version
-const debug = require('debug')('lando:@lando/cli@3:preflight');
+const debug = require('debug')('lando:@lando/cli:preflight');
 const minstrapper = require('./../lib/minstrapper.js');
 const path = require('path');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
@@ -87,10 +80,36 @@ debug('using %o runtime version %o', '@lando/core', runtime);
  * Note that V3 uses cli and V4 uses cli-next. It is best to think of these as different "handlers" for the same
  * CLI which is Lando CLI 3. Lando CLI 4 will use OCLIF.
  */
+// THIS IS @LANDO/CLI@3(ish) AND @LANDO/CORE@4
+// THIS IS NOW THE HAPPENING SPOT!!!
+if (runtime === 4) {
+  const oclif = require('@oclif/core');
+  const Cli = require('./../lib/cli-next');
+  const cli = new Cli();
+
+  // handle legacy --verbose flags
+  if (!isDebugging &&
+    (argv.hasOption('--verbose')
+    || argv.hasOption('-vv')
+    || argv.hasOption('-vv')
+    || argv.hasOption('-vvv')
+    || argv.hasOption('-vvvv'))) {
+    require('debug').enable('*');
+  }
+
+  // Set the OCLIF debug flag
+  // we do a different check here because process.env.DEBUG should be set above
+  if (process.env.DEBUG) oclif.settings.debug = true;
+
+  // just a helpful check
+  debug('starting lando with %o runtime', '@lando/core@4');
+
+  // run our oclifish CLI
+  cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));
 
 // THIS IS @LANDO/CLI@3 AND @LANDO/CORE@3
 // THIS IS "STABLE LANDO" AND SHOULD NOT REALLY CHANGE AT THIS POINT
-if (runtime === 3) {
+} else if (runtime === 3) {
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
   debug('starting lando with %o runtime', '@lando/core@3');
   const _ = require('lodash');
@@ -122,55 +141,6 @@ if (runtime === 3) {
   } else {
     // NOTE: we require lando down here because it adds .5 seconds if we do it above
     const Lando = require('@lando/core');
-    const lando = new Lando(cli.defaultConfig(appConfig));
-    // add the CLI to lando for downstream usage
-    lando.cli = cli;
-    // Bootstrap lando at the correct level
-    lando.bootstrap(bsLevel).then(lando => {
-      // If bootstrap level is APP then we need to get and init our app to generate the app task cache
-      if (bsLevel === 'APP') {
-        lando.getApp().init().then(() => cli.run(bootstrap.getTasks(appConfig, cli.argv()), appConfig));
-      // Otherwise run as yooz
-      } else {
-        cli.run(bootstrap.getTasks(appConfig, cli.argv()), appConfig);
-      }
-    });
-  }
-
-// THIS IS @LANDO/CLI@3(ish) AND @LANDO/CORE@4
-// THIS IS NOW THE HAPPENING SPOT!!!
-} else if (runtime === 4) {
-  debug('starting lando with %o runtime', '@lando/core@4');
-  // Summon the implementation of @lando/cli@3 that works with @lando/core@3
-  const _ = require('lodash');
-  const bootstrap = require('@lando/core-next/lib/bootstrap');
-  const fs = require('fs');
-  const Cli = require('./../lib/cli-next');
-
-  const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT);
-  const bsLevel = (_.has(appConfig, 'recipe')) ? 'APP' : 'TASKS';
-
-  // Lando cache stuffs
-  process.lando = 'node';
-  process.landoTaskCacheName = '_.tasks.cache';
-  process.landoTaskCacheFile = path.join(cli.defaultConfig().userConfRoot, 'cache', process.landoTaskCacheName);
-  process.landoAppTaskCacheFile = !_.isEmpty(appConfig) ? appConfig.toolingCache : undefined;
-
-  // Check for sudo usage
-  cli.checkPerms();
-
-  // Check to see if we have a recipe and if it doesn't have a tooling cache lets enforce a manual cache clear
-  if (bsLevel === 'APP' && !fs.existsSync(appConfig.toolingCache)) {
-    if (fs.existsSync(process.landoTaskCacheFile)) fs.unlinkSync(process.landoTaskCacheFile);
-  }
-
-  // Print the cli if we've got tasks cached
-  if (fs.existsSync(process.landoTaskCacheFile)) {
-    cli.run(bootstrap.getTasks(appConfig, cli.argv()), appConfig);
-  // Otherwise min bootstrap lando so we can generate the task cache first
-  } else {
-    // NOTE: we require lando down here because it adds .5 seconds if we do it above
-    const Lando = require('@lando/core-next');
     const lando = new Lando(cli.defaultConfig(appConfig));
     // add the CLI to lando for downstream usage
     lando.cli = cli;
