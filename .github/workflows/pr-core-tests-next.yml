@@ -1,7 +1,7 @@
 name: Core Tests V4
 
-on:
-  pull_request:
+# on:
+#   pull_request:
 
 jobs:
   leia-tests:
