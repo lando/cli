@@ -115,24 +115,34 @@ module.exports = async ({id, argv, config}) => {
 
   // get the stuff we just made to help us get the tasks
   const {context, minapp} = config;
-  config.taskCacheId = context.app ? minapp.id : lando.config.get('system.instance');
-
-  // generate the tasks if they arent cached
-  if (!cli.cache.get(config.taskCacheId)) {
-    // get the correct registry
+  // get the relevant id
+  const tid = context.app ? minapp.id : lando.config.get('system.instance');
+  // compute the task cache ids
+  const tasksCache = {registry: `${tid}-registry`, help: `${tid}-help`};
+  // generate the task registry cache if we have to
+  if (!cli.cache.get(tasksCache.registry)) {
     const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
-    // get the tasks
+    // @TODO: better check here?
+    if (registry.legacy && registry.legacy.tasks) {
+      // @TODO: handle .js ambiguity
+      const tasks = Object.entries(registry.legacy.tasks)
+        .map(([name, file]) => ({name, file}))
+        .filter(task => fs.existsSync(`${task.file}.js`));
+      // set the task registry
+      cli.cache.set(tasksCache.registry, tasks);
+    }
+  }
+
+  // generate the task help cache if they arent cached
+  if (!cli.cache.get(tasksCache.help)) {
     // @TODO: make this a method?
-    const tasks = Object.entries(registry.legacy.tasks)
-      .map(([name, file]) => ({name, file}))
-      .filter(task => fs.existsSync(`${task.file}.js`))
-      .map(task => require(task.file)(lando, cli));
+    const help = cli.cache.get(tasksCache.registry).map(task => require(task.file)(lando, cli));
     // set the cache
-    cli.cache.set(config.taskCacheId, tasks);
+    cli.cache.set(tasksCache.help, help);
   }
 
   // get the tasks
-  config.tasks = cli.cache.get(config.taskCacheId);
+  config.tasks = {registry: cli.cache.get(tasksCache.registry), help: cli.cache.get(tasksCache.help)};
 
   // if we do the above then we should have what we need in lando.registry or app.registry
   await config.runHook('init-tasks', {id, argv, tasks: config.tasks});
