@@ -179,6 +179,9 @@ lando --channel orange || echo $? | grep 1
 
 # Should load plugins from pluginDirs
 lando stuff | grep "I WORKED"
+
+# Should load plugins specified in landofile
+lando stuff2 | grep "I WORKED"
 ```
 
 Destroy tests
