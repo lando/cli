@@ -85,8 +85,15 @@ module.exports = async ({id, argv, config}) => {
   // hook to modify the config
   await config.runHook('init-config', {id, argv});
 
-  // determine if we have an app or not
+  // lando and cli should be "ready" by now, lets get them
   const {lando, cli} = config;
+
+  // add a cache to the cli, mostly just to store our tasks
+  const FileStorage = require(path.join(coreBase, 'components', 'file-storage'));
+  const cliCache = path.join(lando.config.get('system.cache-dir'), 'cli');
+  cli.cache = new FileStorage(({debugspace: 'cli', dir: cliCache}));
+
+  // determine if we have an app or not
   const landofile = lando.config.get('core.landofile');
   const landofiles = [`${landofile}.yaml`, `${landofile}.yml`];
   const landofilePath = lando.findApp(landofiles, process.cwd());
@@ -108,20 +115,24 @@ module.exports = async ({id, argv, config}) => {
 
   // get the stuff we just made to help us get the tasks
   const {context, minapp} = config;
-  // get legacy tasks from the appropriate registry
-  // @NOTE: registry should already exist for both lando/minapp at this point? do we need to do this?
-  //        maybe only if task cache doesnt exit?
-  const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
+  config.taskCacheId = context.app ? minapp.id : lando.config.get('system.instance');
 
-  // @NOTE/TODO: the require here makes this slower than V3 and also makes this scale
-  // we should cache this result like we do for plugins/registry
-  // we also should standarize the .js loading like we do for registry normalization
-  // should we make use of cli.cache file-storage
-  // also regenerate in the postrun
-  config.tasks = Object.entries(registry.legacy.tasks)
-    .map(([name, file]) => ({name, file}))
-    .filter(task => fs.existsSync(`${task.file}.js`))
-    .map(task => require(task.file)(lando, cli));
+  // generate the tasks if they arent cached
+  if (!cli.cache.get(config.taskCacheId)) {
+    // get the correct registry
+    const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
+    // get the tasks
+    // @TODO: make this a method?
+    const tasks = Object.entries(registry.legacy.tasks)
+      .map(([name, file]) => ({name, file}))
+      .filter(task => fs.existsSync(`${task.file}.js`))
+      .map(task => require(task.file)(lando, cli));
+    // set the cache
+    cli.cache.set(config.taskCacheId, tasks);
+  }
+
+  // get the tasks
+  config.tasks = cli.cache.get(config.taskCacheId);
 
   // if we do the above then we should have what we need in lando.registry or app.registry
   await config.runHook('init-tasks', {id, argv, tasks: config.tasks});
