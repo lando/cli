@@ -25,15 +25,15 @@ module.exports = async ({id, argv, config}) => {
 
   // determine which loader to use
   // @NOTE: this assumes the user has not changed the user global plugin dir
-  const pkgLoader = path.join(__dirname, '..', 'node_modules', '@lando', 'core-next', 'core', 'bootstrap.js');
-  const extLoader = path.join(config.dataDir, 'plugins', '@lando', 'core-next', 'core', 'bootstrap.js');
-  const loader = fs.existsSync(extLoader) ? extLoader : pkgLoader;
+  const internalBase = path.join(__dirname, '..', 'node_modules', '@lando', 'core-next');
+  const externalBase = path.join(config.dataDir, 'plugins', '@lando', 'core-next');
+  const coreBase = fs.existsSync(externalBase) ? externalBase : internalBase;
 
   // start the lando config by setting the default bootstrapper and its config
   const systemTemplate = path.join(__dirname, '..', 'config', 'system.js');
   const userTemplate = path.join(__dirname, '..', 'config', 'user.yaml');
   const minstrapper = {
-    loader,
+    loader: path.join(coreBase, 'core', 'bootstrap.js'),
     config: {
       cached: path.join(config.cacheDir, 'config.json'),
       env: 'LANDO',
@@ -93,8 +93,8 @@ module.exports = async ({id, argv, config}) => {
 
   // if we have an file then lets set some things in the config for downstream purposes
   if (fs.existsSync(landofilePath)) {
-    const MinApp = lando.getClass('app.minapp');
-    const app = new MinApp({landofile: landofilePath, config: lando.config.getUncoded(), plugins: lando.getPlugins()});
+    const MinApp = require(path.join(coreBase, 'core', 'minapp'));
+    const app = new MinApp({landofile: landofilePath, config: lando.config});
     // set and report
     config.app = app;
     debug('discovered an app called %o at %o', config.app.name, path.dirname(landofilePath));
@@ -110,6 +110,12 @@ module.exports = async ({id, argv, config}) => {
   const {app, context} = config;
   // get legacy tasks from the appropriate registry
   const registry = context.app ? app.getRegistry() : lando.getRegistry();
+
+  // @NOTE/TODO: the require here makes this slower than V3 and also makes this scale
+  // we should cache this result like we do for plugins/registry
+  // we also should standarize the .js loading like we do for registry normalization
+  // should we make use of cli.cache file-storage
+  // also regenerate in the postrun
   config.tasks = Object.entries(registry.legacy.tasks)
     .map(([name, file]) => ({name, file}))
     .filter(task => fs.existsSync(`${task.file}.js`))
