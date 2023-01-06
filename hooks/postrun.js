@@ -6,7 +6,7 @@ module.exports = async ({id, result, config}) => {
   await config.runHook(`cli-${id}-after`, {id, result});
 
   // finally lets rebuild the needed registries
-  const {app, context, lando} = config;
-  context.app ? app.rebuildRegistry() : lando.rebuildRegistry();
+  const {context, lando, minapp} = config;
+  context.app ? minapp.rebuildRegistry() : lando.rebuildRegistry();
   debug('regenerated plugin and registry caches!');
 };

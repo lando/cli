@@ -66,7 +66,7 @@ module.exports = async ({id, argv, config}) => {
   // to that end you will want to add an OCLIF plugin and hook into the "minstrapper" event. you can replace the
   // minstrapper there. note that your event will have access to both config and lando
   //
-  await config.runHook('init-setup', {minstrapper, config});
+  await config.runHook('init-setup', {minstrapper});
   debug('init-setup complete, using %o as bootstrapper', minstrapper.loader);
 
   // get the boostrapper and run it
@@ -83,7 +83,7 @@ module.exports = async ({id, argv, config}) => {
   }
 
   // hook to modify the config
-  await config.runHook('init-config', {id, argv, config});
+  await config.runHook('init-config', {id, argv});
 
   // determine if we have an app or not
   const {lando, cli} = config;
@@ -94,22 +94,24 @@ module.exports = async ({id, argv, config}) => {
   // if we have an file then lets set some things in the config for downstream purposes
   if (fs.existsSync(landofilePath)) {
     const MinApp = require(path.join(coreBase, 'core', 'minapp'));
-    const app = new MinApp({landofile: landofilePath, config: lando.config});
+    const minapp = new MinApp({landofile: landofilePath, config: lando.config});
     // set and report
-    config.app = app;
-    debug('discovered an app called %o at %o', config.app.name, path.dirname(landofilePath));
+    config.minapp = minapp;
+    debug('discovered an app called %o at %o', config.minapp.name, path.dirname(landofilePath));
     // a special event that runs only when we have an app
-    await config.runHook('init-app', {id, argv, config});
+    await config.runHook('init-app', {id, argv});
   }
 
   // determine the context
-  config.context = {app: config.app !== undefined, global: config.app === undefined};
+  config.context = {app: config.minapp !== undefined, global: config.minapp === undefined};
   debug('command is running with context %o', config.context);
 
   // get the stuff we just made to help us get the tasks
-  const {app, context} = config;
+  const {context, minapp} = config;
   // get legacy tasks from the appropriate registry
-  const registry = context.app ? app.getRegistry() : lando.getRegistry();
+  // @NOTE: registry should already exist for both lando/minapp at this point? do we need to do this?
+  //        maybe only if task cache doesnt exit?
+  const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
 
   // @NOTE/TODO: the require here makes this slower than V3 and also makes this scale
   // we should cache this result like we do for plugins/registry
