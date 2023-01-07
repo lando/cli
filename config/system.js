@@ -2,8 +2,6 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const which = require('which');
-const getContext = require('@lando/core-next/utils/get-context');
-const getSysDataPath= require('@lando/core-next/utils/get-system-data-dir');
 
 module.exports = ({options}) => {
   // get oclicf things we need
@@ -11,7 +9,6 @@ module.exports = ({options}) => {
   const {arch, bin, cacheDir, configDir, dataDir, errlog, home, platform, root, shell, version, windows, userAgent} = oclif;
 
   // get other stuff
-  const context = getContext();
   const logsDir = path.join(dataDir, 'logs');
   const user = os.userInfo();
 
@@ -21,32 +18,13 @@ module.exports = ({options}) => {
   // return the system config
   return {
     core: {
-      app: 'app',
       debugspace: id || path.basename(process.argv[1]) || 'lando',
-      debug: false,
-      engine: context === 'local' ? 'docker-desktop' : 'docker-engine',
-      landofile: '.lando',
-      landofiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
-      pluginInstaller: 'docker-plugin-installer',
-      releaseChannel: 'stable',
-      storage: 'file-storage',
-      telemetry: true,
     },
     plugin: {
       showCore: true,
       // these are "additional" directories to scan for plugins on top of the "core/internal" that are loaded no
       // matter what
       dirs: {
-        system: {
-          type: 'global',
-          dir: path.join(getSysDataPath(id), 'system', 'plugins'),
-          depth: 2,
-        },
-        global: {
-          type: 'global',
-          dir: path.join(getSysDataPath(id), 'global', 'plugins'),
-          depth: 2,
-        },
         userCore: {
           type: 'user',
           dir: path.join(dataDir, 'plugins', '@lando', 'core-next'),
@@ -70,7 +48,6 @@ module.exports = ({options}) => {
       bin,
       cacheDir,
       configDir,
-      context: context,
       dataDir,
       dev: !Object.hasOwn(process, 'pkg'),
       env,
