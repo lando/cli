@@ -590,18 +590,14 @@
     github "^12.0.0"
     glob "^7.1.3"
     ip "^1.1.8"
-    is-class "^0.0.9"
     js-yaml "^3.4.6"
     jsonfile "^2.4.0"
-    kebabcase-keys "^1.0.0"
     lodash "^4.17.21"
     mkdirp "^0.5.1"
-    nconf "^0.12.0"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
     semver "^7.3.2"
     shelljs "^0.8.4"
-    slugify "^1.6.5"
     string-argv "0.1.1"
     through "^2.3.8"
     transliteration "^2.2.0"
@@ -802,10 +798,10 @@
     lodash "^4.17.21"
     winston "2.4.5"
 
-"@lando/php@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.7.0.tgz#fec0743c9e062aa9b0a7b550729139eb78a2c7f2"
-  integrity sha512-UPR2hwk0dYazn/JNLBQ9OUcWBx5rUnrh18KZlTZBIUPZj+1lfJuw4c6Hu52OOZ4UVXTJmhMeEvQohgFpvNaD/A==
+"@lando/php@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@lando/php/-/php-0.7.1.tgz#8f08fde1ad823f52d08535f10ac4ae944a269c56"
+  integrity sha512-/d+UAKqpshby/bzsC0Mv0Nw9Yyz5bAPv0S23FVNyr6SnQfMhwDos59iqGdDXSHLIknC2X6hUKtYLRzUchpGVKw==
   dependencies:
     lodash "^4.17.21"
     semver "^7.3.7"

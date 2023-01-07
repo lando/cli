@@ -2,6 +2,7 @@
 
 * Added a `--debug` flag
 * Improved `bin/lando.js` entrypoint to properly "minstrap" before it hands off to the correct runtime
+* Updated to `@lando/php` version [`0.7.1`](https://github.com/lando/php/releases/tag/v0.7.1)
 
 ## v3.8.1 - [December 14, 2022](https://github.com/lando/cli/releases/tag/v3.8.1)
 
