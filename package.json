@@ -60,6 +60,9 @@
     "dirname": "lando",
     "name": "@lando/cli-next",
     "hooks": {
+      "cache-rebuild": [
+        "./hooks/cache-rebuild.js"
+      ],
       "init": [
         "./hooks/init.js"
       ],

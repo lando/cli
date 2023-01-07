@@ -8,6 +8,8 @@ module.exports = async ({id, argv, config}) => {
   // before we begin lets check some requirements out
   await config.runHook('init-preflight', {id, argv, config});
 
+  // get the status of some global flags
+  const {clear} = config.cli.argv();
   // preemptively do a basic check for the config flag
   const {flags} = await Parser.parse(argv, {strict: false, flags: {config: Flags.string({
     char: 'c',
@@ -71,7 +73,7 @@ module.exports = async ({id, argv, config}) => {
 
   // get the boostrapper and run it
   const Bootstrapper = require(minstrapper.loader);
-  const bootstrap = new Bootstrapper(minstrapper.config, config.cli);
+  const bootstrap = new Bootstrapper({config: minstrapper.config, noCache: clear});
 
   // Initialize
   try {
@@ -88,11 +90,6 @@ module.exports = async ({id, argv, config}) => {
   // lando and cli should be "ready" by now, lets get them
   const {lando, cli} = config;
 
-  // add a cache to the cli, mostly just to store our tasks
-  const FileStorage = require(path.join(coreBase, 'components', 'file-storage'));
-  const cliCache = path.join(lando.config.get('system.cache-dir'), 'cli');
-  cli.cache = new FileStorage(({debugspace: 'cli', dir: cliCache}));
-
   // determine if we have an app or not
   const landofile = lando.config.get('core.landofile');
   const landofiles = [`${landofile}.yaml`, `${landofile}.yml`];
@@ -101,10 +98,11 @@ module.exports = async ({id, argv, config}) => {
   // if we have an file then lets set some things in the config for downstream purposes
   if (fs.existsSync(landofilePath)) {
     const MinApp = require(path.join(coreBase, 'core', 'minapp'));
-    const minapp = new MinApp({landofile: landofilePath, config: lando.config});
+    const minapp = new MinApp({landofile: landofilePath, noCache: clear, config: lando.config});
     // set and report
     config.minapp = minapp;
     debug('discovered an app called %o at %o', config.minapp.name, path.dirname(landofilePath));
+
     // a special event that runs only when we have an app
     await config.runHook('init-app', {id, argv});
   }
@@ -115,34 +113,13 @@ module.exports = async ({id, argv, config}) => {
 
   // get the stuff we just made to help us get the tasks
   const {context, minapp} = config;
-  // get the relevant id
-  const tid = context.app ? minapp.id : lando.config.get('system.instance');
+
   // compute the task cache ids
-  const tasksCache = {registry: `${tid}-registry`, help: `${tid}-help`};
-  // generate the task registry cache if we have to
-  if (!cli.cache.get(tasksCache.registry)) {
-    const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
-    // @TODO: better check here?
-    if (registry.legacy && registry.legacy.tasks) {
-      // @TODO: handle .js ambiguity
-      const tasks = Object.entries(registry.legacy.tasks)
-        .map(([name, file]) => ({name, file}))
-        .filter(task => fs.existsSync(`${task.file}.js`));
-      // set the task registry
-      cli.cache.set(tasksCache.registry, tasks);
-    }
-  }
+  config.tasksCacheId = context.app ? minapp.id : lando.config.get('system.instance');
 
-  // generate the task help cache if they arent cached
-  if (!cli.cache.get(tasksCache.help)) {
-    // @TODO: make this a method?
-    const help = cli.cache.get(tasksCache.registry).map(task => require(task.file)(lando, cli));
-    // set the cache
-    cli.cache.set(tasksCache.help, help);
-  }
-
-  // get the tasks
-  config.tasks = {registry: cli.cache.get(tasksCache.registry), help: cli.cache.get(tasksCache.help)};
+  // get the tasks list and help
+  const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
+  config.tasks = cli.getTasks({id: config.tasksCacheId, noCache: clear, registry}, [lando, cli]);
 
   // if we do the above then we should have what we need in lando.registry or app.registry
   await config.runHook('init-tasks', {id, argv, tasks: config.tasks});

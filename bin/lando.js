@@ -83,9 +83,8 @@ debug('using %o runtime version %o', '@lando/core', runtime);
 // THIS IS @LANDO/CLI@3(ish) AND @LANDO/CORE@4
 // THIS IS NOW THE HAPPENING SPOT!!!
 if (runtime === 4) {
+  // get oclif
   const oclif = require('@oclif/core');
-  const Cli = require('./../lib/cli-next');
-  const cli = new Cli();
 
   // handle legacy --verbose flags
   if (!isDebugging &&
@@ -102,7 +101,12 @@ if (runtime === 4) {
   if (process.env.DEBUG) oclif.settings.debug = true;
 
   // just a helpful check
-  debug('starting lando with %o runtime', '@lando/core@4');
+  const cacheDir = path.join(minstrapper.getOclifCacheDir(config.product), 'cli');
+  debug('starting lando with %o runtime using cli-next cache dir %o', `v${runtime}`, cacheDir);
+
+  // get the cli
+  const Cli = require('./../lib/cli-next');
+  const cli = new Cli({cacheDir, product: config.product});
 
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));
