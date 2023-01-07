@@ -579,7 +579,7 @@
 
 "@lando/core-next@github:lando/core-next#main":
   version "4.0.0-unstable.3"
-  resolved "https://codeload.github.com/lando/core-next/tar.gz/30915da2686a9eb29192e4def251b0a3cd3c4a7f"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/15ac00c92319d58fdea2701af5b12877a505f282"
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
@@ -590,14 +590,18 @@
     github "^12.0.0"
     glob "^7.1.3"
     ip "^1.1.8"
+    is-class "^0.0.9"
     js-yaml "^3.4.6"
     jsonfile "^2.4.0"
+    kebabcase-keys "^1.0.0"
     lodash "^4.17.21"
     mkdirp "^0.5.1"
+    nconf "^0.12.0"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
     semver "^7.3.2"
     shelljs "^0.8.4"
+    slugify "^1.6.5"
     string-argv "0.1.1"
     through "^2.3.8"
     transliteration "^2.2.0"
