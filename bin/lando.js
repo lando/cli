@@ -89,7 +89,7 @@ if (runtime === 4) {
   // handle legacy --verbose flags
   if (!isDebugging &&
     (argv.hasOption('--verbose')
-    || argv.hasOption('-vv')
+    || argv.hasOption('-v')
     || argv.hasOption('-vv')
     || argv.hasOption('-vvv')
     || argv.hasOption('-vvvv'))) {
