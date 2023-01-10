@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
-      DEBUG: "lando*"
+      # DEBUG: "lando*"
     strategy:
       fail-fast: false
       matrix:
@@ -17,6 +17,7 @@ jobs:
         node-version:
           - '16'
         leia-tests:
+          - examples/global
           - examples/v3
           - examples/v4
     steps:

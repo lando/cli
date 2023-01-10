@@ -45,6 +45,8 @@ jobs:
           os: ${{ matrix.os }}
       - name: Verify we can run the packaged CLI
         run: |
+          # move lando over
+          sudo cp ${{ steps.pkg-action.outputs.file }} /usr/local/bin/lando
           # v3 things
           lando version
           lando config
