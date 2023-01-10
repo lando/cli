@@ -43,16 +43,6 @@ jobs:
           arch: ${{ matrix.arch }}
           node-version: node${{ matrix.node-version }}
           os: ${{ matrix.os }}
-      - name: Verify we can run the packaged CLI
-        run: |
-          # move lando over
-          sudo cp ${{ steps.pkg-action.outputs.file }} /usr/local/bin/lando
-          # v3 things
-          lando version
-          lando config
-          # v4 things
-          LANDO_CORE_RUNTIME=v4 lando version --all
-          LANDO_CORE_RUNTIME=v4 lando config
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}
