@@ -64,8 +64,8 @@ jobs:
           lando version
           lando config
           # v4 things
-          LANDO_CORE_RUNTIME=v4 lando version
-          LANDO_CORE_RUNTIME=v4 lando version
+          LANDO_CORE_RUNTIME=v4 lando version --all
+          LANDO_CORE_RUNTIME=v4 lando config
 
       # This block should eventually become use lando/actions-leia@v2
       - name: Run leia tests
