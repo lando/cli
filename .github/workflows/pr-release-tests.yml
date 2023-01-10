@@ -43,6 +43,14 @@ jobs:
           arch: ${{ matrix.arch }}
           node-version: node${{ matrix.node-version }}
           os: ${{ matrix.os }}
+      - name: Verify we can run the packaged CLI
+        run: |
+          # v3 things
+          lando version
+          lando config
+          # v4 things
+          LANDO_CORE_RUNTIME=v4 lando version
+          LANDO_CORE_RUNTIME=v4 lando version
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}

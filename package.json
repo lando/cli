@@ -16,6 +16,7 @@
   },
   "files": [
     "/bin",
+    "/config",
     "/hooks",
     "/lib",
     "/utils"
@@ -26,18 +27,18 @@
     "lando": "./bin/lando.js"
   },
   "directories": {
+    "bin": "./bin",
+    "config": "./config",
+    "hooks": "./hooks",
     "lib": "./lib"
   },
   "nyc": {
     "include": [
       "lib/**/*.js",
-      "experimental/**/lib/*.js",
-      "plugins/**/lib/*.js",
       "scripts/util.js"
     ],
     "exclude": [
-      "test/**",
-      "plugins/**/test"
+      "test/**"
     ],
     "cache": true,
     "all": true
@@ -49,7 +50,7 @@
     "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
     "clean": "rimraf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint --quiet .",
+    "lint": "eslint --quiet . && yarn docs:lint",
     "release": "bump --prompt --tag --all --push",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js plugins/**/test/**/*.spec.js",
     "test:leia": "yarn leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
@@ -86,14 +87,16 @@
     "outputPath": "dist",
     "scripts": [
       "bin/*.js",
-      "experimental/**/*.js",
+      "config/**/*.js",
+      "hooks/**/*.js",
       "lib/**/*.js",
-      "node_modules/@lando/**/*.js",
-      "plugins/**/*.js"
+      "node_modules/@lando/**/*.js"
     ],
     "assets": [
       "config.yml",
       "package.json",
+      "config/test.yaml",
+      "config/user.yaml",
       "node_modules/@lando/**/fastcgi_params",
       "node_modules/@lando/**/*.cnf",
       "node_modules/@lando/**/*.conf",
