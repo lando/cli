@@ -64,14 +64,8 @@ const appConfig = (landoFiles.length > 0) ? minstrapper.getApp(landoFiles, userC
 if (Object.keys(appConfig).length > 0) debug('detected an app %o at %o', appConfig.name, path.dirname(landoFiles[0]));
 
 // determine the runtime
-const runtime = (appConfig.runtime === 'v4'
-  || appConfig.runtime === '4'
-  || appConfig.runtime === 4
-  || config.runtime === 'v4'
-  || config.runtime === '4'
-  || config.runtime === 4
-  ) ? 4: 3;
-
+const rawRuntime = appConfig.runtime || config.runtime || 3;
+const runtime = (rawRuntime === 'v4' || rawRuntime === '4' || rawRuntime === 4) ? 4: 3;
 debug('using %o runtime version %o', '@lando/core', runtime);
 
 /*
@@ -115,7 +109,7 @@ if (runtime === 4) {
 // THIS IS "STABLE LANDO" AND SHOULD NOT REALLY CHANGE AT THIS POINT
 } else if (runtime === 3) {
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
-  debug('starting lando with %o runtime', '@lando/core@3');
+  debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT});
   const _ = require('lodash');
   const bootstrap = require('@lando/core/lib/bootstrap');
   const fs = require('fs');
