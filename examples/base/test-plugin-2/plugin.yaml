@@ -1,5 +1,0 @@
-name: "@lando/base-test-plugin-2"
-registry:
-  legacy:
-    tasks:
-      stuff2: "./tasks/stuff"
