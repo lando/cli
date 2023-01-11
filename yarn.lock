@@ -579,7 +579,7 @@
 
 "@lando/core-next@github:lando/core-next#main":
   version "4.0.0-unstable.3"
-  resolved "https://codeload.github.com/lando/core-next/tar.gz/dc10e5b7a4c3dc5b40d3ac5a1a4e062f2de362c4"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/7ce34f746ce8eb738e09d1e135e37f8de987ee8b"
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
