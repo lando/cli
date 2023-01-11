@@ -138,7 +138,7 @@ jobs:
           aws-region: us-east-1
       - name: Upload releases to S3
         shell: bash
-        run: aws s3 sync releases s3://files.lando.dev/cli --acl public-read
+        run: aws s3 sync releases s3://files.lando.dev/cli
       - name: Upload releases to GitHub Releases
         uses: softprops/action-gh-release@v1
         env:
