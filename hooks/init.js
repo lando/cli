@@ -8,8 +8,6 @@ module.exports = async ({id, argv, config}) => {
   // before we begin lets check some requirements out
   await config.runHook('init-preflight', {id, argv, config});
 
-  // get the status of some global flags
-  const {clear} = config.cli.argv();
   // preemptively do a basic check for the config flag
   const {flags} = await Parser.parse(argv, {strict: false, flags: {config: Flags.string({
     char: 'c',
@@ -37,6 +35,7 @@ module.exports = async ({id, argv, config}) => {
   const minstrapper = {
     loader: path.join(coreBase, 'core', 'bootstrap.js'),
     config: {
+      argv,
       cached: path.join(config.cacheDir, 'config.json'),
       env: 'LANDO',
       id: 'lando',
@@ -73,7 +72,7 @@ module.exports = async ({id, argv, config}) => {
 
   // get the boostrapper and run it
   const Bootstrapper = require(minstrapper.loader);
-  const bootstrap = new Bootstrapper({config: minstrapper.config, noCache: clear});
+  const bootstrap = new Bootstrapper({config: minstrapper.config});
 
   // Initialize
   try {
@@ -98,7 +97,7 @@ module.exports = async ({id, argv, config}) => {
   // if we have an file then lets set some things in the config for downstream purposes
   if (fs.existsSync(landofilePath)) {
     const MinApp = require(path.join(coreBase, 'core', 'minapp'));
-    const minapp = new MinApp({landofile: landofilePath, noCache: clear, config: lando.config});
+    const minapp = new MinApp({landofile: landofilePath, config: lando.config});
     // set and report
     config.minapp = minapp;
     debug('discovered an app called %o at %o', config.minapp.name, path.dirname(landofilePath));
@@ -119,7 +118,8 @@ module.exports = async ({id, argv, config}) => {
 
   // get the tasks list and help
   const registry = context.app ? minapp.getRegistry() : lando.getRegistry();
-  config.tasks = cli.getTasks({id: config.tasksCacheId, noCache: clear, registry}, [lando, cli]);
+  const noCache = context.app ? !minapp.config.get('core.caching') : !lando.config.get('core.caching');
+  config.tasks = cli.getTasks({id: config.tasksCacheId, noCache, registry}, [lando, cli]);
 
   // if we do the above then we should have what we need in lando.registry or app.registry
   await config.runHook('init-tasks', {id, argv, tasks: config.tasks});
