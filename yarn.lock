@@ -583,7 +583,6 @@
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
-    chalk "^4"
     clean-stacktrace "^1.1.0"
     copy-dir "^0.4.0"
     dayjs "^1.8.25"
@@ -591,32 +590,25 @@
     github "^12.0.0"
     glob "^7.1.3"
     ip "^1.1.8"
-    is-class "^0.0.9"
     js-yaml "^3.4.6"
     jsonfile "^2.4.0"
-    kebabcase-keys "^1.0.0"
     lodash "^4.17.21"
     mkdirp "^0.5.1"
-    nanoid "^3"
-    nconf "^0.12.0"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
     semver "^7.3.2"
     shelljs "^0.8.4"
-    slugify "^1.6.5"
     string-argv "0.1.1"
     through "^2.3.8"
     transliteration "^2.2.0"
     uuid "^3.2.1"
     valid-url "^1.0.9"
-    which "^2.0.2"
     winston "2.4.5"
-    yaml "^2.1.1"
 
-"@lando/core@3.8.2":
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.8.2.tgz#46e4c16a93d49f86d2e16e7d6e5d56ea73ce6ed9"
-  integrity sha512-5yhqdKxSCP9dmbA0iXIZeZLPiDzg4p1+LHRvYttgAVc26dZqaqOyg6N8ECOtnV9dvHHJp8fg+B+C8w5MpbZ/Gg==
+"@lando/core@3.8.3":
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.8.3.tgz#ccda6e7ca17cfe27b9325c16d1d2bd9ff59f9302"
+  integrity sha512-cMP4e/LIJVThXEkHfN+WXKGAJCxXJb4SLByLtsMXk9OQ4qlnQTgVj9RH2trJ9Et+c8OEk96LrssdJ92ChQeGRQ==
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
