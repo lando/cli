@@ -1,4 +1,4 @@
-## v3.9.0 - Release TBD
+## v3.9.0 - [January 18, 2023](https://github.com/lando/cli/releases/tag/v3.9.0)
 
 # CLI
 
@@ -7,7 +7,7 @@
 
 # Plugins
 
-* Updated to `@lando/core` version [`3.8.3`](https://github.com/lando/core/releases/tag/v3.8.3)
+* Updated to `@lando/core` version [`3.8.4`](https://github.com/lando/core/releases/tag/v3.8.4)
 * Updated to `@lando/php` version [`0.7.1`](https://github.com/lando/php/releases/tag/v0.7.1)
 
 ## v3.8.1 - [December 14, 2022](https://github.com/lando/cli/releases/tag/v3.8.1)
