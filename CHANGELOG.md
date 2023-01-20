@@ -1,3 +1,9 @@
+## v3.9.1 - [January 20, 2023](https://github.com/lando/cli/releases/tag/v3.9.1)
+
+### Plugins
+
+* Updated to `@lando/core` version [`3.8.5`](https://github.com/lando/core/releases/tag/v3.8.5)
+
 ## v3.9.0 - [January 18, 2023](https://github.com/lando/cli/releases/tag/v3.9.0)
 
 ### CLI
