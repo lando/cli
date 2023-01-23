@@ -1,8 +1,7 @@
-const debug = require('debug')('lando:@lando/cli:hooks:init-preflight');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = async ({config}) => {
+module.exports = async ({config, debug}) => {
   // get the main things
   const {arch, bin, cacheDir, platform} = config;
   const uid = process.getuid ? process.getuid() : '-1';

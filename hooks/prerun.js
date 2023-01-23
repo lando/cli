@@ -1,9 +1,8 @@
-const debug = require('debug')('lando:@lando/cli:hooks:prerun');
 // const formatters = require('./../lib/formatters');
 
-module.exports = async ({id, data, config}) => {
-  await config.runHook('cli-answers', {id, data});
-  await config.runHook(`cli-${id}-answers`, {id, data});
+module.exports = async ({id, data, debug, cli}) => {
+  await cli.runHook('cli-answers', {id, data});
+  await cli.runHook(`cli-${id}-answers`, {id, data});
 
   // run the interactive prompts
   debug('attempting interactive prompts...');
@@ -12,6 +11,6 @@ module.exports = async ({id, data, config}) => {
 
 
   // @TODO: we need to replace these with stuff from new handle interactive ^?
-  await config.runHook('cli-run', {id, data});
-  await config.runHook(`cli-${id}-run`, {id, data});
+  await cli.runHook('cli-run', {id, data});
+  await cli.runHook(`cli-${id}-run`, {id, data});
 };

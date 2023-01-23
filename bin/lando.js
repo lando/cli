@@ -100,6 +100,12 @@ if (runtime === 4) {
 
   // get the cli
   const Cli = require('./../lib/cli-next');
+
+  // @NOTE: cli-next now allows hooks to be passed directly into the constructor. we do this because there are some
+  // hooks eg init, init-preflight that run BEFORE we get the registry and the hooks that plugins have contributed
+  // right now the only way to "access" these hooks is with oclif directly in the package.json.
+  // @TODO: should we have some sort of "early hook" loader so that we can pass them in here? i feel like that would
+  // be pretty difficult and is of questionable value?
   const cli = new Cli({cacheDir, product: config.product});
 
   // run our oclifish CLI
