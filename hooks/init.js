@@ -1,12 +1,11 @@
-const debug = require('debug')('lando:@lando/cli:hooks:init');
 const fs = require('fs');
 const path = require('path');
 
 const {Flags, Parser} = require('@oclif/core');
 
-module.exports = async ({id, argv, config}) => {
+module.exports = async ({id, argv, cli, config, debug}) => {
   // before we begin lets check some requirements out
-  await config.runHook('init-preflight', {id, argv, config});
+  await cli.runHook('init-preflight', {id, argv});
 
   // preemptively do a basic check for the config flag
   const {flags} = await Parser.parse(argv, {strict: false, flags: {config: Flags.string({
@@ -67,7 +66,7 @@ module.exports = async ({id, argv, config}) => {
   // to that end you will want to add an OCLIF plugin and hook into the "minstrapper" event. you can replace the
   // minstrapper there. note that your event will have access to both config and lando
   //
-  await config.runHook('init-setup', {minstrapper});
+  await cli.runHook('init-setup', {minstrapper});
   debug('init-setup complete, using %o as bootstrapper', minstrapper.loader);
 
   // get the boostrapper and run it
@@ -84,10 +83,10 @@ module.exports = async ({id, argv, config}) => {
   }
 
   // hook to modify the config
-  await config.runHook('init-config', {id, argv});
+  await cli.runHook('init-config', {id, argv});
 
   // lando and cli should be "ready" by now, lets get them
-  const {lando, cli} = config;
+  const {lando} = config;
 
   // determine if we have an app or not
   const landofile = lando.config.get('core.landofile');
@@ -103,7 +102,7 @@ module.exports = async ({id, argv, config}) => {
     debug('discovered an app called %o at %o', config.minapp.name, path.dirname(landofilePath));
 
     // a special event that runs only when we have an app
-    await config.runHook('init-app', {id, argv});
+    await cli.runHook('init-app', {id, argv});
   }
 
   // determine the context
@@ -122,8 +121,8 @@ module.exports = async ({id, argv, config}) => {
   config.tasks = cli.getTasks({id: config.tasksCacheId, noCache, registry}, [lando, cli]);
 
   // if we do the above then we should have what we need in lando.registry or app.registry
-  await config.runHook('init-tasks', {id, argv, tasks: config.tasks});
+  await cli.runHook('init-tasks', {id, argv, tasks: config.tasks});
 
   // final hook to do stuff to the init
-  await config.runHook('init-final', config);
+  await cli.runHook('init-final', config);
 };

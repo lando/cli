@@ -1,6 +1,5 @@
-const debug = require('debug')('lando:@lando/cli:hooks:cache-rebuild');
 
-module.exports = async ({id, result, config}) => {
+module.exports = async ({id, result, config, debug}) => {
   // finally lets rebuild the needed caches
   const {cli, context, lando, minapp, tasksCacheId} = config;
   // rebuild lando registry
