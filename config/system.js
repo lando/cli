@@ -26,6 +26,11 @@ module.exports = ({options}) => {
       // these are "additional" directories to scan for plugins on top of the "core/internal" that are loaded no
       // matter what
       dirs: {
+        cli: {
+          type: 'core',
+          dir: path.resolve(__dirname, '..'),
+          depth: 0,
+        },
         userCore: {
           type: 'user',
           dir: path.join(dataDir, 'plugins', '@lando', 'core-next'),
