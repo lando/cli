@@ -60,23 +60,6 @@
     "bin": "lando",
     "dirname": "lando",
     "name": "@lando/cli-next",
-    "hooks": {
-      "cache-rebuild": [
-        "./hooks/cache-rebuild.js"
-      ],
-      "init": [
-        "./hooks/init.js"
-      ],
-      "init-preflight": [
-        "./hooks/checks.js"
-      ],
-      "prerun": [
-        "./hooks/prerun.js"
-      ],
-      "postrun": [
-        "./hooks/postrun.js"
-      ]
-    },
     "plugins": [],
     "topicSeparator": " "
   },

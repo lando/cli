@@ -1,16 +1,14 @@
 
-module.exports = async ({id, result, config, debug}) => {
+module.exports = async ({config, cli, debug}) => {
   // finally lets rebuild the needed caches
-  const {cli, context, lando, minapp, tasksCacheId} = config;
+  const {app, context, product} = config;
   // rebuild lando registry
-  lando.rebuildRegistry();
+  product.reinit();
   // rebuild app registry if we need to
-  if (context.app) minapp.rebuildRegistry();
-  // rebuild tasks
-  cli.getTasks({
-    id: tasksCacheId,
-    noCache: true,
-    registry: (context.app) ? minapp.getRegistry() : lando.getRegistry(),
-  }, [lando, cli]);
-  debug('regenerated plugin, registry and cli task caches!');
+  if (context.app) app.reinit();
+  // rebuild tasks and hooks
+  cli.getTasks(config.context.app ? config.app : product, [product, cli]);
+  cli.getHooks(config.context.app ? config.app : product);
+  // log
+  debug('reinitialized cli, app and product caches!');
 };

@@ -94,7 +94,7 @@ if (runtime === 4) {
   // we do a different check here because process.env.DEBUG should be set above
   if (process.env.DEBUG) oclif.settings.debug = true;
 
-  // just a helpful check
+  // get what we need for cli-next
   const cacheDir = path.join(minstrapper.getOclifCacheDir(config.product), 'cli');
   debug('starting lando with %o runtime using cli-next cache dir %o', `v${runtime}`, cacheDir);
 

@@ -1,6 +1,5 @@
-module.exports = async ({id, result, cli}) => {
-  await cli.runHook('before-end', {id, result});
-  await cli.runHook('cli-after', {id, result});
-  await cli.runHook(`cli-${id}-after`, {id, result});
-  await cli.runHook('cache-rebuild', {id, result});
+module.exports = async ({id, result, config, cli}) => {
+  await cli.runHook(`postrun-${id}`, {id, result});
+  await cli.runHook('done', {config});
+  await cli.runHook(`done-${id}`, {config});
 };
