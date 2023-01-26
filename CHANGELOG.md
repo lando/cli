@@ -1,3 +1,9 @@
+## v3.11.0 - [TBD](https://github.com/lando/cli/releases/tag/3.11.0)
+
+### Plugins
+
+* Updated to `@lando/node` version [`0.8.0`](https://github.com/lando/node/releases/tag/v0.8.0)
+
 ## v3.10.0 - [January 23, 2023](https://github.com/lando/cli/releases/tag/3.10.0)
 
 * Bumped version just to indicate push to stable
