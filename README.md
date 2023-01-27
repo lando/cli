@@ -33,7 +33,7 @@ We try to log all changes big and small in both [THE CHANGELOG](https://github.c
   <img src="https://contrib.rocks/image?repo=lando/cli" />
 </a>
 
-Made with [contributors-img](https://contrib.rocks).
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## Other Selected Resources
 
