@@ -21,13 +21,13 @@ if (!isDebugging && argv.hasOption('--debug')) {
 }
 
 // now load in the minimal mod set to determine the runtime version
-const debug = require('debug')('lando:@lando/cli:preflight');
+const debug = require('debug')('lando:@lando/cli:runtime-selector');
 const minstrapper = require('./../lib/minstrapper.js');
 const path = require('path');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 
 // start the preflight
-debug('starting lando version %o preflight...', pjson.version);
+debug('starting lando version %o runtime selector...', pjson.version);
 
 // allow envvars to override a few core things
 // @NOTE: we've kept these around for backwards compatibility, you probably shouldnt use them
