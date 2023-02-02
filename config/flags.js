@@ -1,3 +1,5 @@
+'use strict';
+
 const {Flags} = require('@oclif/core');
 
 module.exports = {

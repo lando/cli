@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 
@@ -14,10 +16,12 @@ module.exports = ({argv, config, configFile, id = 'lando'}) => {
 
   return {
     app: path.join(coreBase, 'components', 'app.js'),
-    bootstrapper: path.join(coreBase, 'components', 'bootstrap.js'),
+    bootstrapper: path.join(coreBase, 'components', 'lando.js'),
     config: {
       argv,
       cached: path.join(config.cacheDir, 'config.json'),
+      // @TODO: replace with get-debugger()?
+      debug: require('debug')(id),
       env: id.toUpperCase(),
       id,
       managed: 'global',

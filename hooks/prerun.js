@@ -1,4 +1,5 @@
 // const formatters = require('./../lib/formatters');
+'use strict';
 
 module.exports = async ({id, data, cli, debug}) => {
   await cli.runHook(`prerun-${id}`, {id, data});

@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = async ({config, cli, debug}) => {
   // finally lets rebuild the needed caches

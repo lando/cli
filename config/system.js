@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -19,7 +21,6 @@ module.exports = ({options}) => {
   return {
     core: {
       caching: !argv.includes('--clear'),
-      debugspace: id || path.basename(process.argv[1]) || 'lando',
     },
     plugin: {
       showCore: true,

@@ -11,6 +11,7 @@
 
 // do the intial debugging check with argv
 const argv = require('@lando/argv');
+const path = require('path');
 
 // helper to determine whether DEBUG is set
 const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
@@ -21,9 +22,10 @@ if (!isDebugging && argv.hasOption('--debug')) {
 }
 
 // now load in the minimal mod set to determine the runtime version
-const debug = require('debug')('lando:@lando/cli:runtime-selector');
+// @TODO: switch to get-debugger?
+const debug = require('debug')(path.basename(process.argv[1]) || 'lando');
+
 const minstrapper = require('./../lib/minstrapper.js');
-const path = require('path');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 
 // start the preflight
@@ -106,7 +108,7 @@ if (runtime === 4) {
   // right now the only way to "access" these hooks is with oclif directly in the package.json.
   // @TODO: should we have some sort of "early hook" loader so that we can pass them in here? i feel like that would
   // be pretty difficult and is of questionable value?
-  const cli = new Cli({cacheDir, product: config.product});
+  const cli = new Cli({cacheDir, debug, product: config.product});
 
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));

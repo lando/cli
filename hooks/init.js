@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = async ({id, argv, config, cli}) => {
   // hook for preflight checks
   await cli.runHook('init-preflight', {config});
