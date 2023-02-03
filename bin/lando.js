@@ -9,8 +9,13 @@
 
 'use strict';
 
-// do the intial debugging check with argv
+// mods
 const argv = require('@lando/argv');
+const path = require('path');
+
+// debugger
+const id = path.basename(process.argv[1]);
+const debug = require('@lando/core-next/debug')(id || 'lando');
 
 // helper to determine whether DEBUG is set
 const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
@@ -21,14 +26,11 @@ if (!isDebugging && argv.hasOption('--debug')) {
 }
 
 // now load in the minimal mod set to determine the runtime version
-// @TODO: switch to @lando/core/debug?
-const path = require('path');
-const debug = require('@lando/core-next/debug')(path.basename(process.argv[1]) || 'lando');
 const minstrapper = require('./../lib/minstrapper.js');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 
 // start the preflight
-debug('starting lando version %o runtime selector...', pjson.version);
+debug('starting %o version %o runtime selector...', id, pjson.version);
 
 // allow envvars to override a few core things
 // @NOTE: we've kept these around for backwards compatibility, you probably shouldnt use them
@@ -97,7 +99,7 @@ if (runtime === 4) {
 
   // get what we need for cli-next
   const cacheDir = path.join(minstrapper.getOclifCacheDir(config.product), 'cli');
-  debug('starting lando with %o runtime using cli-next cache dir %o', `v${runtime}`, cacheDir);
+  debug('handing off to %o', '@lando/cli/lib/cli-next');
 
   // get the cli
   const Cli = require('./../lib/cli-next');
