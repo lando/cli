@@ -11,7 +11,6 @@
 
 // do the intial debugging check with argv
 const argv = require('@lando/argv');
-const path = require('path');
 
 // helper to determine whether DEBUG is set
 const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
@@ -22,9 +21,9 @@ if (!isDebugging && argv.hasOption('--debug')) {
 }
 
 // now load in the minimal mod set to determine the runtime version
-// @TODO: switch to get-debugger?
-const debug = require('debug')(path.basename(process.argv[1]) || 'lando');
-
+// @TODO: switch to @lando/core/debug?
+const path = require('path');
+const debug = require('@lando/core-next/debug')(path.basename(process.argv[1]) || 'lando');
 const minstrapper = require('./../lib/minstrapper.js');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 
@@ -102,13 +101,15 @@ if (runtime === 4) {
 
   // get the cli
   const Cli = require('./../lib/cli-next');
+  // override some default static props
+  Cli.debug = debug.extend('cli');
 
   // @NOTE: cli-next now allows hooks to be passed directly into the constructor. we do this because there are some
   // hooks eg init, init-preflight that run BEFORE we get the registry and the hooks that plugins have contributed
   // right now the only way to "access" these hooks is with oclif directly in the package.json.
   // @TODO: should we have some sort of "early hook" loader so that we can pass them in here? i feel like that would
   // be pretty difficult and is of questionable value?
-  const cli = new Cli({cacheDir, debug, product: config.product});
+  const cli = new Cli({cacheDir, product: config.product});
 
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));

@@ -20,8 +20,6 @@ module.exports = ({argv, config, configFile, id = 'lando'}) => {
     config: {
       argv,
       cached: path.join(config.cacheDir, 'config.json'),
-      // @TODO: replace with get-debugger()?
-      debug: require('debug')(id),
       env: id.toUpperCase(),
       id,
       managed: 'global',
