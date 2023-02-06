@@ -579,7 +579,7 @@
 
 "@lando/core-next@github:lando/core-next#main":
   version "4.0.0-unstable.3"
-  resolved "https://codeload.github.com/lando/core-next/tar.gz/d32367d49515e1b26a48bfef368e34c05617726e"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/5768123dcfcd2bbbf4d6b7543a11257aecd4b693"
   dependencies:
     "@oclif/core" "^2.0.7"
     axios "0.21.4"
@@ -1103,9 +1103,9 @@
     wrap-ansi "^7.0.0"
 
 "@oclif/core@^2.0.7":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-2.0.8.tgz#81c79f051ffb326b7c9999463ae9547a7e799316"
-  integrity sha512-jt06vEZfpazkR0C8vYuVMKmsxjky52y1B1oFGPnCa6/17qH+PByd5knQP6/QbRoE5OT9RAf4zzpxx2wcihVslw==
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-2.0.9.tgz#f38c7260653a60698772ff09c5cf91febbfe003b"
+  integrity sha512-SLwSQa1No4br0D9cLY8lleXvcs3K/YpSQdo0md6z8AHx3P+l0/fv9dtIlYYD8MqsRUcNPxshJ3ZkN2sNNM5VjQ==
   dependencies:
     "@types/cli-progress" "^3.11.0"
     ansi-escapes "^4.3.2"
@@ -1386,9 +1386,9 @@
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
 "@types/node@*":
-  version "18.11.18"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
-  integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
+  version "18.11.19"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.19.tgz#35e26df9ec441ab99d73e99e9aca82935eea216d"
+  integrity sha512-YUgMWAQBWLObABqrvx8qKO1enAvBUdjZOAWQ5grBAkp5LQv45jBvYKZ3oFS9iKRCQyFjqw6iuEa1vmFqtxYLZw==
 
 "@types/node@^17.0.5":
   version "17.0.45"

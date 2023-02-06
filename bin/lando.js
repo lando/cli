@@ -98,20 +98,22 @@ if (runtime === 4) {
   if (process.env.DEBUG) oclif.settings.debug = true;
 
   // get what we need for cli-next
+  const cache = !argv.hasOption('--clear') && !argv.hasOption('--no-cache');
   const cacheDir = path.join(minstrapper.getOclifCacheDir(config.product), 'cli');
-  debug('handing off to %o', '@lando/cli/lib/cli-next');
+  debug('handing off to %o with caching %o', '@lando/cli/lib/cli-next', cache ? 'enabled' : 'disabled');
 
   // get the cli
   const Cli = require('./../lib/cli-next');
   // override some default static props
   Cli.debug = debug.extend('cli');
+  Cli.id = config.product;
 
   // @NOTE: cli-next now allows hooks to be passed directly into the constructor. we do this because there are some
   // hooks eg init, init-preflight that run BEFORE we get the registry and the hooks that plugins have contributed
   // right now the only way to "access" these hooks is with oclif directly in the package.json.
   // @TODO: should we have some sort of "early hook" loader so that we can pass them in here? i feel like that would
   // be pretty difficult and is of questionable value?
-  const cli = new Cli({cacheDir, product: config.product});
+  const cli = new Cli({cache, cacheDir});
 
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));
