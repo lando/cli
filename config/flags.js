@@ -4,10 +4,8 @@ const {Flags} = require('@oclif/core');
 
 module.exports = {
   oclif: {
-    'channel': Flags.string({
-      hidden: true,
-      helpGroup: 'GLOBAL',
-    }),
+    'channel': Flags.string({hidden: true}),
+    'clear': Flags.boolean({hidden: false}),
     'config': Flags.string({
       char: 'c',
       description: 'use configuration from specified file',
@@ -16,42 +14,46 @@ module.exports = {
       helpGroup: 'GLOBAL',
     }),
     'experimental': Flags.boolean({hidden: false}),
+    'no-cache': Flags.boolean({hidden: false}),
     'secret-toggle': Flags.boolean({hidden: false}),
   },
   yargs: {
-    channel: {
-      describe: 'set the update channel',
+    'channel': {
       choices: ['edge', 'none', 'stable'],
       global: true,
       hidden: true,
       type: 'array',
     },
-    clear: {
-      describe: 'clear registry and task caches',
+    'clear': {
       global: true,
+      hidden: true,
       type: 'boolean',
     },
-    debug: {
+    'debug': {
       describe: 'show debug output',
       global: true,
       type: 'boolean',
     },
-    experimental: {
+    'experimental': {
       global: true,
       hidden: true,
       type: 'boolean',
     },
-    help: {
+    'help': {
       describe: 'show lando or delegated command help if applicable',
       type: 'boolean',
     },
-    lando: {
+    'no-cache': {
+      global: true,
+      describe: 'disable and flush cache',
+      type: 'boolean',
+    },
+    'lando': {
       hidden: true,
       type: 'boolean',
     },
-    verbose: {
+    'verbose': {
       alias: 'v',
-      describe: 'run with extra verbosity',
       global: true,
       hidden: true,
       type: 'count',

@@ -7,7 +7,7 @@ const which = require('which');
 
 module.exports = ({options}) => {
   // get oclicf things we need
-  const {argv, id, env, oclif} = options;
+  const {argv, cache, id, env, oclif} = options;
   const {arch, bin, cacheDir, configDir, dataDir, errlog, home, platform, root, shell, version, windows, userAgent} = oclif;
 
   // get other stuff
@@ -20,7 +20,7 @@ module.exports = ({options}) => {
   // return the system config
   return {
     core: {
-      caching: !argv.includes('--clear'),
+      caching: cache,
     },
     plugin: {
       showCore: true,
