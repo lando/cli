@@ -7,7 +7,7 @@ const which = require('which');
 
 module.exports = ({options}) => {
   // get oclicf things we need
-  const {argv, cache, id, env, oclif} = options;
+  const {cache, id, env, oclif} = options;
   const {arch, bin, cacheDir, configDir, dataDir, errlog, home, platform, root, shell, version, windows, userAgent} = oclif;
 
   // get other stuff
