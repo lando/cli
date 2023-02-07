@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = ({argv, config, configFile, id = 'lando'}) => {
+module.exports = ({argv, config, configFile, cache = true, id = 'lando'}) => {
   // determine which loader to use
   // @NOTE: this assumes the user has not changed the user global plugin dir
   const internalBase = path.join(__dirname, '..', 'node_modules', '@lando', 'core-next');
@@ -19,6 +19,7 @@ module.exports = ({argv, config, configFile, id = 'lando'}) => {
     bootstrapper: path.join(coreBase, 'components', 'lando.js'),
     config: {
       argv,
+      cache,
       cached: path.join(config.cacheDir, 'config.json'),
       env: id.toUpperCase(),
       id,

@@ -1,22 +1,22 @@
 'use strict';
 
-module.exports = async ({id, argv, config, cli}) => {
+module.exports = async ({id, argv, cli, config}) => {
   // hook for preflight checks
   await cli.runHook('init-preflight', {config});
 
   // hook to mod the product
-  await cli.runHook('init-product', {product: config.product, [config.product.id]: config.product});
-  await cli.runHook(`init-product-${config.product.id}`, {product: config.product, [config.product.id]: config.product});
+  await cli.runHook('init-product', {product: cli.product, [cli.product.id]: cli.product});
+  await cli.runHook(`init-product-${cli.product.id}`, {product: cli.product, [cli.product.id]: cli.product});
 
   // hook to mod the app if applicable
-  if (config.context.app) await cli.runHook('init-app', {app: config.app});
-  if (config.context.app) await cli.runHook(`init-app-${config.app.name}`, {app: config.app});
+  if (cli.context.app) await cli.runHook('init-app', {app: cli.app});
+  if (cli.context.app) await cli.runHook(`init-app-${cli.app.name}`, {app: cli.app});
 
   // hook to modify the config @NOTE: this will be the config for whatever the context is
-  await cli.runHook('init-config', {config: config.context.app ? config.app.config : config.product.config});
+  await cli.runHook('init-config', {config: cli.config});
 
   // if we do the above then we should have what we need in lando.registry or app.registry
-  await cli.runHook('init-tasks', {id, argv, tasks: config.tasks});
+  await cli.runHook('init-tasks', {id, argv, tasks: cli.tasks});
 
   // final hook to do stuff to the init
   await cli.runHook('init-final', {config});
