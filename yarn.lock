@@ -579,7 +579,7 @@
 
 "@lando/core-next@github:lando/core-next#main":
   version "4.0.0-unstable.3"
-  resolved "https://codeload.github.com/lando/core-next/tar.gz/5f422447cd221a49b448cb368b17c368aafa7adf"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/1c2ce3f128a8f2f1e6ae9626517fe60008c7ff63"
   dependencies:
     "@oclif/core" "^2.0.7"
     axios "0.21.4"

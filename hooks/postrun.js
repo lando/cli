@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = async ({id, result, config, cli}) => {
-  await cli.runHook(`postrun-${id}`, {id, result});
-  await cli.runHook('done', {config});
-  await cli.runHook(`done-${id}`, {config});
+module.exports = async ({id, result, cli}) => {
+  await cli.runHook(`postrun-${id}`, {id, cli});
+  await cli.runHook('done', {cli});
+  await cli.runHook(`done-${id}`, {cli});
 };
