@@ -1,15 +1,28 @@
 'use strict';
 
 module.exports = async ({config, cli, debug}) => {
-  // finally lets rebuild the needed caches
   const {app, context, product} = config;
-  // rebuild lando registry
-  product.reinit();
-  // rebuild app registry if we need to
-  if (context.app) app.reinit();
-  // rebuild tasks and hooks
-  cli.getTasks(config.context.app ? config.app : product, [product, cli]);
-  cli.getHooks(config.context.app ? config.app : product);
-  // log
-  debug('reinitialized cli, app and product caches!');
+
+  // reinit product syscache if caching is on
+  if (product.config.get('core.caching')) {
+    debug('reinitializing %o syscache!', product.id);
+    product.reinit();
+    debug('reinitialized %o syscache!', product.id);
+  }
+
+  // ditto for app
+  if (context.app && app.config.get('core.caching')) {
+    debug('reinitializing %o syscache!', app.name);
+    app.reinit();
+    debug('reinitialized %o syscache!', app.name);
+  }
+
+  // ditto for CLI
+  if (cli.cache) {
+    debug('reinitializing %o syscache!', 'cli');
+    cli.reinit();
+    cli.getHelp(cli.getTasks(context.app ? app : product), [product, cli]);
+    cli.getHooks(context.app ? app : product);
+    debug('reinitialized %o cache!', 'cli');
+  }
 };

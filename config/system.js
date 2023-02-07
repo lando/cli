@@ -12,6 +12,7 @@ module.exports = ({options}) => {
 
   // get other stuff
   const logsDir = path.join(dataDir, 'logs');
+  const syscacheDir = path.resolve(cacheDir, '..', `${id}.system`);
   const user = os.userInfo();
 
   // create dirs
@@ -73,6 +74,7 @@ module.exports = ({options}) => {
       root,
       server: 'node',
       shell: which.sync(shell, {nothrow: true}),
+      syscacheDir,
       totalmem: os.totalmem() / 1_073_741_824,
       version,
       windows,

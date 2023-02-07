@@ -99,7 +99,7 @@ if (runtime === 4) {
 
   // get what we need for cli-next
   const cache = !argv.hasOption('--clear') && !argv.hasOption('--no-cache');
-  const cacheDir = path.join(minstrapper.getOclifCacheDir(config.product), 'cli');
+  const cacheDir = `${minstrapper.getOclifCacheDir(config.product)}.cli`;
   debug('handing off to %o with caching %o', '@lando/cli/lib/cli-next', cache ? 'enabled' : 'disabled');
 
   // get the cli
