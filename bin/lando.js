@@ -13,10 +13,6 @@
 const argv = require('@lando/argv');
 const path = require('path');
 
-// debugger
-const id = path.basename(process.argv[1]);
-const debug = require('@lando/core-next/debug')(id || 'lando');
-
 // helper to determine whether DEBUG is set
 const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
 
@@ -24,6 +20,10 @@ const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === nu
 if (!isDebugging && argv.hasOption('--debug')) {
   require('debug').enable(argv.getOption('--debug', {defaultValue: '*'}));
 }
+
+// debugger
+const id = path.basename(process.argv[1]);
+const debug = require('@lando/core-next/debug')(id || 'lando');
 
 // now load in the minimal mod set to determine the runtime version
 const minstrapper = require('./../lib/minstrapper.js');
