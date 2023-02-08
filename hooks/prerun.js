@@ -1,8 +1,9 @@
 // const formatters = require('./../lib/formatters');
 'use strict';
 
-module.exports = async ({id, data, cli, debug}) => {
-  await cli.runHook(`prerun-${id}`, {id, data});
+module.exports = async ({id, data, cli, debug, task}) => {
+  await cli.runHook('pretask', {id, data, cli});
+  await cli.runHook(`pretask-${id}`, {data, task, cli});
 
   // run the interactive prompts
   debug('attempting interactive prompts...');
