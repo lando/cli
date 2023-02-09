@@ -15,8 +15,7 @@ module.exports = ({argv, config, configFile, cache = true, id = 'lando'}) => {
   const userTemplate = path.join(__dirname, '..', 'config', 'user.yaml');
 
   return {
-    app: path.join(coreBase, 'components', 'app.js'),
-    bootstrapper: path.join(coreBase, 'components', 'lando.js'),
+    product: path.join(coreBase, 'components', 'lando.js'),
     config: {
       argv,
       cache,
