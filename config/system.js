@@ -21,7 +21,10 @@ module.exports = ({options}) => {
   // return the system config
   return {
     core: {
+      app: 'cli-app',
       caching: cache,
+      landofile: '.lando',
+      landofiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
     },
     plugin: {
       showCore: true,
