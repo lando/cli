@@ -23,8 +23,8 @@ module.exports = ({options}) => {
     core: {
       app: 'cli-app',
       caching: cache,
-      landofile: '.lando',
-      landofiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
+      appfile: '.lando',
+      appfiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
     },
     plugin: {
       showCore: true,
