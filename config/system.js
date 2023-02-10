@@ -21,7 +21,7 @@ module.exports = ({options}) => {
   // return the system config
   return {
     core: {
-      app: 'cli-app',
+      app: 'landofile-v3-app',
       caching: cache,
       appfile: '.lando',
       appfiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
