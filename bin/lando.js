@@ -25,8 +25,8 @@ if (!isDebugging && argv.hasOption('--debug')) {
 const id = path.basename(process.argv[1]);
 const debug = require('@lando/core-next/debug')(id || 'lando');
 
-// now load in the minimal mod set to determine the runtime version
-const minstrapper = require('./../lib/minstrapper.js');
+// now load in the runtime selector
+const rts = require('../lib/rts');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 
 // start the preflight
@@ -40,18 +40,18 @@ const USERCONFROOT = process.env.LANDO_CORE_USERCONFROOT;
 
 // start by "minstrapping" the lando/app config
 // primarily this means getting the MININMAL amount of stuff we need to determine the runtime to be used
-let config = minstrapper.getDefaultConfig({envPrefix: ENVPREFIX, userConfRoot: USERCONFROOT});
+let config = rts.getDefaultConfig({envPrefix: ENVPREFIX, userConfRoot: USERCONFROOT});
 
 // @NOTE: is it safe to assume configSources exists and is iterable? i think so?
 for (const file of config.configSources) {
-  config = minstrapper.merge(config, minstrapper.loadFile(file));
+  config = rts.merge(config, rts.loadFile(file));
   debug('merged in additional config source from file %o', file);
 }
 
 // merge in any envvars that set things
 if (config.envPrefix) {
-  const data = minstrapper.loadEnvs(config.envPrefix);
-  config = minstrapper.merge(config, data);
+  const data = rts.loadEnvs(config.envPrefix);
+  config = rts.merge(config, data);
   debug('merged in additional config source from %o envvars with data %O', `${config.envPrefix}_*`, data);
 }
 
@@ -60,8 +60,8 @@ debug('final assembled minconf is %O', config);
 
 // try to get app configuration if we can
 const {preLandoFiles, landoFile, postLandoFiles, userConfRoot} = config;
-const landoFiles = minstrapper.getLandoFiles([preLandoFiles, [landoFile], postLandoFiles].flat(1));
-const appConfig = (landoFiles.length > 0) ? minstrapper.getApp(landoFiles, userConfRoot) : {};
+const landoFiles = rts.getLandoFiles([preLandoFiles, [landoFile], postLandoFiles].flat(1));
+const appConfig = (landoFiles.length > 0) ? rts.getApp(landoFiles, userConfRoot) : {};
 
 // if we have an app then normalize runtime and also log some helpful stuff
 if (Object.keys(appConfig).length > 0) debug('detected an app %o at %o', appConfig.name, path.dirname(landoFiles[0]));
@@ -99,7 +99,7 @@ if (runtime === 4) {
 
   // get what we need for cli-next
   const cache = !argv.hasOption('--clear') && !argv.hasOption('--no-cache');
-  const cacheDir = `${minstrapper.getOclifCacheDir(config.product)}.cli`;
+  const cacheDir = `${rts.getOclifCacheDir(config.product)}.cli`;
   debug('handing off to %o with caching %o', '@lando/cli/lib/cli-next', cache ? 'enabled' : 'disabled');
 
   // get the cli
