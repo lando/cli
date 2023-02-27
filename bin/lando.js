@@ -113,6 +113,7 @@ if (runtime === 4) {
   // right now the only way to "access" these hooks is with oclif directly in the package.json.
   // @TODO: should we have some sort of "early hook" loader so that we can pass them in here? i feel like that would
   // be pretty difficult and is of questionable value?
+  // @TODO: what about minstrapper stuff?
   const cli = new Cli({cache, cacheDir});
 
   // run our oclifish CLI

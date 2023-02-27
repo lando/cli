@@ -3,12 +3,31 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = ({argv, config, configFile, cache = true, id = 'lando'}) => {
-  // determine which loader to use
-  // @NOTE: this assumes the user has not changed the user global plugin dir
-  const internalBase = path.join(__dirname, '..', 'node_modules', '@lando', 'core-next');
-  const externalBase = path.join(config.dataDir, 'plugins', '@lando', 'core-next');
-  const coreBase = fs.existsSync(externalBase) ? externalBase : internalBase;
+module.exports = options => {
+  // cache option?
+  // how would that work? does user configfile bust it?
+
+  console.log(options);
+  process.exit(1)
+
+  // start by moving in
+  // configuration templates
+  const templates = {
+    system: {source: systemTemplate, dest: path.join(config.dataDir, 'system.json'), replace: true},
+    global: {data: {}, dest: path.join(config.dataDir, 'global.json')},
+    user: {source: userTemplate, dest: path.join(config.configDir, 'config.yaml')},
+  };
+
+
+  // then start the config?
+
+  //
+  const sources = {
+
+  }
+
+
+
 
   // start the lando config by setting the default bootstrapper and its config
   const systemTemplate = path.join(__dirname, '..', 'config', 'system.js');
