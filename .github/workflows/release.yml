@@ -4,7 +4,6 @@ on:
   release:
     types:
       - published
-      - edited
 
 jobs:
   package:
@@ -123,13 +122,15 @@ jobs:
         run: |
           mkdir -p releases
           cp ${{ steps.code-sign-action.outputs.file }} releases/${{ matrix.result }}
+
+          # if a latest release then push to stable tag
           if [ "${{ github.event.release.prerelease }}" ==  "false" ]; then
             cp releases/${{ matrix.result }} "releases/$(echo ${{ matrix.result }} | sed 's/${{ github.ref_name }}/stable/;')"
-          else
-            cp releases/${{ matrix.result }} "releases/$(echo ${{ matrix.result }} | sed 's/${{ github.ref_name }}/edge/;')"
           fi
-          chmod +x releases/*
-          ls -lsa releases
+
+          # both latest/stable should push to edge
+          cp releases/${{ matrix.result }} "releases/$(echo ${{ matrix.result }} | sed 's/${{ github.ref_name }}/edge/;')"
+
       - name: Configure S3 Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
