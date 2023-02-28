@@ -1,3 +1,9 @@
+## v3.13.0 - [Februrary 28th, 2023](https://github.com/lando/cli/releases/tag/3.13.0)
+
+### CLI
+
+* Added helpers for new core url scanning upgrade
+
 ## v3.12.0 - [Februrary 26th, 2023](https://github.com/lando/cli/releases/tag/3.12.0)
 
 ### Plugins
