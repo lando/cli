@@ -5,11 +5,10 @@
 * Updated to `@lando/backdrop` version [`0.8.0`](https://github.com/lando/backdrop/releases/tag/v0.8.0)
 * Updated to `@lando/core` version [`3.11.0`](https://github.com/lando/core/releases/tag/v3.11.0)
 * Updated to `@lando/drupal` version [`0.8.0`](https://github.com/lando/drupal/releases/tag/v0.8.0)
-
 * Updated to `@lando/laravel` version [`0.8.0`](https://github.com/lando/laravel/releases/tag/v0.8.0)
 * Updated to `@lando/node` version [`0.8.1`](https://github.com/lando/node/releases/tag/v0.8.1)
-* Updated to `@lando/symfony` version [`0.8.0`](https://github.com/lando/symfony/releases/tag/v0.8.0) 
-* Updated to `@lando/wordpress version [`0.8.0`](https://github.com/lando/wordpress/releases/tag/v0.8.0)
+* Updated to `@lando/symfony` version [`0.8.0`](https://github.com/lando/symfony/releases/tag/v0.8.0)
+* Updated to `@lando/wordpress` version [`0.8.0`](https://github.com/lando/wordpress/releases/tag/v0.8.0)
 
 ## v3.11.0 - [January 27, 2023](https://github.com/lando/cli/releases/tag/3.11.0)
 
