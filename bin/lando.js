@@ -121,15 +121,20 @@ if (runtime === 4) {
 // THIS IS @LANDO/CLI@3 AND @LANDO/CORE@3
 // THIS IS "STABLE LANDO" AND SHOULD NOT REALLY CHANGE AT THIS POINT
 } else if (runtime === 3) {
-  // Summon the implementation of @lando/cli@3 that works with @lando/core@3
-  debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT});
   const _ = require('lodash');
-  const bootstrap = require('@lando/core/lib/bootstrap');
   const fs = require('fs');
-  const Cli = require('./../lib/cli');
 
-  const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT);
+  // determine whether we should try to use an externally provided core
+  const extCore = path.join(config.userConfRoot, 'plugins', '@lando', 'core');
+  const extCoreTestPath = path.join(extCore, 'plugins', 'lando-core', 'index.js');
+  const COREBASE = fs.existsSync(extCoreTestPath) ? extCore : '@lando/core';
+
+  // Summon the implementation of @lando/cli@3 that works with @lando/core@3
+  const Cli = require('./../lib/cli');
+  const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE);
   const bsLevel = (_.has(appConfig, 'recipe')) ? 'APP' : 'TASKS';
+  const bootstrap = require(`${COREBASE}/lib/bootstrap`);
+  debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE});
 
   // Lando cache stuffs
   process.lando = 'node';
@@ -151,7 +156,7 @@ if (runtime === 4) {
   // Otherwise min bootstrap lando so we can generate the task cache first
   } else {
     // NOTE: we require lando down here because it adds .5 seconds if we do it above
-    const Lando = require('@lando/core');
+    const Lando = require(COREBASE);
     const lando = new Lando(cli.defaultConfig(appConfig));
     // add the CLI to lando for downstream usage
     lando.cli = cli;
