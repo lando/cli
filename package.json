@@ -70,7 +70,8 @@
       "config/**/*.js",
       "hooks/**/*.js",
       "lib/**/*.js",
-      "node_modules/@lando/**/*.js"
+      "node_modules/@lando/**/*.js",
+      "renderers/**/*.js"
     ],
     "assets": [
       "config.yml",
