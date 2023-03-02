@@ -3,6 +3,7 @@
 ### CLI
 
 * Added helpers for new core url scanning upgrade
+* Added support for a system wide plugins directory
 
 ### Plugins
 
