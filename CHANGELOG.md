@@ -1,8 +1,39 @@
-## v3.12.0 - [TBD](https://github.com/lando/cli/releases/tag/3.11.0)
+## v3.14.0 - [March 1, 2023](https://github.com/lando/cli/releases/tag/3.14.0)
+
+### CLI
+
+* Added helpers for new core url scanning upgrade
+* Added support for a system wide plugins directory
 
 ### Plugins
 
+* Updated to `@lando/backdrop` version [`0.8.0`](https://github.com/lando/backdrop/releases/tag/v0.8.0)
+* Updated to `@lando/core` version [`3.14.0`](https://github.com/lando/core/releases/tag/v3.14.0)
+* Updated to `@lando/drupal` version [`0.8.0`](https://github.com/lando/drupal/releases/tag/v0.8.0)
+* Updated to `@lando/joomla` version [`0.8.0`](https://github.com/lando/node/releases/tag/v0.8.0)
+* Updated to `@lando/laravel` version [`0.8.0`](https://github.com/lando/laravel/releases/tag/v0.8.0)
 * Updated to `@lando/node` version [`0.8.1`](https://github.com/lando/node/releases/tag/v0.8.1)
+* Updated to `@lando/pantheon` version [`0.9.0`](https://github.com/lando/pantheon/releases/tag/v0.9.0)
+* Updated to `@lando/symfony` version [`0.8.0`](https://github.com/lando/symfony/releases/tag/v0.8.0)
+* Updated to `@lando/wordpress` version [`0.8.0`](https://github.com/lando/wordpress/releases/tag/v0.8.0)
+
+## v3.13.0 - [Februrary 28th, 2023](https://github.com/lando/cli/releases/tag/3.13.0)
+
+### CLI
+
+* Added helpers for new core url scanning upgrade
+
+## v3.12.0 - [Februrary 26th, 2023](https://github.com/lando/cli/releases/tag/3.12.0)
+
+### Plugins
+
+* Updated to `@lando/backdrop` version [`0.8.0`](https://github.com/lando/backdrop/releases/tag/v0.8.0)
+* Updated to `@lando/core` version [`3.11.0`](https://github.com/lando/core/releases/tag/v3.11.0)
+* Updated to `@lando/drupal` version [`0.8.0`](https://github.com/lando/drupal/releases/tag/v0.8.0)
+* Updated to `@lando/laravel` version [`0.8.0`](https://github.com/lando/laravel/releases/tag/v0.8.0)
+* Updated to `@lando/node` version [`0.8.1`](https://github.com/lando/node/releases/tag/v0.8.1)
+* Updated to `@lando/symfony` version [`0.8.0`](https://github.com/lando/symfony/releases/tag/v0.8.0)
+* Updated to `@lando/wordpress` version [`0.8.0`](https://github.com/lando/wordpress/releases/tag/v0.8.0)
 
 ## v3.11.0 - [January 27, 2023](https://github.com/lando/cli/releases/tag/3.11.0)
 
