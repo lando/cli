@@ -5,10 +5,27 @@ const os = require('os');
 const path = require('path');
 const which = require('which');
 
-module.exports = ({options}) => {
-  // get oclicf things we need
-  const {cache, id, env, oclif} = options;
-  const {arch, bin, cacheDir, configDir, dataDir, errlog, home, platform, root, shell, version, windows, userAgent} = oclif;
+module.exports = options => {
+  // 0 0 0 destruct 0
+  const {
+    arch,
+    bin,
+    cache,
+    cacheDir,
+    configDir,
+    coreDir,
+    dataDir,
+    env,
+    errlog,
+    home,
+    id,
+    platform,
+    root,
+    shell,
+    version,
+    windows,
+    userAgent,
+  } = options;
 
   // get other stuff
   const logsDir = path.join(dataDir, 'logs');
@@ -22,9 +39,11 @@ module.exports = ({options}) => {
   return {
     core: {
       app: 'landofile-v3-app',
-      caching: cache,
       appfile: '.lando',
       appfiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
+      caching: cache,
+      product: 'lando',
+
     },
     plugin: {
       dirs: [
@@ -55,6 +74,7 @@ module.exports = ({options}) => {
       bin,
       cacheDir,
       configDir,
+      coreDir,
       dataDir,
       dev: !Object.hasOwn(process, 'pkg'),
       env,
@@ -70,6 +90,7 @@ module.exports = ({options}) => {
       packaged: Object.hasOwn(process, 'pkg'),
       platform,
       product: id || 'lando',
+      productPath: path.join(coreDir, 'components', 'lando'),
       root,
       server: 'node',
       shell: which.sync(shell, {nothrow: true}),
