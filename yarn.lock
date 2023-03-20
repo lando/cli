@@ -581,14 +581,14 @@
   version "4.0.0-unstable.3"
   resolved "https://codeload.github.com/lando/core-next/tar.gz/9fa2157ba4b2fa63b9f210d282ff6d894ee83ff1"
   dependencies:
-    "@oclif/core" "^2.0.7"
     axios "0.21.4"
     bluebird "^3.4.1"
-    camelcase-keys "^7"
     chalk "^4"
+    clean-stacktrace "^1.1.0"
     copy-dir "^0.4.0"
     dayjs "^1.8.25"
     dockerode "^2.4.2"
+    github "^12.0.0"
     glob "^7.1.3"
     ip "^1.1.8"
     is-class "^0.0.9"
@@ -796,10 +796,10 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/pantheon@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.9.0.tgz#4cf6559a6134f2b109739e5bb4fa5d628cbc1d9e"
-  integrity sha512-3wINT5pXulmg9VhcN6YaAVHwmdznaP8zG0oHVUDhrOzSjP5+Kfj1FwEmLLAZVBzQW+gOF0S26AogSBdkMXtl1A==
+"@lando/pantheon@0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.10.0.tgz#2dd530d0699f973560a2014e80763eb708ee2cfe"
+  integrity sha512-zMw9YK2/k/QwQPwQvkntMW09QbzkUpnqfxPzGRa9iQYeTiK2ysarcZ2h+wHGR3wO88P01l9Em40picvANi9zCw==
   dependencies:
     axios "^0.24.0"
     bluebird "^3.7.2"

@@ -1,3 +1,10 @@
+## v3.15.0 - [TBD](https://github.com/lando/cli/releases/tag/3.15.0)
+
+### Plugins
+
+* Updated to `@lando/pantheon` version [`0.10.0`](https://github.com/lando/pantheon/releases/tag/v0.10.0)
+
+
 ## v3.14.0 - [March 1, 2023](https://github.com/lando/cli/releases/tag/3.14.0)
 
 ### CLI
