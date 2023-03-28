@@ -3,9 +3,9 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = async ({config, debug}) => {
+module.exports = async ({cli, debug}) => {
   // get the main things
-  const {arch, bin, cacheDir, platform} = config;
+  const {arch, bin, cacheDir, platform} = cli.product.config.get('system');
   const uid = process.getuid ? process.getuid() : '-1';
   const env = process.pkg ? 'prod' : 'dev';
 

@@ -38,12 +38,11 @@ module.exports = options => {
   // return the system config
   return {
     core: {
-      app: 'landofile-v3-app',
+      app: 'landofile-legacy-app',
       appfile: '.lando',
       appfiles: ['base', 'dist', 'recipe', 'upstream', '', 'local', 'user'],
       caching: cache,
       product: 'lando',
-
     },
     plugin: {
       dirs: [
@@ -51,6 +50,7 @@ module.exports = options => {
           id: 'cli',
           dir: path.resolve(__dirname, '..'),
           depth: 0,
+          weight: -100,
         },
         {
           id: 'core-updates',
