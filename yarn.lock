@@ -577,9 +577,9 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/core-next@github:lando/core-next#main":
+"@lando/core-next@github:lando/core-next#8be19bd":
   version "4.0.0-unstable.3"
-  resolved "https://codeload.github.com/lando/core-next/tar.gz/35bd4ab5c1c18afaf00dad916adc670f497ecadf"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/8be19bd742c7dd7858c0e69842eddb31999c6576"
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
