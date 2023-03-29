@@ -61,9 +61,6 @@
     "dirname": "lando",
     "name": "@lando/cli-next",
     "plugins": [],
-    "hooks": {
-      "minstrap": "./hooks/test"
-    },
     "topicSeparator": " "
   },
   "pkg": {
