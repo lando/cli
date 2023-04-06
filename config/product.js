@@ -4,18 +4,21 @@ const fs = require('fs');
 const path = require('path');
 const read = require('@lando/core-next/utils/read-file');
 
-const Config = require('@lando/core-next/config');
-const Templator = require('@lando/core-next/templator');
-
 module.exports = options => {
   // start by figuring out the "core" location
-  const inCore = path.resolve(__dirname, '..', 'node_modules', '@lando', 'core-next');
   const exCore = path.join(options.dataDir, 'plugins', '@lando', 'core-next');
-  options.coreDir = fs.existsSync(exCore) ? exCore : inCore;
+  options.coreDir = fs.existsSync(exCore) ? exCore : '@lando/core-next';
+
   // and where we should dump the result of the config
   options.configCache = path.join(options.cacheDir, `${options.id}-config.json`);
   // now that options is sort of set, get some stuff we need from it
-  const {configCache, configDir, configFile, dataDir, env, id, logger} = options;
+  const {configCache, configDir, configFile, coreDir, dataDir, env, id, logger} = options;
+
+  const Config = require('@lando/core-next/config');
+  const Templator = require('@lando/core-next/templator');
+  // const Config = require(`${coreDir}/lib/config`);
+  // const Templator = require(`${coreDir}/lib/templator`);
+  process.exit(1)
 
   // configuration templates we need to create
   const templates = [

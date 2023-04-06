@@ -9,7 +9,7 @@ const mkdirp = require('mkdirp');
 const Log = require('@lando/core/lib/logger');
 const log = new Log({logLevelConsole: 'debug', logName: 'yaml2json'});
 const path = require('path');
-const yaml = require('js-yaml');
+const yaml = require('yaml');
 
 // Get file args
 const inputFiles = argv._;
@@ -53,7 +53,7 @@ const files = _(inputFilePaths)
 // Write the files
 _.forEach(files, file => {
   log.info('Generating %s from %s...', file.output, file.input);
-  const data = yaml.load(fs.readFileSync(file.input, {encoding: 'utf-8'}));
+  const data = yaml.parse(fs.readFileSync(file.input, {encoding: 'utf-8'}));
   fs.writeFileSync(file.output, JSON.stringify(data));
   log.info('Wrote %s.', file.output);
 });
