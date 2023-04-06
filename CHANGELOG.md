@@ -3,6 +3,7 @@
 ### Plugins
 
 * Updated to `@lando/pantheon` version [`0.10.0`](https://github.com/lando/pantheon/releases/tag/v0.10.0)
+* Updated to `@lando/redis` version [`0.8.0`](https://github.com/lando/redis/releases/tag/v0.8.0)
 
 
 ## v3.14.0 - [March 1, 2023](https://github.com/lando/cli/releases/tag/3.14.0)

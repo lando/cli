@@ -133,7 +133,7 @@
     "@lando/platformsh": "0.7.0",
     "@lando/postgres": "0.7.0",
     "@lando/python": "0.7.0",
-    "@lando/redis": "0.7.0",
+    "@lando/redis": "0.8.0",
     "@lando/ruby": "0.7.0",
     "@lando/solr": "0.7.0",
     "@lando/symfony": "0.8.0",
