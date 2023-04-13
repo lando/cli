@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const read = require('@lando/core-next/utils/read-file');
 
 module.exports = options => {
   // start by figuring out the "core" location
@@ -13,12 +12,10 @@ module.exports = options => {
   options.configCache = path.join(options.cacheDir, `${options.id}-config.json`);
   // now that options is sort of set, get some stuff we need from it
   const {configCache, configDir, configFile, coreDir, dataDir, env, id, logger} = options;
-
-  const Config = require('@lando/core-next/config');
-  const Templator = require('@lando/core-next/templator');
-  // const Config = require(`${coreDir}/lib/config`);
-  // const Templator = require(`${coreDir}/lib/templator`);
-  process.exit(1)
+  // @NOTE: do we think it makes sense to use coreDir for this? it seems to be a bit slower?
+  // and potentially it could be less? stable
+  const Config = require(`${coreDir}/lib/config`);
+  const Templator = require(`${coreDir}/lib/templator`);
 
   // configuration templates we need to create
   const templates = [
@@ -35,7 +32,7 @@ module.exports = options => {
   // start our config collection and load config sources in decreasing priority
   const config = new Config({cached: configCache, debug: logger.extend('minstrapper-config'), env, id, managed: 'global'});
   // if we have a CLI provided config source then thats first
-  if (configFile) config.overrides('userfile', read(configFile), {encode: false});
+  if (configFile) config.overrides('userfile', Config.read(configFile), {encode: false});
   // then load in product envvars
   config.env(id);
   // then the user config

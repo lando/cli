@@ -577,9 +577,9 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/core-next@github:lando/core-next#8be19bd":
+"@lando/core-next@github:lando/core-next#dedc436":
   version "4.0.0-unstable.3"
-  resolved "https://codeload.github.com/lando/core-next/tar.gz/8be19bd742c7dd7858c0e69842eddb31999c6576"
+  resolved "https://codeload.github.com/lando/core-next/tar.gz/dedc436be3905cd6ce81fddb1e178d21e3aa46a4"
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
@@ -591,7 +591,7 @@
     glob "^7.1.3"
     ip "^1.1.8"
     is-class "^0.0.9"
-    js-yaml "^3.4.6"
+    js-yaml "^4.1.0"
     jsonfile "^2.4.0"
     kebabcase-keys "^1.0.0"
     lodash "^4.17.21"
