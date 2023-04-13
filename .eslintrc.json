@@ -16,6 +16,7 @@
       "code": 150,
       "ignoreComments": true
     }],
+    "no-extra-semi": ["error"],
     "require-jsdoc": ["error", {
       "require": {
         "FunctionDeclaration": true,

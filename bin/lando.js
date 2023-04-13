@@ -37,10 +37,11 @@ debug('starting %o version %o runtime selector...', id, pjson.version);
 const LOGLEVELCONSOLE = process.env.LANDO_CORE_LOGLEVELCONSOLE;
 const ENVPREFIX = process.env.LANDO_CORE_ENVPREFIX;
 const USERCONFROOT = process.env.LANDO_CORE_USERCONFROOT;
+const RUNTIME = process.env.LANDO_CORE_RUNTIME;
 
 // start by "minstrapping" the lando/app config
 // primarily this means getting the MININMAL amount of stuff we need to determine the runtime to be used
-let config = rts.getDefaultConfig({envPrefix: ENVPREFIX, userConfRoot: USERCONFROOT});
+let config = rts.getDefaultConfig({envPrefix: ENVPREFIX, runtime: RUNTIME, userConfRoot: USERCONFROOT});
 
 // @NOTE: is it safe to assume configSources exists and is iterable? i think so?
 for (const file of config.configSources) {
@@ -52,7 +53,7 @@ for (const file of config.configSources) {
 if (config.envPrefix) {
   const data = rts.loadEnvs(config.envPrefix);
   config = rts.merge(config, data);
-  debug('merged in additional config source from %o envvars with data %O', `${config.envPrefix}_*`, data);
+  debug('merged in additional config source from %o envvars with data %o', `${config.envPrefix}_*`, data);
 }
 
 // log minconf result
@@ -60,6 +61,7 @@ debug('final assembled minconf is %O', config);
 
 // try to get app configuration if we can
 const {preLandoFiles, landoFile, postLandoFiles, userConfRoot} = config;
+
 const landoFiles = rts.getLandoFiles([preLandoFiles, [landoFile], postLandoFiles].flat(1));
 const appConfig = (landoFiles.length > 0) ? rts.getApp(landoFiles, userConfRoot) : {};
 
@@ -79,10 +81,8 @@ debug('using %o runtime version %o', '@lando/core', runtime);
  */
 // THIS IS @LANDO/CLI@3(ish) AND @LANDO/CORE@4
 // THIS IS NOW THE HAPPENING SPOT!!!
-if (runtime === 4) {
-  // get oclif
-  const oclif = require('@oclif/core');
 
+if (runtime === 4) {
   // handle legacy --verbose flags
   if (!isDebugging &&
     (argv.hasOption('--verbose')
@@ -95,13 +95,16 @@ if (runtime === 4) {
 
   // Set the OCLIF debug flag
   // we do a different check here because process.env.DEBUG should be set above
-  if (process.env.DEBUG) oclif.settings.debug = true;
+  if (process.env.DEBUG) {
+    const oclif = require('@oclif/core');
+    oclif.settings.debug = true;
+  }
 
   // get what we need for cli-next
   const cache = !argv.hasOption('--clear') && !argv.hasOption('--no-cache');
   const cacheDir = `${rts.getOclifCacheDir(config.product)}.cli`;
 
-  debug('handing off to %o with caching %o', '@lando/cli/lib/cli-next', cache ? 'enabled' : 'disabled');
+  debug('handing off to %o with caching %o at %o', '@lando/cli@4', cache ? 'enabled' : 'disabled', cacheDir);
 
   // get the cli
   const Cli = require('./../lib/cli-next');

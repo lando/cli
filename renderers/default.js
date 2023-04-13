@@ -10,7 +10,7 @@ class LandoDefaultRenderer extends listr.rendererClass {
   constructor(tasks, options, $renderHook) {
     super(tasks, options, $renderHook);
     this.options.level = options.level || 0;
-  };
+  }
 
   createRender(options) {
     options = {
@@ -35,8 +35,8 @@ class LandoDefaultRenderer extends listr.rendererClass {
     if (options.prompt && renderPrompt?.trim().length > 0) render.push((render.length > 0 ? EOL : '') + renderPrompt);
 
     return render.length > 0 ? render.join(EOL) : '';
-  };
-};
+  }
+}
 
 module.exports = LandoDefaultRenderer;
 
