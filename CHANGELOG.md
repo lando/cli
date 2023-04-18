@@ -1,3 +1,9 @@
+## v3.16.0 - [TBD](https://github.com/lando/cli/releases/tag/3.16.0)
+
+### Plugins
+
+* Updated to `@lando/php` version [`0.8.0`](https://github.com/lando/php/releases/tag/v0.8.0)
+
 ## v3.15.0 - [April 7, 2023](https://github.com/lando/cli/releases/tag/3.15.0)
 
 ### CLI
