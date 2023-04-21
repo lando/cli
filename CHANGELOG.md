@@ -1,4 +1,4 @@
-## v3.16.0 - [TBD](https://github.com/lando/cli/releases/tag/3.16.0)
+## v3.16.0 - [April 21, 2023](https://github.com/lando/cli/releases/tag/3.16.0)
 
 ### Plugins
 
