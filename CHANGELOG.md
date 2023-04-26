@@ -1,3 +1,10 @@
+## v3.17.0 - [TBD](https://github.com/lando/cli/releases/tag/3.17.0)
+
+### Plugins
+
+* Updated to `@lando/postgres` version [`0.8.0`](https://github.com/lando/postgres/releases/tag/v0.8.0)
+
+
 ## v3.16.0 - [April 21, 2023](https://github.com/lando/cli/releases/tag/3.16.0)
 
 ### Plugins

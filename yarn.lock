@@ -827,10 +827,10 @@
     platformsh-client "0.1.230"
     tar "^6.1.11"
 
-"@lando/postgres@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@lando/postgres/-/postgres-0.7.0.tgz#4e121f4d867a4679e072a5716837d8f87849b6d6"
-  integrity sha512-xmS2mST0yH6UynFlMRXNmtG7rzOxgTZAAsqf8rJUvsRV7B5oQ3s0QpFsNC4LHR9XYQeEimv04Jck6yvAefsGMA==
+"@lando/postgres@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@lando/postgres/-/postgres-0.8.0.tgz#9d79ec4b7696ec04d58909bc90a5696d1302fb10"
+  integrity sha512-/wEGEg/vwHNuzcMZq3UlAFl+YHh60HvNnsWT/W2lGIF9N4CJMDZTIIwqMIYAMmEpRaJWMIgm5XwlHQnAq5TDDg==
   dependencies:
     lodash "^4.17.21"
 
