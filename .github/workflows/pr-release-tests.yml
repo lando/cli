@@ -21,11 +21,11 @@ jobs:
           - win
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Install node ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
@@ -98,14 +98,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Download ${{ matrix.key }}
         uses: actions/download-artifact@v3
         with:
           name: ${{ matrix.key }}
           path: lando
       - name: Sign and Notarize
-        uses: lando/code-sign-action@v2
+        uses: lando/code-sign-action@v3
         id: code-sign-action
         with:
           file: ${{ matrix.file }}

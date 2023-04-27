@@ -53,20 +53,12 @@ jobs:
       # Eventually it would be great if these steps could live in a separate YAML file
       # that could be included in line to avoid code duplication
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install node ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Get Yarn cache directory
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Use Yarn cache
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+          cache: yarn
       - name: Install Yarn dependencies
         run: yarn install --prefer-offline --frozen-lockfile
 
