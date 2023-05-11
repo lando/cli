@@ -1,4 +1,8 @@
-## v3.17.0 - [TBD](https://github.com/lando/cli/releases/tag/3.17.0)
+## v3.17.0 - [May 11, 2023](https://github.com/lando/cli/releases/tag/3.17.0)
+
+### CLI
+
+* Fixed bug causing run time selector to incorrectly detect app with no-named Landofiles
 
 ### Plugins
 
