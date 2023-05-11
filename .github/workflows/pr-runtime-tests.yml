@@ -16,7 +16,7 @@ jobs:
           - ubuntu-22.04
         node-version:
           - '16'
-        leia-tests:
+        leia-test:
           - examples/global
           - examples/v3
           - examples/v4
@@ -70,4 +70,4 @@ jobs:
       # This block should eventually become use lando/actions-leia@v2
       - name: Run leia tests
         shell: bash
-        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
+        run: yarn leia "./${{ matrix.leia-test }}/README.md" -c 'Destroy tests' --stdin --shell bash

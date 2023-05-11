@@ -1,9 +1,17 @@
-## v3.17.0 - [TBD](https://github.com/lando/cli/releases/tag/3.17.0)
+## v3.17.0 - [May 11, 2023](https://github.com/lando/cli/releases/tag/3.17.0)
+
+### CLI
+
+* Fixed bug causing run time selector to incorrectly detect app with no-named Landofiles
 
 ### Plugins
 
+* Updated to `@lando/core` version [`3.16.0`](https://github.com/lando/core/releases/tag/v3.16.0)
+* Updated to `@lando/drupal` version [`0.9.0`](https://github.com/lando/drupal/releases/tag/v0.9.0)
+* Updated to `@lando/go` version [`0.8.0`](https://github.com/lando/go/releases/tag/v0.8.0)
+* Updated to `@lando/nginx` version [`0.8.0`](https://github.com/lando/nginx/releases/tag/v0.8.0)
+* Updated to `@lando/pantheon` version [`0.10.1`](https://github.com/lando/pantheon/releases/tag/v0.10.1)
 * Updated to `@lando/postgres` version [`0.8.0`](https://github.com/lando/postgres/releases/tag/v0.8.0)
-
 
 ## v3.16.0 - [April 21, 2023](https://github.com/lando/cli/releases/tag/3.16.0)
 
