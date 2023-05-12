@@ -17,6 +17,7 @@ jobs:
         node-version:
           - '16'
         leia-test:
+          - examples/appname
           - examples/global
           - examples/v3
           - examples/v4
