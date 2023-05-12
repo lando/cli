@@ -9,6 +9,6 @@ Verification commands
 Verify starting the app is successful.
 
 ```bash
-# should use the runtime in the landofile
+# should succeed with our integer appname
 lando start
 ```
