@@ -1,3 +1,9 @@
+## v3.17.1 - [May 12, 2023](https://github.com/lando/cli/releases/tag/3.17.1)
+
+### CLI
+
+* Fixed bug that caused an error for apps with integer app names. [#200](https://github.com/lando/cli/issues/200)
+
 ## v3.17.0 - [May 11, 2023](https://github.com/lando/cli/releases/tag/3.17.0)
 
 ### CLI
