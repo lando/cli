@@ -104,7 +104,7 @@
     ]
   },
   "dependencies": {
-    "@lando/acquia": "0.7.0",
+    "@lando/acquia": "0.8.0",
     "@lando/apache": "0.7.0",
     "@lando/argv": "^1.1.0",
     "@lando/backdrop": "0.8.0",
