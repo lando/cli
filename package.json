@@ -112,7 +112,7 @@
     "@lando/core": "3.16.0",
     "@lando/core-next": "github:lando/core-next#183d75d",
     "@lando/dotnet": "^0.7.2",
-    "@lando/drupal": "0.9.0",
+    "@lando/drupal": "0.10.0",
     "@lando/elasticsearch": "0.7.0",
     "@lando/go": "0.8.0",
     "@lando/joomla": "0.8.0",

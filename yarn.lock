@@ -583,33 +583,27 @@
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
-    camelcase-keys "^7"
-    chalk "^4"
+    clean-stacktrace "^1.1.0"
     copy-dir "^0.4.0"
     dayjs "^1.8.25"
     dockerode "^2.4.2"
+    github "^12.0.0"
     glob "^7.1.3"
     ip "^1.1.8"
-    is-class "^0.0.9"
-    js-yaml "^4.1.0"
+    js-yaml "^3.4.6"
     jsonfile "^2.4.0"
-    kebabcase-keys "^1.0.0"
     lodash "^4.17.21"
-    nanoid "^3"
-    nconf "^0.12.0"
+    mkdirp "^0.5.1"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
     semver "^7.3.2"
     shelljs "^0.8.4"
-    slugify "^1.6.5"
     string-argv "0.1.1"
     through "^2.3.8"
     transliteration "^2.2.0"
     uuid "^3.2.1"
     valid-url "^1.0.9"
-    which "^2.0.2"
     winston "2.4.5"
-    yaml "^2.1.1"
 
 "@lando/core@3.16.0":
   version "3.16.0"
@@ -651,10 +645,10 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/drupal@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.9.0.tgz#95027958e1e43db38e1280f85a80b1f60be0e28e"
-  integrity sha512-JV3WJuD5rTvk9RkaQF32i542GVugDSE0TRvTuFrtwbngYeLlGnLibqRQMvVE8OZZNgmi9UvXMxCz+sxA/2V0ww==
+"@lando/drupal@0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@lando/drupal/-/drupal-0.10.0.tgz#a1a02d28baf775196c95fd59225a1c0289427508"
+  integrity sha512-UgCPAUYkusNOp1UJRgZII4Caw5Z1jPxMVkS6LxI/yoRrYb4jxY6/jeFSy4n2E4qwTF+rjkhR2PFC7oaAz8P3HQ==
   dependencies:
     lodash "^4.17.21"
 
