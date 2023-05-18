@@ -166,16 +166,6 @@ if (runtime === 4) {
     // add the CLI to lando for downstream usage
     lando.cli = cli;
 
-    // Add in all cli "management" tasks
-    // @NOTE: we need this here to make sure the task cache is correctly populated before help is shown in the
-    // event of a --clear
-    lando.events.on('pre-bootstrap-tasks', () => {
-      _.forEach(fs.readdirSync(path.resolve(__dirname, '..', 'tasks')), file => {
-        lando.tasks.push(require(path.resolve(__dirname, '..', 'tasks', file))(lando));
-        lando.log.debug('autoloaded task %s', path.basename(file, '.js'));
-      });
-    });
-
     // Bootstrap lando at the correct level
     lando.bootstrap(bsLevel).then(lando => {
       // If bootstrap level is APP then we need to get and init our app to generate the app task cache

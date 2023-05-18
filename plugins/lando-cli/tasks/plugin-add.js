@@ -9,11 +9,14 @@ module.exports = lando => {
       // const Listr = require('listr');
       const Plugin = require('@lando/core-next/plugin');
 
+      // reset Plugin.debug to use the lando 3 debugger
+      Plugin.debug = require('../../../util/debug-shim')(lando.log);
+
       // merge plugins together
       const plugins = [options.plugin].concat(options.plugins);
       lando.log.debug('attempting to install plugins', plugins);
 
-      const dest = _.find(lando.config.pluginDirs, {type: require('./../util/get-plugin-type')(plugins[0])}).dir;
+      const dest = _.find(lando.config.pluginDirs, {type: require('../util/get-plugin-type')(plugins[0])}).dir;
 
       await Plugin.fetch(plugins[0], dest);
       // @TODO: replace forEach wiith a promise.all?
