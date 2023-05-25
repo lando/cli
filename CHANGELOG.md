@@ -1,3 +1,10 @@
+## v3.18.0 - [TBD](https://github.com/lando/cli/releases/tag/3.18.0)
+
+### Plugins
+
+* Updated to `@lando/acquia` version [`0.8.0`](https://github.com/lando/acquia/releases/tag/v0.8.0)
+* Updated to `@lando/drupal` version [`0.10.0`](https://github.com/lando/drupal/releases/tag/v0.10.0)
+
 ## v3.17.1 - [May 12, 2023](https://github.com/lando/cli/releases/tag/3.17.1)
 
 ### CLI
