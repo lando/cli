@@ -790,10 +790,10 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/pantheon@0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.10.1.tgz#043acbab1c5f56e8d1bde7a63ed14a4251cd5dff"
-  integrity sha512-43z7fpOBP7o7k9bz73FD7buCG+l6tZF6uq2F3UwPysaX3tL3xoOEX9+K6BFJ6gGcqF5UwRiy4Ih+5AdmMS6AaA==
+"@lando/pantheon@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@lando/pantheon/-/pantheon-0.11.0.tgz#4fd426657217d7ab278718b7efb551cc3385f70d"
+  integrity sha512-1IeI0zN7eSTTt25STGY0TKwJ4b5VVyhXgLqDS7SKTPqAwtP9gacHRzH8/qHyQeehjqHELH+lpD35wQ7A84o9zQ==
   dependencies:
     axios "^0.24.0"
     bluebird "^3.7.2"
