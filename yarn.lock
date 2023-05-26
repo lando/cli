@@ -842,10 +842,10 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/redis@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@lando/redis/-/redis-0.8.0.tgz#d4890746a17f5e72ff3bb58f5cf6ed6f165b51fd"
-  integrity sha512-hv021sqoIr0CEpVPwK4Nno7reuWpQS3j3SImUjdKVeEVMGa+DNJ/gbJOOPmP6qXOvt8vBmQu+oOUUemLv+sIvQ==
+"@lando/redis@0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@lando/redis/-/redis-0.9.0.tgz#13211f7eaede64b572bbd4c96443198306b54abd"
+  integrity sha512-0j7AkVQF8umQ/I/q3R2polFqkOOwJW6vrBGoL8HtNPbfSTwk5wcaqAZTqAcU8z4ETeQhRmZ+LUKaJgxhCtEgyA==
   dependencies:
     lodash "^4.17.21"
 
