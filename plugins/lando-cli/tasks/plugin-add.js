@@ -44,6 +44,7 @@ module.exports = lando => {
               // update and and return
               task.title = `Installed ${task.plugin.name}@${task.plugin.version}`;
               ctx.added++;
+
               return task.plugin;
 
             // if we have an error then add it to the status object and throw
