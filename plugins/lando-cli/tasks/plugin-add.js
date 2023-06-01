@@ -3,19 +3,43 @@
 module.exports = lando => {
   return {
     command: 'pa <plugin> [plugins...]',
+    options: {
+      auth: {
+        describe: 'Sets auth globally or to a scope',
+        alias: ['a'],
+        array: true,
+      },
+      registry: {
+        describe: 'Sets registry globally or to a scope',
+        alias: ['r', 's', 'scope'],
+        array: true,
+      },
+    },
+
     run: async options => {
       const _ = require('lodash');
       const Plugin = require('@lando/core-next/plugin');
       const {Manager} = require('listr2');
 
-      // reset Plugin.debug to use the lando 3 debugger
+      // reset Plugin static defaults for v3 purposes
       Plugin.debug = require('../../../util/debug-shim')(lando.log);
+      // @TODO: pass popts in from npmrc stuff, also merge lando config ontop of popsts
+      // Plugin.popts = require('../util/lando-2-pacote')(options, merge(npmrc, lando-2-pacote(landoconfig)));
+      // @TODO: eventually move lando-2-pacote and is-valid-url into @lando/core-next or @lando/utils
+
+      // l2p defaults for registry?
+
+      Plugin.popts = require('../util/lando-2-pacote')(options);
+
+      console.log(Plugin.popts);
 
       // @TODOS:
-      // * get auth to work
-      // * get path based installation to work? npmcli@arborist?
-      // * debug ultimate location?
-      // * also sent user-agten
+      // * also sent user-agent? optional opts to pass in?
+      // * get auth-shim to work by looking at lando.config and its envvars?
+      //   * options should be merged in on top of this? or should we set the option defaults?
+
+      // * get auth-shim to work by looking at npmrc stuff
+
 
       // merge plugins together
       const plugins = [options.plugin].concat(options.plugins);

@@ -5,6 +5,13 @@ module.exports = log => {
   const debug = log.debug;
   const fs = log.filters.length;
 
+  // add sanitization
+  // @NOTE: is this really needed?
+  log.alsoSanitize(/_auth$/);
+  log.alsoSanitize(/_authToken$/);
+  log.alsoSanitize(/_password$/);
+  log.alsoSanitize('forceAuth');
+
   // rework debug funcs so they clear fitlers
   ['error', 'warn', 'info', 'verbose', 'debug', 'silly'].forEach(type => {
     // save the old logger
