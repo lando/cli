@@ -8,38 +8,37 @@ module.exports = lando => {
         describe: 'Sets auth globally or to a scope',
         alias: ['a'],
         array: true,
+        default: [],
       },
       registry: {
         describe: 'Sets registry globally or to a scope',
         alias: ['r', 's', 'scope'],
         array: true,
+        default: [],
       },
     },
 
     run: async options => {
       const _ = require('lodash');
+      const config2Lopts = require('../util/config-2-lopts');
+      const lopts2Popts = require('../util/lopts-2-popts');
+
       const Plugin = require('@lando/core-next/plugin');
       const {Manager} = require('listr2');
 
+      // we need to merge various Plugin config soruces together to set the plugin config
+      // lets start with getting stuff directly from lando.config
+      options.config = lopts2Popts(config2Lopts(lando.config.pluginConfig));
+      // lets merge passed in options on top of lopts
+      options.config = lopts2Popts(options, options.config);
+      // finanly lets rebase ontop of any npm config we may have
+      options.config = _.merge({}, options.config);
+      // oh wait theres more! add in some other config
+      // @TODO: also sent user-agent? optional opts to pass in?
+
       // reset Plugin static defaults for v3 purposes
+      Plugin.config = options.config;
       Plugin.debug = require('../../../util/debug-shim')(lando.log);
-      // @TODO: pass popts in from npmrc stuff, also merge lando config ontop of popsts
-      // Plugin.popts = require('../util/lando-2-pacote')(options, merge(npmrc, lando-2-pacote(landoconfig)));
-      // @TODO: eventually move lando-2-pacote and is-valid-url into @lando/core-next or @lando/utils
-
-      // l2p defaults for registry?
-
-      Plugin.popts = require('../util/lando-2-pacote')(options);
-
-      console.log(Plugin.popts);
-
-      // @TODOS:
-      // * also sent user-agent? optional opts to pass in?
-      // * get auth-shim to work by looking at lando.config and its envvars?
-      //   * options should be merged in on top of this? or should we set the option defaults?
-
-      // * get auth-shim to work by looking at npmrc stuff
-
 
       // merge plugins together
       const plugins = [options.plugin].concat(options.plugins);
@@ -63,7 +62,7 @@ module.exports = lando => {
               const {dir} = _.find(lando.config.pluginDirs, {type: require('../util/get-plugin-type')(plugin)});
 
               // add the plugin
-              task.plugin = await require('../util/fetch-plugin')(plugin, {dest: dir}, Plugin);
+              task.plugin = await require('../util/fetch-plugin')(plugin, {config: Plugin.config, dest: dir}, Plugin);
 
               // update and and return
               task.title = `Installed ${task.plugin.name}@${task.plugin.version}`;
