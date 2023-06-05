@@ -108,6 +108,7 @@
     "@lando/core": "3.16.1",
     "@lando/core-next": "github:lando/core-next#cadd94a",
     "@oclif/core": "^2.8.5",
+    "@oclif/parser": "^3.8.12",
     "chalk": "^4",
     "cli-table": "^0.3.1",
     "cli-table3": "^0.5.1",
