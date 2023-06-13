@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 'preview/**'
+      - "**preview**"
 
 jobs:
   package:

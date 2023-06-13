@@ -33,8 +33,6 @@ module.exports = lando => {
       options.config = lopts2Popts(options, options.config);
       // finanly lets rebase ontop of any npm config we may have
       options.config = _.merge({}, options.config);
-      // oh wait theres more! add in some other config
-      // @TODO: also sent user-agent? optional opts to pass in?
 
       // reset Plugin static defaults for v3 purposes
       Plugin.config = options.config;
