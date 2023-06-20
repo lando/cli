@@ -34,10 +34,8 @@ jobs:
           cache: yarn
       - name: Install Yarn dependencies
         run: yarn install --prefer-offline --frozen-lockfile --production
-      - name: Reset version if needed
-        run: |
-          node ./scripts/dev-version.js
-          node ./bin/lando version
+      - name: Prepare Release
+        uses: lando/prepare-release-action@v2
       - name: Package into node binary
         uses: lando/pkg-action@v2
         with:
