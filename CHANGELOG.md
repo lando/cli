@@ -1,3 +1,7 @@
+## v3.19.2 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.2)
+
+* Fixed bug preventing new release flow from working take 2
+
 ## v3.19.1 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.1)
 
 * Fixed bug preventing new release flow from working
