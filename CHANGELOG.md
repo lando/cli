@@ -1,4 +1,8 @@
-## v3.19.0 - [May 26, 2023](https://github.com/lando/cli/releases/tag/3.19.0)
+## v3.19.1 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.1)
+
+* Fixed bug preventing new release flow from working
+
+## v3.19.0 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.0)
 
 ### DevOps
 
