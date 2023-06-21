@@ -159,12 +159,12 @@ jobs:
       - sign-n-deploy
     env:
       TERM: xterm
-    strategy:
       matrix:
-        node-version:
-          - '16'
         os:
           - ubuntu-22.04
+        node-version:
+          - '16'
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
