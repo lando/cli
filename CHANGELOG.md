@@ -1,3 +1,13 @@
+## v3.19.0 - [May 26, 2023](https://github.com/lando/cli/releases/tag/3.19.0)
+
+### DevOps
+
+* Switched release flow over to [@lando/prepare-release-action](https://github.com/lando/prepare-release-action)
+
+### Plugins
+
+* Updated to `@lando/core` version [`3.17.2`](https://github.com/lando/core/releases/tag/v3.17.2)
+
 ## v3.18.0 - [May 26, 2023](https://github.com/lando/cli/releases/tag/3.18.0)
 
 ### Plugins
