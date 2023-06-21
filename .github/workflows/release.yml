@@ -36,12 +36,12 @@ jobs:
         run: yarn install --prefer-offline --frozen-lockfile --production
       - name: Prepare Release
         uses: lando/prepare-release-action@v2
+        with:
+          sync: false
       - name: Ensure version
         run: node ./bin/lando version
       - name: Package into node binary
         uses: lando/pkg-action@v2
-        with:
-          sync: false
         with:
           entrypoint: bin/lando.js
           arch: ${{ matrix.arch }}
