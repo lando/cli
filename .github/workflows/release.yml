@@ -159,6 +159,7 @@ jobs:
       - sign-n-deploy
     env:
       TERM: xterm
+    strategy:
       matrix:
         os:
           - ubuntu-22.04
