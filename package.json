@@ -2,7 +2,7 @@
   "name": "@lando/cli",
   "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
-  "version": "3.18.0",
+  "version": "3.19.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/lando/cli"
@@ -51,7 +51,6 @@
     "clean": "rimraf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint --quiet . && yarn docs:lint",
-    "release": "bump --prompt --tag --all --push",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js plugins/**/test/**/*.spec.js",
     "test:leia": "yarn leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "test": "yarn lint && yarn test:unit"
@@ -144,7 +143,6 @@
     "pkg": "^5.3.1",
     "rimraf": "^3.0.2",
     "sinon": "^4.3.0",
-    "version-bump-prompt": "^4.2.1",
     "vuepress": "2.0.0-beta.53"
   }
 }

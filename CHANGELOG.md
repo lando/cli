@@ -1,3 +1,33 @@
+## v3.19.5 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.5)
+
+* Fixed bug preventing new release flow from working take 5
+
+## v3.19.4 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.4)
+
+* Fixed bug preventing new release flow from working take 4
+
+## v3.19.3 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.3)
+
+* Fixed bug preventing new release flow from working take 3
+
+## v3.19.2 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.2)
+
+* Fixed bug preventing new release flow from working take 2
+
+## v3.19.1 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.1)
+
+* Fixed bug preventing new release flow from working
+
+## v3.19.0 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.0)
+
+### DevOps
+
+* Switched release flow over to [@lando/prepare-release-action](https://github.com/lando/prepare-release-action)
+
+### Plugins
+
+* Updated to `@lando/core` version [`3.17.2`](https://github.com/lando/core/releases/tag/v3.17.2)
+
 ## v3.18.0 - [May 26, 2023](https://github.com/lando/cli/releases/tag/3.18.0)
 
 ### Plugins

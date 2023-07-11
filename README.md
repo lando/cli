@@ -27,6 +27,10 @@ If you'd like to report a bug or submit a feature request then please [use the i
 
 We try to log all changes big and small in both [THE CHANGELOG](https://github.com/lando/cli/blob/main/CHANGELOG.md) and the [release notes](https://github.com/lando/cli/releases).
 
+## Releasing
+
+[Create a release on GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) with a [semver](https://semver.org) tag.
+
 ## Contributors
 
 <a href="https://github.com/lando/cli/graphs/contributors">
