@@ -115,7 +115,7 @@
     "@lando/elasticsearch": "0.7.0",
     "@lando/go": "0.8.0",
     "@lando/joomla": "0.8.0",
-    "@lando/lagoon": "0.7.0",
+    "@lando/lagoon": "0.9.0",
     "@lando/lamp": "0.7.0",
     "@lando/laravel": "0.8.0",
     "@lando/lemp": "0.7.0",

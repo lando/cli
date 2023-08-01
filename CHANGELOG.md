@@ -1,3 +1,9 @@
+## v3.20.0 - [TBD](https://github.com/lando/cli/releases/tag/3.20.0)
+
+### Plugins
+
+* Updated to `@lando/lagoon` version [`0.9.0`](https://github.com/lando/lagoon/releases/tag/v0.9.0)
+
 ## v3.19.5 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.5)
 
 * Fixed bug preventing new release flow from working take 5
