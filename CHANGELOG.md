@@ -1,5 +1,9 @@
 ## v3.20.0 - [TBD](https://github.com/lando/cli/releases/tag/3.20.0)
 
+### CLI
+
+* Added support for `LANDO_DEBUG`, a special environment variable that can set an initial/default debugging level for both the `v3` and `v4` runtimes.
+
 ### Plugins
 
 * Updated to `@lando/lagoon` version [`0.9.0`](https://github.com/lando/lagoon/releases/tag/v0.9.0)

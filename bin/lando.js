@@ -2,7 +2,7 @@
 
 /**
  * Main CLI entrypoint that wraps @lando/core@3 or @lando/core@4
- * This file is meant to be linked as a "lando" executable.
+ * This file is meant to be linked as a lando "executable".
  *
  * @name lando
  */
@@ -13,12 +13,31 @@
 const argv = require('@lando/argv');
 const path = require('path');
 
-// helper to determine whether DEBUG is set
-const isDebugging = (process.env.DEBUG === undefined || process.env.DEBUG === null || process.env.DEBUG === '') !== true;
+// if DEBUG is set then unset it, we dont want it to toggle any debugging inside of lando
+// @NOTE: are we sure? or at the very least are we sure dont want to do something with its value?
+if (process.env.DEBUG) delete process.env.DEBUG;
 
-// check for --debug and internally set DEBUG=* if its set
-if (!isDebugging && argv.hasOption('--debug')) {
-  require('debug').enable(argv.getOption('--debug', {defaultValue: '*'}));
+// start assessing debug situation with LANDO_DEBUG
+if (process.env.LANDO_DEBUG) {
+  const scope = process.env.LANDO_DEBUG === 1
+    || process.env.LANDO_DEBUG === '1'
+    || process.env.LANDO_DEBUG === true
+    || process.env.LANDO_DEBUG === 'true' ? 'lando*' : process.env.LANDO_DEBUG;
+  require('debug').enable(scope);
+}
+
+// then handle legacy --verbose flags next
+if (argv.hasOption('--verbose')
+  || argv.hasOption('-v')
+  || argv.hasOption('-vv')
+  || argv.hasOption('-vvv')
+  || argv.hasOption('-vvvv')) {
+  require('debug').enable('lando*');
+}
+
+// and finally prefer --debug
+if (argv.hasOption('--debug')) {
+  require('debug').enable(argv.getOption('--debug', {defaultValue: 'lando*'}));
 }
 
 // debugger
@@ -33,8 +52,8 @@ const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 debug('starting %o version %o runtime selector...', id, pjson.version);
 
 // allow envvars to override a few core things
-// @NOTE: we've kept these around for backwards compatibility, you probably shouldnt use them
-const LOGLEVELCONSOLE = process.env.LANDO_CORE_LOGLEVELCONSOLE;
+// @NOTE: we've kept these around for backwards compatibility, you probably shouldnt use them though
+const LOGLEVELCONSOLE = process.env.LANDO_CORE_LOGLEVELCONSOLE || debug.enabled ? 4 : undefined;
 const ENVPREFIX = process.env.LANDO_CORE_ENVPREFIX;
 const USERCONFROOT = process.env.LANDO_CORE_USERCONFROOT;
 const RUNTIME = process.env.LANDO_CORE_RUNTIME;
@@ -83,19 +102,9 @@ debug('using %o runtime version %o', '@lando/core', runtime);
 // THIS IS NOW THE HAPPENING SPOT!!!
 
 if (runtime === 4) {
-  // handle legacy --verbose flags
-  if (!isDebugging &&
-    (argv.hasOption('--verbose')
-    || argv.hasOption('-v')
-    || argv.hasOption('-vv')
-    || argv.hasOption('-vvv')
-    || argv.hasOption('-vvvv'))) {
-    require('debug').enable('*');
-  }
-
   // Set the OCLIF debug flag
   // we do a different check here because process.env.DEBUG should be set above
-  if (process.env.DEBUG) {
+  if (debug.enabled) {
     const oclif = require('@oclif/core');
     oclif.settings.debug = true;
   }
@@ -103,8 +112,7 @@ if (runtime === 4) {
   // get what we need for cli-next
   const cache = !argv.hasOption('--clear') && !argv.hasOption('--no-cache');
   const cacheDir = `${rts.getOclifCacheDir(config.product)}.cli`;
-
-  debug('handing off to %o with caching %o at %o', '@lando/cli@4', cache ? 'enabled' : 'disabled', cacheDir);
+  debug('handing off to %o with caching %o at %o and debug %o', '@lando/cli@4', cache ? 'enabled' : 'disabled', cacheDir, debug.enabled);
 
   // get the cli
   const Cli = require('./../lib/cli-next');
@@ -118,7 +126,7 @@ if (runtime === 4) {
   // @TODO: should we have some sort of "early hook" loader so that we can pass them in here? i feel like that would
   // be pretty difficult and is of questionable value?
   // @TODO: what about minstrapper stuff?
-  const cli = new Cli({cache, cacheDir});
+  const cli = new Cli({cache, cacheDir, debug});
 
   // run our oclifish CLI
   cli.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'));
