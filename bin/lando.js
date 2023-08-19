@@ -13,12 +13,6 @@
 const argv = require('@lando/argv');
 const path = require('path');
 
-// helper to determine whether DEBUG is set
-// @TODO:
-// 2. we need to set debug.enable using some mechanism?
-//    should we just unset DEBUG if its set?
-//    what is the hierarchy here? CLI - ENV - CONFIG
-
 // if DEBUG is set then unset it, we dont want it to toggle any debugging inside of lando
 // @NOTE: are we sure? or at the very least are we sure dont want to do something with its value?
 if (process.env.DEBUG) delete process.env.DEBUG;
