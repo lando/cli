@@ -63,25 +63,14 @@ jobs:
       - name: Install Yarn dependencies
         run: yarn install --prefer-offline --frozen-lockfile
 
-      # This block should eventually become use lando/actions-hyperdrive@v2
-      - name: Verify Docker dependencies
-        run: |
-          docker --version | grep "20.10."
-          docker-compose --version | grep "1.29."
-      # - name: Install via hyperdrive if above is bad
-      - name: Disable usage and error reporting
-        run: |
-          mkdir -p ~/.lando/cache
-          echo false > ~/.lando/cache/report_errors
-          sed -i "s/report: true.*/report: false/" config.yml
+      # package cli so we can use that in setup lando
       - name: Package CLI
         run: yarn cli:build
-      - name: Replace source CLI with packaged one
-        run: sudo mv ./dist/@lando/cli /usr/local/bin/lando
-      - name: Verify we can run the packaged CLI
-        run: |
-          lando version
-          lando config
+      - name: Setup locally built lando
+        uses: lando/setup-lando@v2
+        with:
+          lando-version: ./dist/@lando/cli
+          telemetry: false
 
       # Checks to make sure the plugins listed in the matrix have the right path
       - name: Check if @lando/${{ matrix.plugins }} is installed correctly
