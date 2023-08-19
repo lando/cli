@@ -2,7 +2,7 @@
 
 /**
  * Main CLI entrypoint that wraps @lando/core@3 or @lando/core@4
- * This file is meant to be linked as a "lando" executable.
+ * This file is meant to be linked as a lando "executable".
  *
  * @name lando
  */
