@@ -146,7 +146,6 @@
     "cli-table": "^0.3.1",
     "cli-table3": "^0.5.1",
     "debug": "^4.3.4",
-    "delay": "^5.0.0",
     "figlet": "^1.1.1",
     "inquirer": "^6.2.1",
     "inquirer-autocomplete-prompt": "^1.0.1",
