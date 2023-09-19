@@ -4,7 +4,7 @@ const {EOL} = require('os');
 const {Listr} = require('listr2');
 
 // we do this to coax out the default renderer class so we can extend it
-const listr = new Listr([], {renderer: 'default', nonTTYRenderer: 'default'});
+const listr = new Listr([], {renderer: 'default', fallbackRenderer: 'default'});
 
 class LandoDefaultRenderer extends listr.rendererClass {
   constructor(tasks, options, $renderHook) {

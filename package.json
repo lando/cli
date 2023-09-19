@@ -152,7 +152,7 @@
     "inquirer-autocomplete-prompt": "^1.0.1",
     "is-docker": "^2",
     "is-root": "^2",
-    "listr2": "^5.0.7",
+    "listr2": "^6.6.1",
     "lodash": "^4.17.21",
     "mkdirp": "^0.5.1",
     "sudo-block": "^2.0.0",
