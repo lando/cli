@@ -1,12 +1,28 @@
 ## v3.20.0 - [September 22, 2023](https://github.com/lando/cli/releases/tag/3.20.0)
 
-### CLI
+### New Features
 
 * Added support for `LANDO_DEBUG`, a special environment variable that can set an initial/default debugging level for both the `v3` and `v4` runtimes.
 
+### Fixes
+
+* Fixed typo in legacy scanner header artwork
+
 ### Plugins
 
+* Updated to `@lando/core` version [`3.20.0`](https://github.com/lando/core/releases/tag/v3.2.0)
 * Updated to `@lando/lagoon` version [`0.9.0`](https://github.com/lando/lagoon/releases/tag/v0.9.0)
+
+### Internal
+
+Added `cli.runTaskList` for unified `listr2` task running
+Added `debug` `listr2` renderer
+Renamed `default` `listr2` renderer to `lando`
+Removed `dockerSupportedVersions` from `config.yml`, it now lives in [@lando/core](https://github.com/lando/core/blob/main/config.yml)
+
+### DEPRECATIONS
+
+* **DEPRECATED** `cli.getRenderer` in favor of new `cli.runTaskList`
 
 ## v3.19.5 - [June 21, 2023](https://github.com/lando/cli/releases/tag/3.19.5)
 
