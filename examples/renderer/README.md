@@ -20,10 +20,7 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use the debug renderer in a non-TTY environment DEBUG
-lando start && fail
-
-# Should use the debug renderer in a non-TTY environment
+# Should use the verbose renderer in a non-TTY environment
 lando start | grep "\[COMPLETED\]" | wc -l | grep 5
 ```
 
