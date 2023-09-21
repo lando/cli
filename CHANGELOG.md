@@ -1,4 +1,4 @@
-## v3.20.0 - [TBD](https://github.com/lando/cli/releases/tag/3.20.0)
+## v3.20.0 - [September 22, 2023](https://github.com/lando/cli/releases/tag/3.20.0)
 
 ### CLI
 
