@@ -3,15 +3,16 @@ services:
   appserver:
     api: 3
     type: lando
+    healthcheck: healthcheck
     services:
       image: php:8.2-fpm
       command: docker-php-entrypoint sleep infinity
       volumes:
         - "./healthcheck.sh:/usr/local/bin/healthcheck"
-    healthcheck: healthcheck
   nginx:
     api: 3
     type: lando
+    healthcheck: healthcheck
     services:
       image: nginx:1.22.1
       command: /docker-entrypoint.sh nginx -g "daemon off;"
@@ -20,7 +21,6 @@ services:
       volumes:
         - ./:/usr/share/nginx/html
         - "./healthcheck.sh:/usr/local/bin/healthcheck"
-    healthcheck: healthcheck
     run_as_root:
       - echo "$(id)" > /run_as_root.txt
       - ln -snf /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -33,11 +33,7 @@ services:
   database:
     api: 3
     type: lando
-    healthcheck:
-      command: mysql -uroot --silent --execute "SHOW DATABASES;"
-      user: mysql
-      retry: 10
-      delay: 1000
+    healthcheck: healthcheck
     services:
       image: mariadb:10.4
       command: docker-entrypoint.sh mysqld
@@ -50,4 +46,3 @@ services:
         MARIADB_AUTO_UPGRADE: da
       volumes:
         - "./healthcheck.sh:/usr/local/bin/healthcheck"
-      healthcheck: healthcheck
