@@ -11,7 +11,7 @@
 ### Plugins
 
 * Updated to `@lando/core` version [`3.20.0`](https://github.com/lando/core/releases/tag/v3.2.0)
-* Updated to `@lando/lagoon` version [`0.9.0`](https://github.com/lando/lagoon/releases/tag/v0.9.0)
+* Updated to `@lando/lagoon` version [`0.10.0`](https://github.com/lando/lagoon/releases/tag/v0.10.0)
 
 ### Internal
 
