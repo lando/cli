@@ -631,9 +631,10 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@github:lando/core#638d17d":
-  version "3.17.2"
-  resolved "https://codeload.github.com/lando/core/tar.gz/638d17dba087612134c8851b2a04fd8e4a9b0fb5"
+"@lando/core@3.20.0":
+  version "3.20.0"
+  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.20.0.tgz#0c945c333c71a897b75815dfec82c80f02e835d5"
+  integrity sha512-nnV5ysGCH2ap6st8VIBq+0JcUBOjs4ZkDDGEQqZAwL5CwfGOk5wWUaXJLoxzrQ5pWtV1r3Umf1XgFu6H2rPW+w==
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
