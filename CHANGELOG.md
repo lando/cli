@@ -15,10 +15,10 @@
 
 ### Internal
 
-Added `cli.runTaskList` for unified `listr2` task running
-Added `debug` `listr2` renderer
-Renamed `default` `listr2` renderer to `lando`
-Removed `dockerSupportedVersions` from `config.yml`, it now lives in [@lando/core](https://github.com/lando/core/blob/main/config.yml)
+* Added `cli.runTaskList` for unified `listr2` task running
+* Added `debug` `listr2` renderer
+* Renamed `default` `listr2` renderer to `lando`
+* Removed `dockerSupportedVersions` from `config.yml`, it now lives in [@lando/core](https://github.com/lando/core/blob/main/config.yml)
 
 ### DEPRECATIONS
 
