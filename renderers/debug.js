@@ -1,11 +1,8 @@
 'use strict';
 
-const {Listr} = require('listr2');
+const {VerboseRenderer} = require('listr2');
 
-// we do this to coax out the default renderer class so we can extend it
-const listr = new Listr([], {renderer: 'verbose', fallbackRenderer: 'verbose'});
-
-class LandoDebugRenderer extends listr.rendererClass {
+class LandoDebugRenderer extends VerboseRenderer {
   static debug = require('debug')('lando:debug-renderer');
 
   constructor(tasks, options, $renderHook) {

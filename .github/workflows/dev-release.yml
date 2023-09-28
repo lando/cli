@@ -43,7 +43,7 @@ jobs:
       - name: Ensure version
         run: node ./bin/lando version
       - name: Package into node binary
-        uses: lando/pkg-action@v2
+        uses: lando/pkg-action@v3
         with:
           entrypoint: bin/lando.js
           arch: ${{ matrix.arch }}

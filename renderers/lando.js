@@ -1,12 +1,9 @@
 'use strict';
 
 const {EOL} = require('os');
-const {Listr} = require('listr2');
+const {DefaultRenderer} = require('listr2');
 
-// we do this to coax out the default renderer class so we can extend it
-const listr = new Listr([], {renderer: 'default', fallbackRenderer: 'default'});
-
-class LandoRenderer extends listr.rendererClass {
+class LandoRenderer extends DefaultRenderer {
   constructor(tasks, options, $renderHook) {
     super(tasks, options, $renderHook);
     this.options.level = options.level || 0;
@@ -40,6 +37,25 @@ class LandoRenderer extends listr.rendererClass {
 
     return render.join(EOL);
   }
+
+  // async render() {
+  //   const logUpdate = require('log-update');
+  //   const truncate = require('cli-truncate');
+  //   const wrap = require('wrap-ansi');
+
+  //   this.updater = logUpdate.create(this.logger.process.stdout);
+  //   this.truncate = truncate;
+  //   this.wrap = wrap;
+  //   this.logger.process.hijack();
+  //   if (!this.options?.lazy) {
+  //     this.spinner.start(() => {
+  //       this.update();
+  //     });
+  //   }
+  //   this.events.on('SHOUD_REFRESH_RENDER', () => {
+  //     this.update();
+  //   });
+  // }
 }
 
 module.exports = LandoRenderer;
