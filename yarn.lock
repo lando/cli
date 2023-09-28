@@ -631,10 +631,10 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@3.20.0":
-  version "3.20.0"
-  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.20.0.tgz#0c945c333c71a897b75815dfec82c80f02e835d5"
-  integrity sha512-nnV5ysGCH2ap6st8VIBq+0JcUBOjs4ZkDDGEQqZAwL5CwfGOk5wWUaXJLoxzrQ5pWtV1r3Umf1XgFu6H2rPW+w==
+"@lando/core@3.20.1":
+  version "3.20.1"
+  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.20.1.tgz#af12655263f3cf7142a87ca6c6f57443cbadd265"
+  integrity sha512-cXuFkeDpNypDwMFFm1uNivZqEb9/QAqDlDmmdoeExCE5/E57lUfsfNrWfRgPf3P8ENq4fjifCpx4FnuY6yk2+Q==
   dependencies:
     axios "0.21.4"
     bluebird "^3.4.1"
