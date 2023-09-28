@@ -598,7 +598,6 @@
   version "4.0.0-unstable.3"
   resolved "https://codeload.github.com/lando/core-next/tar.gz/183d75dfc31e1ff429348889703f1340379d2c56"
   dependencies:
-    "@npmcli/arborist" "^6.2.9"
     axios "0.21.4"
     bluebird "^3.4.1"
     camelcase-keys "^7"
@@ -606,7 +605,6 @@
     copy-dir "^0.4.0"
     dayjs "^1.8.25"
     dockerode "^2.4.2"
-    fs-extra "^11.1.1"
     glob "^7.1.3"
     ip "^1.1.8"
     is-class "^0.0.9"
@@ -618,7 +616,6 @@
     nconf "^0.12.0"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
-    pacote "^15.1.3"
     semver "^7.3.2"
     shelljs "^0.8.4"
     slugify "^1.6.5"
@@ -914,10 +911,10 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/vuepress-theme-default-plus@1.0.0-beta.45":
-  version "1.0.0-beta.45"
-  resolved "https://registry.yarnpkg.com/@lando/vuepress-theme-default-plus/-/vuepress-theme-default-plus-1.0.0-beta.45.tgz#c7baa338304a2dd717f3f5d28e195d2faa292cd6"
-  integrity sha512-6dSimwhcd8WIYpG4S7dfQLdgbPYG6y3swkhIxpLQrsoKguOdI69M2fN5s7reBIh15ys/XHXglSZ+l6AlsFBMqw==
+"@lando/vuepress-theme-default-plus@1.0.0-beta.49":
+  version "1.0.0-beta.49"
+  resolved "https://registry.yarnpkg.com/@lando/vuepress-theme-default-plus/-/vuepress-theme-default-plus-1.0.0-beta.49.tgz#857476a02680845522ff9db06316e6f22143a2a6"
+  integrity sha512-ItP1EO87qZdUDJjK1n1CudX6cm/uzSEN2X7Bogxr6R8t0d0mm7q0d1cb4CYQ2OPKcro0ksL5CwwfQ4jj+7c35g==
   dependencies:
     "@octokit/core" "^3.5.1"
     "@octokit/plugin-paginate-rest" "^2.17.0"
