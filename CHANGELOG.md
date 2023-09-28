@@ -3,6 +3,7 @@
 ### Fixes
 
 * Fixed bug causing `Invalid host defined options` when using `lando` renderer in `packaged` mode [#216](https://github.com/lando/cli/issues/216)
+* Fixed bug causing `engine` level tasks with interactive options to error
 
 ## v3.20.0 - [September 22, 2023](https://github.com/lando/cli/releases/tag/3.20.0)
 
