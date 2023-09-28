@@ -20,8 +20,7 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should force use of normal renderer
-# NOTE: we do this to check if the renderer works when packaged
+# Should not error using the default renderer while packaged up
 LANDO_RENDERER_FORCE=1 lando start
 
 # Should use the verbose renderer in a non-TTY environment
