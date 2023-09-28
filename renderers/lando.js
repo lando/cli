@@ -38,24 +38,24 @@ class LandoRenderer extends DefaultRenderer {
     return render.join(EOL);
   }
 
-  // async render() {
-  //   const logUpdate = require('log-update');
-  //   const truncate = require('cli-truncate');
-  //   const wrap = require('wrap-ansi');
+  async render() {
+    const logUpdate = require('log-update');
+    const truncate = require('cli-truncate');
+    const wrap = require('wrap-ansi');
 
-  //   this.updater = logUpdate.create(this.logger.process.stdout);
-  //   this.truncate = truncate;
-  //   this.wrap = wrap;
-  //   this.logger.process.hijack();
-  //   if (!this.options?.lazy) {
-  //     this.spinner.start(() => {
-  //       this.update();
-  //     });
-  //   }
-  //   this.events.on('SHOUD_REFRESH_RENDER', () => {
-  //     this.update();
-  //   });
-  // }
+    this.updater = logUpdate.create(this.logger.process.stdout);
+    this.truncate = truncate;
+    this.wrap = wrap;
+    this.logger.process.hijack();
+    if (!this.options?.lazy) {
+      this.spinner.start(() => {
+        this.update();
+      });
+    }
+    this.events.on('SHOUD_REFRESH_RENDER', () => {
+      this.update();
+    });
+  }
 }
 
 module.exports = LandoRenderer;
