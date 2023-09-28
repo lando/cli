@@ -1,3 +1,9 @@
+## v3.20.1 - [September 28, 2023](https://github.com/lando/cli/releases/tag/3.20.1)
+
+### Fixes
+
+* Fixed bug causing `Invalid host defined options` when using `lando` renderer in `packaged` mode [#216](https://github.com/lando/cli/issues/216)
+
 ## v3.20.0 - [September 22, 2023](https://github.com/lando/cli/releases/tag/3.20.0)
 
 ### New Features
