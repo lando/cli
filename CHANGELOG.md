@@ -1,3 +1,9 @@
+## v3.20.2 - [September 30, 2023](https://github.com/lando/cli/releases/tag/3.20.2)
+
+### Plugins
+
+* Updated to `@lando/core` version [`3.20.2`](https://github.com/lando/core/releases/tag/v3.20.2)
+
 ## v3.20.1 - [September 28, 2023](https://github.com/lando/cli/releases/tag/3.20.1)
 
 ### Fixes
