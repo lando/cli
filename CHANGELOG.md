@@ -1,3 +1,9 @@
+## v3.20.3 - [October 2023](https://github.com/lando/cli/releases/tag/3.20.3)
+
+### Plugins
+
+* Updated to `@lando/drupal` version [`0.12.01`](https://github.com/lando/drupal/releases/tag/v0.12.0)
+
 ## v3.20.2 - [September 30, 2023](https://github.com/lando/cli/releases/tag/3.20.2)
 
 ### Plugins
