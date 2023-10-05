@@ -3,6 +3,8 @@
 ### Plugins
 
 * Updated to `@lando/drupal` version [`0.12.01`](https://github.com/lando/drupal/releases/tag/v0.12.0)
+* Updated to `@lando/lagoon` version [`0.11.0`](https://github.com/lando/lagoon/releases/tag/v0.11.0)
+* Updated to `@lando/pantheon` version [`0.13.0`](https://github.com/lando/pantheon/releases/tag/v0.13.0)
 
 ## v3.20.2 - [September 30, 2023](https://github.com/lando/cli/releases/tag/3.20.2)
 
