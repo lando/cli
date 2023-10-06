@@ -1,5 +1,9 @@
 ## v3.20.4 - [October 6, 2023](https://github.com/lando/cli/releases/tag/3.20.4)
 
+### CLI
+
+* Suppressed autodebug messaging on `runtime: 3` for now [#220](https://github.com/lando/cli/issues/220)
+
 ### Plugins
 
 * Updated to `@lando/core` version [`3.20.4`](https://github.com/lando/core/releases/tag/v3.20.4)

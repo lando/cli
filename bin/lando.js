@@ -26,14 +26,15 @@ if (process.env.LANDO_DEBUG) {
   require('debug').enable(scope);
 }
 
+// @NOTE: reconsider this when we have lando 4 arg parsing? or have that just be a lando 4 thing?
 // then handle legacy --verbose flags next
-if (argv.hasOption('--verbose')
-  || argv.hasOption('-v')
-  || argv.hasOption('-vv')
-  || argv.hasOption('-vvv')
-  || argv.hasOption('-vvvv')) {
-  require('debug').enable('lando*');
-}
+// if (argv.hasOption('--verbose')
+//   || argv.hasOption('-v')
+//   || argv.hasOption('-vv')
+//   || argv.hasOption('-vvv')
+//   || argv.hasOption('-vvvv')) {
+//   require('debug').enable('lando*');
+// }
 
 // and finally prefer --debug
 if (argv.hasOption('--debug')) {
