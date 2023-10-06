@@ -108,7 +108,7 @@
     "@lando/argv": "^1.1.0",
     "@lando/backdrop": "0.8.0",
     "@lando/compose": "0.7.0",
-    "@lando/core": "3.20.3",
+    "@lando/core": "3.20.4",
     "@lando/core-next": "github:lando/core-next#183d75d",
     "@lando/dotnet": "^0.7.2",
     "@lando/drupal": "0.12.0",
