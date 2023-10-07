@@ -1,3 +1,17 @@
+## v3.20.4 - [October 6, 2023](https://github.com/lando/cli/releases/tag/3.20.4)
+
+### CLI
+
+* Suppressed autodebug messaging on `runtime: 3` for now [#220](https://github.com/lando/cli/issues/220)
+
+### Plugins
+
+* Updated to `@lando/acquia` version [`0.10.0`](https://github.com/lando/acquia/releases/tag/v0.10.0)
+* Updated to `@lando/core` version [`3.20.4`](https://github.com/lando/core/releases/tag/v3.20.4)
+* Updated to `@lando/drupal` version [`0.12.01`](https://github.com/lando/drupal/releases/tag/v0.12.0)
+* Updated to `@lando/lagoon` version [`0.11.0`](https://github.com/lando/lagoon/releases/tag/v0.11.0)
+* Updated to `@lando/pantheon` version [`0.13.0`](https://github.com/lando/pantheon/releases/tag/v0.13.0)
+
 ## v3.20.2 - [September 30, 2023](https://github.com/lando/cli/releases/tag/3.20.2)
 
 ### Plugins
