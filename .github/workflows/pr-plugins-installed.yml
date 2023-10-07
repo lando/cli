@@ -12,42 +12,43 @@ jobs:
       fail-fast: false
       matrix:
         plugins:
-          - acquia
-          - apache
-          - backdrop
-          - compose
+          # - acquia
+          # - apache
+          # - backdrop
+          # - compose
           - core
-          - dotnet
-          - drupal
-          - elasticsearch
-          - go
-          - joomla
-          - lagoon
-          - lamp
-          - laravel
-          - lemp
-          - mailhog
-          - mariadb
-          - mean
-          - memcached
-          - mongo
-          - mssql
-          - mysql
-          - nginx
-          - node
-          - pantheon
-          - php
-          - phpmyadmin
-          - platformsh
-          - postgres
-          - python
-          - redis
-          - ruby
-          - solr
-          - symfony
-          - tomcat
-          - wordpress
-          - varnish
+          - core-next
+          # - dotnet
+          # - drupal
+          # - elasticsearch
+          # - go
+          # - joomla
+          # - lagoon
+          # - lamp
+          # - laravel
+          # - lemp
+          # - mailhog
+          # - mariadb
+          # - mean
+          # - memcached
+          # - mongo
+          # - mssql
+          # - mysql
+          # - nginx
+          # - node
+          # - pantheon
+          # - php
+          # - phpmyadmin
+          # - platformsh
+          # - postgres
+          # - python
+          # - redis
+          # - ruby
+          # - solr
+          # - symfony
+          # - tomcat
+          # - wordpress
+          # - varnish
 
     steps:
       # Install deps and cache
