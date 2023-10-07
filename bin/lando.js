@@ -140,7 +140,7 @@ if (runtime === 4) {
 
   // determine whether we should try to use an externally provided core
   const extCore = path.join(config.userConfRoot, 'plugins', '@lando', 'core');
-  const extCoreTestPath = path.join(extCore, 'plugins', 'lando-core', 'index.js');
+  const extCoreTestPath = path.join(extCore, 'index.js');
   const COREBASE = fs.existsSync(extCoreTestPath) ? extCore : '@lando/core';
 
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
