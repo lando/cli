@@ -557,6 +557,7 @@
   version "4.0.0-unstable.3"
   resolved "https://codeload.github.com/lando/core-next/tar.gz/183d75dfc31e1ff429348889703f1340379d2c56"
   dependencies:
+    "@npmcli/arborist" "^6.2.9"
     axios "0.21.4"
     bluebird "^3.4.1"
     camelcase-keys "^7"
@@ -564,6 +565,7 @@
     copy-dir "^0.4.0"
     dayjs "^1.8.25"
     dockerode "^2.4.2"
+    fs-extra "^11.1.1"
     glob "^7.1.3"
     ip "^1.1.8"
     is-class "^0.0.9"
@@ -575,6 +577,7 @@
     nconf "^0.12.0"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
+    pacote "^15.1.3"
     semver "^7.3.2"
     shelljs "^0.8.4"
     slugify "^1.6.5"
@@ -587,10 +590,9 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@3.20.4":
+"@lando/core@github:lando/core#cdc9e75":
   version "3.20.4"
-  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.20.4.tgz#fd841072efeff8a8ee6043a96835f41cd6738d06"
-  integrity sha512-gcSwab3kLvQ5bKIzeC0Xi5fujrCsm8TjCbOwF9aVIsyS4Bwx2+PGrvublpwZkc/0vGVmdWJYX107se5531DJBQ==
+  resolved "https://codeload.github.com/lando/core/tar.gz/cdc9e75f3907e1433e8bf55b468608d97bc4262f"
   dependencies:
     "@octokit/rest" "^19"
     axios "0.21.4"
