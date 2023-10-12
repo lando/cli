@@ -138,10 +138,19 @@ if (runtime === 4) {
   const _ = require('lodash');
   const fs = require('fs');
 
-  // determine whether we should try to use an externally provided core
+  // compute path to external core
   const extCore = path.join(config.userConfRoot, 'plugins', '@lando', 'core');
-  const extCoreTestPath = path.join(extCore, 'index.js');
-  const COREBASE = fs.existsSync(extCoreTestPath) ? extCore : '@lando/core';
+  // if appConfig points to a different core lets set that here
+  if (typeof _.get(appConfig, 'plugins.@lando/core') === 'string') {
+    appConfig.appCore = path.resolve(appConfig.root, appConfig.plugins['@lando/core']);
+  }
+
+  // by default core is in node_modules
+  let COREBASE = '@lando/core';
+  // but if its in the user plugins dir use that instead
+  if (fs.existsSync(path.join(extCore, 'index.js'))) COREBASE = extCore;
+  // but if its referenced in the appConfig then actually use that instead
+  if (appConfig.appCore && fs.existsSync(path.join(appConfig.appCore, 'index.js'))) COREBASE = appConfig.appCore;
 
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
   const Cli = require('./../lib/cli');
