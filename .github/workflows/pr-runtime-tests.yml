@@ -18,6 +18,7 @@ jobs:
         leia-test:
           - examples/appname
           - examples/global
+          - examples/renderer
           - examples/v3
           - examples/v4
     steps:
