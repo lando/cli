@@ -607,14 +607,15 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@github:lando/core#0414a88":
+"@lando/core@github:lando/core#e4d0d98":
   version "3.20.4"
-  resolved "https://codeload.github.com/lando/core/tar.gz/0414a88c5730148e5af8bdb81700408b0c24be04"
+  resolved "https://codeload.github.com/lando/core/tar.gz/e4d0d98ff348e64fcf3292dc53fa46eff3c3dc2f"
   dependencies:
     "@octokit/rest" "^19"
     axios "0.21.4"
     bluebird "^3.4.1"
     clean-stacktrace "^1.1.0"
+    cli-truncate "2.1.0"
     copy-dir "^0.4.0"
     dayjs "^1.8.25"
     debug "^4.3.4"
@@ -628,8 +629,9 @@
     is-class "^0.0.9"
     js-yaml "^3.4.6"
     jsonfile "^2.4.0"
+    listr2 "^6.6.1"
     lodash "^4.17.21"
-    mkdirp "^0.5.1"
+    log-update "4.0.0"
     nanoid "^3"
     node-cache "^4.1.1"
     object-hash "^1.1.8"
@@ -643,6 +645,7 @@
     uuid "^3.2.1"
     valid-url "^1.0.9"
     winston "2.4.5"
+    wrap-ansi "7.0.0"
 
 "@lando/leia@^0.6.4":
   version "0.6.7"
