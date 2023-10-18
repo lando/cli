@@ -607,9 +607,9 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@github:lando/core#88563c7":
+"@lando/core@github:lando/core#45bc04e":
   version "3.20.4"
-  resolved "https://codeload.github.com/lando/core/tar.gz/88563c752416b7a28b51ff730c6037aef295433c"
+  resolved "https://codeload.github.com/lando/core/tar.gz/45bc04e211cbad76bf8688b5adc77eb8adf10329"
   dependencies:
     "@octokit/rest" "^19"
     axios "0.21.4"
