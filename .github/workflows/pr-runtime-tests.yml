@@ -34,7 +34,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: yarn
       - name: Install Yarn dependencies
-        run: yarn install --prefer-offline --frozen-lockfile
+        run: yarn install --prefer-offline --frozen-lockfile --production
 
       # @TODO: once we are no longer using github:lando/core-next#main as the repo for @lando/core-next
       # eg once we are pulling a package from npm we can remove this
