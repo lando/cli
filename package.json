@@ -104,7 +104,7 @@
   },
   "dependencies": {
     "@lando/argv": "^1.1.0",
-    "@lando/core": "github:lando/core#6c2b56d0",
+    "@lando/core": "github:lando/core#88563c7",
     "@lando/core-next": "github:lando/core-next#183d75d",
     "@oclif/core": "^1.22.0",
     "chalk": "^4",
@@ -135,7 +135,7 @@
     "eslint-plugin-vue": "^8.0.3",
     "mocha": "^4.1.0",
     "nyc": "^12.0.1",
-    "pkg": "^5.3.1",
+    "pkg": "^5.8.1",
     "rimraf": "^3.0.2",
     "sinon": "^4.3.0",
     "vuepress": "2.0.0-beta.53"

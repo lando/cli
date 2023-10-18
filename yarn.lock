@@ -607,9 +607,9 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@github:lando/core#6c2b56d0":
+"@lando/core@github:lando/core#88563c7":
   version "3.20.4"
-  resolved "https://codeload.github.com/lando/core/tar.gz/6c2b56d0a1ca5042c1a125cde42e0c6027554a75"
+  resolved "https://codeload.github.com/lando/core/tar.gz/88563c752416b7a28b51ff730c6037aef295433c"
   dependencies:
     "@octokit/rest" "^19"
     axios "0.21.4"
@@ -6711,7 +6711,7 @@ pkg-fetch@3.4.2:
     tar-fs "^2.1.1"
     yargs "^16.2.0"
 
-pkg@^5.3.1:
+pkg@^5.8.1:
   version "5.8.1"
   resolved "https://registry.yarnpkg.com/pkg/-/pkg-5.8.1.tgz#862020f3c0575638ef7d1146f951a54d65ddc984"
   integrity sha512-CjBWtFStCfIiT4Bde9QpJy0KeH19jCfwZRJqHFDFXfhUklCx8JoFmMj3wgnEYIwGmZVNkhsStPHEOnrtrQhEXA==
