@@ -156,7 +156,7 @@ if (runtime === 4) {
   const Cli = require('./../lib/cli');
   const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE);
   const bsLevel = (_.has(appConfig, 'recipe')) ? 'APP' : 'TASKS';
-  const bootstrap = require(`${COREBASE}/lib/bootstrap`);
+  const getTasks = require(`${COREBASE}/utils/get-tasks`);
   debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE});
 
   // Lando cache stuffs
@@ -175,7 +175,7 @@ if (runtime === 4) {
 
   // Print the cli if we've got tasks cached
   if (fs.existsSync(process.landoTaskCacheFile)) {
-    cli.run(bootstrap.getTasks(appConfig, cli.argv()), appConfig);
+    cli.run(getTasks(appConfig, cli.argv()), appConfig);
   // Otherwise min bootstrap lando so we can generate the task cache first
   } else {
     // NOTE: we require lando down here because it adds .5 seconds if we do it above
@@ -187,10 +187,10 @@ if (runtime === 4) {
     lando.bootstrap(bsLevel).then(lando => {
       // If bootstrap level is APP then we need to get and init our app to generate the app task cache
       if (bsLevel === 'APP') {
-        lando.getApp().init().then(() => cli.run(bootstrap.getTasks(appConfig, cli.argv()), appConfig));
+        lando.getApp().init().then(() => cli.run(getTasks(appConfig, cli.argv()), appConfig));
       // Otherwise run as yooz
       } else {
-        cli.run(bootstrap.getTasks(appConfig, cli.argv()), appConfig);
+        cli.run(getTasks(appConfig, cli.argv()), appConfig);
       }
     });
   }
