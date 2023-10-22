@@ -14,7 +14,7 @@ jobs:
         os:
           - ubuntu-22.04
         node-version:
-          - '16'
+          - '18'
         leia-test:
           - examples/appname
           - examples/global
