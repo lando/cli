@@ -11,6 +11,7 @@
 
 // mods
 const argv = require('@lando/argv');
+const merge = require('@lando/core/utils/merge');
 const path = require('path');
 
 // if DEBUG is set then unset it, we dont want it to toggle any debugging inside of lando
@@ -46,7 +47,6 @@ const id = path.basename(process.argv[1]);
 const debug = require('@lando/core-next/debug')(id || 'lando');
 
 // now load in the runtime selector
-const rts = require('../lib/rts');
 const pjson = require(path.resolve(__dirname, '..', 'package.json'));
 
 // start the preflight
@@ -61,18 +61,18 @@ const RUNTIME = process.env.LANDO_CORE_RUNTIME;
 
 // start by "minstrapping" the lando/app config
 // primarily this means getting the MININMAL amount of stuff we need to determine the runtime to be used
-let config = rts.getDefaultConfig({envPrefix: ENVPREFIX, runtime: RUNTIME, userConfRoot: USERCONFROOT});
+let config = require('../utils/get-default-config')({envPrefix: ENVPREFIX, runtime: RUNTIME, userConfRoot: USERCONFROOT});
 
 // @NOTE: is it safe to assume configSources exists and is iterable? i think so?
 for (const file of config.configSources) {
-  config = rts.merge(config, rts.loadFile(file));
+  config = merge(config, require('../utils/load-file')(file));
   debug('merged in additional config source from file %o', file);
 }
 
 // merge in any envvars that set things
 if (config.envPrefix) {
-  const data = rts.loadEnvs(config.envPrefix);
-  config = rts.merge(config, data);
+  const data = require('../utils/load-envars')(config.envPrefix);
+  config = merge(config, data);
   debug('merged in additional config source from %o envvars with data %o', `${config.envPrefix}_*`, data);
 }
 
@@ -82,8 +82,8 @@ debug('final assembled minconf is %O', config);
 // try to get app configuration if we can
 const {preLandoFiles, landoFile, postLandoFiles, userConfRoot} = config;
 
-const landoFiles = rts.getLandoFiles([preLandoFiles, [landoFile], postLandoFiles].flat(1));
-const appConfig = (landoFiles.length > 0) ? rts.getApp(landoFiles, userConfRoot) : {};
+const landoFiles = require('../utils/get-lando-files')([preLandoFiles, [landoFile], postLandoFiles].flat(1));
+const appConfig = (landoFiles.length > 0) ? require('../utils/get-app')(landoFiles, userConfRoot) : {};
 
 // if we have an app then normalize runtime and also log some helpful stuff
 if (Object.keys(appConfig).length > 0) debug('detected an app %o at %o', appConfig.name, path.dirname(landoFiles[0]));
@@ -112,7 +112,7 @@ if (runtime === 4) {
 
   // get what we need for cli-next
   const cache = !argv.hasOption('--clear') && !argv.hasOption('--no-cache');
-  const cacheDir = `${rts.getOclifCacheDir(config.product)}.cli`;
+  const cacheDir = `${require('@lando/core/utils/get-cache-dir')(config.product)}.cli`;
   debug('handing off to %o with caching %o at %o and debug %o', '@lando/cli@4', cache ? 'enabled' : 'disabled', cacheDir, debug.enabled);
 
   // get the cli
