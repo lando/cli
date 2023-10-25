@@ -75,7 +75,9 @@
       "hooks/**/*.js",
       "lib/**/*.js",
       "node_modules/@lando/core/**/*.js",
-      "node_modules/@lando/core-next/**/*.js"
+      "node_modules/@lando/core/**/*.cjs",
+      "node_modules/@lando/core-next/**/*.js",
+      "node_modules/@lando/core-next/**/*.cjs"
     ],
     "assets": [
       "config.yml",
