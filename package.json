@@ -12,7 +12,7 @@
     "url": "https://github.com/lando/cli/issues"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "files": [
     "/bin",
@@ -44,7 +44,7 @@
     "all": true
   },
   "scripts": {
-    "cli:build": "yarn clean && yarn pkg -c package.json -t node16 bin/lando.js",
+    "cli:build": "yarn clean && yarn pkg -c package.json -t node18 bin/lando.js",
     "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs",
     "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
@@ -75,7 +75,9 @@
       "hooks/**/*.js",
       "lib/**/*.js",
       "node_modules/@lando/core/**/*.js",
-      "node_modules/@lando/core-next/**/*.js"
+      "node_modules/@lando/core/**/*.cjs",
+      "node_modules/@lando/core-next/**/*.js",
+      "node_modules/@lando/core-next/**/*.cjs"
     ],
     "assets": [
       "config.yml",
@@ -104,9 +106,10 @@
   },
   "dependencies": {
     "@lando/argv": "^1.1.0",
-    "@lando/core": "github:lando/core#ef22c69",
+    "@lando/core": "github:lando/core#8f807a3",
     "@lando/core-next": "github:lando/core-next#183d75d",
-    "@oclif/core": "^1.22.0",
+    "@oclif/core": "^3.5.0",
+    "@oclif/parser": "^3.8.17",
     "chalk": "^4",
     "cli-table": "^0.3.1",
     "cli-table3": "^0.5.1",

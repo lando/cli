@@ -13,6 +13,7 @@ module.exports = {
       default: undefined,
       helpGroup: 'GLOBAL',
     }),
+    'debug': Flags.boolean({hidden: true}),
     'experimental': Flags.boolean({hidden: false}),
     'no-cache': Flags.boolean({hidden: false}),
     'secret-toggle': Flags.boolean({hidden: false}),
