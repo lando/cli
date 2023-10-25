@@ -7,6 +7,6 @@ module.exports = prefix => {
     // map to key/pair values
     .map(key => ([
       require('lodash/camelCase')(key.replace(`${prefix}_`, '')),
-      exports.tryConvertJson(process.env[key]),
+      require('@lando/core/utils/try-convert-json')(process.env[key]),
     ])));
 };
