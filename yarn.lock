@@ -607,9 +607,9 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@github:lando/core#2bbd2aa2":
+"@lando/core@github:lando/core#e3fc3302":
   version "3.20.4"
-  resolved "https://codeload.github.com/lando/core/tar.gz/2bbd2aa261cd98ed55aa095de25ddad8e80969a3"
+  resolved "https://codeload.github.com/lando/core/tar.gz/e3fc3302ae12a0ea6e704a05f8649815b424e553"
   dependencies:
     "@npmcli/arborist" "^6.2.9"
     "@octokit/rest" "^19"
