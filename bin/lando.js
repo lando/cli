@@ -11,7 +11,7 @@
 
 // mods
 const argv = require('@lando/argv');
-const merge = require('@lando/core/utils/merge');
+const lmerge = require('@lando/core/utils/legacy-merge');
 const path = require('path');
 
 // if DEBUG is set then unset it, we dont want it to toggle any debugging inside of lando
@@ -65,14 +65,14 @@ let config = require('../utils/get-default-config')({envPrefix: ENVPREFIX, runti
 
 // @NOTE: is it safe to assume configSources exists and is iterable? i think so?
 for (const file of config.configSources) {
-  config = merge(config, require('../utils/load-file')(file));
+  config = lmerge(config, require('../utils/load-file')(file));
   debug('merged in additional config source from file %o', file);
 }
 
 // merge in any envvars that set things
 if (config.envPrefix) {
   const data = require('../utils/load-envars')(config.envPrefix);
-  config = merge(config, data);
+  config = lmerge(config, data);
   debug('merged in additional config source from %o envvars with data %o', `${config.envPrefix}_*`, data);
 }
 

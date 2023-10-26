@@ -14,7 +14,7 @@ const loadLandoFile = file => {
 };
 
 module.exports = (files, userConfRoot) => {
-  const config = require('@lando/core/utils/merge')({}, ...files.map(file => loadLandoFile(file)));
+  const config = require('@lando/core/utils/legacy-merge')({}, ...files.map(file => loadLandoFile(file)));
   // if no name then return empty object
   if (!config.name) return {};
   // cast the name to a string...just to make sure.
