@@ -91,6 +91,7 @@
       "node_modules/@lando/**/*.inc",
       "node_modules/@lando/**/*.json",
       "node_modules/@lando/**/*.php",
+      "node_modules/@lando/**/*.ps1",
       "node_modules/@lando/**/*.py",
       "node_modules/@lando/**/*.sh",
       "node_modules/@lando/**/*.toml",
