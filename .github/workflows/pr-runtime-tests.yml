@@ -44,6 +44,7 @@ jobs:
           git diff
 
       # package cli so we can use that in setup lando
+      # @TODO: remove skip-common-plugins when fatcore stuff is done
       - name: Package CLI
         run: yarn cli:build
       - name: Setup locally built lando
@@ -51,6 +52,9 @@ jobs:
         with:
           lando-version: ./dist/@lando/cli
           telemetry: false
+          config: |
+            setup.skipCommonPlugins=true
+
       - name: Verify we can run the packaged CLI in both runtimes
         run: |
           # v3 things
