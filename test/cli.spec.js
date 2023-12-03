@@ -125,8 +125,8 @@ describe('cli', () => {
   describe('#makeArt', () => {
     it('should be the same as art()', () => {
       const cli = new Cli();
-      const func = 'updateAvailable';
-      const opts = {url: 'https://lando.dev'};
+      const func = 'secretToggle';
+      const opts = false;
       cli.makeArt(func, opts).should.deep.equal(art[func](opts));
     });
   });
