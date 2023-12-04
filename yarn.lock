@@ -584,9 +584,10 @@
     winston "2.4.5"
     yaml "^2.1.1"
 
-"@lando/core@github:lando/core#805d87a":
-  version "3.20.4"
-  resolved "https://codeload.github.com/lando/core/tar.gz/805d87a90fd26930c08817c532e5fc161143c1b5"
+"@lando/core@3.21.0-alpha.1":
+  version "3.21.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@lando/core/-/core-3.21.0-alpha.1.tgz#106ee30d7d659f5226ce6f35f2db53eacdf5e610"
+  integrity sha512-nV7On9aSG3rV4X4GVZ5ZfkKjA515ZgvDf4KfpeWykhRpvRz408GIaFSZWzXfskjnhAaQWmLucCoAAqMPKohRew==
   dependencies:
     "@npmcli/arborist" "^6.2.9"
     "@octokit/rest" "^19"
