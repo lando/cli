@@ -2,7 +2,7 @@
   "name": "@lando/cli",
   "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
-  "version": "3.20.4",
+  "version": "3.21.0-beta.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/lando/cli"
@@ -107,7 +107,7 @@
   },
   "dependencies": {
     "@lando/argv": "^1.1.0",
-    "@lando/core": "github:lando/core#219f0347",
+    "@lando/core": "github:lando/core#93080611",
     "@lando/core-next": "github:lando/core-next#e2a507c12f340416e071b1a465ff885ca2745f09",
     "@oclif/core": "^3.5.0",
     "@oclif/parser": "^3.8.17",
