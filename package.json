@@ -133,6 +133,7 @@
     "@babel/eslint-parser": "^7.16.0",
     "@lando/leia": "^0.6.4",
     "@lando/vuepress-theme-default-plus": "1.0.0-beta.49",
+    "@yao-pkg/pkg": "^5.10.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.0.1",
@@ -141,7 +142,6 @@
     "eslint-plugin-vue": "^8.0.3",
     "mocha": "^4.1.0",
     "nyc": "^12.0.1",
-    "pkg": "^5.8.1",
     "rimraf": "^3.0.2",
     "sinon": "^4.3.0",
     "vuepress": "2.0.0-beta.53"
