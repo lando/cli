@@ -128,7 +128,7 @@
     "@lando/mysql": "0.7.0",
     "@lando/nginx": "0.8.0",
     "@lando/node": "0.8.1",
-    "@lando/pantheon": "0.13.0",
+    "@lando/pantheon": "0.13.1",
     "@lando/php": "0.8.0",
     "@lando/phpmyadmin": "0.7.0",
     "@lando/platformsh": "0.8.0",
