@@ -44,16 +44,16 @@
     "all": true
   },
   "scripts": {
-    "cli:build": "yarn clean && yarn pkg -c package.json -t node18 bin/lando.js",
+    "cli:build": "npm run clean && npm run pkg -c package.json -t node18 bin/lando.js",
     "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs",
     "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
     "clean": "rimraf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint --quiet . && yarn docs:lint",
+    "lint": "eslint --quiet . && npm run docs:lint",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js plugins/**/test/**/*.spec.js",
-    "test:leia": "yarn leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
-    "test": "yarn lint && yarn test:unit"
+    "test:leia": "npm run leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
+    "test": "npm run lint && npm run test:unit"
   },
   "oclif": {
     "bin": "lando",
@@ -106,7 +106,7 @@
   },
   "dependencies": {
     "@lando/argv": "^1.1.0",
-    "@lando/core": "3.21.0-alpha.1",
+    "@lando/core": "^3.21.0-alpha.2",
     "@lando/core-next": "github:lando/core-next#e2a507c12f340416e071b1a465ff885ca2745f09",
     "@oclif/core": "^3.5.0",
     "@oclif/parser": "^3.8.17",
