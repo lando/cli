@@ -39,7 +39,7 @@ jobs:
       # package cli so we can use that in setup lando
       # @TODO: remove skip-common-plugins when fatcore stuff is done
       - name: Package CLI
-        run: npm run cli:build
+        run: npm run cli:pkg
       - name: Setup locally built lando
         uses: lando/setup-lando@v2
         with:
