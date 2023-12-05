@@ -1,3 +1,11 @@
+## v3.20.5 - [December 5, 2023](https://github.com/lando/cli/releases/tag/3.20.5)
+
+  ### Plugins
+
+  #### CRITICAL HOTFIX PLEASE UPDATE
+  * Updated to `@lando/pantheon` version [`0.13.1`](https://github.com/lando/pantheon/releases/tag/v0.13.1)
+
+
 ## v3.20.4 - [October 6, 2023](https://github.com/lando/cli/releases/tag/3.20.4)
 
 ### CLI
