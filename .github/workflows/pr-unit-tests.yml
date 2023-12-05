@@ -33,3 +33,4 @@ jobs:
       # Run unit tests
       - name: Run unit tests
         run: npm run test:unit
+        shell: bash
