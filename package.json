@@ -44,14 +44,14 @@
     "all": true
   },
   "scripts": {
-    "cli:pkg": "npx rimraf dist && npx pkg -c package.json -t node18 bin/lando.js",
-    "docs:dev": "npx vuepress dev docs --clean-cache --clean-temp",
-    "docs:build": "npx vuepress build docs",
-    "docs:lint": "npx eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
-    "coverage": "npx nyc report --reporter=text-lcov | coveralls",
-    "lint": "npx eslint --quiet . && npm run docs:lint",
-    "test:unit": "npx nyc --reporter=html --reporter=text npx mocha --timeout 5000 test/**/*.spec.js",
-    "test:leia": "npx leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
+    "cli:pkg": "rimraf dist && pkg -c package.json -t node18 bin/lando.js",
+    "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
+    "docs:build": "vuepress build docs",
+    "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint --quiet . && npm run docs:lint",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
+    "test:leia": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "test": "npm run lint && npm run test:unit"
   },
   "oclif": {
