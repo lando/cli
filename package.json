@@ -105,8 +105,8 @@
   },
   "dependencies": {
     "@lando/argv": "^1.1.0",
-    "@lando/core": "^3.21.0-alpha.3",
-    "@lando/core-next": "github:lando/core-next#e2a507c12f340416e071b1a465ff885ca2745f09",
+    "@lando/core": "^3.21.0-alpha.5",
+    "@lando/core-next": "github:lando/core-next#cc439a9",
     "@oclif/core": "^3.5.0",
     "@oclif/parser": "^3.8.17",
     "chalk": "^4",
