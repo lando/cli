@@ -34,7 +34,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Install dependencies
-        run: npm clean-install --prefer-offline --frozen-lockfile --production
+        run: npm clean-install --prefer-offline --frozen-lockfile
 
       # package cli so we can use that in setup lando
       # @TODO: remove skip-common-plugins when fatcore stuff is done
