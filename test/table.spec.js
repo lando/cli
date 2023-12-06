@@ -6,7 +6,7 @@
 'use strict';
 
 const chai = require('chai');
-const Table = require('./../lib/table');
+const Table = require('../lib/table');
 chai.should();
 
 describe('table', () => {
