@@ -68,7 +68,6 @@ Note that you will need to replace the above with a link for your OS and ARCH an
 
 * DEPRECATED `app.addWarning` in favor of `app.addMessage`
 
-
 ## v3.21.0-alpha.1 - [December 6, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.1)
 
 ### **DANGER NOTES**
