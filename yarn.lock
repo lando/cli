@@ -781,10 +781,10 @@
   dependencies:
     lodash "^4.17.21"
 
-"@lando/nginx@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@lando/nginx/-/nginx-0.8.0.tgz#ab211675435e05bcee0fd618f1ca9aa8ffd6fa8e"
-  integrity sha512-H0SR+A1IXeM5PcJnMyx14Jib2rEYBm2nqaBmXzeqTb/zm9pGozmoYQCqgdEt+zRiNRUv5BCVd7X6alXCBjlVrQ==
+"@lando/nginx@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@lando/nginx/-/nginx-0.11.0.tgz#527509a636ff30988832ef5af42fff214e787248"
+  integrity sha512-yoOaEHRXwaJDV6HH+BwMvfU2+dtbdrP/6RQi04dLTfsVLQm6TC49QGV3kL3xoVqv4fLIKDyLQqe2MUhJ8PROgw==
   dependencies:
     lodash "^4.17.21"
 
