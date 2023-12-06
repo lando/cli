@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
       - name: Prepare Release
-        uses: lando/prepare-release-action@v2
+        uses: lando/prepare-release-action@v3
         with:
           version: dev
           sync: false

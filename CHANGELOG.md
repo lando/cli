@@ -10,6 +10,21 @@ This is an `alpha` release which means:
 
 So, basically, if you have real work you need to do we recommend you [don't try it](https://www.youtube.com/watch?v=7Ood-IE7sx4)!
 
+### Installation Notes
+
+If you decide to try it out and want `lando update` to grab new versions of the cli then you need to install the cli in a directory owned by your user eg **DO NOT** install it someplace like `/usr/local/bin`.
+
+Your best bet is to do something like this:
+
+```bash
+mkdir -p ~/.lando/bin
+curl https://github.com/lando/cli/releases/download/v3.21.0-alpha.1/lando-macos-arm64-v3.21.0-alpha.1 -fsSLo ~/.lando/bin/lando-v3.21.0-alpha.1
+chmod +x ~/.lando/bin/lando-v3.21.0-alpha.1
+ln -sf ~/.lando/bin/lando-v3.21.0-alpha.1 ~/.lando/bin/lando
+```
+
+Note that you will need to replace the above with a link for your OS and ARCH and then make sure that `~/.lando/bin` is in your `$PATH`.
+
 ### Releases
 
 * Changed release assets to only include `@lando/core` by default. Run `lando setup` to fetch all the previously packaged plugins. Subsequent releases will offer fully packaged binaries and a `slim` option.
