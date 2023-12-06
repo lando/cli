@@ -20,8 +20,8 @@ jobs:
           - linux
           - macos
           - win
-        pkg-version:
-          - '5.8.1'
+        pkg:
+          - "@yao-pkg/pkg@5.10.0"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -31,9 +31,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
-      - name: Install Yarn dependencies
-        run: yarn install --prefer-offline --frozen-lockfile --production
+          cache: npm
+      - name: Install dependencies
+        run: npm clean-install --prefer-offline --frozen-lockfile --production
       - name: Prepare Release
         uses: lando/prepare-release-action@v2
         with:
@@ -42,14 +42,14 @@ jobs:
       - name: Ensure version
         run: node ./bin/lando version
       - name: Package into node binary
-        uses: lando/pkg-action@v3
+        uses: lando/pkg-action@v4
         id: pkg-action
         with:
           entrypoint: bin/lando.js
           arch: ${{ matrix.arch }}
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
-          pkg: ${{ matrix.pkg-version }}
+          pkg: ${{ matrix.pkg }}
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}

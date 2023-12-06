@@ -45,7 +45,7 @@ lando init --recipe pantheon
 lando init --source cwd \
   --recipe mean \
   --option port=3000 \
-  --option command="yarn watch" \
+  --option command="npm run watch" \
   --name meanest-app-youve-ever-seen
 
 # Pull the latest Drupal 7 and set up drupal7 config to use mariadb instead of mysql
