@@ -44,16 +44,15 @@
     "all": true
   },
   "scripts": {
-    "cli:build": "yarn clean && yarn pkg -c package.json -t node18 bin/lando.js",
+    "pkg": "pkg -c package.json -t node18 bin/lando.js",
     "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
     "docs:build": "vuepress build docs",
     "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
-    "clean": "rimraf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint --quiet . && yarn docs:lint",
-    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js plugins/**/test/**/*.spec.js",
-    "test:leia": "yarn leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
-    "test": "yarn lint && yarn test:unit"
+    "lint": "eslint --quiet . && npm run docs:lint",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
+    "test:leia": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
+    "test": "npm run lint && npm run test:unit"
   },
   "oclif": {
     "bin": "lando",
@@ -74,10 +73,9 @@
       "config/**/*.js",
       "hooks/**/*.js",
       "lib/**/*.js",
-      "node_modules/@lando/core/**/*.js",
-      "node_modules/@lando/core/**/*.cjs",
-      "node_modules/@lando/core-next/**/*.js",
-      "node_modules/@lando/core-next/**/*.cjs"
+      "node_modules/@lando/**/*.cjs",
+      "node_modules/@lando/**/*.js",
+      "utils/**/*.js"
     ],
     "assets": [
       "config.yml",
@@ -107,8 +105,8 @@
   },
   "dependencies": {
     "@lando/argv": "^1.1.0",
-    "@lando/core": "github:lando/core#65836b44",
-    "@lando/core-next": "github:lando/core-next#e2a507c12f340416e071b1a465ff885ca2745f09",
+    "@lando/core": "^3.21.0-alpha.5",
+    "@lando/core-next": "github:lando/core-next#cc439a9",
     "@oclif/core": "^3.5.0",
     "@oclif/parser": "^3.8.17",
     "chalk": "^4",
@@ -133,16 +131,15 @@
     "@babel/eslint-parser": "^7.16.0",
     "@lando/leia": "^0.6.4",
     "@lando/vuepress-theme-default-plus": "1.0.0-beta.49",
+    "@yao-pkg/pkg": "^5.10.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.0.1",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-vue": "^8.0.3",
-    "mocha": "^4.1.0",
-    "nyc": "^12.0.1",
-    "pkg": "^5.8.1",
-    "rimraf": "^3.0.2",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
     "sinon": "^4.3.0",
     "vuepress": "2.0.0-beta.53"
   }

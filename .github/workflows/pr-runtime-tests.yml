@@ -32,21 +32,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
-      - name: Install Yarn dependencies
-        run: yarn install --prefer-offline --frozen-lockfile --production
-
-      # @TODO: once we are no longer using github:lando/core-next#main as the repo for @lando/core-next
-      # eg once we are pulling a package from npm we can remove this
-      - name: Update to latest core-next
-        run: |
-          yarn upgrade @lando/core-next
-          git diff
+          cache: npm
+      - name: Install dependencies
+        run: npm clean-install --prefer-offline --frozen-lockfile
 
       # package cli so we can use that in setup lando
       # @TODO: remove skip-common-plugins when fatcore stuff is done
       - name: Package CLI
-        run: yarn cli:build
+        run: npm run pkg
       - name: Setup locally built lando
         uses: lando/setup-lando@v2
         with:
@@ -64,7 +57,10 @@ jobs:
           LANDO_CORE_RUNTIME=v4 lando version --all --debug
           LANDO_CORE_RUNTIME=v4 lando config --debug
 
-      # This block should eventually become use lando/actions-leia@v2
-      - name: Run leia tests
-        shell: bash
-        run: yarn leia "./${{ matrix.leia-test }}/README.md" -c 'Destroy tests' --stdin --shell bash
+      - name: Run Leia Tests
+        uses: lando/run-leia-action@v2
+        with:
+          leia-test: "./${{ matrix.leia-test }}/README.md"
+          cleanup-header: "Destroy tests"
+          shell: bash
+          stdin: true

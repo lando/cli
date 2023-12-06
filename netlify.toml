@@ -1,7 +1,7 @@
 [build]
   base = "./"
   publish = "docs/.vuepress/dist"
-  command = "yarn docs:build"
+  command = "npm run docs:build"
 
 # Sets our asset optimization
 [build.processing.css]
@@ -20,7 +20,7 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-	  
+
 # We need this so preview environments and the base site look ok on their own
 [[redirects]]
   from = "/"

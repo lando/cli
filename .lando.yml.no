@@ -8,7 +8,7 @@ services:
   cli:
     type: node:14
     build:
-      - yarn install
+      - npm install
     scanner: false
     ssl: false
     sslExpose: false
@@ -17,5 +17,5 @@ tooling:
     service: cli
   vuepress:
     service: cli
-  yarn:
+  npm:
     service: cli
