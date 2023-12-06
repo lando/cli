@@ -18,7 +18,7 @@ Your best bet is to do something like this:
 
 ```bash
 mkdir -p ~/.lando/bin
-curl https://github.com/lando/cli/releases/download/v3.21.0-alpha.2/lando-macos-arm64-v3.21.0-alpha.2 o ~/.lando/bin/lando-v3.21.0-alpha.2
+curl https://github.com/lando/cli/releases/download/v3.21.0-alpha.2/lando-macos-arm64-v3.21.0-alpha.2 -o ~/.lando/bin/lando-v3.21.0-alpha.2
 chmod +x ~/.lando/bin/lando-v3.21.0-alpha.2
 ln -sf ~/.lando/bin/lando-v3.21.0-alpha.2 ~/.lando/bin/lando
 ```
@@ -88,7 +88,7 @@ Your best bet is to do something like this:
 
 ```bash
 mkdir -p ~/.lando/bin
-curl https://github.com/lando/cli/releases/download/v3.21.0-alpha.1/lando-macos-arm64-v3.21.0-alpha.1 o ~/.lando/bin/lando-v3.21.0-alpha.1
+curl https://github.com/lando/cli/releases/download/v3.21.0-alpha.1/lando-macos-arm64-v3.21.0-alpha.1 -o ~/.lando/bin/lando-v3.21.0-alpha.1
 chmod +x ~/.lando/bin/lando-v3.21.0-alpha.1
 ln -sf ~/.lando/bin/lando-v3.21.0-alpha.1 ~/.lando/bin/lando
 ```
