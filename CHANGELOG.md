@@ -1,3 +1,57 @@
+## v3.21.0-alpha.1 - [December 6, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.1)
+
+### **DANGER NOTES**
+
+This is an `alpha` release which means:
+
+* Definitely don't try it out unless you are into [risky business](https://www.youtube.com/watch?v=G2UVsyVLLcE)
+* It is "feature complete" but has very little automated testing so we cannot guarantee any level of "it works" beyond "it works on our machines" ;)
+* Subsequent releases could be breaking, _very breaking_
+
+So, basically, if you have real work you need to do we recommend you [don't try it](https://www.youtube.com/watch?v=7Ood-IE7sx4)!
+
+### Releases
+
+* Changed release assets to only include `@lando/core` by default. Run `lando setup` to fetch all the previously packaged plugins. Subsequent releases will offer fully packaged binaries and a `slim` option.
+
+### New Features
+
+* Added `autostart` Docker Engine support to Linux
+* Added `lando update` command so Lando and installed plugins can self-update
+* Added hidden `lando setup` command to replace package installers
+* Added hidden `lando plugin-add` command to install external plugins
+* Added hidden `lando plugin-remove` command to remove external plugins
+* Improved `lando version` to give more total version information
+
+### Fixes
+
+* Fixed broken Docker Compose|Desktop|Engine links
+* Fixed bug causing `lando` services to report `Up` when they actually `Exited` non-zero
+* Fixed longstanding bug causing some debug output to print to `stdout` instead of `stderr`
+* Improved post-start status message granularity, they can one of `tip|info|warn|error` now
+* Improved post-start status message accessibility
+* Improved "Update Available" warning to be less **INTENSE**, is now a post-start info message
+
+### Internal
+
+* Added `app.addMessage` for more granular and accessible post-start app status reporting
+* Changed `lando.log` and `app.log` to be more like `debug`
+* Changed `lando version` to now track `@lando/core|@lando/core-next` instead of `@lando/cli`
+* Bumped minimum `node` version to `18`
+* Bumped supported Docker Desktop version to `>4 <4.27`
+* Removed lingering and dangling should-now-be-in-plugins code eg `_drupaly.js`
+* Reorganized core to be more like `@lando/core-next` (eg Lando 4)
+* Reorganized cli to be more like `@lando/core-next` (eg Lando 4)
+* Switched (fully, finally) from `github` to `@octokit/rest`
+* Switched plugin package manager to `npm`
+* Removed `bundledDependencies` from `package.json`, now handled by `@lando/prepare-release-action@v3`
+* Removed `dayjs` dependency
+* Removed `github` dependency
+* Removed `mkdirp` dependency
+
+### DEPRECATIONS
+
+* DEPRECATED `app.addWarning` in favor of `app.addMessage`
 
 ## v3.20.5 - [December 5, 2023](https://github.com/lando/cli/releases/tag/v3.20.5)
 
