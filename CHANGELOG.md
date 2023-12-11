@@ -1,9 +1,16 @@
+## v3.20.7 - [December 11, 2023](https://github.com/lando/cli/releases/tag/3.20.7)
+
+### Plugins
+
+* Updated to `@lando/nginx` version [`1.0.0`](https://github.com/lando/nginx/releases/tag/v1.0.0), fixes underlying `render-template` issues.
+
+
 ## v3.20.6 - [December 6, 2023](https://github.com/lando/cli/releases/tag/3.20.6)
 
   ### Plugins
 
   #### CRITICAL HOTFIX PLEASE UPDATE
-  * Updated to `@lando/nginx` version [`0.11.0`](https://github.com/lando/pantheon/releases/tag/v0.13.1) to remove dependency on `render-template` to avoid errors.
+  * Updated to `@lando/nginx` version [`0.11.0`](https://github.com/lando/nginx/releases/tag/v0.11.0) to remove dependency on `render-template` to avoid errors.
 
 
 ## v3.20.5 - [December 5, 2023](https://github.com/lando/cli/releases/tag/3.20.5)
