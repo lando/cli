@@ -1,4 +1,8 @@
 
+## v3.21.0-alpha.6 - [December 15, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.6)
+
+This release is identical to [v3.21.0-alpha.5](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.5).
+
 ## v3.21.0-alpha.5 - [December 15, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.5)
 
 This release is identical to [v3.21.0-alpha.4](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.4).
