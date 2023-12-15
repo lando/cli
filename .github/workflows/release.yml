@@ -180,6 +180,14 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
+      - name: Update release helpers
+        shell: bash
+        run: |
+          if [ "${{ github.event.release.prerelease }}" ==  "false" ]; then
+            echo "${{ github.event.release.tag_name }}" > LATEST
+          elif
+            echo "${{ github.event.release.tag_name }}" > PRERELEASE
+          fi
       - name: Prepare Release
         uses: lando/prepare-release-action@v3
       - name: Ensure version

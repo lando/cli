@@ -1,3 +1,8 @@
+
+## v3.21.0-alpha.5 - [December 15, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.5)
+
+This release is identical to [v3.21.0-alpha.4](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.4).
+
 ## v3.21.0-alpha.4 - [December 12, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.4)
 
 ### **DANGER NOTES**
@@ -67,7 +72,6 @@ Note that you will need to replace the above with a link for your OS and ARCH an
 ### DEPRECATIONS
 
 * DEPRECATED `app.addWarning` in favor of `app.addMessage`
-
 
 ## v3.21.0-alpha.3 - [December 7, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.3)
 
