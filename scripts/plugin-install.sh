@@ -35,4 +35,4 @@ npm install --no-save \
 @lando/symfony@latest \
 @lando/tomcat@latest \
 @lando/varnish@latest \
-@lando/wordpress@latest \
+@lando/wordpress@latest
