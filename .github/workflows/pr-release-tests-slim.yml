@@ -1,10 +1,7 @@
-name: Create Dev Releases
+name: PR Slim Release Tests
 
 on:
-  push:
-    branches:
-      - main
-      - 'preview/**'
+  pull_request:
 
 jobs:
   package:
@@ -37,8 +34,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
-      - name: Install plugins
-        run: scripts/plugin-install.sh
       - name: Prepare Release
         uses: lando/prepare-release-action@v3
         with:
@@ -46,10 +41,9 @@ jobs:
           sync: false
       - name: Ensure version
         run: node ./bin/lando version
-      - name: Ensure plugins installed
-        run:  node ./bin/lando config | grep -q "node_modules/@lando/wordpress"
       - name: Package into node binary
         uses: lando/pkg-action@v4
+        id: pkg-action
         with:
           entrypoint: bin/lando.js
           arch: ${{ matrix.arch }}
@@ -72,13 +66,13 @@ jobs:
             file: lando/cli.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
-            result: lando-win-x64-${{ github.ref_name }}.exe
+            result: lando-win-x64-snapshot-${{ github.sha }}-slim.exe
           - os: windows-2022
             key: cli-node18-win-arm64-${{ github.sha }}
             file: lando/cli.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
-            result: lando-win-arm64-${{ github.ref_name }}.exe
+            result: lando-win-arm64-snapshot-${{ github.sha }}-slim.exe
           - os: macos-12
             key: cli-node18-macos-x64-${{ github.sha }}
             file: lando/cli
@@ -89,7 +83,7 @@ jobs:
             apple-notary-user: APPLE_NOTARY_USER
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
-            result: lando-macos-x64-${{ github.ref_name }}
+            result: lando-macos-x64-snapshot-${{ github.sha }}-slim
           - os: macos-12
             key: cli-node18-macos-arm64-${{ github.sha }}
             file: lando/cli
@@ -100,15 +94,16 @@ jobs:
             apple-notary-user: APPLE_NOTARY_USER
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
-            result: lando-macos-arm64-${{ github.ref_name }}
-          - os: ubuntu-22.04
+            result: lando-macos-arm64-snapshot-${{ github.sha }}-slim
+          - os: ubuntu-20.04
             key: cli-node18-linux-x64-${{ github.sha }}
             file: lando/cli
-            result: lando-linux-x64-${{ github.ref_name }}
-          - os: ubuntu-22.04
+            result: lando-linux-x64-snapshot-${{ github.sha }}-slim
+          - os: ubuntu-20.04
             key: cli-node18-linux-arm64-${{ github.sha }}
             file: lando/cli
-            result: lando-linux-arm64-${{ github.ref_name }}
+            result: lando-linux-arm64-snapshot-${{ github.sha }}-slim
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -132,19 +127,12 @@ jobs:
       - name: Rename as needed
         shell: bash
         run: |
-          mkdir -p releases
-          cp ${{ steps.code-sign-action.outputs.file }} releases/${{ matrix.result }}
-          cp releases/${{ matrix.result }} "releases/$(echo ${{ matrix.result }} | sed 's/${{ github.ref_name }}/latest/;')"
-          cp releases/${{ matrix.result }} "releases/$(echo ${{ matrix.result }} | sed 's/${{ github.ref_name }}/dev/;')"
-          chmod +x releases/*
-          ls -lsa releases
-      - name: Configure S3 Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+          chmod +x ${{ steps.code-sign-action.outputs.file }}
+          mv ${{ steps.code-sign-action.outputs.file }} ${{ matrix.result }}
+      - name: Upload snapshot release ${{ matrix.result }}
+        uses: actions/upload-artifact@v3
         with:
-          aws-access-key-id: ${{ secrets.S3_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.S3_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      - name: Upload dev releases to S3
-        shell: bash
-        run: aws s3 sync releases s3://files.lando.dev/cli
-
+          name: ${{ matrix.result }}
+          path: ${{ matrix.result }}
+          if-no-files-found: error
+          retention-days: 1

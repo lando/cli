@@ -1,4 +1,4 @@
-name: Create Dev Releases
+name: Create Slim Dev Releases
 
 on:
   push:
@@ -37,8 +37,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
-      - name: Install plugins
-        run: scripts/plugin-install.sh
       - name: Prepare Release
         uses: lando/prepare-release-action@v3
         with:
@@ -46,8 +44,6 @@ jobs:
           sync: false
       - name: Ensure version
         run: node ./bin/lando version
-      - name: Ensure plugins installed
-        run:  node ./bin/lando config | grep -q "node_modules/@lando/wordpress"
       - name: Package into node binary
         uses: lando/pkg-action@v4
         with:
@@ -72,13 +68,13 @@ jobs:
             file: lando/cli.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
-            result: lando-win-x64-${{ github.ref_name }}.exe
+            result: lando-win-x64-${{ github.ref_name }}-slim.exe
           - os: windows-2022
             key: cli-node18-win-arm64-${{ github.sha }}
             file: lando/cli.exe
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
-            result: lando-win-arm64-${{ github.ref_name }}.exe
+            result: lando-win-arm64-${{ github.ref_name }}-slim.exe
           - os: macos-12
             key: cli-node18-macos-x64-${{ github.sha }}
             file: lando/cli
@@ -89,7 +85,7 @@ jobs:
             apple-notary-user: APPLE_NOTARY_USER
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
-            result: lando-macos-x64-${{ github.ref_name }}
+            result: lando-macos-x64-${{ github.ref_name }}-slim
           - os: macos-12
             key: cli-node18-macos-arm64-${{ github.sha }}
             file: lando/cli
@@ -100,15 +96,15 @@ jobs:
             apple-notary-user: APPLE_NOTARY_USER
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
-            result: lando-macos-arm64-${{ github.ref_name }}
+            result: lando-macos-arm64-${{ github.ref_name }}-slim
           - os: ubuntu-22.04
             key: cli-node18-linux-x64-${{ github.sha }}
             file: lando/cli
-            result: lando-linux-x64-${{ github.ref_name }}
+            result: lando-linux-x64-${{ github.ref_name }}-slim
           - os: ubuntu-22.04
             key: cli-node18-linux-arm64-${{ github.sha }}
             file: lando/cli
-            result: lando-linux-arm64-${{ github.ref_name }}
+            result: lando-linux-arm64-${{ github.ref_name }}-slim
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
