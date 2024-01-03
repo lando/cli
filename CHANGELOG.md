@@ -1,3 +1,10 @@
+## v3.21.0-alpha.8 - [January 3, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.8)
+
+* Updated `@lando/core` to [`v3.21.0-alpha10`](https://github.com/lando/core/releases/tag/v3.21.0-alpha.10).
+
+## v3.21.0-alpha.7 - [December 27, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.7)
+
+* Removed debugging output.
 
 ## v3.21.0-alpha.6 - [December 15, 2023](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.6)
 
