@@ -1,3 +1,7 @@
+## v3.21.0-alpha.9 - [January 11, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.9)
+
+This release is identical to [v3.21.0-alpha.8](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.8).
+
 ## v3.21.0-alpha.8 - [January 3, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-alpha.8)
 
 * Updated `@lando/core` to [`v3.21.0-alpha10`](https://github.com/lando/core/releases/tag/v3.21.0-alpha.10).
