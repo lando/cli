@@ -36,6 +36,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
+      - name: Install plugins
+        run: scripts/plugin-install.sh
       - name: Prepare Release
         uses: lando/prepare-release-action@v3
         with:
@@ -180,8 +182,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
-      - name: Install plugins
-        run: scripts/plugin-install.sh
       - name: Update release helpers
         shell: bash
         run: |
