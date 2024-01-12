@@ -44,6 +44,8 @@ jobs:
           sync: false
       - name: Ensure version
         run: node ./bin/lando version
+      - name: Ensure plugins installed
+        run:  node ./bin/lando config | grep -q "node_modules/@lando/wordpress"
       - name: Package into node binary
         uses: lando/pkg-action@v4
         with:
@@ -202,5 +204,3 @@ jobs:
         uses: lando/prepare-release-action@v3
       - name: Ensure version
         run: node ./bin/lando version
-      - name: Ensure plugins installed
-        run:  node ./bin/lando config | grep -q "node_modules/@lando/wordpress"
