@@ -5,7 +5,7 @@ description: Lando plugins can add additional CLI commands, called "tooling comm
 
 # Tooling From Plugins
 
-Each Landofile may implement _additional_ [tooling commands](https://docs.lando.dev/config/tooling.html) that are only available for that application. These commands are usually wrappers for development tools like `lando composer` or `lando artisan` or `lando npm`.
+Each Landofile may implement _additional_ [tooling commands](https://docs.lando.dev/core/v3/tooling.html) that are only available for that application. These commands are usually wrappers for development tools like `lando composer` or `lando artisan` or `lando npm`.
 
 Run `lando` inside of an app to see if it offers any app specific tooling options. Here is an example of what the default `lamp` recipe will give you. Note the additional app-specific commands like `lando composer` and `lando db-import`.
 

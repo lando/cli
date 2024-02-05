@@ -7,7 +7,7 @@ description: lando ssh docker execs into a Lando service, dropping you into a sh
 
 Drops into a shell on a service, runs commands
 
-Optionally you can run a command directly against a specific service without dropping into a shell and as a user you specify. If you find yourself running a lot of these commands then set up a [tooling route](https://docs.lando.dev/config/tooling.html) or use some bash aliases.
+Optionally you can run a command directly against a specific service without dropping into a shell and as a user you specify. If you find yourself running a lot of these commands then set up a [tooling route](https://docs.lando.dev/core/v3/tooling.html) or use some bash aliases.
 
 Note that the default service is `appserver`. If you do not have a service called `appserver` then the first service listed in your Landofile will be used as the default.
 
