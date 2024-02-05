@@ -11,7 +11,7 @@ This guide contains information to help onboard developers to work on the Lando 
 
 At the very least you will need to have the following installed:
 
-* [Latest Stable Version of Docker](https://docs.docker.com/engine/installation/) for your operating system, set to its *factory defaults*.
+* [Latest Stable Version of Docker](https://docs.docker.com/engine/install/) for your operating system, set to its *factory defaults*.
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Node 18](https://nodejs.org/dist/latest-v18.x/)
 
