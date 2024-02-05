@@ -11,41 +11,17 @@ This guide contains information to help onboard developers to work on the Lando 
 
 At the very least you will need to have the following installed:
 
-* [Lando 3.21.0+](https://docs.lando.dev/getting-started/installation.html) preferably installed [from source](https://docs.lando.dev/getting-started/installation.html#from-source).
+* [Latest Stable Version of Docker](https://docs.docker.com/engine/installation/) for your operating system, set to its *factory defaults*.
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Node 18](https://nodejs.org/dist/latest-v18.x/)
 
 ## Installation
 
-```sh
-# Clone this repo
-git clone https://github.com/lando/drupal.git && cd drupal
-
-# Install deps
-npm install
-```
+Follow the ["From Source" instructions for installing Lando.](https://docs.lando.dev/getting-started/installation.html#from-source)
 
 ## Working
 
-This plugin contains various working and tested Lando apps in the [examples](https://github.com/lando/drupal/tree/main/examples) folder. You should use these or create new ones to help with plugin development.
-
-Note that each one of these examples contains the following section in its Landofile.
-
-```yaml
-plugins:
-  "@lando/drupal": ../..
-```
-
-This tells Lando that _this_ app should use the source version of the `@lando/drupal` plugin you cloned down in the installation. This is useful because it allows you to isolate development within this repo without interferring with any other apps using the stable and global version of the plugin.
-
-This means that you should _almost always_ develop against apps in the `examples` folder and that those apps should _always_ contain the above `plugins` config. If you have an extant Lando application you want to develop against you can temporarily tell it to use the cloned down version of the plugin with the same line.
-
-```yaml
-plugins:
-  "@lando/drupal": /path/to/plugin
-```
-
-Whether you are working off an existing example or a new one you should make sure that you are updating or adding new tests as you go. See [leia testing](#leia-tests) below for more detail.
+Any change you make to the `cli` project cloned (and correctly symlinked) to operate as your Lando binary will be reflected when running the `lando` command. In some cases, you may need to run `lando --clear` to have new commands and other changes appear.
 
 ## Documentation
 
@@ -113,7 +89,7 @@ lando destroy -y
 
 Note that the headers here are important. The _Start up tests_ header specifies things that should run before the main series of tests. _Verification commands_ is the main body of tests and is required. _Destroy tests_ specifies any needed clean up commands to run.
 
-If you check out the various READMEs in our [examples](https://github.com/lando/drupal/tree/main/examples) you will notice that they are all Leia tests.
+If you check out the various READMEs in our [examples](https://github.com/lando/cli/tree/main/examples) you will notice that they are all Leia tests.
 
 Before running all or some of the tests you will need to generate them.
 
@@ -138,8 +114,8 @@ jobs:
       fail-fast: false
       matrix:
         leia-test:
-          - examples/drupal10
-          - examples/drupal11
+          - examples/v3
+          - examples/v4
 
 ```
 
@@ -155,9 +131,9 @@ Also note that if you create a "pre-release" it will tag the `npm` package with 
 
 ```bash
 # Will pull the most recent GitHub release
-npm install @lando/drupal
+npm install @lando/cli
 # Will pull the most recent GitHub pre-release
-npm install @lando/drupal@edge
+npm install @lando/cli@edge
 ```
 
 ## Contribution
