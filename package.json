@@ -47,9 +47,9 @@
     "pkg": "pkg -c package.json -t node18 bin/lando.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:lint": "eslint -c docs/.eslintrc.json --quiet docs/.vuepress",
+    "docs:preview": "vitepress preview docs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint --quiet . && npm run docs:lint",
+    "lint": "eslint . --ext .js --ext .mjs ",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
     "test:leia": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "test": "npm run lint && npm run test:unit"
