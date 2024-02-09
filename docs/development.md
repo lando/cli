@@ -17,7 +17,7 @@ At the very least you will need to have the following installed:
 
 ## Installation
 
-Follow the ["From Source" instructions for installing Lando.](https://docs.lando.dev/getting-started/installation.html#from-source)
+Follow the ["From Source" instructions for installing Lando.](https://docs.lando.dev/install/source.html)
 
 ## Working
 
