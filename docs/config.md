@@ -7,7 +7,7 @@ description: lando config displays the lando configuration.
 
 Displays the lando configuration.
 
-You can also use `--field` to only display a single config value. *Almost all* of these options can be overridden via the Lando global `config.yml`. See the [config system](https://docs.lando.dev/config/global.html) for more info.
+You can also use `--field` to only display a single config value. *Almost all* of these options can be overridden via the Lando global `config.yml`. See the [config system](https://docs.lando.dev/core/v3/global.html) for more info.
 
 ## Usage
 

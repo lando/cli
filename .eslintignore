@@ -1,6 +1,7 @@
-.temp
-.cache
+temp
+cache
 dist
 _site
 coverage
 .nyc_output
+!.vitepress

@@ -104,7 +104,7 @@ lando init \
 
 ### Pantheon
 
-In order to pull down code from Pantheon or use the `pantheon` recipe you will need to make sure you have created a [machine token](https://pantheon.io/docs/machine-tokens/) first. Note that choosing `--source=pantheon` implies `--recipe=pantheon` eg we do not let you grab code from Pantheon and also select a recipe.
+In order to pull down code from Pantheon or use the `pantheon` recipe you will need to make sure you have created a [machine token](https://docs.pantheon.io/machine-tokens/) first. Note that choosing `--source=pantheon` implies `--recipe=pantheon` eg we do not let you grab code from Pantheon and also select a recipe.
 
 That said, `--recipe=pantheon` does not imply `--source=pantheon` which means you can grab code using any of our initialization sources and then choose the `pantheon` recipe.
 
@@ -128,7 +128,7 @@ lando init \
 
 ### GitHub
 
-In order to pull down code from GitHub you will need to make sure you have created a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and that it has the `repo`, `admin:public_key` and `user` scopes.
+In order to pull down code from GitHub you will need to make sure you have created a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and that it has the `repo`, `admin:public_key` and `user` scopes.
 
 Note that Lando will automatically create and post a SSH key to GitHub for you if you use this init source.
 
