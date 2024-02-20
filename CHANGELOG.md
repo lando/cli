@@ -1,3 +1,7 @@
+## v3.21.0-beta.2 - [February 20, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.2)
+
+* Updated `@lando/core` to [`v3.21.0-beta.2`](https://github.com/lando/core/releases/tag/v3.21.0-beta.2)
+
 ## v3.21.0-beta.1 - [February 16, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.1)
 
 This release is identical to [v3.21.0-beta.1](https://github.com/lando/cli/releases/tag/v3.21.0-beta.1).
