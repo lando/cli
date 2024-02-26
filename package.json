@@ -24,7 +24,7 @@
   "main": "lib/cli.js",
   "babel": {},
   "bin": {
-    "lando": "./bin/lando.js"
+    "lando": "./bin/lando"
   },
   "directories": {
     "bin": "./bin",
@@ -44,7 +44,7 @@
     "all": true
   },
   "scripts": {
-    "pkg": "pkg -c package.json -t node18 bin/lando.js",
+    "pkg": "pkg -c package.json -t node18 bin/lando",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
