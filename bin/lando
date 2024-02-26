@@ -116,7 +116,7 @@ if (runtime === 4) {
   debug('handing off to %o with caching %o at %o and debug %o', '@lando/cli@4', cache ? 'enabled' : 'disabled', cacheDir, debug.enabled);
 
   // get the cli
-  const Cli = require('./../lib/cli-next');
+  const Cli = require('../lib/cli-next');
   // override some default static props
   Cli.debug = debug.extend('cli');
   Cli.id = config.product;
@@ -153,8 +153,8 @@ if (runtime === 4) {
   if (appConfig.appCore && fs.existsSync(path.join(appConfig.appCore, 'index.js'))) COREBASE = appConfig.appCore;
 
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
-  const Cli = require('./../lib/cli');
-  const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE);
+  const Cli = require('../lib/cli');
+  const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE, debug);
   const bsLevel = (_.has(appConfig, 'recipe')) ? 'APP' : 'TASKS';
   const getTasks = require(`${COREBASE}/utils/get-tasks`);
   debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE});
