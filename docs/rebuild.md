@@ -3,7 +3,7 @@ title: lando rebuild
 description: lando rebuild rebuilds your app from scratch, preserving data and re-running any configured build steps as though you were starting your app for the first time.
 ---
 
-# rebuild
+# lando rebuild
 
 Rebuilds your app from scratch, preserving data.
 
@@ -15,7 +15,7 @@ As of Lando 3.0.0-rc.1 you must explicitly invoke `lando rebuild` for changes in
 
 ## Usage
 
-```bash
+```sh
 # Rebuild an app
 lando rebuild
 
@@ -30,9 +30,12 @@ lando rebuild -s cache -s appserver
 
 Run `lando rebuild --help` to get a complete list of options defaults, choices, etc.
 
-```bash
---help          Shows lando or delegated command help if applicable
---services, -s  Rebuild only the specified services
---verbose, -v   Runs with extra verbosity
---yes, -y       Auto answer yes to prompts
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
+--service, -s  Rebuild only the specified services                                                                          [array]
+--yes, -y      Auto answer yes to prompts                                                                [boolean] [default: false]
 ```

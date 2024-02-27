@@ -3,7 +3,7 @@ title: lando init
 description: lando init is a powerful command that initializes a codebase for usage with a Lando recipe, it can pull code from Pantheon, GitHub and other remote sources.
 ---
 
-# init
+# lando init
 
 Initializes code for use with lando
 
@@ -17,7 +17,7 @@ If your code already has a Landofile then this command will likely produce undes
 
 ## Usage
 
-```bash
+```sh
 # Interactively instantiate your code for use with lando
 lando init
 
@@ -65,7 +65,7 @@ lando init \
 
 By default Lando will use the code from the directory you are currently in. Nothing much special here, just navigate to the directory with your code and invoke `lando init`.
 
-```bash
+```sh
 lando init --source cwd
 ```
 
@@ -73,7 +73,7 @@ lando init --source cwd
 
 You can also tell Lando to either clone code from a remote Git repo or extract code from a remote tar archive. Note that if you clone from a git repo it is up to the user to make sure any relevant ssh keys are set up correctly.
 
-```bash
+```sh
 # Let Lando walk you through it
 lando init --source remote
 
@@ -86,7 +86,7 @@ lando init --source remote --remote-url https://www.drupal.org/download-latest/t
 
 Note that you can also pass in options to alter the behavior of the clone or archive extraction
 
-```bash
+```sh
 # Shallow clone and checkout the 7.x branch
 # NOTE: you currently need to use the = below in `--remote-options` for yargs to parse this correctly
 lando init \
@@ -110,7 +110,7 @@ That said, `--recipe=pantheon` does not imply `--source=pantheon` which means yo
 
 Note that Lando will automatically create and post a SSH key to Pantheon for you if you use this init source.
 
-```bash
+```sh
 # Let Lando walk you through it
 lando init --source pantheon
 
@@ -132,7 +132,7 @@ In order to pull down code from GitHub you will need to make sure you have creat
 
 Note that Lando will automatically create and post a SSH key to GitHub for you if you use this init source.
 
-```bash
+```sh
 # Let Lando walk you through it
 lando init --source github
 
@@ -155,7 +155,7 @@ lando init \
 
 Run `lando init --help` to get a complete list of options defaults, choices, recipes, sources etc.
 
-```bash
+```sh
 --full            Dump a lower level lando file
 --github-auth     A GitHub personal access token
 --github-repo     GitHub git url

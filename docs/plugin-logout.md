@@ -1,22 +1,16 @@
 ---
-title: lando start
-description: lando start boots up the containers needed to serve, run and develop your application.
+title: lando plugin-logout
+description: lando plugin-logout Logs you out of all active sessions established by lando plugin-login
 ---
 
-# lando start
+# lando plugin-logout
 
-Starts an app.
-
-On first run this will build all relevant containers needed to run the app. On subsequent runs it will simply start the built containers.
-
-::: warning Containers are cached!
-If you start an app with a new service or container it will need to pull that container image down. This can take a moment depending on your internet connection. Subsequent pulls to that container or service are cached so they should be much faster.
-:::
+Logs you out of _all_ active sessions established by `lando plugin-login`
 
 ## Usage
 
 ```sh
-lando start
+lando plugin-logout
 ```
 
 ## Options

@@ -3,7 +3,7 @@ title: lando destroy
 description: lando destroy completely destroys your application eg all data will be lost after running this command.
 ---
 
-# destroy
+# lando destroy
 
 Destroys your app.
 
@@ -15,7 +15,7 @@ This command should not be confused with uninstalling Lando. It **will only** de
 
 ## Usage
 
-```bash
+```sh
 # Interactive destruction
 lando destroy
 
@@ -31,8 +31,11 @@ lando destroy --help
 
 ## Options
 
-```bash
---help         Shows lando or delegated command help if applicable
---verbose, -v  Runs with extra verbosity
---yes, -y      Auto answer yes to prompts
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
+--yes, -y      Auto answer yes to prompts                                                                [boolean] [default: false]
 ```

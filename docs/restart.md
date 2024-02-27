@@ -3,7 +3,7 @@ title: lando restart
 description: lando restart stops your lando app and then starts it again, preserving container state.
 ---
 
-# restart
+# lando restart
 
 Restarts your app.
 
@@ -15,13 +15,16 @@ As of version `3.0.0-rc1` Lando will no longer run **ANY** build steps on a `lan
 
 ## Usage
 
-```bash
+```sh
 lando restart
 ```
 
 ## Options
 
-```bash
---help         Shows lando or delegated command help if applicable
---verbose, -v  Runs with extra verbosity
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
 ```

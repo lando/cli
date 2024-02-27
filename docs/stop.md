@@ -3,7 +3,7 @@ title: lando stop
 description: lando stop spins down the containers needed to serve, run and develop your application.
 ---
 
-# stop
+# lando stop
 
 Stops an app.
 
@@ -11,13 +11,16 @@ This will spin down all containers and services associated with this app.
 
 ## Usage
 
-```bash
+```sh
 lando stop
 ```
 
 ## Options
 
-```bash
---help         Shows lando or delegated command help if applicable
---verbose, -v  Runs with extra verbosity
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
 ```

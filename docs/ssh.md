@@ -3,7 +3,7 @@ title: lando ssh
 description: lando ssh docker execs into a Lando service, dropping you into a shell by default or running specific commands as a given user.
 ---
 
-# ssh
+# lando ssh
 
 Drops into a shell on a service, runs commands
 
@@ -17,7 +17,7 @@ Try running `lando info` from inside your app to get a list of services you can 
 
 ## Usage
 
-```bash
+```sh
 # Drops into a bash shell on the appserver, falls back to sh if bash is unavailable
 lando ssh
 
@@ -35,10 +35,12 @@ lando ssh --service appserver --user root --command "apt-get update && apt insta
 
 Run `lando ssh --help` to get a complete list of options defaults, choices, etc.
 
-```bash
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
 --command, -c  Run a command in the service
---help         Shows lando or delegated command help if applicable
---service, -s  SSH into this service
---user, -u     Run as a specific user
---verbose, -v  Runs with extra verbosity
+--service, -s  SSH into this service                                                                         [default: "appserver"]
 ```

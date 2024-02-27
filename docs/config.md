@@ -3,7 +3,7 @@ title: lando config
 description: lando config displays the lando configuration.
 ---
 
-# config
+# lando config
 
 Displays the lando configuration.
 
@@ -11,7 +11,7 @@ You can also use `--field` to only display a single config value. *Almost all* o
 
 ## Usage
 
-```bash
+```sh
 # Show me a config worthy of lando
 lando config
 
@@ -24,9 +24,12 @@ lando config --format json
 
 ## Options
 
-```bash
---format       Output in given format: json
---help         Shows lando or delegated command help if applicable
---verbose, -v  Runs with extra verbosity
---path, -p     Only return the value at the given path
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
+--format       Output in given format: default, json, table                          [string] [choices: "default", "json", "table"]
+--path         Only return the value at the given path                                                     [string] [default: null]
 ```
