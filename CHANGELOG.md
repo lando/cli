@@ -1,3 +1,15 @@
+## v3.21.0-beta.5 - [February 27, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.5)
+
+### CLI
+
+* Improved `lando setup` message
+* Improved CLI metadata to help resolve [#109](https://github.com/lando/core/issues/109) and [#122](https://github.com/lando/core/issues/122)
+* Renamed `bin` entrypoint to `/bin/lando` from `/bin/lando.js`
+
+### Core
+
+* Updated `@lando/core` to [`v3.21.0-beta.5`](https://github.com/lando/core/releases/tag/v3.21.0-beta.5)
+
 ## v3.21.0-beta.2 - [February 20, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.2)
 
 * Updated `@lando/core` to [`v3.21.0-beta.2`](https://github.com/lando/core/releases/tag/v3.21.0-beta.2)
