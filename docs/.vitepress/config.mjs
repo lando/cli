@@ -83,6 +83,7 @@ function sidebar() {
         {text: 'Contact Us', link: '/support'},
       ],
     },
+    {text: 'Guides', link: '/guides'},
     {text: 'Examples', link: 'https://github.com/lando/cli/tree/main/examples'},
   ];
 };
