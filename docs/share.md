@@ -3,7 +3,7 @@ title: lando share
 description: lando share exposes your local site to the world with a publicly accessible URL.
 ---
 
-# share
+# lando share
 
 ::: danger OFFLINE!
 This command is no longer functional as of version 3.0.0-rrc.3
@@ -23,13 +23,13 @@ Try running `lando info` from inside your app. Any service with a `http://localh
 
 ## Usage
 
-```bash
+```sh
 lando share -u http://localhost:32785
 ```
 
 ## Options
 
-```bash
+```sh
 --help         Shows lando or delegated command help if applicable
 --url, -u      Url to share. Needs to be in the form http://localhost:port
 --verbose, -v  Runs with extra verbosity

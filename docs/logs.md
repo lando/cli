@@ -3,7 +3,7 @@ title: lando logs
 description: lando logs is a light wrapper around docker logs and shows container logs written to stdout or stderr.
 ---
 
-# logs
+# lando logs
 
 Displays logs for your app
 
@@ -17,7 +17,7 @@ application logs.
 
 ## Usage
 
-```bash
+```sh
 # Get the logs=z
 lando logs
 
@@ -32,10 +32,13 @@ lando logs -s cache -s database
 
 Run `lando logs --help` to get a complete list of options defaults, choices, etc.
 
-```bash
---follow, -f      Follow the logs
---help            Shows lando or delegated command help if applicable
---services, -s    Show logs for the specified services only
---timestamps, -t  Show log timestamps
---verbose, -v     Runs with extra verbosity
+```sh
+--channel         Sets the update channel                                               [array] [choices: "edge", "none", "stable"]
+--clear           Clears the lando tasks cache                                                                            [boolean]
+--debug           Shows debug output                                                                                      [boolean]
+--help            Shows lando or delegated command help if applicable                                                     [boolean]
+--verbose, -v     Runs with extra verbosity                                                                                 [count]
+--follow, -f      Follow the logs                                                                        [boolean] [default: false]
+--service, -s     Show logs for the specified services only                                                                 [array]
+--timestamps, -t  Show log timestamps                                                                    [boolean] [default: false]
 ```

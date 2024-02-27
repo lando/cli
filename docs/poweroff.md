@@ -3,7 +3,7 @@ title: lando poweroff
 description: No! Shut them all down! lando poweroff will stop ALL lando related apps and containers.
 ---
 
-# poweroff
+# lando poweroff
 
 Spins down all lando related containers
 
@@ -11,13 +11,16 @@ This is useful if you want to deactivate all the containers needed to run Lando.
 
 ## Usage
 
-```bash
+```sh
 lando poweroff
 ```
 
 ## Options
 
-```bash
---help         Shows lando or delegated command help if applicable
---verbose, -v  Runs with extra verbosity
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
 ```

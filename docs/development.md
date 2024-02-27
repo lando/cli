@@ -27,7 +27,7 @@ Any change you make to the `cli` project cloned (and correctly symlinked) to ope
 
 If you want to help with contributing documentation here are some useful commands once you've cloned and installed the project.
 
-```bash
+```sh
 # launch local docs site
 npm run docs:dev
 
@@ -48,7 +48,7 @@ It's best to familiarize yourself with how Lando [does testing](https://docs.lan
 
 Generally, unit testable code should be placed in `utils` and then the associated test in `tests` in the form `FILE-BEING-TESTED.spec.js`. Here is an example:
 
-```bash
+```sh
 ./
 |-- utils
     |-- stuff.js
@@ -58,7 +58,7 @@ Generally, unit testable code should be placed in `utils` and then the associate
 
 And then you can run the tests with the below.
 
-```bash
+```sh
 # Run unit tests
 npm run test:unit
 ```
@@ -93,7 +93,7 @@ If you check out the various READMEs in our [examples](https://github.com/lando/
 
 Before running all or some of the tests you will need to generate them.
 
-```bash
+```sh
 # Run ALL the tests, this will likely take a long time
 npm run test:leia
 
@@ -129,7 +129,7 @@ To deploy and publish a new version of the package to the `npm` registry you nee
 
 Also note that if you create a "pre-release" it will tag the `npm` package with `edge` instead of the default `latest` tag. Also note that while you can toggle the pre-release checkbox after the initial release creation this will not trigger a new release and/or promote the release from `edge` to `latest`. If you want to deploy to `latest` then create a new release without pre-released checked.
 
-```bash
+```sh
 # Will pull the most recent GitHub release
 npm install @lando/cli
 # Will pull the most recent GitHub pre-release

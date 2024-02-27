@@ -3,7 +3,7 @@ title: lando list
 description: lando list lists all running lando apps and containers and is filterable.
 ---
 
-# list
+# lando list
 
 Lists all running lando apps and containers.
 
@@ -11,7 +11,7 @@ Optionally you can include show not running services with `--all` or filter by `
 
 ## Usage
 
-```bash
+```sh
 # Get all running lando services
 lando list
 
@@ -33,12 +33,15 @@ lando list --path "my-app.[0].service"
 
 ## Options
 
-```bash
---all, -a      Show all containers, even those not running
---app          Show containers for only a particular app
---filter, -f   Filter by "key=value"
---format       Output in given format: json
---help         Shows lando or delegated command help if applicable
---verbose, -v  Runs with extra verbosity
---path, -p     Only return the value at the given path
+```sh
+--channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                               [boolean]
+--debug        Shows debug output                                                                                         [boolean]
+--help         Shows lando or delegated command help if applicable                                                        [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                    [count]
+--all, -a      Show all containers, even those not running                                                                [boolean]
+--app          Show containers for only a particular app                                                                   [string]
+--filter       Filter data by "key=value"                                                                                   [array]
+--format       Output in given format: default, json, table                          [string] [choices: "default", "json", "table"]
+--path         Only return the value at the given path                                                     [string] [default: null]
 ```
