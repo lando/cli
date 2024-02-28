@@ -1,3 +1,13 @@
+## v3.21.0-beta.6 - [February 28, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.6)
+
+### CLI
+
+* Improved CLI metadata to help resolve [#109](https://github.com/lando/core/issues/109) and [#122](https://github.com/lando/core/issues/122)
+
+### Core
+
+* Updated `@lando/core` to [`v3.21.0-beta.6`](https://github.com/lando/core/releases/tag/v3.21.0-beta.6)
+
 ## v3.21.0-beta.5 - [February 27, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.5)
 
 ### CLI
