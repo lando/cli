@@ -1,3 +1,10 @@
+## v3.21.0-beta.7 - [TBD](https://github.com/lando/cli/releases/tag/v3.21.0-beta.7)
+
+### CLI
+
+* Improved crash handler to only show when `SHELL` is interactive [#242](https://github.com/lando/cli/issues/242)
+* Improved crash handler to respect `-y` if passed in [#242](https://github.com/lando/cli/issues/242)
+
 ## v3.21.0-beta.6 - [February 28, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.6)
 
 ### CLI
