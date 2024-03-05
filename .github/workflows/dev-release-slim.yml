@@ -55,7 +55,6 @@ jobs:
       - name: Ensure slimcore
         run: ./dist/@lando/cli config --path fatcore | grep false
 
-
   sign-n-deploy:
     runs-on: ${{ matrix.os }}
     needs:
