@@ -1,3 +1,13 @@
+## v3.21.0-beta.8 - [March 5, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.8)
+
+### CLI
+
+* Fixed issue with CLI incorrectly reporting `fatcore` status
+
+### Core
+
+* Updated `@lando/core` to [`v3.21.0-beta.8`](https://github.com/lando/core/releases/tag/v3.21.0-beta.8)
+
 ## v3.21.0-beta.7 - [March 1, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.7)
 
 ### CLI
