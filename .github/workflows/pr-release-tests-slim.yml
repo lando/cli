@@ -50,8 +50,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
           pkg: ${{ matrix.pkg }}
-      - name: Ensure core
-        run: ./dist/@lando/cli config --path fatcore
+      - name: Ensure slimcore
+        run: ./dist/@lando/cli config --path fatcore | grep false
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}
