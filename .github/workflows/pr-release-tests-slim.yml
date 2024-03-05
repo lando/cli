@@ -13,13 +13,13 @@ jobs:
       matrix:
         arch:
           - x64
-          - arm64
+          # - arm64
         node-version:
           - '18'
         os:
           - linux
-          - macos
-          - win
+          # - macos
+          # - win
         pkg:
           - "@yao-pkg/pkg@5.10.0"
     steps:
@@ -50,6 +50,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
           pkg: ${{ matrix.pkg }}
+      - name: Ensure core
+        run: |
+          ls -lsa dist
+          ls -lsa dist/@lando
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}

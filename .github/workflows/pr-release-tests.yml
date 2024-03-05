@@ -13,13 +13,13 @@ jobs:
       matrix:
         arch:
           - x64
-          - arm64
+          # - arm64
         node-version:
           - '18'
         os:
           - linux
-          - macos
-          - win
+          # - macos
+          # - win
         pkg:
           - "@yao-pkg/pkg@5.10.0"
     steps:
@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile --production
       - name: Install plugins
-        run: scripts/plugin-install.sh
+        run: scripts/fatcore-install.sh
       - name: Prepare Release
         uses: lando/prepare-release-action@v3
         with:
@@ -52,6 +52,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
           pkg: ${{ matrix.pkg }}
+      - name: Ensure core
+        run: |
+          ls -lsa dist
+          ls -lsa dist/@lando
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}

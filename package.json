@@ -82,6 +82,7 @@
       "package.json",
       "config/test.yaml",
       "config/user.yaml",
+      "FATCORE",
       "node_modules/@lando/**/fastcgi_params",
       "node_modules/@lando/**/*.cnf",
       "node_modules/@lando/**/*.conf",
