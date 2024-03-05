@@ -57,6 +57,7 @@ jobs:
           os: ${{ matrix.os }}
           pkg: ${{ matrix.pkg }}
       - name: Ensure fatcore
+        if: matrix.os == 'linux' && matrix.arch == 'x64'
         run: ./dist/@lando/cli config --path fatcore | grep true
 
   sign-n-deploy:
