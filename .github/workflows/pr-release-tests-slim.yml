@@ -51,9 +51,7 @@ jobs:
           os: ${{ matrix.os }}
           pkg: ${{ matrix.pkg }}
       - name: Ensure core
-        run: |
-          ls -lsa dist
-          ls -lsa dist/@lando
+        run: ./dist/@lando/cli config --path fatcore
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}
