@@ -13,13 +13,13 @@ jobs:
       matrix:
         arch:
           - x64
-          # - arm64
+          - arm64
         node-version:
           - '18'
         os:
           - linux
-          # - macos
-          # - win
+          - macos
+          - win
         pkg:
           - "@yao-pkg/pkg@5.10.0"
     steps:
