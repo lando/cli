@@ -86,3 +86,23 @@ You can then verify all is good with:
 ```sh
 lando shellenv --check
 ```
+
+## Caveats
+
+### `cmd.exe`
+
+`cmd.exe` _does not_ have an rc file or equivalent mechanism so if you run `lando shellenv --add` it will actually execute a `setx` behind the scenes to update your userspace `PATH` environment variable.
+
+This means that the `lando` binary directory will be set in your registry and by extension available in all downstream shells.
+
+### `powershell.exe`
+
+By default `powershell` restricts the execution of _all_ scripts. This includes the rc file we generate for you.
+
+If you are getting an `ExecutionPolicy` error when you launch `powershell` we recommend you make local script execution for yourself a bit more permissive with:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+If you are unsure about this re: security then we recommend you [read this](https://www.sqlshack.com/choosing-and-setting-a-powershell-execution-policy/).
