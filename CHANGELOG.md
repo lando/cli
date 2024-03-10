@@ -1,3 +1,13 @@
+## v3.21.0-beta.9 - [March 10, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.9)
+
+### CLI
+
+* Improved CLI to honor `LANDO_ENTRYPOINT_NAME` as the `yargs` `scriptName` if set
+
+### Core
+
+* Updated `@lando/core` to [`v3.21.0-beta.9`](https://github.com/lando/core/releases/tag/v3.21.0-beta.9)
+
 ## v3.21.0-beta.8 - [March 5, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.8)
 
 ### CLI
