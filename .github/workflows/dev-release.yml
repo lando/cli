@@ -8,23 +8,22 @@ on:
 
 jobs:
   package:
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.runner }}
     env:
       TERM: xterm
     strategy:
       fail-fast: false
       matrix:
-        arch:
-          - x64
-          - arm64
+        runner:
+          - macos-14
+          - ubuntu-22.04
         node-version:
           - '18'
         os:
           - linux
           - macos
           - win
-        pkg:
-          - "@yao-pkg/pkg@5.10.0"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -49,15 +48,13 @@ jobs:
       - name: Ensure plugins installed
         run:  node ./bin/lando config | grep -q "node_modules/@lando/wordpress"
       - name: Package into node binary
-        uses: lando/pkg-action@v4
+        uses: lando/pkg-action@v5
         with:
           entrypoint: bin/lando
-          arch: ${{ matrix.arch }}
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
-          pkg: ${{ matrix.pkg }}
       - name: Ensure fatcore
-        if: matrix.os == 'linux' && matrix.arch == 'x64'
+        if: matrix.os == 'linux' && runner.os == 'Linux' && runner.arch == 'X64'
         run: ./dist/@lando/cli config --path fatcore | grep true
 
   sign-n-deploy:
