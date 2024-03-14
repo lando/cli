@@ -52,7 +52,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
       - name: Ensure fatcore
-        if: runner.os == 'Linux' && runner.arch == 'X64'
+        if: matrix.os == 'linux' && runner.os == 'Linux' && runner.arch == 'X64'
         run: ./dist/@lando/cli config --path fatcore | grep true
 
   sign-n-deploy:
