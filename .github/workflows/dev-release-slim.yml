@@ -8,23 +8,22 @@ on:
 
 jobs:
   package:
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.runner }}
     env:
       TERM: xterm
     strategy:
       fail-fast: false
       matrix:
-        arch:
-          - x64
-          - arm64
+        runner:
+          - macos-14
+          - ubuntu-22.04
         node-version:
           - '18'
         os:
           - linux
           - macos
           - win
-        pkg:
-          - "@yao-pkg/pkg@5.10.0"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -45,15 +44,13 @@ jobs:
       - name: Ensure version
         run: node ./bin/lando version
       - name: Package into node binary
-        uses: lando/pkg-action@v4
+        uses: lando/pkg-action@v5
         with:
           entrypoint: bin/lando
-          arch: ${{ matrix.arch }}
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
-          pkg: ${{ matrix.pkg }}
       - name: Ensure slimcore
-        if: matrix.os == 'linux' && matrix.arch == 'x64'
+        if: runner.os == 'Linux' && runner.os == 'X64'
         run: ./dist/@lando/cli config --path fatcore | grep false
 
   sign-n-deploy:
