@@ -73,7 +73,7 @@ jobs:
             certificate-data: WINDOZE_CERT_DATA
             certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-win-arm64-snapshot-${{ github.sha }}-slim.exe
-          - os: macos-12
+          - os: macos-13
             key: cli-node18-macos-x64-${{ github.sha }}
             file: lando/cli
             certificate-data: APPLE_CERT_DATA
@@ -84,7 +84,7 @@ jobs:
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-x64-snapshot-${{ github.sha }}-slim
-          - os: macos-12
+          - os: macos-13
             key: cli-node18-macos-arm64-${{ github.sha }}
             file: lando/cli
             certificate-data: APPLE_CERT_DATA
@@ -95,11 +95,11 @@ jobs:
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-arm64-snapshot-${{ github.sha }}-slim
-          - os: ubuntu-20.04
+          - os: ubuntu-22.04
             key: cli-node18-linux-x64-${{ github.sha }}
             file: lando/cli
             result: lando-linux-x64-snapshot-${{ github.sha }}-slim
-          - os: ubuntu-20.04
+          - os: ubuntu-22.04
             key: cli-node18-linux-arm64-${{ github.sha }}
             file: lando/cli
             result: lando-linux-arm64-snapshot-${{ github.sha }}-slim
