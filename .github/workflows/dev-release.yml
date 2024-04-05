@@ -53,9 +53,13 @@ jobs:
           entrypoint: bin/lando
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
+          options: --options dns-result-order=ipv4first
       - name: Ensure fatcore
         if: matrix.os == 'linux' && runner.os == 'Linux' && runner.arch == 'X64'
         run: ./dist/@lando/cli config --path fatcore | grep true
+      - name: Ensure ipv4first
+        if: matrix.os == 'linux' && runner.os == 'Linux' && runner.arch == 'X64'
+        run: ./dist/@lando/cli config --path cli.args | grep dns-result-order=ipv4first
 
   sign-n-deploy:
     runs-on: ${{ matrix.os }}

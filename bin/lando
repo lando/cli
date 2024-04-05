@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --dns-result-order=ipv4first
 
 /**
  * Main CLI entrypoint that wraps @lando/core@3 or @lando/core@4
