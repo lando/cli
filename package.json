@@ -44,7 +44,7 @@
     "all": true
   },
   "scripts": {
-    "pkg": "pkg -c package.json -t node18 bin/lando",
+    "pkg": "pkg --config package.json --targets node18 --options dns-result-order=ipv4first bin/lando",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
