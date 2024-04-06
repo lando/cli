@@ -1,3 +1,13 @@
+## v3.21.0-beta.13 - [April 6, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.13)
+
+### CLI
+
+* Changed CLI to prefer `ipv4` which helps some `plugin-add` issues [#257](https://github.com/lando/cli/issues/257)
+
+### Core
+
+* Updated `@lando/core` to [`v3.21.0-beta.13`](https://github.com/lando/core/releases/tag/v3.21.0-beta.13)
+
 ## v3.21.0-beta.12 - [March 25, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.12)
 
 * Updated `@lando/core` to [`v3.21.0-beta.12`](https://github.com/lando/core/releases/tag/v3.21.0-beta.12)
