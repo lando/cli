@@ -117,7 +117,7 @@ jobs:
           name: ${{ matrix.key }}
           path: lando
       - name: Sign and Notarize
-        uses: lando/code-sign-action@v2
+        uses: lando/code-sign-action@windows-cert-keylocker
         id: code-sign-action
         with:
           file: ${{ matrix.file }}
@@ -127,6 +127,9 @@ jobs:
           apple-notary-password: ${{ secrets[matrix.apple-notary-password] }}
           apple-product-id: ${{ matrix.apple-product-id }}
           apple-team-id: ${{ matrix.apple-team-id }}
+          keylocker-host: https://clientauth.one.digicert.com
+          keylocker-api-key: ${{ secrets.KEYLOCKER_API_KEY }}
+          keylocker-cert-sha1-hash: ${{ secrets.KEYLOCKER_CERT_SHA1_HASH }}
           options: ${{ matrix.options }}
       - name: Rename as needed
         shell: bash
