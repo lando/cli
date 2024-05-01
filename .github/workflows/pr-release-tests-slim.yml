@@ -102,10 +102,14 @@ jobs:
           - os: ubuntu-22.04
             key: cli-node18-linux-x64-${{ github.sha }}
             file: lando/cli
+            certificate-data: WINDOZE_CERT_DATA
+            certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-linux-x64-snapshot-${{ github.sha }}-slim
           - os: ubuntu-22.04
             key: cli-node18-linux-arm64-${{ github.sha }}
             file: lando/cli
+            certificate-data: WINDOZE_CERT_DATA
+            certificate-password: WINDOZE_CERT_PASSWORD
             result: lando-linux-arm64-snapshot-${{ github.sha }}-slim
 
     steps:
