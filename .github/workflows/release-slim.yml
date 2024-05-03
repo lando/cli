@@ -68,14 +68,14 @@ jobs:
           - os: windows-2022
             key: cli-node18-win-x64-${{ github.sha }}
             file: lando/cli.exe
-            certificate-data: WINDOZE_CERT_DATA
-            certificate-password: WINDOZE_CERT_PASSWORD
+            certificate-data: KEYLOCKER_CLIENT_CERT
+            certificate-password: KEYLOCKER_CLIENT_CERT_PASSWORD
             result: lando-win-x64-${{ github.ref_name }}-slim.exe
           - os: windows-2022
             key: cli-node18-win-arm64-${{ github.sha }}
             file: lando/cli.exe
-            certificate-data: WINDOZE_CERT_DATA
-            certificate-password: WINDOZE_CERT_PASSWORD
+            certificate-data: KEYLOCKER_CLIENT_CERT
+            certificate-password: KEYLOCKER_CLIENT_CERT_PASSWORD
             result: lando-win-arm64-${{ github.ref_name }}-slim.exe
           - os: macos-13
             key: cli-node18-macos-x64-${{ github.sha }}
@@ -102,10 +102,14 @@ jobs:
           - os: ubuntu-22.04
             key: cli-node18-linux-x64-${{ github.sha }}
             file: lando/cli
+            certificate-data: KEYLOCKER_CLIENT_CERT
+            certificate-password: KEYLOCKER_CLIENT_CERT_PASSWORD
             result: lando-linux-x64-${{ github.ref_name }}-slim
           - os: ubuntu-22.04
             key: cli-node18-linux-arm64-${{ github.sha }}
             file: lando/cli
+            certificate-data: KEYLOCKER_CLIENT_CERT
+            certificate-password: KEYLOCKER_CLIENT_CERT_PASSWORD
             result: lando-linux-arm64-${{ github.ref_name }}-slim
 
     steps:
@@ -130,6 +134,7 @@ jobs:
           keylocker-host: https://clientauth.one.digicert.com
           keylocker-api-key: ${{ secrets.KEYLOCKER_API_KEY }}
           keylocker-cert-sha1-hash: ${{ secrets.KEYLOCKER_CERT_SHA1_HASH }}
+          keylocker-keypair-alias: ${{ secrets.KEYLOCKER_KEYPAIR_ALIAS }}
           options: ${{ matrix.options }}
       - name: Rename as needed
         shell: bash
