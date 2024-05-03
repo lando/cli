@@ -121,7 +121,7 @@ jobs:
           name: ${{ matrix.key }}
           path: lando
       - name: Sign and Notarize
-        uses: lando/code-sign-action@windows-cert-keylocker
+        uses: lando/code-sign-action@v2
         id: code-sign-action
         with:
           file: ${{ matrix.file }}
