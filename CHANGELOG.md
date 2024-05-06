@@ -1,3 +1,9 @@
+## v3.21.0-beta.18 - [May 6, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.18)
+
+* Updated `@lando/core` to [`v3.21.0-beta.18`](https://github.com/lando/core/releases/tag/v3.21.0-beta.18)
+* Added a new cert for signing Windows and Linux binaries. [#261](https://github.com/lando/cli/pull/261)
+* Synced versions of `lando/cli` with `lando/core`
+
 ## v3.21.0-beta.14 - [April 10, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.14)
 
 * Updated `@lando/core` to [`v3.21.0-beta.14`](https://github.com/lando/core/releases/tag/v3.21.0-beta.14)
