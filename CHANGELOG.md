@@ -1,3 +1,7 @@
+## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
+
+* Updated `@lando/core` to [`v3.21.0-beta.19`](https://github.com/lando/core/releases/tag/v3.21.0-beta.19)
+
 ## v3.21.0-beta.18 - [May 6, 2024](https://github.com/lando/cli/releases/tag/v3.21.0-beta.18)
 
 * Updated `@lando/core` to [`v3.21.0-beta.18`](https://github.com/lando/core/releases/tag/v3.21.0-beta.18)
