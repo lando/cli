@@ -1,6 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-* Update to `yargs@13.3.0` for better `--` handling
+* Updated to `yargs@13.3.0` for better `--` handling
 
 ## v3.21.2 - [June 20, 2024](https://github.com/lando/cli/releases/tag/v3.21.2)
 
