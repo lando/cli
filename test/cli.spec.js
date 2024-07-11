@@ -137,7 +137,7 @@ describe('cli', () => {
       const task = cli.parseToYargs(fakeTask);
       task.command.should.be.a('string');
       task.describe.should.be.a('string');
-      task.builder.should.be.an('object');
+      task.builder.should.be.a('function');
       task.handler.should.be.a('function');
     });
   });
