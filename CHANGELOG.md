@@ -1,5 +1,13 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+### New Features
+
+* Added `positional` and `usage` `yargs` parsing to incomings tasks
+
+### Internals
+
+* Added `appConfig` to `lando` for more powerful tasks
+* Added `primary` to `appConfig` for more powerful tasks
 * Updated to `yargs@13.3.0` for better `--` handling
 
 ## v3.21.2 - [June 20, 2024](https://github.com/lando/cli/releases/tag/v3.21.2)
