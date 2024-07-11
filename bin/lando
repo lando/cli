@@ -181,8 +181,10 @@ if (runtime === 4) {
     // NOTE: we require lando down here because it adds .5 seconds if we do it above
     const Lando = require(COREBASE);
     const lando = new Lando(cli.defaultConfig(appConfig));
-    // add the CLI to lando for downstream usage
+    // add cli and appconfig for downstream usage
     lando.cli = cli;
+    lando.appConfig = appConfig;
+
     // Bootstrap lando at the correct level
     lando.bootstrap(bsLevel).then(lando => {
       // If bootstrap level is APP then we need to get and init our app to generate the app task cache
