@@ -29,12 +29,12 @@ module.exports = (files, userConfRoot) => {
 
   // if the api is only v4 then look for a primary service or the first one if none is set
   if (apis.length === 1 && parseInt(apis[0]) === 4) {
-    const service = services.find(service => service.primary === true) ?? services[0];
+    const service = services.find(service => service.primary === true) ?? services[0] ?? {};
     config.primary = service.name;
 
   // otherwise this is a mixed environment so default appserver or first non v4 service if it exists
   } else {
-    const service = services.find(service => service.name === 'appserver') ?? services.find(service => parseInt(service.api) !== 4);
+    const service = services.find(service => service.name === 'appserver') ?? services.find(service => parseInt(service.api) !== 4) ?? {};
     config.primary = service.name;
   }
 
