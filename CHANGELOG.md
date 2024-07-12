@@ -6,6 +6,7 @@
 
 ### Internals
 
+* Added `yargs` to task middleware
 * Added `appConfig` to `lando` for more powerful tasks
 * Added `primary` to `appConfig` for more powerful tasks
 * Updated to `yargs@13.3.0` for better `--` handling
