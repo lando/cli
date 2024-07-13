@@ -2,7 +2,7 @@
 
 ### New Features
 
-* Added `positional` and `usage` `yargs` parsing to incomings tasks
+* Added `examples`, `positional`, and `usage` `yargs` parsing to incomings tasks
 
 ### Internals
 
