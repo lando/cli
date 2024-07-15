@@ -125,7 +125,7 @@
     "sudo-block": "^2.0.0",
     "which": "^2.0.2",
     "yargonaut": "^1.1.2",
-    "yargs": "^13.3.0"
+    "yargs": "^15.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
