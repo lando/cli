@@ -11,7 +11,7 @@
 * Added `appConfig` to `lando` for more powerful tasks
 * Added `primary` to `appConfig` for more powerful tasks
 * Added `otable` to `formatData`
-* Updated to `yargs@13.3.0` for better `--` handling
+* Updated to `yargs@15.4.1` for better `--` handling
 
 ## v3.21.2 - [June 20, 2024](https://github.com/lando/cli/releases/tag/v3.21.2)
 
