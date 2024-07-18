@@ -45,10 +45,10 @@ module.exports = (files, userConfRoot) => {
   // merge and return
   return require('lodash/merge')({}, config, {
     configFiles: files,
-    metaCache: `${config.project}.meta.cache`,
-    root: path.dirname(files[0]),
     composeCache: path.join(userConfRoot, 'cache', `${config.project}.compose.cache`),
-    toolingCache: path.join(userConfRoot, 'cache', `${config.project}.tooling.cache`),
+    metaCache: `${config.project}.meta.cache`,
+    recipeCache: path.join(userConfRoot, 'cache', `${config.project}.recipe.cache`),
+    root: path.dirname(files[0]),
     toolingRouter: path.join(userConfRoot, 'cache', `${config.project}.tooling.router`),
   });
 };

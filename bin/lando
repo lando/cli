@@ -155,7 +155,7 @@ if (runtime === 4) {
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
   const Cli = require('../lib/cli');
   const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE, debug);
-  const bsLevel = (_.has(appConfig, 'recipe')) ? 'APP' : 'TASKS';
+  const bsLevel = !fs.existsSync(appConfig.composeCache) ? 'APP' : 'TASKS';
   const getTasks = require(`${COREBASE}/utils/get-tasks`);
   debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE});
 
@@ -163,13 +163,13 @@ if (runtime === 4) {
   process.lando = 'node';
   process.landoTaskCacheName = '_.tasks.cache';
   process.landoTaskCacheFile = path.join(cli.defaultConfig().userConfRoot, 'cache', process.landoTaskCacheName);
-  process.landoAppTaskCacheFile = !_.isEmpty(appConfig) ? appConfig.toolingCache : undefined;
+  process.landoAppCacheFile = !_.isEmpty(appConfig) ? appConfig.composeCache : undefined;
 
   // Check for sudo usage
   cli.checkPerms();
 
   // Check to see if we have a recipe and if it doesn't have a tooling cache lets enforce a manual cache clear
-  if (bsLevel === 'APP' && !fs.existsSync(appConfig.toolingCache)) {
+  if (bsLevel === 'APP' && !fs.existsSync(appConfig.composeCache)) {
     if (fs.existsSync(process.landoTaskCacheFile)) fs.unlinkSync(process.landoTaskCacheFile);
   }
 
