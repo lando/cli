@@ -155,7 +155,7 @@ if (runtime === 4) {
   // Summon the implementation of @lando/cli@3 that works with @lando/core@3
   const Cli = require('../lib/cli');
   const cli = new Cli(ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE, debug);
-  const bsLevel = !fs.existsSync(appConfig.composeCache) ? 'APP' : 'TASKS';
+  const bsLevel = !_.isEmpty(appConfig) && !fs.existsSync(appConfig.composeCache) ? 'APP' : 'TASKS';
   const getTasks = require(`${COREBASE}/utils/get-tasks`);
   debug('starting lando with %o runtime using cli %o', `v${runtime}`, {ENVPREFIX, LOGLEVELCONSOLE, USERCONFROOT, COREBASE});
 
