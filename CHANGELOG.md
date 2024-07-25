@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v3.22.0-beta.1 - [July 25, 2024](https://github.com/lando/cli/releases/tag/v3.22.0-beta.1)
+
 ### New Features
 
 * Added `examples`, `positional`, and `usage` `yargs` parsing to incomings tasks
