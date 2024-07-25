@@ -7,9 +7,26 @@ description: lando config displays the lando configuration.
 
 Displays the lando configuration.
 
-You can also use `--field` to only display a single config value. *Almost all* of these options can be overridden via the Lando global `config.yml`. See the [config system](https://docs.lando.dev/core/v3/global.html) for more info.
 
 ## Usage
+
+```sh
+lando config [--format <default|json|table>] [--path <path>]
+```
+
+## Options
+
+```sh
+--channel      Sets the update channel                                                              [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                                           [boolean]
+--debug        Shows debug output                                                                                                     [boolean]
+--help         Shows lando or delegated command help if applicable                                                                    [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                                [count]
+--format       Outputs in given format: default, json, table                                     [string] [choices: "default", "json", "table"]
+--path         Returns the value at the given path                                                                     [string] [default: null]
+```
+
+## Examples
 
 ```sh
 # Show me a config worthy of lando
@@ -20,16 +37,7 @@ lando config --path mode
 
 # Show me in json
 lando config --format json
-```
 
-## Options
-
-```sh
---channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
---clear        Clears the lando tasks cache                                                                               [boolean]
---debug        Shows debug output                                                                                         [boolean]
---help         Shows lando or delegated command help if applicable                                                        [boolean]
---verbose, -v  Runs with extra verbosity                                                                                    [count]
---format       Output in given format: default, json, table                          [string] [choices: "default", "json", "table"]
---path         Only return the value at the given path                                                     [string] [default: null]
+# Show envars in table format
+lando config --format table --path env
 ```

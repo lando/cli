@@ -18,45 +18,7 @@ If your code already has a Landofile then this command will likely produce undes
 ## Usage
 
 ```sh
-# Interactively instantiate your code for use with lando
-lando init
-
-# Spit out a full Drupal 7 Landofile using code from your current working directory
-lando init --source cwd --recipe drupal7 --name d7-hotsauce --webroot . --full
-
-# Pull code from GitHub and set it up as a mean recipe
-lando init \
-  --source github \
-  --recipe mean \
-  --github-auth "$MY_GITHUB_TOKEN" \
-  --github-repo git@github.com:lando/lando.git \
-  --name my-awesome-app
-
-# Interactively pull a site from pantheon
-lando init --source pantheon
-
-# Set up a pantheon site but use code from a custom git repo
-lando init --source remote --remote-url https://my.git.repo/.git --recipe pantheon
-
-# Set up a local repo with the pantheon recipe
-lando init --recipe pantheon
-
-# Set up a mean recipe that runs on a particular port with a particular command
-lando init --source cwd \
-  --recipe mean \
-  --option port=3000 \
-  --option command="npm run watch" \
-  --name meanest-app-youve-ever-seen
-
-# Pull the latest Drupal 7 and set up drupal7 config to use mariadb instead of mysql
-lando init \
-  --source remote \
-  --remote-url https://ftp.drupal.org/files/projects/drupal-7.71.tar.gz \
-  --remote-options="--strip-components 1" \
-  --recipe drupal7 \
-  --webroot . \
-  --option database=mariadb \
-  --name my-first-drupal7-app
+lando init [--name <name>] [--recipe <recipe>] [--source <source>]
 ```
 
 ## Getting code from various sources
@@ -171,4 +133,48 @@ Run `lando init --help` to get a complete list of options defaults, choices, rec
 --verbose, -v     Runs with extra verbosity
 --webroot         Specify the webroot relative to app root
 --yes, -y         Auto answer yes to prompts
+```
+
+## Examples
+
+```sh
+# Interactively instantiate your code for use with lando
+lando init
+
+# Spit out a full Drupal 7 Landofile using code from your current working directory
+lando init --source cwd --recipe drupal7 --name d7-hotsauce --webroot . --full
+
+# Pull code from GitHub and set it up as a mean recipe
+lando init \
+  --source github \
+  --recipe mean \
+  --github-auth "$MY_GITHUB_TOKEN" \
+  --github-repo git@github.com:lando/lando.git \
+  --name my-awesome-app
+
+# Interactively pull a site from pantheon
+lando init --source pantheon
+
+# Set up a pantheon site but use code from a custom git repo
+lando init --source remote --remote-url https://my.git.repo/.git --recipe pantheon
+
+# Set up a local repo with the pantheon recipe
+lando init --recipe pantheon
+
+# Set up a mean recipe that runs on a particular port with a particular command
+lando init --source cwd \
+  --recipe mean \
+  --option port=3000 \
+  --option command="npm run watch" \
+  --name meanest-app-youve-ever-seen
+
+# Pull the latest Drupal 7 and set up drupal7 config to use mariadb instead of mysql
+lando init \
+  --source remote \
+  --remote-url https://ftp.drupal.org/files/projects/drupal-7.71.tar.gz \
+  --remote-options="--strip-components 1" \
+  --recipe drupal7 \
+  --webroot . \
+  --option database=mariadb \
+  --name my-first-drupal7-app
 ```
