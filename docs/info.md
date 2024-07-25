@@ -14,7 +14,35 @@ Using this command you can see useful information such as:
 * Custom config file locations
 * Other depends-on-which-service relevant things
 
+Note that if `info` returns a single result you can forgo `[INDEX].property` usage with `--path` to access a property. See examples below.
+
 ## Usage
+
+```sh
+lando info
+  [--deep]
+  [--filter <key=value>...]
+  [--format <default|json|table>]
+  [--path <path>]
+  [--service <service>...]
+```
+
+## Options
+
+```sh
+--channel      Sets the update channel                                                              [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                                           [boolean]
+--debug        Shows debug output                                                                                                     [boolean]
+--help         Shows lando or delegated command help if applicable                                                                    [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                                [count]
+--deep, -d     Gets ALL the info                                                                                     [boolean] [default: false]
+--filter       Filters data by "key=value"                                                                                              [array]
+--format       Outputs in given format: default, json, table                                     [string] [choices: "default", "json", "table"]
+--path         Returns the value at the given path                                                                     [string] [default: null]
+--service, -s  Gets info for only the specified services                                                                                [array]
+```
+
+## Examples
 
 ```sh
 # Get app info
@@ -25,19 +53,13 @@ lando info --deep
 
 # Get super deep data as json
 lando info --deep --format json
-```
 
-## Options
+# Get API information about service three
+lando info --path "[3].api"
 
-```sh
---channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
---clear        Clears the lando tasks cache                                                                               [boolean]
---debug        Shows debug output                                                                                         [boolean]
---help         Shows lando or delegated command help if applicable                                                        [boolean]
---verbose, -v  Runs with extra verbosity                                                                                    [count]
---deep, -d     Get ALL the info                                                                          [boolean] [default: false]
---filter       Filter data by "key=value"                                                                                   [array]
---format       Output in given format: default, json, table                          [string] [choices: "default", "json", "table"]
---path         Only return the value at the given path                                                     [string] [default: null]
---service, -s  Get info for only the specified services                                                                     [array]
+# Do the same thing but a different way
+lando info --service service-3 --path api
+
+# Filter by api and verison
+lando info --filter api=3 --filter version=custom
 ```

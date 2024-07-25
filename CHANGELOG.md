@@ -4,6 +4,7 @@
 
 * Added `examples`, `positional`, and `usage` `yargs` parsing to incomings tasks
 * Added new `oclif` style tabling option
+* Updated `@lando/core` to [`v3.22.0-beta.1`](https://github.com/lando/core/releases/tag/v3.22.0-beta.1)
 
 ### Internals
 

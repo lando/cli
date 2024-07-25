@@ -16,6 +16,23 @@ This command should not be confused with uninstalling Lando. It **will only** de
 ## Usage
 
 ```sh
+lando destroy [--yes]
+```
+
+## Options
+
+```sh
+--channel      Sets the update channel                                                              [array] [choices: "edge", "none", "stable"]
+--clear        Clears the lando tasks cache                                                                                           [boolean]
+--debug        Shows debug output                                                                                                     [boolean]
+--help         Shows lando or delegated command help if applicable                                                                    [boolean]
+--verbose, -v  Runs with extra verbosity                                                                                                [count]
+--yes, -y      Answers yes to prompts                                                                                [boolean] [default: false]
+```
+
+## Examples
+
+```sh
 # Interactive destruction
 lando destroy
 
@@ -23,19 +40,8 @@ lando destroy
 lando destroy -y
 
 # Destroy with debug output
-lando destroy -vvv
+lando destroy --debug
 
 # Get help about the destroy command
 lando destroy --help
-```
-
-## Options
-
-```sh
---channel      Sets the update channel                                                  [array] [choices: "edge", "none", "stable"]
---clear        Clears the lando tasks cache                                                                               [boolean]
---debug        Shows debug output                                                                                         [boolean]
---help         Shows lando or delegated command help if applicable                                                        [boolean]
---verbose, -v  Runs with extra verbosity                                                                                    [count]
---yes, -y      Auto answer yes to prompts                                                                [boolean] [default: false]
 ```

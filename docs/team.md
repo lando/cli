@@ -1,7 +1,8 @@
 ---
-description: Learn about the team that made the  plugin.
+description: Learn about the team that made Lando CLI.
 layout: page
 title: Team
+contributors: false
 ---
 
 <VPLTeamPage>
@@ -10,7 +11,7 @@ title: Team
       Team
     </template>
     <template #lead>
-      We are the people who brought  to Lando.
+      We are the people who built Lando CLI.
     </template>
   </VPLTeamPageTitle>
   <VPLTeamMembers :members="members" size="small"/>
@@ -21,5 +22,7 @@ import {VPLTeamPage, VPLTeamPageTitle, VPLTeamMembers} from '@lando/vitepress-th
 import {useTeam} from '@lando/vitepress-theme-default-plus';
 
 const members = useTeam();
+
+console.log('hellp', members)
 
 </script>
