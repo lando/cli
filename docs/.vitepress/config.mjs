@@ -84,7 +84,6 @@ function sidebar() {
         {text: 'lando poweroff', link: '/poweroff'},
         {text: 'lando rebuild', link: '/rebuild'},
         {text: 'lando restart', link: '/restart'},
-        {text: 'lando share', link: '/share'},
         {text: 'lando ssh <span class="VPBadge danger" vertical="middle"><small>DEPRECATED</small></span>', link: '/ssh'},
         {text: 'lando start', link: '/start'},
         {text: 'lando stop', link: '/stop'},

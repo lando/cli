@@ -5,25 +5,50 @@ description: lando init is a powerful command that initializes a codebase for us
 
 # lando init
 
-Initializes code for use with lando
+Fetches code and/or initializes a Landofile for use with lando.
 
-This command will create a `.lando.yml` for a given recipe and with code from a given source. This is a good way to initialize a codebase for usage with Lando.
+This is a poorly designed command that does two main things:
 
-Currently you can initialize code from your current working directory, a remote Git repository, a remote archive, [GitHub](https://github.com) and [Pantheon](https://pantheon.io).
+* Initializes a `.lando.yml` for a given `recipe`
+* Grabs code from various `sources`
 
-::: tip Do not use if you already have a `.lando.yml` in your codebase
-If your code already has a Landofile then this command will likely produce undesirable results.
-:::
+It can also be extended by [plugins](https://docs.lando.dev/plugins) but this page it purely for the core `lando init` which admittedly does not do much. We are aiming to redesign this command in Lando 4 so please bear with us until then.
+
+If you are looking to `lando init` your code for a particular use case eg `drupal` we recommend checking out the plugin docs for that use case instead of these ones. For your convenience here are some common plugins that implement `lando init`:
+
+* [Acquia](https://docs.lando.dev/plugins/acquia/)
+* [Backdrop](https://docs.lando.dev/plugins/backdrop/)
+* [Drupal](https://docs.lando.dev/plugins/drupal/)
+* [Joomla](https://docs.lando.dev/plugins/joomla/)
+* [Lagoon](https://docs.lando.dev/plugins/lagoon/)
+* [LAMP](https://docs.lando.dev/plugins/lamp/)
+* [Laravel](https://docs.lando.dev/plugins/laravel/)
+* [LEMP](https://docs.lando.dev/plugins/lemp/)
+* [Pantheon](https://docs.lando.dev/plugins/pantheon/)
+* [Symfony](https://docs.lando.dev/plugins/symfony/)
+* [WordPress](https://docs.lando.dev/plugins/wordpress/)
 
 ## Usage
 
 ```sh
-lando init [--name <name>] [--recipe <recipe>] [--source <source>]
+  lando init
+    [--name <name>]
+    [--recipe <recipe>]
+    [--source <source>]
+    [--full]
+    [--github-auth==<token>]
+    [--github-repo==<url>]
+    [--option=<path=value>...]
+    [--remote-options=<options>]
+    [--remote-url=<url>]
+    [--webroot=<path>]
+    [--yes]
+    [--other-plugin-provided-options...]
 ```
 
-## Getting code from various sources
+### Sources
 
-### Current Working Directory
+#### Current Working Directory
 
 By default Lando will use the code from the directory you are currently in. Nothing much special here, just navigate to the directory with your code and invoke `lando init`.
 
@@ -31,7 +56,7 @@ By default Lando will use the code from the directory you are currently in. Noth
 lando init --source cwd
 ```
 
-### Remote git repo or archive
+#### Remote git repo or archive
 
 You can also tell Lando to either clone code from a remote Git repo or extract code from a remote tar archive. Note that if you clone from a git repo it is up to the user to make sure any relevant ssh keys are set up correctly.
 
@@ -64,31 +89,7 @@ lando init \
   --remote-options="--strip-components=1"
 ```
 
-### Pantheon
-
-In order to pull down code from Pantheon or use the `pantheon` recipe you will need to make sure you have created a [machine token](https://docs.pantheon.io/machine-tokens/) first. Note that choosing `--source=pantheon` implies `--recipe=pantheon` eg we do not let you grab code from Pantheon and also select a recipe.
-
-That said, `--recipe=pantheon` does not imply `--source=pantheon` which means you can grab code using any of our initialization sources and then choose the `pantheon` recipe.
-
-Note that Lando will automatically create and post a SSH key to Pantheon for you if you use this init source.
-
-```sh
-# Let Lando walk you through it
-lando init --source pantheon
-
-# Pull my-site from pantheon and set it up as a pantheon recipe
-lando init --source pantheon --pantheon-auth "$MY_MACHINE_TOKEN" --pantheon-site my-site
-
-# Clone my code from a git repo and set it up as a pantheon recipe
-lando init \
-  --source remote \
-  --recipe pantheon \
-  --remote-url https://github.com/drupal/drupal.git \
-  --pantheon-auth "$MY_MACHINE_TOKEN" \
-  --pantheon-site my-site
-```
-
-### GitHub
+#### GitHub
 
 In order to pull down code from GitHub you will need to make sure you have created a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and that it has the `repo`, `admin:public_key` and `user` scopes.
 
@@ -104,10 +105,10 @@ lando init \
   --github-auth "$MY_GITHUB_TOKEN" \
   --github-repo git@github.com:lando/lando.git
 
-# Pull code from github and set it up as a mean recipe
+# Pull code from github and set it up with no recipe
 lando init \
   --source github \
-  --recipe mean \
+  --recipe none \
   --github-auth "$MY_GITHUB_TOKEN" \
   --github-repo git@github.com:lando/lando.git \
   --name lando
@@ -115,27 +116,30 @@ lando init \
 
 ## Options
 
-Run `lando init --help` to get a complete list of options defaults, choices, recipes, sources etc.
+Run `lando init --help` to get a complete list of options defaults, choices, recipes, sources etc as these may differ based on plugins you have installed.
 
 ```sh
---full            Dump a lower level lando file
---github-auth     A GitHub personal access token
---github-repo     GitHub git url
---help            Shows lando or delegated command help if applicable
---name            The name of the app
---options, -o     Merge additional KEY=VALUE pairs into your recipes config
---pantheon-auth   A Pantheon machine token
---pantheon-site   A Pantheon site machine name
---recipe, -r      The recipe with which to initialize the app
---remote-options  Some options to pass into either the git clone or archive extract command
---remote-url      The URL of your git repo or archive, only works when you set source to remote
---source, --src   The location of your apps code
---verbose, -v     Runs with extra verbosity
---webroot         Specify the webroot relative to app root
---yes, -y         Auto answer yes to prompts
+--channel         Sets the update channel                                                           [array] [choices: "edge", "none", "stable"]
+--clear           Clears the lando tasks cache                                                                                        [boolean]
+--debug           Shows debug output                                                                                                  [boolean]
+--help            Shows lando or delegated command help if applicable                                                                 [boolean]
+--verbose, -v     Runs with extra verbosity                                                                                             [count]
+--full            Dump a lower level lando file                                                                      [boolean] [default: false]
+--github-auth     Uses a GitHub personal access token                                                                                  [string]
+--github-repo     Uses the GitHub git url                                                                                              [string]
+--name            The name of the app                                                                                                  [string]
+--option, -o      Merge additional KEY=VALUE pairs into your recipes config                                                             [array]
+--recipe, -r      The recipe with which to initialize the app                                                        [string] [choices: "none"]
+--remote-options  Passes options into either the git clone or archive extract command                                    [string] [default: ""]
+--remote-url      Uses the URL of your git repo or archive, only works when you set source to remote                                   [string]
+--source, --src   The location of your apps code                                                  [string] [choices: "cwd", "github", "remote"]
+--webroot         Specify the webroot relative to app root                                                                             [string]
+--yes, -y         Auto answer yes to prompts                                                                         [boolean] [default: false]
 ```
 
 ## Examples
+
+Note that some of these examples assume the needed plugins have been installed.
 
 ```sh
 # Interactively instantiate your code for use with lando

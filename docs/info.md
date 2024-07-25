@@ -15,15 +15,16 @@ Using this command you can see useful information such as:
 * Other depends-on-which-service relevant things
 
 Note that if `info` returns a single result you can forgo `[INDEX].property` usage with `--path` to access a property. See examples below.
+
 ## Usage
 
 ```sh
-lando info \
-  [--deep] \
-  [--filter <key=value>] \
-  [--format <default|json|table>] \
-  [--path <path>] \
-  [--service <service>]
+lando info
+  [--deep]
+  [--filter <key=value>...]
+  [--format <default|json|table>]
+  [--path <path>]
+  [--service <service>...]
 ```
 
 ## Options

@@ -19,7 +19,7 @@ Also note that generally you will not have to run this command unless you are sw
 ## Usage
 
 ```sh
-lando shellenv
+lando shellenv [--check] [--shell <shell>]
 ```
 
 ## Options
@@ -32,4 +32,14 @@ lando shellenv
 --verbose, -v  Runs with extra verbosity                                                                                    [count]
 --add, -a      Add to shell profile if blank lando will attempt discovery                                                  [string]
 --check, -c    Check to see if lando is in PATH                                                                           [boolean]
+```
+
+## Examples
+
+```sh
+# Check to see if Lando is already in PATH
+lando shellenv --check
+
+# Add lando to PATH for BASH
+lando shellenv --shell bash
 ```

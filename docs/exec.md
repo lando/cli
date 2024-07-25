@@ -7,7 +7,9 @@ description: lando exec runs command(s) on a service
 
 Runs command(s) on a service.
 
-`lando exec` is a **new** command intended to replace `lando ssh`. However, it currently works best on `api: 4` services. If you are experiencing issues on `api: 3` services we recommend you continue using `lando ssh`.
+::: tip
+`lando exec` is a **new** command intended to replace `lando ssh`. However, it currently works best on `api: 4` services. If you are experiencing issues on `api: 3` services we recommend you continue using [`lando ssh`](./ssh.md).
+:::
 
 ## Usage
 
