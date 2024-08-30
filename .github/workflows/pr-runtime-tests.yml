@@ -41,7 +41,7 @@ jobs:
       - name: Package CLI
         run: npm run pkg
       - name: Setup locally built lando
-        uses: lando/setup-lando@v2
+        uses: lando/setup-lando@v3
         with:
           lando-version: ./dist/@lando/cli
           telemetry: false
