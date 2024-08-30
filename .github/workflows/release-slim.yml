@@ -15,7 +15,7 @@ jobs:
       matrix:
         runner:
           - macos-14
-          - ubuntu-22.04
+          - ubuntu-24.04
         node-version:
           - '18'
         os:
@@ -99,13 +99,13 @@ jobs:
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-arm64-${{ github.ref_name }}-slim
-          - os: ubuntu-22.04
+          - os: ubuntu-24.04
             key: cli-node18-linux-x64-${{ github.sha }}
             file: lando/cli
             certificate-data: KEYLOCKER_CLIENT_CERT
             certificate-password: KEYLOCKER_CLIENT_CERT_PASSWORD
             result: lando-linux-x64-${{ github.ref_name }}-slim
-          - os: ubuntu-22.04
+          - os: ubuntu-24.04
             key: cli-node18-linux-arm64-${{ github.sha }}
             file: lando/cli
             certificate-data: KEYLOCKER_CLIENT_CERT

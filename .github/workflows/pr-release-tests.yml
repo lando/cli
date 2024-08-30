@@ -13,7 +13,7 @@ jobs:
       matrix:
         runner:
           - macos-14
-          - ubuntu-22.04
+          - ubuntu-24.04
         node-version:
           - '18'
         os:
