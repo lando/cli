@@ -1,5 +1,13 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+### New Features
+
+* Updated `@lando/core` to [`v3.22.0-beta.6`](https://github.com/lando/core/releases/tag/v3.22.0-beta.6)
+
+### Bug Fixes
+
+* Fixed bug causing recipe builder `tasks` to not persist across rebuilds
+
 ## v3.22.0-beta.5 - [September 4, 2024](https://github.com/lando/cli/releases/tag/v3.22.0-beta.5)
 
 * Updated `@lando/core` to [`v3.22.0-beta.5`](https://github.com/lando/core/releases/tag/v3.22.0-beta.5)
