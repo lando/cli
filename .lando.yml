@@ -1,7 +1,7 @@
-name: cli.docs
+name: docs.cli
 proxy:
   cli:
-    - cli.docs.lndo.site:5173
+    - docs.cli.lndo.site:5173
 services:
   cli:
     api: 4
