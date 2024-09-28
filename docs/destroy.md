@@ -27,6 +27,7 @@ lando destroy [--yes]
 --debug        Shows debug output                                                                                                     [boolean]
 --help         Shows lando or delegated command help if applicable                                                                    [boolean]
 --verbose, -v  Runs with extra verbosity                                                                                                [count]
+--service, -s  Destroys only the specified services                                                                                     [array]
 --yes, -y      Answers yes to prompts                                                                                [boolean] [default: false]
 ```
 
@@ -38,6 +39,9 @@ lando destroy
 
 # Non-interactive destruction
 lando destroy -y
+
+# Destroy only the database service
+lando destroy --service database
 
 # Destroy with debug output
 lando destroy --debug
