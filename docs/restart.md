@@ -12,7 +12,7 @@ Restarts your app.
 ## Usage
 
 ```sh
-lando rebuild [--service <service>...] [--yes]
+lando restart
 ```
 
 ## Options
@@ -23,6 +23,4 @@ lando rebuild [--service <service>...] [--yes]
 --debug        Shows debug output                                                                                                     [boolean]
 --help         Shows lando or delegated command help if applicable                                                                    [boolean]
 --verbose, -v  Runs with extra verbosity                                                                                                [count]
---service, -s  Rebuilds only the specified services                                                                                     [array]
---yes, -y      Answers yes to prompts                                                                                [boolean] [default: false]
 ```
