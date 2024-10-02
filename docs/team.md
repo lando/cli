@@ -23,6 +23,4 @@ import {useTeam} from '@lando/vitepress-theme-default-plus';
 
 const members = useTeam();
 
-console.log('hellp', members)
-
 </script>

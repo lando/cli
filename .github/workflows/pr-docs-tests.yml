@@ -17,9 +17,9 @@ jobs:
     steps:
       # Install deps and cache
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install node ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
@@ -30,6 +30,11 @@ jobs:
       - name: Run linter
         run: npm run lint
       - name: Test build
-        run: npm run docs:build
+        run: |
+          git --no-pager tag
+          git --no-pager branch --all
+          git status
+          git describe --debug --tags --always --abbrev=1 --match="v[0-9].*"
+          npm run docs:build
       - name: Test mvb
         run: npm run docs:mvb
