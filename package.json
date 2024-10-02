@@ -131,7 +131,7 @@
     "@babel/core": "^7.20.5",
     "@babel/eslint-parser": "^7.16.0",
     "@lando/leia": "^1.0.0-beta.4",
-    "@lando/vitepress-theme-default-plus": "^1.1.0-beta.8",
+    "@lando/vitepress-theme-default-plus": "^1.1.0-beta.9",
     "@yao-pkg/pkg": "^5.10.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^7.1.1",
