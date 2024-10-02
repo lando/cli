@@ -30,9 +30,4 @@ jobs:
       - name: Test mvb
         run: npm run docs:mvb
       - name: Test build
-        run: |
-          git --no-pager tag
-          git --no-pager branch --all
-          git status
-          git describe --debug --tags --always --abbrev=1 --match="v[0-9].*"
-          npm run docs:build
+        run: npm run docs:build
