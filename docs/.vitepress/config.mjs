@@ -58,6 +58,9 @@ export default defineConfig({
         },
       ],
     },
+    multiVersionBuild: {
+      satisfies: '>=3.21.2',
+    },
     sidebar: sidebar(),
   },
 });
