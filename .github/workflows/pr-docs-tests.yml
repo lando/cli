@@ -15,7 +15,6 @@ jobs:
         node-version:
           - '18'
     steps:
-      # Install deps and cache
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install node ${{ matrix.node-version }}
@@ -26,9 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile
 
-      # Run tests
       - name: Run linter
         run: npm run lint
+      - name: Test mvb
+        run: npm run docs:mvb
       - name: Test build
         run: |
           git --no-pager tag
@@ -36,5 +36,3 @@ jobs:
           git status
           git describe --debug --tags --always --abbrev=1 --match="v[0-9].*"
           npm run docs:build
-      - name: Test mvb
-        run: npm run docs:mvb
