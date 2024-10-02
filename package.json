@@ -45,8 +45,9 @@
   },
   "scripts": {
     "pkg": "pkg --config package.json --targets node18 --options dns-result-order=ipv4first bin/lando",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "LANDO_MVB_VERSION=$(git describe --tags --always --abbrev=1 --match=\"v[0-9].*\") vitepress build docs",
+    "docs:dev": "LANDO_MVB_VERSION=$(git describe --tags --always --abbrev=1 --match=\"v[0-9].*\") vitepress dev docs --debug",
+    "docs:mvb": "npx mvb docs",
     "docs:preview": "vitepress preview docs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint . --ext .js --ext .mjs ",
@@ -142,6 +143,6 @@
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
     "sinon": "^4.3.0",
-    "vitepress": "^1.0.0-rc.41"
+    "vitepress": "^1.3.4"
   }
 }

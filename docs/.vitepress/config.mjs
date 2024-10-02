@@ -4,6 +4,7 @@ import {defineConfig} from '@lando/vitepress-theme-default-plus/config';
 
 const require = createRequire(import.meta.url);
 
+// get plugin stuff
 const {name, version} = require('../../package.json');
 const landoPlugin = name.replace('@lando/', '');
 
@@ -56,6 +57,9 @@ export default defineConfig({
           mergeOnly: true,
         },
       ],
+    },
+    multiVersionBuild: {
+      satisfies: '>=3.21.2',
     },
     sidebar: sidebar(),
   },
