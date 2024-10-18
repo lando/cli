@@ -23,7 +23,7 @@ Run the following commands to validate things are rolling as they should.
 LANDO_RENDERER_FORCE=1 lando start
 
 # Should use the simple renderer in a non-TTY environment
-lando start | grep "⚠" | wc -l | grep 5
+lando start | sed 's/\x1b\[[0-9;]*m//g' | grep --color=never '✔ Healthcheck' | wc -l | grep 3
 ```
 
 Destroy tests
