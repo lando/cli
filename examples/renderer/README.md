@@ -22,8 +22,8 @@ Run the following commands to validate things are rolling as they should.
 # Should not error using the default renderer while packaged up
 LANDO_RENDERER_FORCE=1 lando start
 
-# Should use the verbose renderer in a non-TTY environment
-lando start | grep "\[COMPLETED\]" | wc -l | grep 5
+# Should use the simple renderer in a non-TTY environment
+lando start | grep "⚠" | wc -l | grep 5
 ```
 
 Destroy tests
