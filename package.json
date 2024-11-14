@@ -1,15 +1,15 @@
 {
-  "name": "@lando/cli",
+  "name": "@lando/legacy-cli",
   "description": "The cli for the best development solution in the galaxy.",
   "license": "GPL-3.0",
   "version": "3.23.0-beta.7",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lando/cli"
+    "url": "https://github.com/lando/legacy-cli"
   },
   "bugs": {
     "email": "mike@lando.dev",
-    "url": "https://github.com/lando/cli/issues"
+    "url": "https://github.com/lando/legacy-cli/issues"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,4 +1,4 @@
-name: "@lando/cli"
+name: "@lando/legacy-cli"
 hooks:
   cli:
     done:
