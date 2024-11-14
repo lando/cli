@@ -1,5 +1,7 @@
 > [!IMPORTANT]
-> Crucial information necessary for users to succeed.
+> As of Lando [v3.23.0](https://github.com/lando/core/releases/tag/v3.23.0) the CLI is now part of [@lando/core](https://github.com/lando/core) and this repo is now archived eg longer actively maintained, used, looked at, etc.
+>
+> Please visit [@lando/core](https://github.com/lando/core) for anything CLI related.
 
 # Lando CLI
 
