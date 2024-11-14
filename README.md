@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
 # Lando CLI
 
 This is the Lando CLI. It implements [`@lando/core`](https://github.com/lando/lando/tree/main/plugins) and mixes in a bunch of [plugins](https://github.com/lando/core). It is a light wrapper around  [`yargs`](https://www.npmjs.com/package/yargs) and [`inquirer`](https://www.npmjs.com/package/inquirer) and mostly allows for:
