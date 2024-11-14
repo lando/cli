@@ -3,8 +3,7 @@ name: Create Dev Releases
 on:
   push:
     branches:
-      - main
-      - 'preview-**'
+      - NEVER
 
 jobs:
   package:
